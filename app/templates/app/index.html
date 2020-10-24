@@ -21,19 +21,28 @@
             </div>
         {% endfor %}
     </div>
+</div>
 
+{% for post in post_data %}
+<div class="row">
     <div class="col-md-4">
-        <div class="card">
-            <h5 class="card-header">このチュートリアルについて</h5>
-            <div class="card-body">
-                <p>ステップ1</p>
-                <p class="mb-0">
-                    初めてDjangoを触る方向けのチュートリアルです。
-                    最小限の機能を構築してDjangoを学習しましょう。
-                </p>
-            </div>
+        <a href="#">
+        {% if post.image %}
+            <img class="img-fluid rounded mb-3 mb-md-0" src="{{ post.image.url }}" alt="">
+        {% endif %}
+        </a>
+    </div>
+    <div class="col-md-8">
+        <div class="author-created">
+            <h5 class="text_left">{{ post.author }}</h5>
+            <h5 class="text_right">{{ post.created }}</h5>
         </div>
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.content|truncatechars:100 }}</p>
+        <a class="btn btn-warning" href="#">続きを読む</a>
     </div>
 </div>
+<hr>
+{% endfor %}
 
 {% endblock %}

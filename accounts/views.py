@@ -47,6 +47,7 @@ class ProfileEditView(LoginRequiredMixin, View):
 class LoginView(views.LoginView):
     template_name = 'accounts/login.html'
 
+
 class LogoutView(views.LogoutView):
     template_name = 'accounts/logout.html'
 
