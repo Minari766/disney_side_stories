@@ -134,3 +134,14 @@ main {
 .child2 {
     background-color: blue;
 }
+
+/* category */
+
+a {
+    color: black;
+}
+
+a:hover {
+    text-decoration: none;
+    color: orange;
+}
