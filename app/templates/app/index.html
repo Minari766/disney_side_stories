@@ -1,26 +1,19 @@
 {% extends "app/base.html" %}
 
 {% block content %}
+<!-- トップ絵部分 -->
+<header class="masthead">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12 text-center">
+                <h1 class="font-weight-light">Vertically Centered Masthead Content</h1>
+                <p class="lead">A great starter layout for a landing page</p>
+            </div>
+        </div>
+    </div>
+</header>
 
 <div class="row my-4">
-    <div class="col-md-8">
-        {% for post in post_data %}
-            <div class="card mb-4 index">
-                {% if post.image %}
-                    <img class="card-img-top index-img" src="{{ post.image.url }}" alt="">
-                {% endif %}
-                <div class="card-body">
-                    <h2 class="card-title">{{ post.title }}</h2>
-                    <p class="card-text">{{ post.content|truncatechars:100 }}</p>
-                    <div class="btn btn-warning">詳細</div>
-                </div>
-                <div class="card-footer text-muted">
-                    {{ post.created|date }} by {{ post.author }}
-                </div>
-                <a class="stretched-link" href="{% url 'post_detail' post.id %}"></a>
-            </div>
-        {% endfor %}
-    </div>
     <div class="col-md-4">
         <div class="card my-4">
             <h5 class="card-header">カテゴリ</h5>
@@ -42,6 +35,22 @@
         </div>
     </div>
 </div>
+<div class="picmenu">
+    <ul class="table-ul">
+        <li><a href="#">全て</a></li>
+        <li><a href="#">ストーリー</a></li>
+        <li><a href="#">隠しミッキー</a></li>
+        <li><a href="#">豆知識</a></li>
+        <li><a href="#">その他</a></li>
+    </ul>
+    <!-- <ul class="nav justify-content-center">
+        <li>全て</li>
+        <li>ストーリー</li>
+        <li>隠しミッキー</li>
+        <li>豆知識</li>
+        <li>その他</li>
+    </ul> -->
+</div>
     
 {% for post in post_data %}
 <div class="row">
@@ -54,12 +63,13 @@
     </div>
     <div class="col-md-8">
         <div class="author-created">
-            <h5 class="text_left">{{ post.author }}</h5>
-            <h5 class="text_right">{{ post.created }}</h5>
+            <h7 class="text_left">{{ post.author }}</h7>
+            <h7 class="text_right">{{ post.created }}</h7>
         </div>
         <h3>{{ post.title }}</h3>
         <p>{{ post.content|truncatechars:100 }}</p>
-        <a class="btn btn-warning" href="#">続きを読む</a>
+        <!-- <a class="btn btn-warning" href="#">続きを読む</a> -->
+        <a style="float:right;" href="#">続きを読む</a>
     </div>
 </div>
 <hr>

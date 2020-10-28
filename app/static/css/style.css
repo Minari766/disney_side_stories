@@ -136,7 +136,6 @@ main {
 }
 
 /* category */
-
 a {
     color: black;
 }
@@ -144,4 +143,72 @@ a {
 a:hover {
     text-decoration: none;
     color: orange;
+}
+
+.ttl-bd{
+    border-bottom: 4px solid #dee2e6;
+    padding-bottom: 3px;
+}
+
+/* iconmenu */
+@font-face {
+    font-family: 'FontAwesome';
+    src: url('./font/fontawesome-webfont.eot?v=4.0.3');
+    src: url('./font/fontawesome-webfont.eot?#iefix&v=4.0.3') format('embedded-opentype'),
+         url('./font/fontawesome-webfont.woff?v=4.0.3') format('woff'),
+         url('./font/fontawesome-webfont.ttf?v=4.0.3') format('truetype'),
+         url('./font/fontawesome-webfont.svg?v=4.0.3#fontawesomeregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+.table-ul {
+    background-color: #3ae;
+    display: table;
+    table-layout: fixed;
+    text-align: center;
+    width: 100%;
+}
+.table-ul li {
+    border-right: 1px solid #fff;
+    display: table-cell;
+    vertical-align: middle;
+    height: 40px;
+}
+.table-ul li:last-child {
+    border-right: 0;   
+}
+.table-ul li a {
+    color: #fff;
+    display: block;
+    font-size: 10px;
+    text-decoration: none;
+}
+.icon-tw:before {
+    color: #fff;
+    content:"\f099";
+    font-family: "FontAwesome";
+}
+.icon-fb:before {
+    color: #fff;
+    content:"\f082";
+    font-family: "FontAwesome";
+}
+.icon-gp:before {
+    color: #fff;
+    content:"\f0d5";
+    font-family: "FontAwesome";
+}
+.icon-yt:before {
+    color: #fff;
+    content:"\f167";
+    font-family: "FontAwesome";
+}
+
+.masthead {
+    height: 100vh;
+    min-height: 500px;
+    background-image: url('https://source.unsplash.com/BtbjCFUvBXs/1920x1080');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
