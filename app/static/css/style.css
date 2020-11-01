@@ -27,9 +27,8 @@ main {
 }
 
 .btn {
-    font-size: 80%;
-    border-radius: 5rem;
-    font-weight: bold;
+    font-size: 100%;
+    border-radius: 10px;
 }
 
 .profile_table {
@@ -162,14 +161,15 @@ a:hover {
     font-style: normal;
 }
 .table-ul {
-    background-color: #3ae;
+    /* background-color: #3ae; */
+    border-bottom: 1px solid #dee2e6;
     display: table;
     table-layout: fixed;
     text-align: center;
     width: 100%;
 }
 .table-ul li {
-    border-right: 1px solid #fff;
+    border-right: 1px solid #dee2e6;
     display: table-cell;
     vertical-align: middle;
     height: 40px;
@@ -178,7 +178,7 @@ a:hover {
     border-right: 0;   
 }
 .table-ul li a {
-    color: #fff;
+    color: 1px solid #dee2e6;
     display: block;
     font-size: 10px;
     text-decoration: none;
