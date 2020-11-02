@@ -1,4 +1,5 @@
 {% extends "app/base.html" %}
+{% load static %}
 
 {% block content %}
 <!-- トップ絵部分 -->
@@ -40,7 +41,7 @@
             <!-- <a src="src/えんぴつ付きのノートアイコン (1).png"></a> -->
             <!-- <a href="https://www.yahoo.co.jp/" class="btn btn-block btn-lg btn-default"><img src="../templates/img/blub_black.png"></a> -->
             <a href="#">
-                <img src="app/templates/img/camera.png">
+                <img src="{% static 'img/chat.png'  %}">
                 <i>全て</i>
             </a>
         </li>
