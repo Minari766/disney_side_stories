@@ -5,7 +5,7 @@
 }
 
 body {
-    background: #F1F1F1;
+    background: #FDFFFF;
     display: flex;
     flex-flow: column;
     min-height: 100vh;
@@ -150,7 +150,7 @@ a:hover {
 }
 
 /* iconmenu */
-@font-face {
+/* @font-face {
     font-family: 'FontAwesome';
     src: url('./font/fontawesome-webfont.eot?v=4.0.3');
     src: url('./font/fontawesome-webfont.eot?#iefix&v=4.0.3') format('embedded-opentype'),
@@ -159,7 +159,7 @@ a:hover {
          url('./font/fontawesome-webfont.svg?v=4.0.3#fontawesomeregular') format('svg');
     font-weight: normal;
     font-style: normal;
-}
+} */
 .table-ul {
     /* background-color: #3ae; */
     border-bottom: 1px solid #dee2e6;
@@ -207,8 +207,151 @@ a:hover {
 .masthead {
     height: 100vh;
     min-height: 500px;
-    background-image: url('https://source.unsplash.com/BtbjCFUvBXs/1920x1080');
+    background-image: {% static 'img/TDL.png'  %};
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+.icon-category{
+    object-fit: contain;
+    width: 3rem;
+    height: 3rem;
+}
+
+.icon-category-bulb{
+    transform: rotate(45deg);
+}
+
+/* TDL-tableに関するCSS */
+.TDL-talbe{
+    position: relative;
+}
+
+/* .TDL-table a  */
+.critter-link{
+    position: absolute;
+    top: 16%;
+    left: 27%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    margin:0;/*余計な隙間を除く*/
+    font-size: 25px;/*文字サイズ*/
+    border: solid white 2px; /*線で囲う*/
+    border-radius: 15px;
+    padding: 7px;/*文字と線の間の余白*/
+    color: white;/*文字色*/
+    background-color: #0aa9ee;
+    text-decoration: none;/*下線を表示させない*/
+}
+
+.fantasy-link{
+    position: absolute;
+    top: 16%;
+    left: 54.5%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    margin:0;/*余計な隙間を除く*/
+    font-size: 25px;/*文字サイズ*/
+    border: solid white 2px; /*線で囲う*/
+    border-radius: 15px;
+    padding: 7px;/*文字と線の間の余白*/
+    color: white;/*文字色*/
+    background-color: #ad14a2;
+    text-decoration: none;/*下線を表示させない*/
+}
+
+.toon-link{
+    position: absolute;
+    top: 22%;
+    left:80%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    margin:0;/*余計な隙間を除く*/
+    font-size: 25px;/*文字サイズ*/
+    border: solid white 2px; /*線で囲う*/
+    border-radius: 15px;
+    padding: 7px;/*文字と線の間の余白*/
+    color: black;/*文字色*/
+    background-color: #fe9500;
+    text-decoration: none;/*下線を表示させない*/
+}
+
+.western-link{
+    position: absolute;
+    top: 44%;
+    left:20%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    margin:0;/*余計な隙間を除く*/
+    font-size: 25px;/*文字サイズ*/
+    border: solid white 2px; /*線で囲う*/
+    border-radius: 15px;
+    padding: 7px;/*文字と線の間の余白*/
+    color: white;/*文字色*/
+    background-color: #532207;
+    text-decoration: none;/*下線を表示させない*/
+}
+
+.adventure-link{
+    position: absolute;
+    top: 73%;
+    left:20%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    margin:0;/*余計な隙間を除く*/
+    font-size: 25px;/*文字サイズ*/
+    border: solid white 2px; /*線で囲う*/
+    border-radius: 15px;
+    padding: 7px;/*文字と線の間の余白*/
+    color: white;/*文字色*/
+    background-color: #208715;
+    text-decoration: none;/*下線を表示させない*/
+}
+
+.bazaar-link{
+    position: absolute;
+    top: 81.5%;
+    left:50%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    margin:0;/*余計な隙間を除く*/
+    font-size: 25px;/*文字サイズ*/
+    border: solid white 2px; /*線で囲う*/
+    border-radius: 15px;
+    padding: 7px;/*文字と線の間の余白*/
+    color: white;/*文字色*/
+    background-color: #f66e70;
+    text-decoration: none;/*下線を表示させない*/
+}
+
+.tomorrow-link{
+    position: absolute;
+    top: 73%;
+    left:80%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    margin:0;/*余計な隙間を除く*/
+    font-size: 25px;/*文字サイズ*/
+    border: solid white 2px; /*線で囲う*/
+    border-radius: 15px;
+    padding: 7px;/*文字と線の間の余白*/
+    color: white;/*文字色*/
+    background-color: #1268b9;
+    text-decoration: none;/*下線を表示させない*/
+}
+
+.TDL-table a:hover{/*カーソルを当てたとき*/
+    background: rgba(255, 255, 255, 0.3);/*背景を半透明に*/
+}
+
+.TDL-table img {
+    width: 100%;
 }
