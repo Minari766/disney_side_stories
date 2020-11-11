@@ -205,9 +205,9 @@ a:hover {
 }
 
 .masthead {
-    height: 100vh;
-    min-height: 500px;
-    background-image: {% static 'img/TDL.png'  %};
+    height: 80vh;
+    min-height: 300px;
+    /* background-image: {% static 'img/TDL.png'  %}; */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -275,7 +275,7 @@ a:hover {
     border: solid white 2px; /*線で囲う*/
     border-radius: 15px;
     padding: 7px;/*文字と線の間の余白*/
-    color: black;/*文字色*/
+    color: white;/*文字色*/
     background-color: #fe9500;
     text-decoration: none;/*下線を表示させない*/
 }
@@ -349,7 +349,8 @@ a:hover {
 }
 
 .TDL-table a:hover{/*カーソルを当てたとき*/
-    background: rgba(255, 255, 255, 0.3);/*背景を半透明に*/
+    opacity: 0.5;/*背景を半透明に*/
+    color: black;
 }
 
 .TDL-table img {
