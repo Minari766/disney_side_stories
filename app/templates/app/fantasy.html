@@ -3,18 +3,12 @@
 
 {% block content %}
 <!-- トップ絵部分 -->
+<a name="bazaar">
 <header class="masthead">
     <div class="container h-100">
         <div class="row h-100 align-items-center">
             <div class="col-12 text-center TDL-table">
-                <img src="{% static 'img/TDL.png' %}" alt="">
-                <a href="critter_top" class="critter-link">クリッターカントリー</a>
-                <a href="{% url 'fantasy_top'%}" class="fantasy-link">ファンタジーランド</a>
-                <a href="toon_top" class="toon-link">トゥーンタウン</a>
-                <a href="western_top" class="western-link">ウエスタンランド</a>
-                <a href="adventure_top" class="adventure-link">アドベンチャーランド</a>
-                <a href="{% url 'bazaar_top'%}" class="bazaar-link">ワールドバザール</a>
-                <a href="tomorrow_top" class="tomorrow-link">トゥモローランド</a>
+                <img src="{% static 'img/fantasy_top.png' %}" alt="">
             </div>
         </div>
     </div>
@@ -94,7 +88,7 @@
         <h3>{{ post.title }}</h3>
         <p>{{ post.content|truncatechars:100 }}</p>
         <!-- <a class="btn btn-warning" href="#">続きを読む</a> -->
-        <a style="float:right;" href="{% url 'post_detail' post.id %}">続きを読む</a>
+        <a style="float:right;" href="#">続きを読む</a>
     </div>
 </div>
 <hr>

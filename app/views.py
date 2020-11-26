@@ -128,3 +128,17 @@ class CategoryView(View):
         return render(request, 'app/index.html', {
             'post_data': post_data
         })
+
+class BazaarView(View):
+    def get(self, request, *args, **kwargs):
+        post_data = Post.objects.order_by("-id")
+        return render(request, 'app/bazaar.html', {
+            'post_data': post_data,
+        })
+
+class FantasyView(View):
+    def get(self, request, *args, **kwargs):
+        post_data = Post.objects.order_by("-id")
+        return render(request, 'app/fantasy.html', {
+            'post_data': post_data,
+        })

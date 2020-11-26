@@ -3,21 +3,41 @@
 
 {% block content %}
 <!-- トップ絵部分 -->
+<a name="bazaar">
 <header class="masthead">
     <div class="container h-100">
         <div class="row h-100 align-items-center">
             <div class="col-12 text-center TDL-table">
                 <img src="{% static 'img/TDL.png' %}" alt="">
-                <a href="critter_top" class="critter-link">クリッターカントリー</a>
-                <a href="{% url 'fantasy_top'%}" class="fantasy-link">ファンタジーランド</a>
-                <a href="toon_top" class="toon-link">トゥーンタウン</a>
-                <a href="western_top" class="western-link">ウエスタンランド</a>
-                <a href="adventure_top" class="adventure-link">アドベンチャーランド</a>
-                <a href="{% url 'bazaar_top'%}" class="bazaar-link">ワールドバザール</a>
-                <a href="tomorrow_top" class="tomorrow-link">トゥモローランド</a>
+                <!-- <a href="#" class="critter-link">クリッターカントリー</a>
+                <a href="#" class="fantasy-link">ファンタジーランド</a>
+                <a href="#" class="toon-link">トゥーンタウン</a>
+                <a href="#" class="western-link">ウエスタンランド</a>
+                <a href="#" class="adventure-link">アドベンチャーランド</a>
+                <a href="#" class="bazaar-link">ワールドバザール</a>
+                <a href="#" class="tomorrow-link">トゥモローランド</a> -->
+                <!-- usemapタグを使ったマップリンク設置 （部分変更が使えないと考えたので別の方法を模索）-->
+                <!-- <map name="image-map">
+                    <img src="{% static 'img/TDL.png' %}" alt="" usemap="#image-map">
+                    <area target="_blank" alt="critter" title="critter" href="#" coords="158,84,445,136" shape="rect">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <div>テスト</div>
+                            </a>
+                        </li>
+                    </ul>
+                    <area target="_blank" alt="fantasy" title="fantasy" href="#" coords="753,135,496,87" shape="rect">
+                    <area target="_blank" alt="toon" title="toon" href="#" coords="808,123,1037,175" shape="rect">
+                    <area target="_blank" alt="adventure" title="adventure" href="#" coords="78,471,361,526" shape="rect">
+                    <area target="_blank" alt="western" title="western" href="#" coords="92,271,341,327" shape="rect">
+                    <area target="_blank" alt="bazaar" title="bazaar" href="#" coords="449,528,693,582" shape="rect">
+                    <area target="_blank" alt="tomorrow" title="tomorrow" href="#" coords="" shape="rect">
+                </map> -->
             </div>
         </div>
     </div>
+    <img src="https://picsum.photos/id/1080/200" id="targetImage">
 </header>
 
 <div class="row my-4">
@@ -94,7 +114,7 @@
         <h3>{{ post.title }}</h3>
         <p>{{ post.content|truncatechars:100 }}</p>
         <!-- <a class="btn btn-warning" href="#">続きを読む</a> -->
-        <a style="float:right;" href="{% url 'post_detail' post.id %}">続きを読む</a>
+        <a style="float:right;" href="#">続きを読む</a>
     </div>
 </div>
 <hr>
