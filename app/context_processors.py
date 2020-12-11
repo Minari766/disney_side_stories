@@ -5,4 +5,5 @@ def common(request):
     context = {
         'category_data': category_data,
     }
+    print(category_data)
     return context
