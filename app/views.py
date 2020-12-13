@@ -1,6 +1,7 @@
 from django.views.generic import View
 from django.shortcuts import render,redirect
-from .models import Post, Category
+from .models import Post
+# from .models import Post, Category
 from .forms import PostForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -126,7 +127,7 @@ class CreatePostView(LoginRequiredMixin, View):
 class CategoryView(View):
     def get(self, request, *args, **kwargs):
         category_data = Category.objects.get(name=self.kwargs['category'])
-        post_data = Post.objects.order_by('-id').filter(category=category_data)
+        post_dataa = Post.objects.order_by('-id').filter(category=category_data)
         return render(request, 'app/index.html', {
             'post_data': post_data
         })
