@@ -8,13 +8,15 @@
     <div class="my-box">{{ post_data.author }}</div>
     <div class="my-box">{{ post_data.created }}</div>
 </div>
+<p>{{ post_data.area }}</p>
+<p>{{ post_data.attraction }}</p>
 <p>{{ post_data.category }}</p>
 <p>{{ post_data.content|linebreaksbr }}</p>
 {% if user.is_authenticated %}
 <hr>
 <div class="d-flex mb-5">
 <a class="btn btn-warning mr-2" href="{% url 'post_edit' post_data.id %}">編集する</a>
-    <a class="btn btn-danger" href="{% url 'post_delete' post_data.id %}">削除する！！！</a>    
+    <a class="btn btn-danger" href="{% url 'post_delete' post_data.id %}">削除する</a>    
 </div>
 {% endif %}
 {% if post_data.image %}
