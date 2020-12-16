@@ -1,8 +1,11 @@
 {% extends "app/base.html" %}
 
 {% block content %}
+<div>
+    <h2 class="ttl-bd mt-4 mb-4">投稿確認</h2>
+</div>
 
-<h2 class="my-4 text-center">{{ post_data.title }}</h2>
+<h2 class="my-4 text-center mb-0">{{ post_data.title }}</h2>
 <hr>
 <div class="d-flex justify-content-between">
     <div class="my-box">{{ post_data.author }}</div>
@@ -14,10 +17,13 @@
 <p>{{ post_data.content|linebreaksbr }}</p>
 {% if user.is_authenticated %}
 <hr>
-<div class="d-flex mb-5">
-<a class="btn btn-warning mr-2" href="{% url 'post_edit' post_data.id %}">編集する</a>
-    <a class="btn btn-danger" href="{% url 'post_delete' post_data.id %}">削除する</a>    
+<div class="text-center">
+    <button class="btn btn-info" type="submit">投稿する</button>
 </div>
+<!-- <div class="d-flex mb-5">
+    <a class="btn btn-warning mr-2" href="{% url 'post_edit' post_data.id %}">編集する</a>
+    <a class="btn btn-danger" href="{% url 'post_delete' post_data.id %}">削除する</a>    
+</div> -->
 {% endif %}
 {% if post_data.image %}
     <img class="mx-auto d-block img-fluid rounded detail-img mb-5" src="{{ post_data.image.url }}" alt="">         

@@ -100,7 +100,7 @@
 <hr>
 {% endfor %}
 <div class="text-right">
-    <button class="btn btn-info" type="button" href="#">新しい記事を投稿</button>
+    <!-- <button class="btn btn-info" type="button" href="{% url 'post_new' %}">新しい記事を投稿</button> -->
+    <a href="{% url 'post_new' %}" class="btn btn-info">新しい記事を投稿</a>
 </div>
-
 {% endblock %}
