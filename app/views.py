@@ -129,7 +129,7 @@ class CreatePostView(LoginRequiredMixin, View):
             attraction_data = Attraction.objects.get(name=attraction)
             post_data.attraction = attraction_data
             category = form.cleaned_data['category']
-            category_data = Area.objects.get(name=category)
+            category_data = Category.objects.get(name=category)
             post_data.category = category_data
             post_data.content = form.cleaned_data['content']
             if request.FILES:
