@@ -20,6 +20,11 @@ class PostDetailView(View):
             'post_data': post_data
         })
 
+# class FormPreviw():
+#     def get()
+
+#         return render()
+
 class CreatePostView(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
         form = PostForm(request.POST or None)
