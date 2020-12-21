@@ -4,6 +4,7 @@ from .models import Post
 from .models import Post, Area, Attraction, Category
 from .forms import PostForm
 from django.contrib.auth.mixins import LoginRequiredMixin
+# from django.contrib.formtools.preview import FormPreview
 
 
 class IndexView(View):
@@ -19,11 +20,6 @@ class PostDetailView(View):
         return render(request, 'app/post_detail.html', {
             'post_data': post_data
         })
-
-# class FormPreviw():
-#     def get()
-
-#         return render()
 
 class CreatePostView(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
