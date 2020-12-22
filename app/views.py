@@ -179,3 +179,7 @@ class FantasyView(View):
         return render(request, 'app/fantasy.html', {
             'post_data': post_data,
         })
+
+class AboutView(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, 'app/about.html')
