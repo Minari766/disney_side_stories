@@ -363,3 +363,9 @@ a:hover {
     width: 65%;
     position: center;
 }
+
+.about-border{
+    /* height: 200px; */
+    border: bold;
+    margin-top: 2rem;
+}
