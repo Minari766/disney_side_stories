@@ -8,11 +8,11 @@
         <div class="row h-100 align-items-center">
             <div class="col-12 text-center TDL-table">
                 <img src="{% static 'img/TDL.png' %}" alt="">
-                <a href="critter_top" class="critter-link">クリッターカントリー</a>
+                <a href="{% url 'critter_top'%}" class="critter-link">クリッターカントリー</a>
                 <a href="{% url 'fantasy_top'%}" class="fantasy-link">ファンタジーランド</a>
                 <a href="toon_top" class="toon-link">トゥーンタウン</a>
                 <a href="western_top" class="western-link">ウエスタンランド</a>
-                <a href="adventure_top" class="adventure-link">アドベンチャーランド</a>
+                <a href="{% url 'adventure_top'%}" class="adventure-link">アドベンチャーランド</a>
                 <a href="{% url 'bazaar_top'%}" class="bazaar-link">ワールドバザール</a>
                 <a href="tomorrow_top" class="tomorrow-link">トゥモローランド</a>
             </div>

@@ -10,5 +10,7 @@ urlpatterns = [
     path('category/<str:category>/', views.CategoryView.as_view(), name='category'),
     path('bazaar', views.BazaarView.as_view(), name='bazaar_top'),
     path('fantasy', views.FantasyView.as_view(), name='fantasy_top'),
+    path('critter', views.CritterView.as_view(), name='critter_top'),
+    path('adventure', views.AdventureView.as_view(), name='adventure_top'),
     path('about', views.AboutView.as_view(), name='about_top')
 ]

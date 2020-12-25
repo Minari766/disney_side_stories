@@ -180,6 +180,20 @@ class FantasyView(View):
             'post_data': post_data,
         })
 
+class CritterView(View):
+    def get(self, request, *args, **kwargs):
+        post_data = Post.objects.order_by("-id")
+        return render(request, 'app/critter.html', {
+            'post_data': post_data,
+        })
+
+class AdventureView(View):
+    def get(self, request, *args, **kwargs):
+        post_data = Post.objects.order_by("-id")
+        return render(request, 'app/adventure.html', {
+            'post_data': post_data,
+        })
+
 class AboutView(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'app/about.html')
