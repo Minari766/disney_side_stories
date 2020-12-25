@@ -197,3 +197,7 @@ class AdventureView(View):
 class AboutView(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'app/about.html')
+
+class MypageView(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, 'app/mypage.html')

@@ -31,9 +31,15 @@
                         <a href="{% url 'about_top' %}" class="nav-link">DSSについて</a>
                     </li>
                     <li class="nav-item">
+                        <a href="{% url 'about_top' %}" class="nav-link">マイページ</a>
+                    </li>
+                    <li class="nav-item">
                         <a href="{% url 'account_logout' %}" class="nav-link">ログアウト</a>
                     </li>
                 {% else %}
+                    <li class="nav-item">
+                        <a href="{% url 'account_signup' %}" class="nav-link">マイページ（登録画面への誘導）</a>
+                    </li>
                     <li class="nav-item">
                         <a href="{% url 'account_signup' %}" class="nav-link">サインアップ</a>
                     </li>
