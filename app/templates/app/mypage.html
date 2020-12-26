@@ -7,88 +7,43 @@
 <div>
     <h2 class="ttl-bd mt-4 mb-4">マイページ</h2>
 </div> 
-    
-    <h1>{{ user.username }}のMypage</h1>
-    <ul>
-        {% for member in member_list %}
-            <li></li>
-            <div class="picmenu">
-                <ul class="table-ul">
-                    <li>
-                        <a href="#">
-                            <img src="{% static 'img/box.png' %}" alt="全て" class="icon-category">
-                            <p>全て</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="{% static 'img/memo.png' %}" alt="ストーリー" class="icon-category">
-                            <p>ストーリー</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="{% static 'img/mickey_b.png' %}" alt="隠れミッキー" class="icon-category">
-                            <p>隠れミッキー</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="{% static 'img/blub.png' %}" alt="豆知識" class="icon-category icon-category-bulb">
-                            <p>豆知識</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="{% static 'img/bookmark.png' %}" alt="その他" class="icon-category">
-                            <p>その他</p>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-                
-            {% for post in post_data %}
-            <div class="row">
-                <div class="col-md-4">
-                    <a href="#">
-                    {% if post.image %}
-                        <img class="img-fluid rounded mb-3 mb-md-0" src="{{ post.image.url }}" alt="">
-                    {% endif %}
-                    </a>
-                </div>
-                <div class="col-md-8">
-                    <div class="author-created">
-                        <h7 class="text_left">{{ post.author }}</h7>
-                        <h7 class="text_right">{{ post.created }}</h7>
-                    </div>
-                    <h3>{{ post.title }}</h3>
-                    <p>{{ post.content|truncatechars:100 }}</p>
-                    <!-- <a class="btn btn-warning" href="#">続きを読む</a> -->
-                    <!-- <a style="float:right;" href="{% url 'post_detail' post.id %}">続きを読む</a> -->
-                </div>
-            </div>
-            <hr>
-                
-            {% for post in post_data %}
-            <div class="row">
-                <div class="col-md-4">
-                    <a href="#">
-                    {% if post.image %}
-                        <img class="img-fluid rounded mb-3 mb-md-0" src="{{ post.image.url }}" alt="">
-                    {% endif %}
-                    </a>
-                </div>
-                <div class="col-md-8">
-                    <div class="author-created">
-                        <h7 class="text_left">{{ post.author }}</h7>
-                        <h7 class="text_right">{{ post.created }}</h7>
-                    </div>
-                    <h3>{{ post.title }}</h3>
-                    <p>{{ post.content|truncatechars:100 }}</p>
-                    <!-- <a class="btn btn-warning" href="#">続きを読む</a> -->
-                    <a style="float:right;" href="{% url 'post_detail' post.id %}">続きを読む</a>
-                </div>
-            </div>
-            <hr>
-    
-        {% endblock %}
+<div class="container">
+    <!-- <p class="user-picture-box">{% prof_data 'user-picture'%}</p> -->
+</div>
+
+</div>
+<div class="picmenu">
+    <ul class="table-ul">
+        <li>
+            <a href="#">
+                <img src="{% static 'img/box.png' %}" alt="全て" class="icon-category">
+                <p>全て</p>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="{% static 'img/memo.png' %}" alt="ストーリー" class="icon-category">
+                <p>ストーリー</p>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="{% static 'img/mickey_b.png' %}" alt="隠れミッキー" class="icon-category">
+                <p>隠れミッキー</p>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="{% static 'img/blub.png' %}" alt="豆知識" class="icon-category icon-category-bulb">
+                <p>豆知識</p>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="{% static 'img/bookmark.png' %}" alt="その他" class="icon-category">
+                <p>その他</p>
+            </a>
+        </li>
+    </ul>
+</div>
+{% endblock %}
