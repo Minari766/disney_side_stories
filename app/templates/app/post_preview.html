@@ -21,6 +21,7 @@
     <form method="post" action="{% url 'preview' %}">
         {% csrf_token %}
         <input type="hidden" name="area" value={{ post_data.area }}>
+        <!-- <button class="btn btn-light" type="submit">戻る</button> -->
         <button class="btn btn-info" type="submit">投稿する</button>
     </form>
 </div>
