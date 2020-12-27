@@ -38,11 +38,7 @@ class CreatePostView(LoginRequiredMixin, View):
             post_data = Post()
             post_data.author = request.user
             post_data.title = form.cleaned_data['title']
-            # 'area'はadmin画面で追加したエリア名称（ファンタジーランド等）
             area = form.cleaned_data['area']
-            # nameは上記area変数を参照。areaモデルからarea名（ファンタジーランド等）を検索
-            # 検索したものをForeignKeyのエリアに格納
-            # 下記の
             post_data.area = Area.objects.get(name=area)
             attraction = form.cleaned_data['attraction']
             post_data.attraction = Attraction.objects.get(name=attraction)
