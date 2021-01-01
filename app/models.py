@@ -30,7 +30,3 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
-
-# class FormPreviewTest(models.Model):
-#     attraction = models.ForeignKey(Attraction, verbose_name='アトラクション', on_delete=models.CASCADE)
-#     category = models.ForeignKey(Category, verbose_name='カテゴリ', on_delete=models.CASCADE)

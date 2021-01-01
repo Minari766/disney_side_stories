@@ -30,11 +30,9 @@ class CreatePostView(LoginRequiredMixin, View):
         })
     
     def post(self, request, *args, **kwargs):
-        print("test")
         form = PostForm(request.POST or None)
 
         if form.is_valid():
-            print("test2")
             post_data = Post()
             post_data.author = request.user
             post_data.title = form.cleaned_data['title']
@@ -50,7 +48,6 @@ class CreatePostView(LoginRequiredMixin, View):
             # .save()で入力データをDBに保存
             # post_data.save()
             # return redirect('post_detail', post_data.id)
-            print("test3")
             return render(request, 'app/post_preview.html', {
                 'post_data' : post_data
             })
@@ -62,14 +59,16 @@ class CreatePostView(LoginRequiredMixin, View):
 
 class PreviewPostView(LoginRequiredMixin, View):
     def post(self, request, *args, **kwargs):
+        print('test4')
         post_data = Post()
         area = request.POST.get('area')
         post_data.area = Area.objects.get(name=area)
-        attraction = request.POST.get('')
+        attraction = request.POST.get('attraction')
         post_data.attraction = Attraction.objects.get(name=attraction)
         category = request.POST.get('category')
         post_data.category = Category.objects.get(name=category)
         post_data.save()
+        print('test5')
         return redirect('index')
 
 class PostEditView(LoginRequiredMixin, View):
@@ -128,39 +127,6 @@ class PostDeleteView(LoginRequiredMixin, View):
         post_data.delete()
         return redirect('index')
 
-# class CreatePostView(LoginRequiredMixin, View):
-#     def get(self, request, *args, **kwargs):
-#         form = PostForm(request.POST or None)
-
-#         return render(request, 'app/post_form.html', {
-#             'form': form
-#         })
-
-#     def post(self, request, *args, **kwargs):
-#         form = PostForm(request.POST or None)
-
-#         if form.is_valid():
-#             post_data = Post()
-#             post_data.author = request.user
-#             post_data.title = form.cleaned_data['title']
-#             area = form.cleaned_data['area']
-#             area_data = Area.objects.get(name=area)
-#             post_data.area = area_data
-#             attraction = form.cleaned_data['attraction']
-#             attraction_data = Attraction.objects.get(name=attraction)
-#             post_data.attraction = attraction_data
-#             category = form.cleaned_data['category']
-#             category_data = Category.objects.get(name=category)
-#             post_data.category = category_data
-#             post_data.content = form.cleaned_data['content']
-#             if request.FILES:
-#                 post_data.image = request.FILES.get('image')
-#             post_data.save()
-#             return redirect('post_detail', post_data.id)
-
-#         return render(request, 'app/post_form.html', {
-#             'form': form
-#         })
 
 class AreaView(View):
     def get(self, request, *args, **kwargs):
