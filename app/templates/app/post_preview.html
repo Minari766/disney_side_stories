@@ -20,7 +20,13 @@
 <div class="text-center">
     <form method="post" action="{% url 'preview' %}">
         {% csrf_token %}
+        <!-- name="辞書キー" value="辞書の値" -->
         <input type="hidden" name="area" value={{ post_data.area }}>
+        <input type="hidden" name="attraction" value={{ post_data.attraction }}>
+        <input type="hidden" name="category" value={{ post_data.category }}>
+        <input type="hidden" name="title" value={{ post_data.title }}>
+        <input type="hidden" name="image" value={{ post_data.image }}>
+        <input type="hidden" name="content" value={{ post_data.content }}>
         <!-- <button class="btn btn-light" type="submit">戻る</button> -->
         <button class="btn btn-info" type="submit">投稿する</button>
     </form>

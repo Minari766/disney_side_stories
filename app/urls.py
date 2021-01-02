@@ -3,7 +3,7 @@ from app import views
 
 urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
-    path('post/<int:pk>', views.PostDetailView.as_view(), name='post_detail'),
+    path('post/<int:pk>/', views.PostDetailView.as_view(), name='post_detail'),
     path('post/new/', views.CreatePostView.as_view(), name='post_new'),
     path('post/preview/', views.PreviewPostView.as_view(), name='preview'),
     path('post/<int:pk>/edit/', views.PostEditView.as_view(), name='post_edit'),
@@ -14,5 +14,6 @@ urlpatterns = [
     path('critter', views.CritterView.as_view(), name='critter_top'),
     path('adventure', views.AdventureView.as_view(), name='adventure_top'),
     path('about', views.AboutView.as_view(), name='about_top'),
-    path('mypage', views.MypageView.as_view(), name='mypage')
+    path('mypage', views.MypageView.as_view(), name='mypage'),
+    path('category/<str:category>/', views.CategoryNameView.as_view(), name='category_name')
 ]

@@ -24,6 +24,7 @@ class Post(models.Model):
     attraction = models.ForeignKey(Attraction, verbose_name='アトラクション', on_delete=models.CASCADE)
     category = models.ForeignKey(Category, verbose_name='カテゴリ', on_delete=models.CASCADE)
     title = models.CharField("タイトル", max_length=200)
+    # blank=Trueであれば、QueryにデータがなくてもNot matchingエラーが出ない
     image = models.ImageField(upload_to='images', verbose_name='Image画像', null=True, blank=True)
     content = models.TextField("本文")
     created = models.DateTimeField("作成日", default=timezone.now)
