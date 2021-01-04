@@ -213,23 +213,23 @@ class CategoryNameView(View):
             'post_data' : post_data
         })
 
-class SEarchView(View):
+class SearchView(View):
     def get(self, request, *args, **kwargs):
         post_data = Post.objects.order_by('-id')
         keyword = request.GET.get('keyword')
 
-    if keyword:
-        exclusion_list = set([' ', ' '])
-        query_list = ''
-        for word in keyword:
-            if not word in exclusion_list:
-                # スペースを除いたリストを抽出
-                query_list += word
-        # Qオブジェクトを使用して、投稿データをキーワードでフィルターがけする。キーワードをQオブジェクトでor検索
-        query = reduce(and_, [Q(title__icontains=q) | Q(content__icontains=q) for q in query_list])
-        post_data = post_data.filter(query)
-    
-    return render(requst, 'app/index.html', {
-        'keyword' : keyword,
-        'post_data' : post_data
-    })
+        if keyword:
+            exclusion_list = set([' ', ' '])
+            query_list = ''
+            for word in keyword:
+                if not word in exclusion_list:
+                    # スペースを除いたリストを抽出
+                    query_list += word
+            # Qオブジェクトを使用して、投稿データをキーワードでフィルターがけする。キーワードをQオブジェクトでor検索
+            query = reduce(and_, [Q(title__icontains=q) | Q(content__icontains=q) for q in query_list])
+            post_data = post_data.filter(query)
+        
+        return render(request, 'app/search.html', {
+            'keyword' : keyword,
+            'post_data' : post_data
+        })

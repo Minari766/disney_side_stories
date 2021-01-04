@@ -47,6 +47,15 @@
                         <a href="{% url 'account_login' %}" class="nav-link">ログイン</a>
                     </li>
                 {% endif %}
+                <form method="get" action="{% url 'search' %}" class="input-group">
+                    <input type="text" class="form-control" name="keyword" placeholder="ブログ内を検索...">
+                    <button class="btn btn-warning" type="submit">検索</button>
+                </form>
+                <!-- <div class="card my-4">
+                    <h5 class="card-header">検索</h5>
+                    <div class="card-body">
+                    </div>
+                </div> -->
             </ul>
         </div>
     </nav>
