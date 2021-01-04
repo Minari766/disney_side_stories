@@ -204,11 +204,8 @@ class CategoryNameView(View):
         #self.kwargsでurlから値を取得する
         # path('category/<str:category>/'の<str:category>に動的に入る値を獲得する
         # inputボタンは押してないので、.getは不要
-        print("テスト")
         category_data = Category.objects.get(name=self.kwargs['category'])
-        print(category_data)
         post_data = Post.objects.filter(category=category_data)
-        print(post_data)
         return render(request, 'app/index.html', {
             'post_data' : post_data
         })
