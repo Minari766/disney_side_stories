@@ -15,11 +15,9 @@
     <div>{{ post_data.area }}</div>
     <div>{{ post_data.category }}</div>
     <div>{{ post_data.attraction }}</div>
+    <div>{{ post_data.category }}</div>
 </p>
 <p>{{ post_data.content|linebreaksbr }}</p>
-<a class="btn-floating btn-large red right">
-    <i class="large material-icons">favorite</i>
-</a>
 <button type="button" class="btn btn-warning right">Warning</button>
 {% if user.is_authenticated %}
 <hr>

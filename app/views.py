@@ -4,12 +4,16 @@ from .models import Post
 from .models import Post, Area, Attraction, Category
 from .forms import PostForm
 from django.contrib.auth.mixins import LoginRequiredMixin
-
+# or検索するために必要なQオブジェクトを取得
+from django.db.models import Q
+# 畳み込み演算を行う
+from functools import reduce
+# 足算に必要
+from operator import and_
 
 class IndexView(View):
     def get(self, request, *args, **kwargs):
         post_data = Post.objects.order_by("-id")
-        print(post_data)
         return render(request, 'app/index.html', {
             'post_data': post_data,
         })
@@ -23,8 +27,8 @@ class PostDetailView(View):
 
 class CreatePostView(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
+        # formには投稿記事の内容が、カテゴリの選択欄含めたくさんでている
         form = PostForm(request.POST or None)
-
         return render(request, 'app/post_form.html', {
             'form': form
         })
@@ -34,9 +38,9 @@ class CreatePostView(LoginRequiredMixin, View):
 
         if form.is_valid():
             post_data = Post()
+            area = form.cleaned_data['area']
             post_data.author = request.user
             post_data.title = form.cleaned_data['title']
-            area = form.cleaned_data['area']
             post_data.area = Area.objects.get(name=area)
             attraction = form.cleaned_data['attraction']
             post_data.attraction = Attraction.objects.get(name=attraction)
@@ -59,7 +63,8 @@ class CreatePostView(LoginRequiredMixin, View):
 
 class PreviewPostView(LoginRequiredMixin, View):
     def post(self, request, *args, **kwargs):
-        print(request.POST)
+        # POSTのPOST（データ入力フォームに記載された情報）の中身をリクエストして表示している。
+        # print(request.POST)
         post_data = Post()
         area = request.POST.get('area')
         post_data.area = Area.objects.get(name=area)
@@ -69,12 +74,12 @@ class PreviewPostView(LoginRequiredMixin, View):
         post_data.category = Category.objects.get(name=category)
         # request.userでログインユーザー情報を入手できる。
         post_data.author = request.user
-        print(post_data.author)
         post_data.content = request.POST.get('content')
         post_data.image = request.POST.get('image')
+        # if request.FILES:
+        #         post_data.image = request.FILES.get('image')
         post_data.title = request.POST.get('title')
         post_data.save()
-        print('test5')
         return redirect('index')
 
 class PostEditView(LoginRequiredMixin, View):
@@ -109,7 +114,7 @@ class PostEditView(LoginRequiredMixin, View):
             attraction_data = Attraction.objects.get(name=attraction)
             post_data.attraction = attraction_data
             category = form.cleaned_data['category']
-            category_data = Attraction.objects.get(name=category)
+            category_data = Category.objects.get(name=category)
             post_data.category = category_data
             post_data.content = form.cleaned_data['content']
             if request.FILES:
@@ -199,8 +204,32 @@ class CategoryNameView(View):
         #self.kwargsでurlから値を取得する
         # path('category/<str:category>/'の<str:category>に動的に入る値を獲得する
         # inputボタンは押してないので、.getは不要
+        print("テスト")
         category_data = Category.objects.get(name=self.kwargs['category'])
+        print(category_data)
         post_data = Post.objects.filter(category=category_data)
+        print(post_data)
         return render(request, 'app/index.html', {
             'post_data' : post_data
         })
+
+class SEarchView(View):
+    def get(self, request, *args, **kwargs):
+        post_data = Post.objects.order_by('-id')
+        keyword = request.GET.get('keyword')
+
+    if keyword:
+        exclusion_list = set([' ', ' '])
+        query_list = ''
+        for word in keyword:
+            if not word in exclusion_list:
+                # スペースを除いたリストを抽出
+                query_list += word
+        # Qオブジェクトを使用して、投稿データをキーワードでフィルターがけする。キーワードをQオブジェクトでor検索
+        query = reduce(and_, [Q(title__icontains=q) | Q(content__icontains=q) for q in query_list])
+        post_data = post_data.filter(query)
+    
+    return render(requst, 'app/index.html', {
+        'keyword' : keyword,
+        'post_data' : post_data
+    })
