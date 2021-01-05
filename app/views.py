@@ -38,9 +38,9 @@ class CreatePostView(LoginRequiredMixin, View):
 
         if form.is_valid():
             post_data = Post()
-            area = form.cleaned_data['area']
             post_data.author = request.user
             post_data.title = form.cleaned_data['title']
+            area = form.cleaned_data['area']
             post_data.area = Area.objects.get(name=area)
             attraction = form.cleaned_data['attraction']
             post_data.attraction = Attraction.objects.get(name=attraction)

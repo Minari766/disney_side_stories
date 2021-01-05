@@ -3,7 +3,7 @@
 
 {% block content %}
 <!-- トップ絵部分 -->
-<a name="bazaar">
+<a name="fantasy">
 <header class="masthead">
     <div class="container h-100">
         <div class="row h-100 align-items-center">
@@ -14,28 +14,6 @@
     </div>
 </header>
 
-<div class="row my-4">
-    <div class="col-md-8">
-        <div class="card my-4">
-            <h5 class="card-header">カテゴリ</h5>
-            <div class="card-body">
-                <div class="row">
-                    {% for category in category_data %}
-                    <div class="col-md-6">
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="{% url 'category' category %}">
-                                    {{ category.name }}
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>    
-        </div>
-    </div>
-</div>
 <div class="picmenu">
     <ul class="table-ul">
         <li>

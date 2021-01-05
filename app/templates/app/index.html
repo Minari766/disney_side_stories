@@ -9,7 +9,11 @@
             <div class="col-12 text-center TDL-table">
                 <img src="{% static 'img/TDL.png' %}" alt="">
                 <a href="{% url 'critter_top' %}" class="critter-link">クリッターカントリー</a>
-                <a href="{% url 'fantasy_top' %}" class="fantasy-link">ファンタジーランド</a>
+                <a href="{% url 'fantasy_top' %}" class="fantasy-link">
+                    <a href="{% url 'area' 'ファンタジーランド' %}">
+                        ファンタジーランド
+                    </a>
+                </a>
                 <a href="toon_top" class="toon-link">トゥーンタウン</a>
                 <a href="western_top" class="western-link">ウエスタンランド</a>
                 <a href="{% url 'adventure_top' %}" class="adventure-link">アドベンチャーランド</a>
@@ -26,31 +30,31 @@
 <div class="picmenu">
     <ul class="table-ul">
         <li>
-            <a href="#">
+            <a href="{% url 'category' '全て' %}">
                 <img src="{% static 'img/box.png' %}" alt="全て" class="icon-category">
                 <p>全て</p>
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="{% url 'category' 'ストーリー' %}">
                 <img src="{% static 'img/memo.png' %}" alt="ストーリー" class="icon-category">
                 <p>ストーリー</p>
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="{% url 'category' '隠れミッキー' %}">
                 <img src="{% static 'img/mickey_b.png' %}" alt="隠れミッキー" class="icon-category">
                 <p>隠れミッキー</p>
             </a>
         </li>
         <li>
-            <a href="#">
-                <img src="{% static 'img/blub.png' %}" alt="豆知識" class="icon-category icon-category-bulb">
+            <a href="{% url 'category' 'トリビア' %}">
+                <img src="{% static 'img/blub.png' %}" alt="トリビア" class="icon-category icon-category-bulb">
                 <p>豆知識</p>
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="{% url 'category' 'その他' %}">
                 <img src="{% static 'img/bookmark.png' %}" alt="その他" class="icon-category">
                 <p>その他</p>
             </a>
