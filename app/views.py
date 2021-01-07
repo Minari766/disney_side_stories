@@ -1,4 +1,5 @@
 from django.views.generic import View
+from django.views.generic.list import MultipleObjectMixin
 from django.shortcuts import render,redirect
 from .models import Post
 from .models import Post, Area, Attraction, Category
@@ -14,6 +15,7 @@ from operator import and_
 class IndexView(View):
     def get(self, request, *args, **kwargs):
         post_data = Post.objects.order_by("-id")
+        print(post_data)
         return render(request, 'app/index.html', {
             'post_data': post_data,
         })

@@ -16,7 +16,6 @@ class PostForm(forms.Form):
     category_choice = {}
     for category in category_data:
         category_choice[category] = category
-    print(category_choice)
     
 
     title = forms.CharField(max_length=50, label='タイトル')
