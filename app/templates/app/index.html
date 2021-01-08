@@ -74,13 +74,14 @@
         </div>
         <h3>{{ post.title }}</h3>
         <p>{{ post.content|truncatechars:100 }}</p>
-        <!-- <a class="btn btn-warning" href="#">続きを読む</a> -->
         <a style="float:right;" href="{% url 'post_detail' post.id %}">続きを読む</a>
     </div>
 </div>
 <hr>
 {% endfor %}
 <div class="text-right">
+    {% include "app/snippets/posts.html" %}
+    {% include "app/pagination.html" %}
     <!-- <button class="btn btn-info" type="button" href="{% url 'post_new' %}">新しい記事を投稿</button> -->
     <a href="{% url 'post_new' %}" class="btn btn-info">新しい記事を投稿</a>
 </div>

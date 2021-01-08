@@ -1,7 +1,6 @@
 from django.views.generic import View
 from django.views.generic.list import MultipleObjectMixin
 from django.shortcuts import render,redirect
-from .models import Post
 from .models import Post, Area, Attraction, Category
 from .forms import PostForm
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -11,14 +10,27 @@ from django.db.models import Q
 from functools import reduce
 # 足算に必要
 from operator import and_
+from django.core.paginator import Paginator
 
-class IndexView(View):
+# class IndexView(View, MultipleObjectMixin):
+#     def get(self, request, *args, **kwargs):
+#         post_data = Post.objects.order_by("-id")
+#         return render(request, 'app/index.html', {
+#             'post_data': post_data,
+#         })
+
+class IndexView(View, MultipleObjectMixin):
     def get(self, request, *args, **kwargs):
         post_data = Post.objects.order_by("-id")
-        print(post_data)
+        paginator = Paginator(post_data, 2)
+        if "page" in request.GET:
+            post_data = paginator.get_page(request.GET["page"])
+        else:
+            post_data = paginator.get_page(2)
         return render(request, 'app/index.html', {
             'post_data': post_data,
         })
+
 
 class PostDetailView(View):
     def get(self, request, *args, **kwargs):
