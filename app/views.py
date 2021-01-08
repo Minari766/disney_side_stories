@@ -24,9 +24,9 @@ class IndexView(View, MultipleObjectMixin):
         post_data = Post.objects.order_by("-id")
         paginator = Paginator(post_data, 2)
         if "page" in request.GET:
-            post_data = paginator.get_page(request.GET["page"])
+            page_obj = paginator.get_page(request.GET["page"])
         else:
-            post_data = paginator.get_page(2)
+            post_obj = paginator.get_page(2)
         return render(request, 'app/index.html', {
             'post_data': post_data,
         })
