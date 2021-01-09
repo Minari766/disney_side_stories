@@ -23,40 +23,7 @@
 <div class="row my-4">
 
 </div>
-<div class="picmenu">
-    <ul class="table-ul">
-        <li>
-            <a href="{% url 'category' '全て' %}">
-                <img src="{% static 'img/box.png' %}" alt="全て" class="icon-category">
-                <p>全て</p>
-            </a>
-        </li>
-        <li>
-            <a href="{% url 'category' 'ストーリー' %}">
-                <img src="{% static 'img/memo.png' %}" alt="ストーリー" class="icon-category">
-                <p>ストーリー</p>
-            </a>
-        </li>
-        <li>
-            <a href="{% url 'category' '隠れミッキー' %}">
-                <img src="{% static 'img/mickey_b.png' %}" alt="隠れミッキー" class="icon-category">
-                <p>隠れミッキー</p>
-            </a>
-        </li>
-        <li>
-            <a href="{% url 'category' 'トリビア' %}">
-                <img src="{% static 'img/blub.png' %}" alt="トリビア" class="icon-category icon-category-bulb">
-                <p>豆知識</p>
-            </a>
-        </li>
-        <li>
-            <a href="{% url 'category' 'その他' %}">
-                <img src="{% static 'img/bookmark.png' %}" alt="その他" class="icon-category">
-                <p>その他</p>
-            </a>
-        </li>
-    </ul>
-</div>
+{% include "app/snippets/picmenu.html" %}
     
 {% for post in post_data %}
 <div class="row">
@@ -79,10 +46,10 @@
 </div>
 <hr>
 {% endfor %}
-{% include "app/snippets/posts.html" %}
-{% include "app/pagination.html" %}
+
+{% include "app/snippets/pagination.html" %}
 <div class="text-right">
-    <!-- <button class="btn btn-info" type="button" href="{% url 'post_new' %}">新しい記事を投稿</button> -->
     <a href="{% url 'post_new' %}" class="btn btn-info">新しい記事を投稿</a>
 </div>
+
 {% endblock %}

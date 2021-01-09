@@ -13,41 +13,10 @@
         </div>
     </div>
 </header>
+<div class="row my-4">
 
-<div class="picmenu">
-    <ul class="table-ul">
-        <li>
-            <a href="#">
-                <img src="{% static 'img/box.png' %}" alt="全て" class="icon-category">
-                <p>全て</p>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <img src="{% static 'img/memo.png' %}" alt="ストーリー" class="icon-category">
-                <p>ストーリー</p>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <img src="{% static 'img/mickey_b.png' %}" alt="隠れミッキー" class="icon-category">
-                <p>隠れミッキー</p>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <img src="{% static 'img/blub.png' %}" alt="豆知識" class="icon-category icon-category-bulb">
-                <p>豆知識</p>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <img src="{% static 'img/bookmark.png' %}" alt="その他" class="icon-category">
-                <p>その他</p>
-            </a>
-        </li>
-    </ul>
 </div>
+{% include "app/snippets/picmenu.html" %}
     
 {% for post in post_data %}
 <div class="row">
@@ -65,14 +34,15 @@
         </div>
         <h3>{{ post.title }}</h3>
         <p>{{ post.content|truncatechars:100 }}</p>
-        <!-- <a class="btn btn-warning" href="#">続きを読む</a> -->
         <a style="float:right;" href="#">続きを読む</a>
     </div>
 </div>
 <hr>
 {% endfor %}
+
+{% include "app/snippets/pagination.html" %}
 <div class="text-right">
-    <button class="btn btn-info" type="button" href="#">新しい記事を投稿</button>
+    <a href="{% url 'post_new' %}" class="btn btn-info">新しい記事を投稿</a>
 </div>
 
 {% endblock %}

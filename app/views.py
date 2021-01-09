@@ -1,5 +1,5 @@
 from django.views.generic import View
-from django.views.generic.list import MultipleObjectMixin
+# from django.views.generic.list import MultipleObjectMixin
 from django.shortcuts import render,redirect
 from .models import Post, Area, Attraction, Category
 from .forms import PostForm
@@ -10,25 +10,29 @@ from django.db.models import Q
 from functools import reduce
 # 足算に必要
 from operator import and_
-from django.core.paginator import Paginator
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-# class IndexView(View, MultipleObjectMixin):
-#     def get(self, request, *args, **kwargs):
-#         post_data = Post.objects.order_by("-id")
-#         return render(request, 'app/index.html', {
-#             'post_data': post_data,
-#         })
+class IndexView(View):
+    def paginate_queryset(self, request, queryset, count):
+        paginator = Paginator(queryset, count)
+        page = request.GET.get('page')
+        try:
+            page_obj = paginator.page(page)
+        except PageNotAnInteger:
+            page_obj = paginator.page(1)
+        except EmptyPage:
+            page_obj = paginator.page(paginator.num_pages)
+        print(page_obj)
+        # page_obj:全体何ページ中のXページ目かを定義
+        return page_obj
 
-class IndexView(View, MultipleObjectMixin):
     def get(self, request, *args, **kwargs):
         post_data = Post.objects.order_by("-id")
-        paginator = Paginator(post_data, 2)
-        if "page" in request.GET:
-            page_obj = paginator.get_page(request.GET["page"])
-        else:
-            post_obj = paginator.get_page(2)
+        page_obj = self.paginate_queryset(request, post_data, 10)
         return render(request, 'app/index.html', {
-            'post_data': post_data,
+            # object_list:クエリセットで使える変数
+            'post_data': page_obj.object_list,
+            'page_obj': page_obj, 
         })
 
 
@@ -186,6 +190,8 @@ class BazaarView(View):
 
 class FantasyView(View):
     def get(self, request, *args, **kwargs):
+        # area_data = Area.objects.get(name="ファンタジーランド")
+        # post_data = Post.objects.order_by("-id").filter(area=area_data)
         post_data = Post.objects.order_by("-id")
         return render(request, 'app/fantasy.html', {
             'post_data': post_data,
