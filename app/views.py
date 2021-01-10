@@ -22,7 +22,6 @@ class IndexView(View):
             page_obj = paginator.page(1)
         except EmptyPage:
             page_obj = paginator.page(paginator.num_pages)
-        print(page_obj)
         # page_obj:全体何ページ中のXページ目かを定義
         return page_obj
 
