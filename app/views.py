@@ -187,12 +187,17 @@ class BazaarView(View):
             'post_data': post_data,
         })
 
-class FantasyView(View):
+class AdventureView(View):
     def get(self, request, *args, **kwargs):
-        # area_data = Area.objects.get(name="ファンタジーランド")
-        # post_data = Post.objects.order_by("-id").filter(area=area_data)
         post_data = Post.objects.order_by("-id")
-        return render(request, 'app/fantasy.html', {
+        return render(request, 'app/adventure.html', {
+            'post_data': post_data,
+        })
+
+class WesternView(View):
+    def get(self, request, *args, **kwargs):
+        post_data = Post.objects.order_by("-id")
+        return render(request, 'app/western.html', {
             'post_data': post_data,
         })
 
@@ -203,10 +208,29 @@ class CritterView(View):
             'post_data': post_data,
         })
 
-class AdventureView(View):
+class FantasyView(View):
+    def get(self, request, *args, **kwargs):
+        area_data = Area.objects.get(name="ファンタジーランド")
+        post_data = Post.objects.order_by("-id").filter(area=area_data)
+        print(area_data)
+        print(Post)
+        print("test")
+        # post_data = Post.objects.order_by("-id")
+        return render(request, 'app/fantasy.html', {
+            'post_data': post_data,
+        })
+
+class ToonView(View):
     def get(self, request, *args, **kwargs):
         post_data = Post.objects.order_by("-id")
-        return render(request, 'app/adventure.html', {
+        return render(request, 'app/toon.html', {
+            'post_data': post_data,
+        })
+
+class TomorrowView(View):
+    def get(self, request, *args, **kwargs):
+        post_data = Post.objects.order_by("-id")
+        return render(request, 'app/tomorrow.html', {
             'post_data': post_data,
         })
 

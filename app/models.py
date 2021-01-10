@@ -4,7 +4,6 @@ from django.utils import timezone
 
 class Area(models.Model):
     name = models.CharField("エリア", max_length=100)
-
     def __str__(self):
         return self.name
 class Attraction(models.Model):
