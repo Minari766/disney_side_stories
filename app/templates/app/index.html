@@ -1,37 +1,144 @@
 {% extends "app/base.html" %}
+{% load utils %}
 {% load static %}
 
 {% block content %}
+
 <!-- トップ絵部分 -->
 <header class="masthead">
     <div class="container h-100">
         <div class="row h-100 align-items-center">
             <div class="col-12 text-center TDL-table">
-                <img src="{% static 'img/TDL.png' %}" alt="">
-                <a href="{% url 'bazaar_top' %}" class="bazaar-link">ワールドバザール</a>
-                <a href="{% url 'adventure_top' %}" class="adventure-link">アドベンチャーランド</a>
-                <a href="{% url 'western_top' %}" class="western-link">ウエスタンランド</a>
-                <a href="{% url 'critter_top' %}" class="critter-link">クリッターカントリー</a>
-                <a href="{% url 'fantasy_top' %}" class="fantasy-link">ファンタジーランド</a>
-                <a href="{% url 'toon_top' %}" class="toon-link">トゥーンタウン</a>
-                <a href="{% url 'tomorrow_top' %}" class="tomorrow-link">トゥモローランド</a>
+                {% if area == 'fantasy' %}
+                    <img src="{% static 'img/fantasy_top.png' %}" alt="">
+                {% elif area == 'toon' %}
+                    <img src="{% static 'img/fantasy_top.png' %}" alt="">
+                {% else %}
+                    <img src="{% static 'img/TDL.png' %}" alt="">
+                    {% if category == 'story' %}
+                        <a href="{% url 'index' 'fantasy' 'story' %}" class="fantasy-link">ファンタジーランド</a>
+                        <a href="{% url 'index' 'toon' 'story' %}" class="toon-link">トゥーンタウン</a>
+                    {% elif category == 'mickey' %}
+                        <a href="{% url 'index' 'fantasy' 'mickey' %}" class="fantasy-link">ファンタジーランド</a>
+                        <a href="{% url 'index' 'toon' 'mickey' %}" class="toon-link">トゥーンタウン</a>
+                    {% else %}
+                        <!-- <a href="{% url 'bazaar_top' %}" class="bazaar-link">ワールドバザール</a>
+                        <a href="{% url 'adventure_top' %}" class="adventure-link">アドベンチャーランド</a>
+                        <a href="{% url 'western_top' %}" class="western-link">ウエスタンランド</a>
+                        <a href="{% url 'critter_top' %}" class="critter-link">クリッターカントリー</a> -->
+                        <a href="{% url 'index' 'fantasy' %}" class="fantasy-link">ファンタジーランド</a>
+                        <a href="{% url 'index' 'toon' %}" class="toon-link">トゥーンタウン</a>
+                        <!-- <a href="{% url 'tomorrow_top' %}" class="tomorrow-link">トゥモローランド</a> -->
+                    {% endif %}
+                {% endif %}
             </div>
         </div>
     </div>
 </header>
 
-{% include "app/snippets/picmenu.html" %}
-
-
 <div class="row my-4">
 
 </div>
 
-{% include "app/snippets/post.html" %}    
-
-{% include "app/snippets/pagination.html" %}
+<div class="picmenu">
+    <ul class="table-ul">
+        <li>
+            <a href="{% url 'category' '全て' %}">
+                <img src="{% static 'img/box.png' %}" alt="全て" class="icon-category">
+                <p>全て</p>
+            </a>
+        </li>
+        <li>
+            {% if area == 'fantasy' %}
+                <a href="{% url 'index' 'fantasy' 'story' %}">
+            {% elif area == 'toon' %}
+                <a href="{% url 'index' 'toon' 'story' %}">
+            {% else %}
+                <a href="{% url 'index' 'all' 'story' %}">
+            {% endif %}
+                <img src="{% static 'img/memo.png' %}" alt="ストーリー" class="icon-category">
+                <p>ストーリー</p>
+            </a>
+        </li>
+        <li>
+            {% if area == 'fantasy' %}
+                <a href="{% url 'index' 'fantasy' 'mickey' %}">
+            {% elif area == 'toon' %}
+                <a href="{% url 'index' 'toon' 'mickey' %}">
+            {% else %}
+                <a href="{% url 'index' 'all' 'mickey' %}">
+            {% endif %}
+                <img src="{% static 'img/mickey_b.png' %}" alt="隠れミッキー" class="icon-category">
+                <p>隠れミッキー</p>
+            </a>
+        </li>
+        <li>
+            <a href="{% url 'category' 'トリビア' %}">
+                <img src="{% static 'img/blub.png' %}" alt="トリビア" class="icon-category icon-category-bulb">
+                <p>豆知識</p>
+            </a>
+        </li>
+        <li>
+            <a href="{% url 'category' 'その他' %}">
+                <img src="{% static 'img/bookmark.png' %}" alt="その他" class="icon-category">
+                <p>その他</p>
+            </a>
+        </li>
+    </ul>
+</div>
+{% for post in post_data %}
+<div class="row">
+    <div class="col-md-4">
+        <a href="#">
+            {% if post.image %}
+            <img class="img-fluid rounded mb-3 mb-md-0" src="{{ post.image.url }}" alt="">
+            {% endif %}
+        </a>
+    </div>
+    <div class="col-md-8">
+        <div class="author-created">
+            <h7 class="text_left">{{ post.author }}</h7>
+            <h7 class="text_right">{{ post.created }}</h7>
+        </div>
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.content|truncatechars:100 }}</p>
+        <a style="float:right;" href="{% url 'post_detail' post.id %}">続きを読む</a>
+    </div>
+</div>
+<hr>
+{% endfor %}
+<ul class="pagination justify-content-center">
+    {% if page_obj.has_previous %}
+    <li class="page-item">
+        <a class="page-link" href="?{%  url_replace request 'page' page_obj.previous_page_number %}">
+            <span aria-hidden="true">&laquo;</span>
+        </a>
+    </li>
+    {% endif %}
+    {% for num in page_obj.paginator.page_range %}
+    {% if page_obj.number == num %}
+    <li class="page-item active">
+        <a class="page-link" href="#!">
+            {{ num }}
+        </a>
+    </li>
+    {% else %}
+    <li class="page-item">
+        <a class="page-link" href="?{%  url_replace request 'page' num %}">
+            {{ num }}
+        </a>
+    </li>
+    {% endif %}
+    {% endfor %}
+    {% if page_obj.has_next %}
+    <li class="page-item">
+        <a class="page-link" href="?{%  url_replace request 'page' page_obj.next_page_number %}">
+            <span aria-hidden="true">&raquo;</span>
+        </a>
+    </li>
+    {% endif %}
+</ul>
 <div class="text-right">
     <a href="{% url 'post_new' %}" class="btn btn-info">新しい記事を投稿</a>
 </div>
-
 {% endblock %}
