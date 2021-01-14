@@ -55,6 +55,7 @@ class IndexView(View):
                 category_data = Category.objects.get(name='隠れミッキー')
                 post_data = post_data.filter(category=category_data)
         page_obj = self.paginate_queryset(request, post_data, 10)
+        print("test2")
         return render(request, 'app/index.html', {
             'post_data': page_obj.object_list,
             'page_obj': page_obj,
@@ -66,6 +67,7 @@ class IndexView(View):
 class PostDetailView(View):
     def get(self, request, *args, **kwargs):
         post_data = Post.objects.get(id=self.kwargs['pk'])
+        print("test")
         return render(request, 'app/post_detail.html', {
             'post_data': post_data
         })
