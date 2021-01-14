@@ -16,19 +16,29 @@
                 {% else %}
                     <img src="{% static 'img/TDL.png' %}" alt="">
                     {% if category == 'story' %}
+                        <a href="{% url 'index' 'bazaar' 'story' %}" class="bazaar-link">ワールドバザール</a>
+                        <a href="{% url 'index' 'adventure' 'story' %}" class="adventure-link">アドベンチャーランド</a>
+                        <a href="{% url 'index' 'western' 'story' %}" class="western-link">ウエスタンランド</a>
+                        <a href="{% url 'index' 'critter' 'story' %}" class="critter-link">クリッターカントリー</a>
                         <a href="{% url 'index' 'fantasy' 'story' %}" class="fantasy-link">ファンタジーランド</a>
                         <a href="{% url 'index' 'toon' 'story' %}" class="toon-link">トゥーンタウン</a>
+                        <a href="{% url 'index' 'tomorrow' 'story' %}" class="tomorrow-link">トゥモローランド</a>
                     {% elif category == 'mickey' %}
+                        <a href="{% url 'index' 'bazaar' 'mickey' %}" class="bazaar-link">ワールドバザール</a>
+                        <a href="{% url 'index' 'adventure' 'mickey' %}" class="adventure-link">アドベンチャーランド</a>
+                        <a href="{% url 'index' 'western' 'mickey' %}" class="western-link">ウエスタンランド</a>
+                        <a href="{% url 'index' 'critter' 'mickey' %}" class="critter-link">クリッターカントリー</a>
                         <a href="{% url 'index' 'fantasy' 'mickey' %}" class="fantasy-link">ファンタジーランド</a>
                         <a href="{% url 'index' 'toon' 'mickey' %}" class="toon-link">トゥーンタウン</a>
+                        <a href="{% url 'index' 'tomorrow' 'mickey' %}" class="tomorrow-link">トゥモローランド</a>
                     {% else %}
-                        <!-- <a href="{% url 'bazaar_top' %}" class="bazaar-link">ワールドバザール</a>
-                        <a href="{% url 'adventure_top' %}" class="adventure-link">アドベンチャーランド</a>
-                        <a href="{% url 'western_top' %}" class="western-link">ウエスタンランド</a>
-                        <a href="{% url 'critter_top' %}" class="critter-link">クリッターカントリー</a> -->
+                        <a href="{% url 'index' 'bazaar' %}" class="bazaar-link">ワールドバザール</a>
+                        <a href="{% url 'index' 'adventure' %}" class="adventure-link">アドベンチャーランド</a>
+                        <a href="{% url 'index' 'western' %}" class="western-link">ウエスタンランド</a>
+                        <a href="{% url 'index' 'critter' %}" class="critter-link">クリッターカントリー</a>
                         <a href="{% url 'index' 'fantasy' %}" class="fantasy-link">ファンタジーランド</a>
                         <a href="{% url 'index' 'toon' %}" class="toon-link">トゥーンタウン</a>
-                        <!-- <a href="{% url 'tomorrow_top' %}" class="tomorrow-link">トゥモローランド</a> -->
+                        <a href="{% url 'index' 'tomorrow' %}" class="tomorrow-link">トゥモローランド</a>
                     {% endif %}
                 {% endif %}
             </div>

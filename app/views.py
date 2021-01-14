@@ -184,29 +184,29 @@ class PostDeleteView(LoginRequiredMixin, View):
         return redirect('index')
 
 
-# class AreaView(View):
-#     def get(self, request, *args, **kwargs):
-#         area_data = Area.objects.get(name=self.kwargs['area'])
-#         post_data = Post.objects.order_by('-id').filter(area=area_data)
-#         return render(request, 'app/index.html', {
-#             'post_data': post_data
-#         })
+class AreaView(View):
+    def get(self, request, *args, **kwargs):
+        area_data = Area.objects.get(name=self.kwargs['area'])
+        post_data = Post.objects.order_by('-id').filter(area=area_data)
+        return render(request, 'app/index.html', {
+            'post_data': post_data
+        })
 
-# class AttractionView(View):
-#     def get(self, request, *args, **kwargs):
-#         attraction_data = Attraction.objects.get(name=self.kwargs['attraction'])
-#         post_data = Post.objects.order_by('-id').filter(attraction=attraction_data)
-#         return render(request, 'app/index.html', {
-#             'post_data': post_data
-#         })
+class AttractionView(View):
+    def get(self, request, *args, **kwargs):
+        attraction_data = Attraction.objects.get(name=self.kwargs['attraction'])
+        post_data = Post.objects.order_by('-id').filter(attraction=attraction_data)
+        return render(request, 'app/index.html', {
+            'post_data': post_data
+        })
 
-# class CategoryView(View):
-#     def get(self, request, *args, **kwargs):
-#         category = self.kwargs.get('category')
-#         category_data = Category.objects.get(name=self.kwargs['category'])
-#         return render(request, 'app/index.html', {
-#             'post_data': post_data
-#         })
+class CategoryView(View):
+    def get(self, request, *args, **kwargs):
+        category = self.kwargs.get('category')
+        category_data = Category.objects.get(name=self.kwargs['category'])
+        return render(request, 'app/index.html', {
+            'post_data': post_data
+        })
 
 class AboutView(View):
     def get(self, request, *args, **kwargs):
@@ -247,59 +247,3 @@ class SearchView(View):
             'keyword' : keyword,
             'post_data' : post_data
         })
-
-# class BazaarView(View):
-#     def get(self, request, *args, **kwargs):
-#         post_data = Post.objects.order_by("-id")
-#         return render(request, 'app/bazaar.html', {
-#             'post_data': post_data,
-#         })
-
-# class AdventureView(View):
-#     def get(self, request, *args, **kwargs):
-#         post_data = Post.objects.order_by("-id")
-#         return render(request, 'app/adventure.html', {
-#             'post_data': post_data,
-#         })
-
-# class WesternView(View):
-#     def get(self, request, *args, **kwargs):
-#         post_data = Post.objects.order_by("-id")
-#         return render(request, 'app/western.html', {
-#             'post_data': post_data,
-#         })
-
-# class CritterView(View):
-#     def get(self, request, *args, **kwargs):
-#         post_data = Post.objects.order_by("-id")
-#         return render(request, 'app/critter.html', {
-#             'post_data': post_data,
-#         })
-
-# class FantasyView(View):
-#     def get(self, request, *args, **kwargs):
-#         area_data = Area.objects.get(name="ファンタジーランド")
-#         post_data = Post.objects.order_by("-id").filter(area=area_data)
-#         # post_data = Post.objects.order_by("-id")
-#         return render(request, 'app/fantasy.html', {
-#             'post_data': post_data,
-#         })
-
-# class ToonView(View):
-#     def get(self, request, *args, **kwargs):
-#         area_data = Area.objects.get(name="トゥーンタウン")
-#         if self.kwargs.get("category"):
-#             category_data = Category.objects.get(name=self.kwargs['category'])
-#             post_data = Post.objects.order_by("-id").filter(area=area_data).filter(category=category_data)
-#         else:
-#             post_data = Post.objects.order_by("-id").filter(area=area_data)
-#         return render(request, 'app/toon.html', {
-#             'post_data': post_data,
-#         })
-
-# class TomorrowView(View):
-#     def get(self, request, *args, **kwargs):
-#         post_data = Post.objects.order_by("-id")
-#         return render(request, 'app/tomorrow.html', {
-#             'post_data': post_data,
-#         })

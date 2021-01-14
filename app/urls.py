@@ -10,9 +10,9 @@ urlpatterns = [
     path('post/preview/', views.PreviewPostView.as_view(), name='preview'),
     path('post/<int:pk>/edit/', views.PostEditView.as_view(), name='post_edit'),
     path('post/<int:pk>/delete/', views.PostDeleteView.as_view(), name='post_delete'),
-    # path('category/<str:category>', views.CategoryView.as_view(), name='category'),
-    # path('category/<str:category>/<str:area>', views.CategoryView.as_view(), name='category'),
-    # path('category/<str:area>/<str:category>', views.CategoryView.as_view(), name='category'),
+    path('category/<str:category>', views.CategoryView.as_view(), name='category'),
+    path('category/<str:category>/<str:area>', views.CategoryView.as_view(), name='category'),
+    path('category/<str:area>/<str:category>', views.CategoryView.as_view(), name='category'),
     # アトラクションはareaを選択した後のみ
     # path('bazaar', views.BazaarView.as_view(), name='bazaar_top'),
     # path('adventure', views.AdventureView.as_view(), name='adventure_top'),
