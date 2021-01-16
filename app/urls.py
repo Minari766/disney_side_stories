@@ -16,6 +16,7 @@ urlpatterns = [
     path('about', views.AboutView.as_view(), name='about_top'),
     path('mypage', views.MypageView.as_view(), name='mypage'),
     path('category/<str:category>/', views.CategoryNameView.as_view(), name='category_name'),
-    path('search/', views.SearchView.as_view(), name='search')
+    path('search/', views.SearchView.as_view(), name='search'),
+    path('like/', views.LikeView, name='like'),
 ]
 

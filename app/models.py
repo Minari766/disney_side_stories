@@ -30,3 +30,13 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+class Like(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    # AUTH_USER_MODEL：ログイン中のUser情報
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    timestamp = models.DateTimeField(default=timezone.now)
+
+    # 管理画面で表示される文字列
+    def __str__(self):
+        return self.post

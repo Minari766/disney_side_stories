@@ -1,7 +1,7 @@
+from django.http import JsonResponse
 from django.views.generic import View
-# from django.views.generic.list import MultipleObjectMixin
-from django.shortcuts import render,redirect
-from .models import Post, Area, Attraction, Category
+from django.shortcuts import render,redirect, get_object_or_404
+from .models import Post, Area, Attraction, Category, Like
 from .forms import PostForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 # or検索するために必要なQオブジェクトを取得
@@ -55,7 +55,6 @@ class IndexView(View):
                 category_data = Category.objects.get(name='隠れミッキー')
                 post_data = post_data.filter(category=category_data)
         page_obj = self.paginate_queryset(request, post_data, 10)
-        print("test2")
         return render(request, 'app/index.html', {
             'post_data': page_obj.object_list,
             'page_obj': page_obj,
@@ -67,9 +66,15 @@ class IndexView(View):
 class PostDetailView(View):
     def get(self, request, *args, **kwargs):
         post_data = Post.objects.get(id=self.kwargs['pk'])
-        print("test")
+        liked_list = []
+
+        liked = post_data.like_set.filter(author=request.user)
+        if liked.exists():
+            liked_list.append(post_data.id)
+
         return render(request, 'app/post_detail.html', {
-            'post_data': post_data
+            'post_data': post_data,
+            'liked_list': liked_list,
         })
 
 class CreatePostView(LoginRequiredMixin, View):
@@ -249,3 +254,26 @@ class SearchView(View):
             'keyword' : keyword,
             'post_data' : post_data
         })
+
+def LikeView(request):
+    if request.method =="POST":
+        print("test1")
+        post = get_object_or_404(Post, pk=request.POST.get("post_id"))
+        print("test")
+        user = request.user
+        liked = False
+        like = Like.objects.filter(post=post, author=user)
+        if like.exists():
+            like.delete()
+        else:
+            like.create(post=post, author=user)
+            liked = True
+        
+        context={
+            'post_id': post.id,
+            'liked': liked,
+            'count': post.like_set.count(),
+        }
+
+        if request.is_ajax():
+            return JsonResponse(context)

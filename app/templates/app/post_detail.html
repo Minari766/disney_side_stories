@@ -32,4 +32,46 @@
 
 <button type="button" class="btn btn-danger rounded-circle p-0" style="width:2rem;height:2rem;">♡</button>
 
+<!-- likeボタン -->
+<form action="{% url 'like' %}" method="POST">
+    {% csrf_token %}
+    {% if post_data.id in liked_list %}
+        <button id="like" name="{{ post_data.id }}"><i class="fas fa-lg fa-heart like-red"></i></button>
+    {% else %}
+        <button id="like" name="{{ post_data.id }}"><i class="far fa-lg fa-heart"></i></button>      
+    {% endif %}
+</form>
+<p name="{{ post_data.id }}-count" class="count"> {{ post_data.like_set.count }} </p>
+
+{% endblock %}
+
+{% block extra_js %}
+<script type="text/javascript">
+    $(document).ready(function(event){
+        $(document).on('click', '#like', function(event){
+            console.log('test2')
+            console.log($(this).attr('name'))
+            event.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: "{% url 'like' %}",
+                data: {
+                    'post_id': $(this).attr('name'),
+                    'csrfmiddlewaretoken': '{{ csrf_token }}'},
+                dataType: 'json',
+                success: function(response){
+                    selector = document.getElementsByName(response.post_id);
+                    if(response.liked){
+                        $(selector).html("<i class='fas fa-lg fa-heart'></i>");
+                    }
+                    else {
+                        $(selector).html("<i class='far fa-lg fa-heart'></i>");
+                    }
+                    selector2 = document.getElementsByName(response.post_id + "-count");
+                    $(selector2).text(response.count);
+                }
+            });
+        });
+    });
+</script>
 {% endblock %}
