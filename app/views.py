@@ -29,8 +29,6 @@ class IndexView(View):
         post_data = Post.objects.order_by("-id")
         area = self.kwargs.get('area')
         category = self.kwargs.get('category')
-        print(category)
-        # print("test")
         if area == 'bazaar':
             area_data = Area.objects.get(name='ワールドバザール')
             post_data = post_data.filter(area=area_data)
@@ -340,15 +338,31 @@ class AboutView(View):
         return render(request, 'app/about.html')
 
 class MypageView(View):
+    def paginate_queryset(self, request, queryset, count):
+        paginator = Paginator(queryset, count)
+        page = request.GET.get('page')
+        try:
+            page_obj = paginator.page(page)
+        except PageNotAnInteger:
+            page_obj = paginator.page(1)
+        except EmptyPage:
+            page_obj = paginator.page(paginator.num_pages)
+        return page_obj
+
     def get(self, request, *args, **kwargs):
         like_data = Like.objects.order_by('-id').filter(author=request.user)
+        mypost_data = Post.objects.order_by('-id').filter(author=request.user)
+        
+        page_obj_like = self.paginate_queryset(request, like_data, 3)
+        page_obj_mypost = self.paginate_queryset(request, mypost_data, 5)
+        
         return render(request, 'app/mypage.html', {
-            'like_data': like_data
+            'like_data': page_obj_like.object_list,
+            'mypost_data': page_obj_mypost.object_list,
+            'page_obj_like': page_obj_like,
+            'page_obj_mypost': page_obj_mypost
         })
-        # post_data = Like.objects.order_by('-id')
-        # return render(request, 'app/mypage.html', {
-        #     'post_data': post_data
-        # })
+
 
 class CategoryNameView(View):
     def get(self, request, *args, **kwargs):
