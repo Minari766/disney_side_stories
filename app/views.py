@@ -29,6 +29,8 @@ class IndexView(View):
         post_data = Post.objects.order_by("-id")
         area = self.kwargs.get('area')
         category = self.kwargs.get('category')
+        print(category)
+        # print("test")
         if area == 'bazaar':
             area_data = Area.objects.get(name='ワールドバザール')
             post_data = post_data.filter(area=area_data)
@@ -329,7 +331,7 @@ class AttractionView(View):
 class CategoryView(View):
     def get(self, request, *args, **kwargs):
         category = self.kwargs.get('category')
-        category_data = Category.objects.get(name=self.kwargs['category'])
+        post_data = Category.objects.get(name=self.kwargs['category'])
         return render(request, 'app/index.html', {
             'post_data': post_data
         })
@@ -340,7 +342,10 @@ class AboutView(View):
 
 class MypageView(View):
     def get(self, request, *args, **kwargs):
-        return render(request, 'app/mypage.html')
+        post_data = Like.objects.order_by('-id')
+        return render(request, 'app/mypage.html', {
+            'post_data': post_data
+        })
 
 class CategoryNameView(View):
     def get(self, request, *args, **kwargs):
@@ -376,9 +381,7 @@ class SearchView(View):
 
 def LikeView(request):
     if request.method =="POST":
-        print("test1")
         post = get_object_or_404(Post, pk=request.POST.get("post_id"))
-        print("test")
         user = request.user
         liked = False
         like = Like.objects.filter(post=post, author=user)
@@ -396,3 +399,4 @@ def LikeView(request):
 
         if request.is_ajax():
             return JsonResponse(context)
+

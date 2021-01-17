@@ -12,7 +12,7 @@
 </div> -->
 
 </div>
-<div class="picmenu">
+<!-- <div class="picmenu">
     <ul class="table-ul">
         <li>
             <a href="#">
@@ -45,8 +45,28 @@
             </a>
         </li>
     </ul>
+</div> -->
+
+{% for post in post_data %}
+<div class="row">
+    <div class="col-md-4">
+        <a href="#">
+            {% if post.image %}
+            <img class="img-fluid rounded mb-3 mb-md-0" src="{{ post.image.url }}" alt="">
+            {% endif %}
+        </a>
+    </div>
+    <div class="col-md-8">
+        <div class="author-created">
+            <h7 class="text_left">{{ post.author }}</h7>
+            <h7 class="text_right">{{ post.created }}</h7>
+        </div>
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.content|truncatechars:100 }}</p>
+        <a style="float:right;" href="{% url 'post_detail' post.id %}">続きを読む</a>
+    </div>
 </div>
-<div>
-お気に入り機能    
-</div>
+<hr>
+{% endfor %}
+
 {% endblock %}
