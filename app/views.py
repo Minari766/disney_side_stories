@@ -311,7 +311,6 @@ class PostDeleteView(LoginRequiredMixin, View):
         post_data.delete()
         return redirect('index')
 
-
 class AreaView(View):
     def get(self, request, *args, **kwargs):
         area_data = Area.objects.get(name=self.kwargs['area'])
@@ -342,10 +341,14 @@ class AboutView(View):
 
 class MypageView(View):
     def get(self, request, *args, **kwargs):
-        post_data = Like.objects.order_by('-id')
+        like_data = Like.objects.order_by('-id').filter(author=request.user)
         return render(request, 'app/mypage.html', {
-            'post_data': post_data
+            'like_data': like_data
         })
+        # post_data = Like.objects.order_by('-id')
+        # return render(request, 'app/mypage.html', {
+        #     'post_data': post_data
+        # })
 
 class CategoryNameView(View):
     def get(self, request, *args, **kwargs):
