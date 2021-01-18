@@ -7,19 +7,16 @@
     <div class="card-body">
         <h5 class="card-title text-center">プロフィール</h5>
         <table class="profile_table mb-4">
+            <img src="{{ user_data.icon.url }}" class="user-icon">
             <tbody>
                 <tr>
                     <th class="header">名前</th>
-                    <td class="data">{{ user_data.first_name }} {{ user_data.last_name }}</td>
+                    <td class="data">{{ user_data.username }}</td>
                 </tr>
                 <tr>
                     <th class="header">メールアドレス</th>
                     <td class="data">{{ user_data.email }}</td>
                 </tr>
-                <!-- <tr>
-                    <th class="header">所属</th>
-                    <td class="data">{{ user_data.department }}</td>
-                </tr> -->
                 <tr>
                     <th class="header">入会日</th>
                     <td class="data">{{ user_data.created }}</td>

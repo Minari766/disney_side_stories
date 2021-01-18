@@ -150,17 +150,6 @@ a:hover {
     padding-bottom: 3px;
 }
 
-/* iconmenu */
-/* @font-face {
-    font-family: 'FontAwesome';
-    src: url('./font/fontawesome-webfont.eot?v=4.0.3');
-    src: url('./font/fontawesome-webfont.eot?#iefix&v=4.0.3') format('embedded-opentype'),
-         url('./font/fontawesome-webfont.woff?v=4.0.3') format('woff'),
-         url('./font/fontawesome-webfont.ttf?v=4.0.3') format('truetype'),
-         url('./font/fontawesome-webfont.svg?v=4.0.3#fontawesomeregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-} */
 .table-ul {
     /* background-color: #3ae; */
     border-bottom: 1px solid #dee2e6;
@@ -368,4 +357,38 @@ a:hover {
     /* height: 200px; */
     border: bold;
     margin-top: 2rem;
+}
+
+#profile_page {
+    padding-left: 3%;
+}
+
+#user_status {
+    display: inline-block;
+}
+
+.followBtn {
+    display: inline-block;
+    border: 1.5px solid #ddd;
+    padding: 2px 8px;
+    font-size: 16.5px;
+}
+
+#user_post {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 70px;
+}
+
+.list-t {
+    font-size: 1.9rem;
+    font-weight: 700;
+}
+
+.user-icon {
+    height: 80px;
+    width: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1.5px solid #eee;
 }

@@ -30,16 +30,12 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
-        
-class ProfImage(models.Model):
-    prof_image = models.ImageField(upload_to='images', verbose_name='ProfImage画像', null=True, blank=True)
 
 class Like(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     # AUTH_USER_MODEL：ログイン中のUser情報
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     timestamp = models.DateTimeField(default=timezone.now)
-    prof_image = models.ForeignKey(ProfImage, on_delete=models.CASCADE)
 
     # 管理画面で表示される文字列
     def __str__(self):

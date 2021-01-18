@@ -4,6 +4,7 @@ from accounts.forms import ProfileForm, SignupUserForm
 from django.shortcuts import render, redirect
 from allauth.account import views
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth import get_user_model
 
 # Create your views here.
 class ProfileView(LoginRequiredMixin, View):
@@ -20,9 +21,9 @@ class ProfileEditView(LoginRequiredMixin, View):
         form = ProfileForm(
             request.POST or None,
             initial={
-                'first_name': user_data.first_name,
-                'last_name': user_data.last_name,
-                'department': user_data.department
+                # 'first_name': user_data.first_name,
+                # 'last_name': user_data.last_name,
+                'username': user_data.username,
             }
         )
 
@@ -34,9 +35,9 @@ class ProfileEditView(LoginRequiredMixin, View):
         form = ProfileForm(request.POST or None)
         if form.is_valid():
             user_data = CustomUser.objects.get(id=request.user.id)
-            user_data.first_name = form.cleaned_data['first_name']
-            user_data.last_name = form.cleaned_data['last_name']
-            user_data.department = form.cleaned_data['department']
+            # user_data.first_name = form.cleaned_data['first_name']
+            # user_data.last_name = form.cleaned_data['last_name']
+            user_data.username = form.cleaned_data['username']
             user_data.save()
             return redirect('profile')
 

@@ -31,10 +31,9 @@ class UserManager(UserManager):
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField('メールアドレス', unique=True)
-    first_name = models.CharField(('姓'), max_length=30)
-    last_name = models.CharField(('名'), max_length=30)
-    # department = models.CharField(('所属'), max_length=30, blank=True)
+    username = models.CharField(('ニックネーム'), max_length=30)
     created = models.DateTimeField(('入会日'), default=timezone.now)
+    icon = models.ImageField(blank=True, null=True)
 
     is_staff = models.BooleanField(
         ('staff status'),

@@ -1,0 +1,14 @@
+{% extends "app/base.html" %}
+{% load widget_tweaks %}
+
+{% block content %}
+<div id="profile_page">
+    <div id="user_status">
+        <h2>{{ User.username }}</h2>
+        <p class="followBtn">フォローする</p>
+    </div>
+    <div id="user_post">
+        <p class="list-t">{{ User.username }}さんの投稿一覧</p>
+    </div>
+</div>
+{% endblock %}
