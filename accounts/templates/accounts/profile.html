@@ -1,31 +1,23 @@
 {% extends "app/base.html" %}
 {% load widget_tweaks %}
+{% load static %}
 
 {% block content %}
-
-<div class="card card-profile my-5 mx-auto">
-    <div class="card-body">
-        <h5 class="card-title text-center">プロフィール</h5>
-        <table class="profile_table mb-4">
+<div id="profile_page">
+    <div id="user_status">
+        {% if user_data.icon %}
             <img src="{{ user_data.icon.url }}" class="user-icon">
-            <tbody>
-                <tr>
-                    <th class="header">名前</th>
-                    <td class="data">{{ user_data.username }}</td>
-                </tr>
-                <tr>
-                    <th class="header">メールアドレス</th>
-                    <td class="data">{{ user_data.email }}</td>
-                </tr>
-                <tr>
-                    <th class="header">入会日</th>
-                    <td class="data">{{ user_data.created }}</td>
-                </tr>
-            </tbody>
-        </table>
-        <div class="button mx-auto">
-            <a class="btn btn-lg btn-warning btn-block" href="{% url 'profile_edit' %}">編集する</a>
-        </div>
+        {% else %}
+            <img src="{% static 'img/user1.png' %}" alt="" class="urser-icon">
+        {% endif %}
+        <h2>{{ user_data.username }}</h2>
+        <p class="followBtn">フォローする</p>
+    </div>
+    <div id="user_post">
+        <p class="list-t">{{ user_data.username }}さんの投稿一覧</p>
+    </div>
+    <div class="button mx-auto">
+        <a class="btn btn-lg btn-warning btn-block" href="{% url 'profile_edit' %}">編集する</a>
     </div>
 </div>
 
