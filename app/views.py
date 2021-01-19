@@ -174,6 +174,7 @@ class IndexView(View):
 
         page_obj = self.paginate_queryset(request, post_data, 10)
 
+
         return render(request, 'app/index.html', {
             'post_data': page_obj.object_list,
             'page_obj': page_obj,
@@ -221,8 +222,8 @@ class CreatePostView(LoginRequiredMixin, View):
             if request.FILES:
                 post_data.image = request.FILES.get('image')
             # .save()で入力データをDBに保存
-            # post_data.save()
-            # return redirect('post_detail', post_data.id)
+            post_data.save()
+            return redirect('post_detail', post_data.id)
             return render(request, 'app/post_preview.html', {
                 'post_data' : post_data
             })
@@ -247,8 +248,8 @@ class PreviewPostView(LoginRequiredMixin, View):
         post_data.author = request.user
         post_data.content = request.POST.get('content')
         post_data.image = request.POST.get('image')
-        # if request.FILES:
-        #         post_data.image = request.FILES.get('image')
+        if request.FILES:
+                post_data.image = request.FILES.get('image')
         post_data.title = request.POST.get('title')
         post_data.save()
         return redirect('index')

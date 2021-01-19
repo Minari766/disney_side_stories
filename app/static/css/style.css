@@ -197,10 +197,14 @@ a:hover {
 .masthead {
     height: 80vh;
     min-height: 300px;
-    /* background-image: {% static 'img/TDL.png'  %}; */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+.top-pic{
+  width: 50%;
+  height: 50%;  
 }
 
 .icon-category{
