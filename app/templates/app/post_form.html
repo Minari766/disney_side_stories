@@ -3,9 +3,7 @@
 
 {% block content %}
 
-<!-- <div class="my-4"> -->
 <div>
-    <!-- <h2 class="border-bottom">投稿入力</h2> -->
     <h2 class="ttl-bd mt-4 mb-4">投稿入力</h2>
 </div>
 
@@ -34,4 +32,62 @@
     </div>
 </form>
 
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    const areaElement = $('#id_area');
+    const attractionElement = $('#id_attraction');
+    const area_attraction = {
+        'ファンタジーランド': [
+            {
+                'value': 'アリスのティーパーティー',
+                'name': 'アリスのティーパーティー'
+            },
+            {
+                'value': 'イッツ・ア・スモールワールド',
+                'name': 'イッツ・ア・スモールワールド'
+            },
+            {
+                'value': 'キャッスルカルーセル',
+                'name': 'キャッスルカルーセル'
+            },
+            {
+                'value': '白雪姫と七人のこびと',
+                'name': '白雪姫と七人のこびと'
+            },
+            {
+                'value': 'シンデレラのフェアリーテイル・ホール',
+                'name': 'シンデレラのフェアリーテイル・ホール'
+            },
+        ],
+        'トゥーンタウン': [
+            {
+                'value': 'ガジェットのゴーコースター',
+                'name': 'ガジェットのゴーコースター'
+            },
+        ],
+    };
+    const changeArea = (select) => {
+        attractionElement.children().remove();
+        const parentId = areaElement.val();
+        const categoryList = area_attraction[parentId];
+        for (const category of categoryList) {
+            const option = $('<option>');
+            option.val(category['value']);
+            option.text(category['name']);
+            attractionElement.append(option);
+        }
+        if (select !== undefined) {
+            attractionElement.val(select);
+        }
+    };
+    $('#id_area').on('change', () => {
+        changeArea();
+    });
+    if (areaElement.val()) {
+        const selectedCategory = attractionElement.val();
+        changeArea(selectedCategory);
+    }
+</script>
 {% endblock %}

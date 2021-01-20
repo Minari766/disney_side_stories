@@ -13,12 +13,10 @@
 </div>
 <p>
     <div>{{ post_data.area }}</div>
-    <div>{{ post_data.category }}</div>
     <div>{{ post_data.attraction }}</div>
     <div>{{ post_data.category }}</div>
 </p>
 <p>{{ post_data.content|linebreaksbr }}</p>
-<button type="button" class="btn btn-warning right">Warning</button>
 {% if user.is_authenticated %}
 <hr>
 <div class="d-flex mb-5">
@@ -30,7 +28,7 @@
     <img class="mx-auto d-block img-fluid rounded detail-img mb-5" src="{{ post_data.image.url }}" alt="">         
 {% endif %}
 
-<button type="button" class="btn btn-danger rounded-circle p-0" style="width:2rem;height:2rem;">♡</button>
+<!-- <button type="button" class="btn btn-danger rounded-circle p-0" style="width:2rem;height:2rem;">♡</button> -->
 
 <!-- likeボタン -->
 <form action="{% url 'like' %}" method="POST">

@@ -198,15 +198,9 @@ class PostDetailView(View):
         })
 
 class CreatePostView(LoginRequiredMixin, View):
-    # def get_context_data(self, **kwargs):
-        # super().メソッド名・・・親クラス（View(XX)のXX部分に入るクラス）
-        # get_context_data(**kwargs)・・・context（辞書）を入手する
-        # context = super().get_context_data(**kwargs)
-
-
     def get(self, request, *args, **kwargs):
-        # formには投稿記事の内容が、カテゴリの選択欄含めたくさんでている
         form = PostForm(request.POST or None)
+        # return render(request, 'app/post_form.html', {
         return render(request, 'app/post_form.html', {
             'form': form
         })
@@ -227,12 +221,12 @@ class CreatePostView(LoginRequiredMixin, View):
             post_data.content = form.cleaned_data['content']
             if request.FILES:
                 post_data.image = request.FILES.get('image')
-            # .save()で入力データをDBに保存
             post_data.save()
             return redirect('post_detail', post_data.id)
             return render(request, 'app/post_preview.html', {
                 'post_data' : post_data
             })
+        print('さん')
 
 # 以下コードはformｂのvalidationが失敗したとき
         return render(request, 'app/post_form.html', {
