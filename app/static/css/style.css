@@ -396,3 +396,17 @@ a:hover {
     border-radius: 50%;
     border: 1.5px solid #eee;
 }
+
+/* ナビゲーションバー  */
+.navbar{
+    background-color: #f5fdfe;
+}
+
+/* フッター */
+.footer{
+    background-color: #fefffe;
+}
+
+.footer p{
+    color:#323332;
+}
