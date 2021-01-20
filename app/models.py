@@ -10,7 +10,7 @@ class Area(models.Model):
 
 class Attraction(models.Model):
     name = models.CharField("アトラクション", max_length=100)
-    area = models.ForeignKey(Area, verbose_name='エリア', on_delete=models.CASCADE)
+    # area = models.ForeignKey(Area, verbose_name='エリア', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
@@ -20,7 +20,7 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
-        
+
 class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     area = models.ForeignKey(Area, verbose_name='エリア', on_delete=models.CASCADE)

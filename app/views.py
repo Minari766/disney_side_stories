@@ -198,6 +198,12 @@ class PostDetailView(View):
         })
 
 class CreatePostView(LoginRequiredMixin, View):
+    # def get_context_data(self, **kwargs):
+        # super().メソッド名・・・親クラス（View(XX)のXX部分に入るクラス）
+        # get_context_data(**kwargs)・・・context（辞書）を入手する
+        # context = super().get_context_data(**kwargs)
+
+
     def get(self, request, *args, **kwargs):
         # formには投稿記事の内容が、カテゴリの選択欄含めたくさんでている
         form = PostForm(request.POST or None)
