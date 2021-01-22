@@ -223,72 +223,22 @@ a:hover {
 }
 
 /* .TDL-table a  */
-.critter-link{
+.bazaar-link{
     position: absolute;
-    top: 16%;
-    left: 27%;
+    top: 81.5%;
+    left:50%;
     -ms-transform: translate(-50%,-50%);
     -webkit-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
     margin:0;/*余計な隙間を除く*/
-    font-size: 25px;/*文字サイズ*/
+    font-size: 1.85vmax;
+    padding: 0.3vw;/*文字と線の間の余白*/
     border: solid white 2px; /*線で囲う*/
-    border-radius: 15px;
-    padding: 7px;/*文字と線の間の余白*/
+    border-radius: 12px;
     color: white;/*文字色*/
-    background-color: #0aa9ee;
+    background-color: #f66e70;
     text-decoration: none;/*下線を表示させない*/
-}
-
-.fantasy-link{
-    position: absolute;
-    top: 16%;
-    left: 54.5%;
-    -ms-transform: translate(-50%,-50%);
-    -webkit-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);
-    margin:0;/*余計な隙間を除く*/
-    font-size: 25px;/*文字サイズ*/
-    border: solid white 2px; /*線で囲う*/
-    border-radius: 15px;
-    padding: 7px;/*文字と線の間の余白*/
-    color: white;/*文字色*/
-    background-color: #ad14a2;
-    text-decoration: none;/*下線を表示させない*/
-}
-
-.toon-link{
-    position: absolute;
-    top: 22%;
-    left:80%;
-    -ms-transform: translate(-50%,-50%);
-    -webkit-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);
-    margin:0;/*余計な隙間を除く*/
-    font-size: 25px;/*文字サイズ*/
-    border: solid white 2px; /*線で囲う*/
-    border-radius: 15px;
-    padding: 7px;/*文字と線の間の余白*/
-    color: white;/*文字色*/
-    background-color: #fe9500;
-    text-decoration: none;/*下線を表示させない*/
-}
-
-.western-link{
-    position: absolute;
-    top: 44%;
-    left:20%;
-    -ms-transform: translate(-50%,-50%);
-    -webkit-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);
-    margin:0;/*余計な隙間を除く*/
-    font-size: 25px;/*文字サイズ*/
-    border: solid white 2px; /*線で囲う*/
-    border-radius: 15px;
-    padding: 7px;/*文字と線の間の余白*/
-    color: white;/*文字色*/
-    background-color: #532207;
-    text-decoration: none;/*下線を表示させない*/
+    white-space: nowrap;
 }
 
 .adventure-link{
@@ -299,30 +249,86 @@ a:hover {
     -webkit-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
     margin:0;/*余計な隙間を除く*/
-    font-size: 25px;/*文字サイズ*/
+    font-size: 1.85vmax;
+    padding: 0.3vw;
     border: solid white 2px; /*線で囲う*/
-    border-radius: 15px;
-    padding: 7px;/*文字と線の間の余白*/
+    border-radius: 12px;
     color: white;/*文字色*/
     background-color: #208715;
     text-decoration: none;/*下線を表示させない*/
+    white-space: nowrap;
 }
 
-.bazaar-link{
+.western-link{
     position: absolute;
-    top: 81.5%;
-    left:50%;
+    top: 44%;
+    left:20%;
     -ms-transform: translate(-50%,-50%);
     -webkit-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
     margin:0;/*余計な隙間を除く*/
-    font-size: 25px;/*文字サイズ*/
+    font-size: 1.85vmax;
+    padding: 0.3vw;
     border: solid white 2px; /*線で囲う*/
-    border-radius: 15px;
-    padding: 7px;/*文字と線の間の余白*/
+    border-radius: 12px;
     color: white;/*文字色*/
-    background-color: #f66e70;
+    background-color: #532207;
     text-decoration: none;/*下線を表示させない*/
+    white-space: nowrap;
+}
+
+.critter-link{
+    position: absolute;
+    top: 16%;
+    left: 20%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    margin:0;/*余計な隙間を除く*/
+    font-size: 1.85vmax;
+    padding: 0.3vw;
+    border: solid white 2px; /*線で囲う*/
+    border-radius: 12px;
+    color: white;/*文字色*/
+    background-color: #0aa9ee;
+    text-decoration: none;/*下線を表示させない*/
+    white-space: nowrap;
+}
+
+.fantasy-link{
+    position: absolute;
+    top: 30%;
+    left: 53%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    margin:0;/*余計な隙間を除く*/
+    font-size: 1.85vmax;
+    padding: 0.3vw;
+    border: solid white 2px; /*線で囲う*/
+    border-radius: 12px;
+    color: white;/*文字色*/
+    background-color: #ad14a2;
+    text-decoration: none;/*下線を表示させない*/
+    white-space: nowrap;
+}
+
+.toon-link{
+    position: absolute;
+    top: 22%;
+    left:80%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    margin:0;/*余計な隙間を除く*/
+    font-size: 1.85vmax;
+    padding: 0.3vw;
+    border: solid white 2px; /*線で囲う*/
+    border-radius: 12px;
+    color: white;/*文字色*/
+    background-color: #fe9500;
+    text-decoration: none;/*下線を表示させない*/
+    white-space: nowrap;
 }
 
 .tomorrow-link{
@@ -333,13 +339,14 @@ a:hover {
     -webkit-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
     margin:0;/*余計な隙間を除く*/
-    font-size: 25px;/*文字サイズ*/
+    font-size: 1.85vmax;
+    padding: 0.3vw;
     border: solid white 2px; /*線で囲う*/
-    border-radius: 15px;
-    padding: 7px;/*文字と線の間の余白*/
+    border-radius: 12px;
     color: white;/*文字色*/
     background-color: #1268b9;
     text-decoration: none;/*下線を表示させない*/
+    white-space: nowrap;
 }
 
 .TDL-table a:hover{/*カーソルを当てたとき*/
