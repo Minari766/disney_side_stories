@@ -33,7 +33,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField('メールアドレス', unique=True)
     username = models.CharField(('ニックネーム'), max_length=30)
     created = models.DateTimeField(('入会日'), default=timezone.now)
-    icon = models.ImageField('アイコン', blank=True, null=True)
+    icon = models.ImageField(upload_to='images', verbose_name='アイコン', blank=True, null=True)
 
     is_staff = models.BooleanField(
         ('staff status'),
@@ -62,4 +62,8 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     def clean(self):
         super().clean()
         self.email = self.__class__.objects.normalize_email(self.email)
-# Create your models here.
+    
+    def __str__(self):
+        return self.username
+# Cr
+# eate your models here.
