@@ -19,60 +19,60 @@
 </head>
 
 <body>
-    <!-- <nav class="navbar navbar-expand-lg"> -->
-    <nav class="navbar navbar-expand-lg">
-        <a class="navbar-brand" href="/">DSS</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-            {% if user.is_authenticated %}
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'post_new' %}">投稿 </span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'profile' %}">プロフィール </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'about_top' %}">DSSについて </a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        マイページ
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{% url 'mypage' %}">プロフィール</a>
-                        <a class="dropdown-item" href="{% url 'mypage' %}">お気に入り記事</a>
-                        <a class="dropdown-item" href="{% url 'mypage' %}">投稿記事</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{% url 'account_logout' %}">ログアウト</a>
-                    </div>
-                </li>
-            {% else %}
-                <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'account_signup' %}">会員登録 <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'account_login' %}">ログイン </a>
-                </li>
-            {% endif %}
-            </ul>
-            <form class="form-inline my-2 my-lg-0" action="{% url 'search' %}" method="get">
-                <input class="form-control mr-sm-2" type="search" placeholder="キーワード検索" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-                    <i class="fas fa-search"></i>
-                </button>
-            </form>
+    <nav class="navbar navbar-expand-lg border-bottom" style="padding:10px">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img src="{% static 'img/DSS_logo.png' %}" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                {% if user.is_authenticated %}
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">ホーム <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'post_new' %}">投稿 </span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about_top' %}">DSSについて </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            マイページ
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{% url 'profile' %}">プロフィール</a>
+                            <a class="dropdown-item" href="{% url 'mypage' %}">お気に入り記事</a>
+                            <a class="dropdown-item" href="{% url 'mypage' %}">投稿記事</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'account_logout' %}">ログアウト</a>
+                        </div>
+                    </li>
+                {% else %}
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'account_signup' %}">会員登録 <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'account_login' %}">ログイン </a>
+                    </li>
+                {% endif %}
+                </ul>
+                <form class="form-inline my-2 my-lg-0" action="{% url 'search' %}" method="get">
+                    <input class="form-control mr-sm-0" type="search" placeholder="キーワード検索" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
         </div>
     </nav>
 
     <main>
-        <div class="container col-xl-el">
+        <div class="container col-xl-el col-expand-lg">
             {% block content %}
             {% endblock %}
 
@@ -81,9 +81,6 @@
 
     <footer class="py-2 footer">
         <p class="m-0 text-center">Copyright &copy; Disney Side Stories</p>
-        <p class="text-center">
-            <a href="{% url 'about_top' %}">DSSについて </a>
-        </p>
     </footer>
 
     {% block extra_js %}

@@ -33,7 +33,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField('メールアドレス', unique=True)
     username = models.CharField(('ニックネーム'), max_length=30)
     created = models.DateTimeField(('入会日'), default=timezone.now)
-    icon = models.ImageField(blank=True, null=True)
+    icon = models.ImageField('アイコン', blank=True, null=True)
 
     is_staff = models.BooleanField(
         ('staff status'),

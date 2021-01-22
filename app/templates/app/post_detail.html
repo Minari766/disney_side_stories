@@ -8,6 +8,9 @@
 <h2 class="my-4 text-center mb-0">{{ post_data.title }}</h2>
 <hr>
 <div class="d-flex justify-content-between">
+    <div class="my-box">
+        <img src="{{ post_data.user.icon }}" class="user-icon">
+    </div>
     <div class="my-box">{{ post_data.author }}</div>
     <div class="my-box">{{ post_data.created }}</div>
 </div>

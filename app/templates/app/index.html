@@ -9,9 +9,19 @@
     <div class="container h-100">
         <div class="row h-100 align-items-center">
             <div class="col-12 text-center TDL-table">
-                {% if area == 'fantasy' %}
+                {% if area == 'bazaar' %}
+                    <img src="{% static 'img/fantasy_top.png' %}" alt="">
+                {% elif area == 'adventure' %}
+                    <img src="{% static 'img/fantasy_top.png' %}" alt="">
+                {% elif area == 'western' %}
+                    <img src="{% static 'img/fantasy_top.png' %}" alt="">
+                {% elif area == 'critter' %}
+                    <img src="{% static 'img/fantasy_top.png' %}" alt="">
+                {% elif area == 'fantasy' %}
                     <img src="{% static 'img/fantasy_top.png' %}" alt="">
                 {% elif area == 'toon' %}
+                    <img src="{% static 'img/fantasy_top.png' %}" alt="">
+                {% elif area == 'tomorrow' %}
                     <img src="{% static 'img/fantasy_top.png' %}" alt="">
                 {% else %}
                     <img src="{% static 'img/TDL_top_rough.png' %}" class="top-pic" alt="">
