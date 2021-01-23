@@ -226,7 +226,6 @@ class CreatePostView(LoginRequiredMixin, View):
             return render(request, 'app/post_preview.html', {
                 'post_data' : post_data
             })
-        print('さん')
 
 # 以下コードはformｂのvalidationが失敗したとき
         return render(request, 'app/post_form.html', {

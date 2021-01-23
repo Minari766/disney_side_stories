@@ -261,7 +261,7 @@ a:hover {
 
 .western-link{
     position: absolute;
-    top: 44%;
+    top: 38%;
     left:20%;
     -ms-transform: translate(-50%,-50%);
     -webkit-transform: translate(-50%,-50%);
@@ -279,8 +279,8 @@ a:hover {
 
 .critter-link{
     position: absolute;
-    top: 16%;
-    left: 20%;
+    top: 12%;
+    left: 40%;
     -ms-transform: translate(-50%,-50%);
     -webkit-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);

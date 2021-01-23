@@ -27,11 +27,10 @@
     <a class="btn btn-danger" href="{% url 'post_delete' post_data.id %}">削除する</a>    
 </div>
 {% endif %}
+
 {% if post_data.image %}
     <img class="mx-auto d-block img-fluid rounded detail-img mb-5" src="{{ post_data.image.url }}" alt="">         
 {% endif %}
-
-<!-- <button type="button" class="btn btn-danger rounded-circle p-0" style="width:2rem;height:2rem;">♡</button> -->
 
 <!-- likeボタン -->
 <form action="{% url 'like' %}" method="POST">
