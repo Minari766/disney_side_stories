@@ -1,4 +1,5 @@
 {% extends "app/base.html" %}
+{% load static %}
 
 {% block content %}
 <div>
@@ -9,7 +10,11 @@
 <hr>
 <div class="d-flex justify-content-between">
     <div class="my-box">
-        <img src="{{ post_data.author.icon.url }}" class="user-icon">
+        {% if post_data.author.icon %}
+            <img src="{{ post_data.author.icon.url }}" class="user-icon">
+        {% else %}
+            <img src="{% static 'img/user1.png' %}" alt="" class="urser-icon">
+        {% endif %}
     </div>
     <div class="my-box">{{ post_data.author }}</div>
     <div class="my-box">{{ post_data.created }}</div>

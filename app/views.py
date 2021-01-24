@@ -29,6 +29,7 @@ class IndexView(View):
         post_data = Post.objects.order_by("-id")
         area = self.kwargs.get('area')
         category = self.kwargs.get('category')
+        attraction = self.kwargs.get('attraction')
         if area == 'bazaar':
             area_data = Area.objects.get(name='ワールドバザール')
             post_data = post_data.filter(area=area_data)
@@ -107,12 +108,18 @@ class IndexView(View):
             if category == 'story':
                 category_data = Category.objects.get(name='ストーリー')
                 post_data = post_data.filter(category=category_data)
+                if attraction == 'pooh':
+                    attraction_data = Attraction.objects.get(name='プーさんのハニーハント')
+                    post_data = post_data.filter(attraction=attraction_data)
             elif category == 'mickey':
                 category_data = Category.objects.get(name='隠れミッキー')
                 post_data = post_data.filter(category=category_data)
             elif category == 'trivia':
                 category_data = Category.objects.get(name='豆知識')
                 post_data = post_data.filter(category=category_data)
+                if attraction == 'pooh':
+                    attraction_data = Attraction.objects.get(name='プーさんのハニーハント')
+                    post_data = post_data.filter(attraction=attraction_data)
             elif category == 'other':
                 category_data = Category.objects.get(name='その他')
                 post_data = post_data.filter(category=category_data)
@@ -188,7 +195,11 @@ class PostDetailView(View):
         post_data = Post.objects.get(id=self.kwargs['pk'])
         liked_list = []
 
-        liked = post_data.like_set.filter(author=request.user)
+        if request.user.is_authenticated:
+            liked = post_data.like_set.filter(author=request.user)
+        else:
+            liked = post_data.like_set.all()
+    
         if liked.exists():
             liked_list.append(post_data.id)
 
@@ -221,13 +232,13 @@ class CreatePostView(LoginRequiredMixin, View):
             post_data.content = form.cleaned_data['content']
             if request.FILES:
                 post_data.image = request.FILES.get('image')
-            post_data.save()
-            return redirect('post_detail', post_data.id)
+            # post_data.save()
+            # return redirect('post_detail', post_data.id)
             return render(request, 'app/post_preview.html', {
                 'post_data' : post_data
             })
 
-# 以下コードはformｂのvalidationが失敗したとき
+    # 以下コードはformのvalidationが失敗したとき
         return render(request, 'app/post_form.html', {
             'form': form
         })
@@ -398,22 +409,24 @@ class SearchView(View):
 
 def LikeView(request):
     if request.method =="POST":
-        post = get_object_or_404(Post, pk=request.POST.get("post_id"))
-        user = request.user
-        liked = False
-        like = Like.objects.filter(post=post, author=user)
-        if like.exists():
-            like.delete()
-        else:
-            like.create(post=post, author=user)
-            liked = True
-        
-        context={
-            'post_id': post.id,
-            'liked': liked,
-            'count': post.like_set.count(),
-        }
+        if request.user.is_authenticated:
+            post = get_object_or_404(Post, pk=request.POST.get("post_id"))
+            user = request.user
+            liked = False
+            like = Like.objects.filter(post=post, author=user)
+            if like.exists():
+                like.delete()
+            else:
+                like.create(post=post, author=user)
+                liked = True
+            
+            context={
+                'post_id': post.id,
+                'liked': liked,
+                'count': post.like_set.count(),
+            }
 
-        if request.is_ajax():
-            return JsonResponse(context)
+            if request.is_ajax():
+                return JsonResponse(context)
+        # elifでlikeボタン押下後、サインアップ画面に誘導させることは可能
 

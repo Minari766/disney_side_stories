@@ -21,12 +21,10 @@ class ProfileEditView(LoginRequiredMixin, View):
         form = ProfileForm(
             request.POST or None,
             initial={
-                # 'first_name': user_data.first_name,
-                # 'last_name': user_data.last_name,
-                'username': user_data.username,
+                'user_name': user_data.user_name,
+                'icon': user_data.icon,
             }
         )
-
         return render(request, 'accounts/profile_edit.html', {
             'form': form
         })
@@ -35,12 +33,15 @@ class ProfileEditView(LoginRequiredMixin, View):
         form = ProfileForm(request.POST or None)
         if form.is_valid():
             user_data = CustomUser.objects.get(id=request.user.id)
-            # user_data.first_name = form.cleaned_data['first_name']
-            # user_data.last_name = form.cleaned_data['last_name']
-            user_data.username = form.cleaned_data['username']
+            user_data.user_name = form.cleaned_data['user_name']
+            if request.FILES:
+                user_data.icon = request.FILES.get('icon')
             user_data.save()
-            return redirect('profile')
-
+            # return redirect('profile')
+            return render(request, 'accounts/profile.html', {
+            'user_data': user_data,
+        })
+        # このreturnはis_valid()（バリデーション機能）に問題があった場合にprofile画面にリダイレクトするようにする
         return render(request, 'accounts/profile.html', {
             'form': form
         })

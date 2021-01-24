@@ -11,21 +11,61 @@
     {% csrf_token %}
     <div class="formpost">
         {% render_field form.title class="form-control" placeholder="タイトル" %}
+        {% for field in form %}
+            {% for error in field.errors %}
+                ※{{ error }}<br>
+            {% endfor %}
+        {% endfor %}
+        {% for error in form.non_field_errors %} 
+            ※{{ error }}
+        {% endfor %}
     </div>
     <div class="formpost">
         {% render_field form.area class="form-control" placeholder="エリアを選択" %}
+        {% for field in form %}
+            {% for error in field.errors %}
+                ※{{ error }}<br>
+            {% endfor %}
+        {% endfor %}
+        {% for error in form.non_field_errors %} 
+            ※{{ error }}
+        {% endfor %}
     </div>
     <div class="formpost">
         {% render_field form.attraction class="form-control" placeholder="アトラクションを選択" %}
+        {% for field in form %}
+            {% for error in field.errors %}
+                ※{{ error }}<br>
+            {% endfor %}
+        {% endfor %}
+        {% for error in form.non_field_errors %} 
+            ※{{ error }}
+        {% endfor %}
     </div>
     <div class="formpost">
         {% render_field form.category class="form-control" placeholder="記事カテゴリを選択" %}
+        {% for field in form %}
+            {% for error in field.errors %}
+                ※{{ error }}<br>
+            {% endfor %}
+        {% endfor %}
+        {% for error in form.non_field_errors %} 
+            ※{{ error }}
+        {% endfor %}
     </div>
     <div class="formpost">
         {{ form.image }}
     </div>
     <div class="formpost">
         {% render_field form.content class="form-control" placeholder="本文を入力（10,000文字）" %}
+        {% for field in form %}
+            {% for error in field.errors %}
+                ※{{ error }}<br>
+            {% endfor %}
+        {% endfor %}
+        {% for error in form.non_field_errors %} 
+            ※{{ error }}
+        {% endfor %}
     </div>
     <div class="text-center">
         <button class="btn btn-info" type="submit">投稿確認画面へ進む</button>
@@ -173,10 +213,6 @@
                 'name': 'プーさんのハニーハント'
             },
             {
-                'value': 'プーさんのハニーハント',
-                'name': 'プーさんのハニーハント'
-            },
-            {
                 'value': 'ホーンテッドマンション',
                 'name': 'ホーンテッドマンション'
             },
@@ -256,6 +292,7 @@
     };
     const changeArea = (select) => {
         attractionElement.children().remove();
+        // ここにデフォルト値を入れておく
         const parentId = areaElement.val();
         const categoryList = area_attraction[parentId];
         for (const category of categoryList) {

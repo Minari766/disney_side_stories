@@ -31,7 +31,7 @@ class UserManager(UserManager):
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField('メールアドレス', unique=True)
-    username = models.CharField(('ニックネーム'), max_length=30)
+    user_name = models.CharField(('ニックネーム'), max_length=30, blank=True, null=True)  
     created = models.DateTimeField(('入会日'), default=timezone.now)
     icon = models.ImageField(upload_to='images', verbose_name='アイコン', blank=True, null=True)
 
@@ -64,6 +64,6 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         self.email = self.__class__.objects.normalize_email(self.email)
     
     def __str__(self):
-        return self.username
+        return self.user_name
 # Cr
 # eate your models here.

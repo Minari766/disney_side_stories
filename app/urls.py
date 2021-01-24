@@ -5,6 +5,8 @@ urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
     path('area/<str:area>/', views.IndexView.as_view(), name='index'),
     path('area/<str:area>/<str:category>/', views.IndexView.as_view(), name='index'),
+    path('area/<str:area>/<str:category>/<str:attraction>/', views.IndexView.as_view(), name='index'),
+
     path('post/<int:pk>/', views.PostDetailView.as_view(), name='post_detail'),
     path('post/new/', views.CreatePostView.as_view(), name='post_new'),
     path('post/preview/', views.PreviewPostView.as_view(), name='preview'),

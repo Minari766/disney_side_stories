@@ -11,18 +11,16 @@
             <table class="profile_table mb-4">
                 <tbody>
                     <tr>
-                        <th class="header">名前</th>
+                        <th class="header">ニックネーム</th>
                         <td class="data form_wrap form_wrap-2">
-                            <!-- {% render_field form.first_name class="form-control" placeholder="姓" %} -->
-                            <!-- {% render_field form.last_name class="form-control" placeholder="名" %} -->
-                            {% render_field form.username class="form-control" placeholder="名" %}
+                            {% render_field form.user_name class="form-control" placeholder="名" %}
                         </td>
                     </tr>
                     <tr>
-                        <!-- <th class="header">所属</th>
+                        <th class="header">アイコン画像</th>
                         <td class="data">
-                            {% render_field form.department class="form-control" placeholder="所属" %}
-                        </td> -->
+                            {{ form.icon }}
+                        </td>
                     </tr>
                 </tbody>
             </table>
