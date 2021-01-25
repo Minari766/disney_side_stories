@@ -23,10 +23,12 @@
     <div class="formpost">
         {% render_field form.area class="form-control" placeholder="エリアを選択" %}
         {% for field in form %}
+        <!-- fieldの入力内容に問題が会った場合のエラー？（例：文字数上限30のところに100文字入った） -->
             {% for error in field.errors %}
                 ※{{ error }}<br>
             {% endfor %}
         {% endfor %}
+        <!-- fieldに当てはまらなかった場合のエラー （例：カテゴリadminサイトで登録してないカテゴリが選択された場合等）-->
         {% for error in form.non_field_errors %} 
             ※{{ error }}
         {% endfor %}
