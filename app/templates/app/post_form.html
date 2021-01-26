@@ -11,33 +11,15 @@
     {% csrf_token %}
     <div class="formpost">
         {% render_field form.title class="form-control" placeholder="タイトル" %}
-        {% for field in form %}
-            {% for error in field.errors %}
-                ※{{ error }}<br>
-            {% endfor %}
-        {% endfor %}
-        {% for error in form.non_field_errors %} 
-            ※{{ error }}
-        {% endfor %}
     </div>
     <div class="formpost">
         {% render_field form.area class="form-control" placeholder="エリアを選択" %}
-        {% for field in form %}
-        <!-- fieldの入力内容に問題が会った場合のエラー？（例：文字数上限30のところに100文字入った） -->
-            {% for error in field.errors %}
-                ※{{ error }}<br>
-            {% endfor %}
-        {% endfor %}
-        <!-- fieldに当てはまらなかった場合のエラー （例：カテゴリadminサイトで登録してないカテゴリが選択された場合等）-->
-        {% for error in form.non_field_errors %} 
-            ※{{ error }}
-        {% endfor %}
     </div>
     <div class="formpost">
         {% render_field form.attraction class="form-control" placeholder="アトラクションを選択" %}
         {% for field in form %}
             {% for error in field.errors %}
-                ※{{ error }}<br>
+                ※アトラクションを選択してください<br>
             {% endfor %}
         {% endfor %}
         {% for error in form.attraction.non_field_errors %} 
@@ -46,28 +28,12 @@
     </div>
     <div class="formpost">
         {% render_field form.category class="form-control" placeholder="記事カテゴリを選択" %}
-        {% for field in form %}
-            {% for error in field.errors %}
-                ※{{ error }}<br>
-            {% endfor %}
-        {% endfor %}
-        {% for error in form.non_field_errors %} 
-            ※{{ error }}
-        {% endfor %}
     </div>
     <div class="formpost">
         {{ form.image }}
     </div>
     <div class="formpost">
         {% render_field form.content class="form-control" placeholder="本文を入力（10,000文字）" %}
-        {% for field in form %}
-            {% for error in field.errors %}
-                ※{{ error }}<br>
-            {% endfor %}
-        {% endfor %}
-        {% for error in form.non_field_errors %} 
-            ※{{ error }}
-        {% endfor %}
     </div>
     <div class="text-center">
         <button class="btn btn-info" type="submit">投稿確認画面へ進む</button>

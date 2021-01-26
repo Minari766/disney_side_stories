@@ -231,7 +231,7 @@ a:hover {
     -webkit-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
     margin:0;/*余計な隙間を除く*/
-    font-size: 1.85vmax;
+    font-size: 1.85vw;
     padding: 0.3vw;/*文字と線の間の余白*/
     border: solid white 2px; /*線で囲う*/
     border-radius: 12px;
