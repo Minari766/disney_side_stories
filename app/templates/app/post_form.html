@@ -284,23 +284,24 @@
     };
     const changeArea = (select) => {
         attractionElement.children().remove();
-        // ここにデフォルト値を入れておく
         const parentId = areaElement.val();
         const categoryList = area_attraction[parentId];
+        attractionElement.append('<option>選択</option>');
         for (const category of categoryList) {
             const option = $('<option>');
-            option.val(category['value']);
-            option.text(category['name']);
-            attractionElement.append(option);
-        }
-        if (select !== undefined) {
-            attractionElement.val(select);
-        }
-    };
+                option.val(category['value']);
+                option.text(category['name']);
+                attractionElement.append(option);
+            }
+            if (select !== undefined) {
+                attractionElement.val(select);
+            }
+        };
     $('#id_area').on('change', () => {
         changeArea();
     });
     if (areaElement.val()) {
+
         const selectedCategory = attractionElement.val();
         changeArea(selectedCategory);
     }
