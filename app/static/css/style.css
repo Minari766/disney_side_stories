@@ -285,7 +285,7 @@ a:hover {
     -webkit-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
     margin:0;/*余計な隙間を除く*/
-    font-size: 1.85vmax;
+    font-size:1.85vw;
     padding: 0.3vw;
     border: solid white 2px; /*線で囲う*/
     border-radius: 12px;
@@ -293,7 +293,7 @@ a:hover {
     background-color: #0aa9ee;
     text-decoration: none;/*下線を表示させない*/
     white-space: nowrap;
-}
+    }
 
 .fantasy-link{
     position: absolute;
@@ -303,7 +303,8 @@ a:hover {
     -webkit-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
     margin:0;/*余計な隙間を除く*/
-    font-size: 1.85vmax;
+    font-size: 1.5vmax;
+    max-width: 80vw;
     padding: 0.3vw;
     border: solid white 2px; /*線で囲う*/
     border-radius: 12px;
