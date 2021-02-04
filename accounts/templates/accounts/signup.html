@@ -20,6 +20,7 @@
                 {% render_field form.password1 class="form-control" placeholder="パスワード" %}
                 {% for field in form %}
                     <p class="error-msg pw_error d-none m-0">
+                        
                         {% for error in field.errors %}
                             *{{ error }}<br>
                         {% endfor %}
