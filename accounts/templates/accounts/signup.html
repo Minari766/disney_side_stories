@@ -8,6 +8,15 @@
         <h5 class="card-title text-center">サインアップ</h5>
         <form method="post" class="form-auth">
             {% csrf_token %}
+            {% if form.errors %}
+                <div class="errorlist">
+                    {% for errors in form.errors.values %}
+                        {% for error in errors %}
+                            {{ error }}<br>
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+            {% endif%}
             <div class="form-label-group">
             </div>
             <div class="form-label-group from_wrap form_wrap-2">
@@ -18,22 +27,12 @@
             </div>
             <div class="form-label-group">
                 {% render_field form.password1 class="form-control" placeholder="パスワード" %}
-                {% for field in form %}
-                    <p class="error-msg pw_error d-none m-0">
-                        
-                        {% for error in field.errors %}
-                            *{{ error }}<br>
-                        {% endfor %}
-                    </p>
-                {% endfor %}
-                {% for error in form.non_field_errors %}
-                    <p class="error-msg pw_error d-none m-0">
-                        *{{ error }}
-                    </p>
-                {% endfor }
             </div>
             <div class="form-label-group">
-                {% render_field form.password2 class="form-control" placeholder="パスワード(確認)" %}
+                {% render_field form.password2 class="form-control" placeholder="パスワード(テスト)" %}
+                {% if field.help_text %}
+                    <span class="helptext">{{ field.help_text }}</span>
+                {% endif %}
             </div>
             <div class="button mx-auto">
                 <button class="btn btn-lg btn-primary btn-block mx-auto" type="submit">サインアップ</button>
@@ -41,4 +40,5 @@
         </form>
     </div>
 </div>
+
 {% endblock %}
