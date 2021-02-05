@@ -4,11 +4,8 @@ from django.shortcuts import render,redirect, get_object_or_404
 from .models import Post, Area, Attraction, Category, Like
 from .forms import PostForm
 from django.contrib.auth.mixins import LoginRequiredMixin
-# or検索するために必要なQオブジェクトを取得
 from django.db.models import Q
-# 畳み込み演算を行う
 from functools import reduce
-# 足算に必要
 from operator import and_
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
@@ -390,6 +387,7 @@ class SearchView(View):
     def get(self, request, *args, **kwargs):
         post_data = Post.objects.order_by('-id')
         keyword = request.GET.get('keyword')
+        print("test1")
 
         if keyword:
             exclusion_list = set([' ', ' '])
@@ -401,6 +399,7 @@ class SearchView(View):
             # Qオブジェクトを使用して、投稿データをキーワードでフィルターがけする。キーワードをQオブジェクトでor検索
             query = reduce(and_, [Q(title__icontains=q) | Q(content__icontains=q) for q in query_list])
             post_data = post_data.filter(query)
+            print("test2")
         
         return render(request, 'app/search.html', {
             'keyword' : keyword,
