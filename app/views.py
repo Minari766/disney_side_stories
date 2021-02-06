@@ -22,47 +22,75 @@ class IndexView(View):
         # page_obj:全体何ページ中のXページ目かを定義
         return page_obj
 
+    def test(self, post_data, category, area_name):
+        area_data = Area.objects.get(name=area_name)
+        post_data = post_data.filter(area=area_data)
+        if category == 'story':
+            category_data = Category.objects.get(name='ストーリー')
+            post_data = post_data.filter(category=category_data)
+
+        elif category == 'mickey':
+            category_data = Category.objects.get(name='隠れミッキー')
+            post_data = post_data.filter(category=category_data)
+        elif category == 'trivia':
+            category_data = Category.objects.get(name='豆知識')
+            post_data = post_data.filter(category=category_data)
+        elif category == 'other':
+            category_data = Category.objects.get(name='その他')
+            post_data = post_data.filter(category=category_data)
+        elif category == 'all':
+            category_data = Category.objects.get(name='全て')
+            post_data = post_data.filter(category=category_data)
+        return post_data
+    
+    # アトラクション追加のコードを作成
+    # def attraction_select
+
     def get(self, request, *args, **kwargs):
         post_data = Post.objects.order_by("-id")
         area = self.kwargs.get('area')
         category = self.kwargs.get('category')
         attraction = self.kwargs.get('attraction')
         if area == 'bazaar':
-            area_data = Area.objects.get(name='ワールドバザール')
-            post_data = post_data.filter(area=area_data)
-            if category == 'story':
-                category_data = Category.objects.get(name='ストーリー')
-                post_data = post_data.filter(category=category_data)
-            elif category == 'mickey':
-                category_data = Category.objects.get(name='隠れミッキー')
-                post_data = post_data.filter(category=category_data)
-            elif category == 'trivia':
-                category_data = Category.objects.get(name='豆知識')
-                post_data = post_data.filter(category=category_data)
-            elif category == 'other':
-                category_data = Category.objects.get(name='その他')
-                post_data = post_data.filter(category=category_data)
-            elif category == 'all':
-                category_data = Category.objects.get(name='全て')
-                post_data = post_data.filter(category=category_data)
+            # test関数を使うためにself.を頭につける必要がある
+            post_data = self.test(post_data, category, 'ワールドバザール')
+            # post_data（第一引数）、category（第二引数）、'ワールドバザール'（第三引数）がtest関数のselfを除いた際の第一〜三引数に入る
+            # area_data = Area.objects.get(name='ワールドバザール')
+            # post_data = post_data.filter(area=area_data)
+            # if category == 'story':
+            #     category_data = Category.objects.get(name='ストーリー')
+            #     post_data = post_data.filter(category=category_data)
+            # elif category == 'mickey':
+            #     category_data = Category.objects.get(name='隠れミッキー')
+            #     post_data = post_data.filter(category=category_data)
+            # elif category == 'trivia':
+            #     category_data = Category.objects.get(name='豆知識')
+            #     post_data = post_data.filter(category=category_data)
+            # elif category == 'other':
+            #     category_data = Category.objects.get(name='その他')
+            #     post_data = post_data.filter(category=category_data)
+            # elif category == 'all':
+            #     category_data = Category.objects.get(name='全て')
+            #     post_data = post_data.filter(category=category_data)
         elif area == 'adventure':
-            area_data = Area.objects.get(name='アドベンチャーランド')
-            post_data = post_data.filter(area=area_data)
-            if category == 'story':
-                category_data = Category.objects.get(name='ストーリー')
-                post_data = post_data.filter(category=category_data)
-            elif category == 'mickey':
-                category_data = Category.objects.get(name='隠れミッキー')
-                post_data = post_data.filter(category=category_data)
-            elif category == 'trivia':
-                category_data = Category.objects.get(name='豆知識')
-                post_data = post_data.filter(category=category_data)
-            elif category == 'other':
-                category_data = Category.objects.get(name='その他')
-                post_data = post_data.filter(category=category_data)
-            elif category == 'all':
-                category_data = Category.objects.get(name='全て')
-                post_data = post_data.filter(category=category_data)
+            post_data = self.test('アドベンチャーランド')
+            # area_data = Area.objects.get(name='アドベンチャーランド')
+            # post_data = post_data.filter(area=area_data)
+            # if category == 'story':
+            #     category_data = Category.objects.get(name='ストーリー')
+            #     post_data = post_data.filter(category=category_data)
+            # elif category == 'mickey':
+            #     category_data = Category.objects.get(name='隠れミッキー')
+            #     post_data = post_data.filter(category=category_data)
+            # elif category == 'trivia':
+            #     category_data = Category.objects.get(name='豆知識')
+            #     post_data = post_data.filter(category=category_data)
+            # elif category == 'other':
+            #     category_data = Category.objects.get(name='その他')
+            #     post_data = post_data.filter(category=category_data)
+            # elif category == 'all':
+            #     category_data = Category.objects.get(name='全て')
+            #     post_data = post_data.filter(category=category_data)
         elif area == 'western':
             area_data = Area.objects.get(name='ウエスタンランド')
             post_data = post_data.filter(area=area_data)
@@ -121,8 +149,12 @@ class IndexView(View):
                 category_data = Category.objects.get(name='その他')
                 post_data = post_data.filter(category=category_data)
             elif category == 'all':
-                category_data = Category.objects.get(name='全て')
-                post_data = post_data.filter(category=category_data)
+                print("test")
+                if attraction == 'pooh':
+                    attraction_data = Attraction.objects.get(name='プーさんのハニーハント')
+                    post_data = post_data.filter(attraction=attraction_data)
+                # category_data = Category.objects.get(name='全て')
+                # post_data = post_data.filter(category=category_data)
         elif area == 'toon':
             area_data = Area.objects.get(name='トゥーンタウン')
             post_data = post_data.filter(area=area_data)
@@ -172,9 +204,9 @@ class IndexView(View):
             elif category == 'other':
                 category_data = Category.objects.get(name='その他')
                 post_data = post_data.filter(category=category_data)
-            elif category == 'all':
-                category_data = Category.objects.get(name='全て')
-                post_data = post_data.filter(category=category_data)
+            # elif category == 'all':
+            #     category_data = Category.objects.get(name='全て')
+            #     post_data = post_data.filter(category=category_data)
 
         page_obj = self.paginate_queryset(request, post_data, 10)
 

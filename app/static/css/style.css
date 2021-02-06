@@ -225,7 +225,7 @@ a:hover {
 /* .TDL-table a  */
 .bazaar-link{
     position: absolute;
-    top: 81.5%;
+    top: 88%;
     left:50%;
     -ms-transform: translate(-50%,-50%);
     -webkit-transform: translate(-50%,-50%);
@@ -261,7 +261,7 @@ a:hover {
 
 .western-link{
     position: absolute;
-    top: 38%;
+    top: 46%;
     left:20%;
     -ms-transform: translate(-50%,-50%);
     -webkit-transform: translate(-50%,-50%);
@@ -279,8 +279,8 @@ a:hover {
 
 .critter-link{
     position: absolute;
-    top: 12%;
-    left: 40%;
+    top: 15%;
+    left: 25%;
     -ms-transform: translate(-50%,-50%);
     -webkit-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
@@ -316,7 +316,7 @@ a:hover {
 
 .toon-link{
     position: absolute;
-    top: 22%;
+    top: 15%;
     left:80%;
     -ms-transform: translate(-50%,-50%);
     -webkit-transform: translate(-50%,-50%);
@@ -347,6 +347,61 @@ a:hover {
     color: white;/*文字色*/
     background-color: #1268b9;
     text-decoration: none;/*下線を表示させない*/
+    white-space: nowrap;
+}
+
+/* アトラクションリンク */
+.pooh-link{
+    position: absolute;
+    top: 55%;
+    left:70%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    margin:0;
+    font-size: 1.85vmax;
+    padding: 0.3vw;
+    border: solid white 2px;
+    border-radius: 12px;
+    color: white;
+    background-color: #F2D632;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.alice-link{
+    position: absolute;
+    top: 50%;
+    left:35%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    margin:0;
+    font-size: 1.85vmax;
+    padding: 0.3vw;
+    border: solid white 2px;
+    border-radius: 12px;
+    color: white;
+    background-color: #c2148e;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.small-link{
+    position: absolute;
+    top: 10%;
+    left:20%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    margin:0;
+    font-size: 1.85vmax;
+    padding: 0.3vw;
+    border: solid white 2px;
+    border-radius: 12px;
+    color: white;
+    background-color: #45bdf9;
+    text-decoration: none;
     white-space: nowrap;
 }
 

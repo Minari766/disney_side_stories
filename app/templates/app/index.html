@@ -20,16 +20,32 @@
                 {% elif area == 'fantasy' %}
                     <img src="{% static 'img/fantasy_top.png' %}" alt="">
                     {% if category == 'story' %}
-                    <a href="{% url 'index' 'fantasy' 'story' 'pooh' %}" class="bazaar-link">プーさんのハニーハント</a>
+                        <a href="{% url 'index' 'fantasy' 'story' 'pooh' %}" class="pooh-link">プーさんのハニーハント</a>
+                        <a href="{% url 'index' 'fantasy' 'story' 'alice' %}" class="alice-link">アリスのティーパーティー</a>
+                        <a href="{% url 'index' 'fantasy' 'story' 'small' %}" class="alice-link">イッツ・</a>
+                    {% elif category == 'mickey' %}
+                        <a href="{% url 'index' 'fantasy' 'mickey' 'pooh' %}" class="pooh-link">プーさんのハニーハント</a>
+                        <a href="{% url 'index' 'fantasy' 'mickey' 'alice' %}" class="alice-link">アリスの</a>
+                        <a href="{% url 'index' 'fantasy' 'mickey' 'small' %}" class="small-link">イッツ・ア・スモールワールド</a>
                     {% elif category == 'trivia' %}
-                    <a href="{% url 'index' 'fantasy' 'trivia' 'pooh' %}" class="bazaar-link">プーさんのハニーハント</a>
+                        <a href="{% url 'index' 'fantasy' 'trivia' 'pooh' %}" class="pooh-link">プーさんのハニーハント</a>
+                        <a href="{% url 'index' 'fantasy' 'trivia' 'alice' %}" class="alice-link">アリスのティーパーティー</a>
+                        <a href="{% url 'index' 'fantasy' 'trivia' 'small' %}" class="small-link">イッツ・ア・スモールワールド</a>
+                    {% elif category == 'other' %}
+                        <a href="{% url 'index' 'fantasy' 'other' 'pooh' %}" class="pooh-link">プーさんのハニーハント</a>
+                        <a href="{% url 'index' 'fantasy' 'other' 'alice' %}" class="alice-link">アリスのティーパーティー</a>
+                        <a href="{% url 'index' 'fantasy' 'other' 'small' %}" class="small-link">イッツ・ア・スモールワールド</a>
+                    {% else %}
+                        <a href="{% url 'index' 'fantasy' 'all' 'pooh' %}" class="pooh-link">プーさんのハニーハント</a>
+                        <a href="{% url 'index' 'fantasy' 'all' 'alice' %}" class="alice-link">アリスのティーパーティー</a>
+                        <a href="{% url 'index' 'fantasy' 'all' 'small' %}" class="small-link">イッツ・ア・スモールワールド</a>
                     {% endif %}
                 {% elif area == 'toon' %}
                     <img src="{% static 'img/fantasy_top.png' %}" alt="">
                 {% elif area == 'tomorrow' %}
                     <img src="{% static 'img/fantasy_top.png' %}" alt="">
                 {% else %}
-                    <img src="{% static 'img/TDL_top_rough.png' %}" class="top-pic" alt="">
+                    <img src="{% static 'img/TDL_top.png' %}" class="top-pic" alt="">
                     {% if category == 'story' %}
                         <a href="{% url 'index' 'bazaar' 'story' %}" class="bazaar-link">ワールドバザール</a>
                         <a href="{% url 'index' 'adventure' 'story' %}" class="adventure-link">アドベンチャーランド</a>
@@ -92,7 +108,7 @@
 <div class="picmenu">
     <ul class="table-ul">
         <li>
-            <a href="{% url 'category' '全て' %}">
+            <a href="{% url 'index' 'all' %}">
                 <img src="{% static 'img/box.png' %}" alt="全て" class="icon-category">
                 <p>全て</p>
             </a>
