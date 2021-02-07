@@ -371,7 +371,7 @@ a:hover {
 
 .alice-link{
     position: absolute;
-    top: 50%;
+    top: 30%;
     left:35%;
     -ms-transform: translate(-50%,-50%);
     -webkit-transform: translate(-50%,-50%);
@@ -401,6 +401,60 @@ a:hover {
     border-radius: 12px;
     color: white;
     background-color: #45bdf9;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.carousel-link{
+    position: absolute;
+    top: 43%;
+    left:33%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    margin:0;
+    font-size: 1.85vmax;
+    padding: 0.3vw;
+    border: solid white 2px;
+    border-radius: 12px;
+    color: white;
+    background-color: #f1951f;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.snow-link{
+    position: absolute;
+    top: 57%;
+    left:10%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    margin:0;
+    font-size: 1.85vmax;
+    padding: 0.3vw;
+    border: solid white 2px;
+    border-radius: 12px;
+    color: white;
+    background-color: #030795;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.cinderella-link{
+    position: absolute;
+    top: 85%;
+    left:22%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    margin:0;
+    font-size: 1.85vmax;
+    padding: 0.3vw;
+    border: solid white 2px;
+    border-radius: 12px;
+    color: white;
+    background-color: #b7dbff;
     text-decoration: none;
     white-space: nowrap;
 }

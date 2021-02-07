@@ -22,23 +22,38 @@
                     {% if category == 'story' %}
                         <a href="{% url 'index' 'fantasy' 'story' 'pooh' %}" class="pooh-link">プーさんのハニーハント</a>
                         <a href="{% url 'index' 'fantasy' 'story' 'alice' %}" class="alice-link">アリスのティーパーティー</a>
-                        <a href="{% url 'index' 'fantasy' 'story' 'small' %}" class="alice-link">イッツ・</a>
+                        <a href="{% url 'index' 'fantasy' 'story' 'small' %}" class="small-link">イッツ・ア・スモールワールド</a>
+                        <a href="{% url 'index' 'fantasy' 'story' 'carousel' %}" class="carousel-link">キャッスルカルーセル</a>
+                        <a href="{% url 'index' 'fantasy' 'story' 'snow' %}" class="snow-link">白雪姫と七人のこびと</a>
+                        <a href="{% url 'index' 'fantasy' 'story' 'cinderella' %}" class="cinderella-link">シンデレラのフェアリーテイル・ホール</a>
                     {% elif category == 'mickey' %}
                         <a href="{% url 'index' 'fantasy' 'mickey' 'pooh' %}" class="pooh-link">プーさんのハニーハント</a>
                         <a href="{% url 'index' 'fantasy' 'mickey' 'alice' %}" class="alice-link">アリスの</a>
                         <a href="{% url 'index' 'fantasy' 'mickey' 'small' %}" class="small-link">イッツ・ア・スモールワールド</a>
+                        <a href="{% url 'index' 'fantasy' 'mickey' 'carousel' %}" class="carousel-link">キャッスルカルーセル</a>
+                        <a href="{% url 'index' 'fantasy' 'mickey' 'snow' %}" class="snow-link">白雪姫と七人のこびと</a>
+                        <a href="{% url 'index' 'fantasy' 'mickey' 'cinderella' %}" class="cinderella-link">シンデレラのフェアリーテイル・ホール</a>
                     {% elif category == 'trivia' %}
                         <a href="{% url 'index' 'fantasy' 'trivia' 'pooh' %}" class="pooh-link">プーさんのハニーハント</a>
                         <a href="{% url 'index' 'fantasy' 'trivia' 'alice' %}" class="alice-link">アリスのティーパーティー</a>
                         <a href="{% url 'index' 'fantasy' 'trivia' 'small' %}" class="small-link">イッツ・ア・スモールワールド</a>
+                        <a href="{% url 'index' 'fantasy' 'trivia' 'carousel' %}" class="carousel-link">キャッスルカルーセル</a>
+                        <a href="{% url 'index' 'fantasy' 'trivia' 'snow' %}" class="snow-link">白雪姫と七人のこびと</a>
+                        <a href="{% url 'index' 'fantasy' 'trivia' 'cinderella' %}" class="cinderella-link">シンデレラのフェアリーテイル・ホール</a>
                     {% elif category == 'other' %}
                         <a href="{% url 'index' 'fantasy' 'other' 'pooh' %}" class="pooh-link">プーさんのハニーハント</a>
                         <a href="{% url 'index' 'fantasy' 'other' 'alice' %}" class="alice-link">アリスのティーパーティー</a>
                         <a href="{% url 'index' 'fantasy' 'other' 'small' %}" class="small-link">イッツ・ア・スモールワールド</a>
+                        <a href="{% url 'index' 'fantasy' 'other' 'carousel' %}" class="carousel-link">キャッスルカルーセル</a>
+                        <a href="{% url 'index' 'fantasy' 'other' 'snow' %}" class="snow-link">白雪姫と七人のこびと</a>
+                        <a href="{% url 'index' 'fantasy' 'other' 'cinderella' %}" class="cinderella-link">シンデレラのフェアリーテイル・ホール</a>
                     {% else %}
                         <a href="{% url 'index' 'fantasy' 'all' 'pooh' %}" class="pooh-link">プーさんのハニーハント</a>
                         <a href="{% url 'index' 'fantasy' 'all' 'alice' %}" class="alice-link">アリスのティーパーティー</a>
                         <a href="{% url 'index' 'fantasy' 'all' 'small' %}" class="small-link">イッツ・ア・スモールワールド</a>
+                        <a href="{% url 'index' 'fantasy' 'all' 'carousel' %}" class="carousel-link">キャッスルカルーセル</a>
+                        <a href="{% url 'index' 'fantasy' 'all' 'snow' %}" class="snow-link">白雪姫と七人のこびと</a>
+                        <a href="{% url 'index' 'fantasy' 'all' 'cinderella' %}" class="cinderella-link">シンデレラのフェアリーテイル・ホール</a>
                     {% endif %}
                 {% elif area == 'toon' %}
                     <img src="{% static 'img/fantasy_top.png' %}" alt="">
