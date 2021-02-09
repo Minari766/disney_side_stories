@@ -351,23 +351,6 @@ a:hover {
 }
 
 /* アトラクションリンク */
-.pooh-link{
-    position: absolute;
-    top: 55%;
-    left:70%;
-    -ms-transform: translate(-50%,-50%);
-    -webkit-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);
-    margin:0;
-    font-size: 1.85vmax;
-    padding: 0.3vw;
-    border: solid white 2px;
-    border-radius: 12px;
-    color: white;
-    background-color: #F2D632;
-    text-decoration: none;
-    white-space: nowrap;
-}
 
 .alice-link{
     position: absolute;
@@ -390,7 +373,7 @@ a:hover {
 .small-link{
     position: absolute;
     top: 10%;
-    left:20%;
+    left:60%;
     -ms-transform: translate(-50%,-50%);
     -webkit-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
@@ -425,7 +408,7 @@ a:hover {
 
 .snow-link{
     position: absolute;
-    top: 57%;
+    top: 65%;
     left:10%;
     -ms-transform: translate(-50%,-50%);
     -webkit-transform: translate(-50%,-50%);
@@ -455,6 +438,167 @@ a:hover {
     border-radius: 12px;
     color: white;
     background-color: #b7dbfe;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.dumbo-link{
+    position: absolute;
+    top: 43%;
+    left:10%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    margin:0;
+    font-size: 1.85vmax;
+    padding: 0.3vw;
+    border: solid white 2px;
+    border-radius: 12px;
+    color: white;
+    background-color: #a9bbc8;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.beast-link{
+    position: absolute;
+    top: 87%;
+    left:92%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    margin:0;
+    font-size: 1.85vmax;
+    padding: 0.3vw;
+    border: solid white 2px;
+    border-radius: 12px;
+    color: white;
+    background-color: #d7a222;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.peter-link{
+    position: absolute;
+    top: 75%;
+    left:10%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    margin:0;
+    font-size: 1.85vmax;
+    padding: 0.3vw;
+    border: solid white 2px;
+    border-radius: 12px;
+    color: white;
+    background-color: #bad11a;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.pinocchio-link{
+    position: absolute;
+    top: 65%;
+    left:50%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    margin:0;
+    font-size: 1.85vmax;
+    padding: 0.3vw;
+    border: solid white 2px;
+    border-radius: 12px;
+    color: white;
+    background-color: #ee8c75;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.pooh-link{
+    position: absolute;
+    top: 45%;
+    left:64%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    margin:0;
+    font-size: 1.85vmax;
+    padding: 0.3vw;
+    border: solid white 2px;
+    border-radius: 12px;
+    color: white;
+    background-color: #F2D632;
+    text-decoration: none;
+    white-space: nowrap;
+}
+.pooh-link{
+    position: absolute;
+    top: 45%;
+    left:64%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    margin:0;
+    font-size: 1.85vmax;
+    padding: 0.3vw;
+    border: solid white 2px;
+    border-radius: 12px;
+    color: white;
+    background-color: #F2D632;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.haunted-link{
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    margin:0;
+    font-size: 1.85vmax;
+    padding: 0.3vw;
+    border: solid white 2px;
+    border-radius: 12px;
+    color: white;
+    background-color: #3e464d;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.philhar-link{
+    position: absolute;
+    top: 75%;
+    left: 55%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    margin:0;
+    font-size: 1.85vmax;
+    padding: 0.3vw;
+    border: solid white 2px;
+    border-radius: 12px;
+    color: white;
+    background-color: #2169ba;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.fantasy-other-link{
+    position: absolute;
+    top: 5%;
+    left: 95%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    margin:0;
+    font-size: 1.85vmax;
+    padding: 0.3vw;
+    border: solid white 2px;
+    border-radius: 12px;
+    color: white;
+    background-color: gray;
     text-decoration: none;
     white-space: nowrap;
 }

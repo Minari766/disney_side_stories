@@ -28,7 +28,6 @@ class IndexView(View):
         if category == 'story':
             category_data = Category.objects.get(name='ストーリー')
             post_data = post_data.filter(category=category_data)
-
         elif category == 'mickey':
             category_data = Category.objects.get(name='隠れミッキー')
             post_data = post_data.filter(category=category_data)
@@ -45,6 +44,8 @@ class IndexView(View):
     
     # アトラクション追加のコードを作成
     # def attraction_select
+    # def attraction_select(self, post_data, category, area_name, attraction):
+
 
     def get(self, request, *args, **kwargs):
         post_data = Post.objects.order_by("-id")
