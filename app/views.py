@@ -50,6 +50,7 @@ class IndexView(View):
         if attraction == 'alice':
             attraction_data = post_data.get(name='アリスのティーパーティー')
             post_data = post_data.filter(attraction=attraction_data)
+        print("test2")
         return post_data
         # if attraction == 'small':
         #     attraction_data = post_data.filter(attraction=attraction_data)
