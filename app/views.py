@@ -46,6 +46,28 @@ class IndexView(View):
         else:
             post_data = post_data
         return post_data
+# 元々あったtest関数（カテゴリ決定関数）
+#     def test(self, post_data, category, area_name, attraction_name):
+#         area_data = Area.objects.get(name=area_name)
+#         attraction_data = Attraction.objects.get(name=attraction_name)
+#         post_data = post_data.filter(area=area_data)
+#         post_data = post_data.filter(attraction=attraction_data)
+#         print('test2')
+#         if category == 'story':
+#             category_data = Category.objects.get(name='ストーリー')
+#             post_data = post_data.filter(category=category_data)
+#         elif category == 'mickey':
+#             category_data = Category.objects.get(name='隠れミッキー')
+#             post_data = post_data.filter(category=category_data)
+#         elif category == 'trivia':
+#             category_data = Category.objects.get(name='豆知識')
+#             post_data = post_data.filter(category=category_data)
+#         elif category == 'other':
+#             category_data = Category.objects.get(name='その他')
+#             post_data = post_data.filter(category=category_data)
+#         else:
+#             post_data = post_data
+#         return post_data
     
     # アトラクション追加のコードを作成
     # def attraction_select
