@@ -84,6 +84,28 @@ class IndexView(View):
             # post_data = self.test(post_data, category, 'ファンタジーランド')
             if attraction == 'alice':
                 post_data = self.test(post_data, category, 'ファンタジーランド', 'アリスのティーパーティー')
+            elif attraction == 'small':
+                post_data = self.test(post_data, category, 'ファンタジーランド', 'イッツ・ア・スモールワールド')
+            elif attraction == 'carousel':
+                post_data = self.test(post_data, category, 'ファンタジーランド', 'キャッスルカルーセル')
+            elif attraction == 'cinderella':
+                post_data = self.test(post_data, category, 'ファンタジーランド', 'シンデレラのフェアリーテイル・ホール')
+            elif attraction == 'dumbo':
+                post_data = self.test(post_data, category, 'ファンタジーランド', '空飛ぶダンボ')
+            elif attraction == 'beast':
+                post_data = self.test(post_data, category, 'ファンタジーランド', '美女と野獣"まほうのものがたり')
+            elif attraction == 'peter':
+                post_data = self.test(post_data, category, 'ファンタジーランド', 'ピーターパン空の旅')
+            elif attraction == 'pinocchio':
+                post_data = self.test(post_data, category, 'ファンタジーランド', 'ピノキオの冒険旅行')
+            elif attraction == 'pooh':
+                post_data = self.test(post_data, category, 'ファンタジーランド', 'プーさんのハニーハント')
+            elif attraction == 'haunted':
+                post_data = self.test(post_data, category, 'ファンタジーランド', 'ホーンテッドマンション')
+            elif attraction == 'philhar':
+                post_data = self.test(post_data, category, 'ファンタジーランド', 'ミッキーのフィルハーマジック')
+            elif attraction == 'fantasy-other':
+                post_data = self.test(post_data, category, 'ファンタジーランド', 'その他')
         # elif area == 'fantasy':
         #     area_data = Area.objects.get(name='ファンタジーランド')
         #     post_data = post_data.filter(area=area_data)
