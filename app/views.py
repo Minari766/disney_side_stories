@@ -27,7 +27,6 @@ class IndexView(View):
         attraction_data = Attraction.objects.get(name=attraction_name)
         post_data = post_data.filter(area=area_data)
         post_data = post_data.filter(attraction=attraction_data)
-        print('test2')
         if category == 'story':
             category_data = Category.objects.get(name='ストーリー')
             post_data = post_data.filter(category=category_data)

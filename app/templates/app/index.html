@@ -173,7 +173,25 @@
             {% elif area == 'critter' %}
                 <a href="{% url 'index' 'critter' 'story' %}">
             {% elif area == 'fantasy' %}
-                <a href="{% url 'index' 'fantasy' 'story' %}">
+                {% if attraction == 'alice' %}
+                    <a href="{% url 'index' 'fantasy' 'story' 'alice' %}">
+                {% elif attraction == 'small' %}
+                    <a href="{% url 'index' 'fantasy' 'story' 'small' %}">
+                {% elif attraction == 'carousel' %}
+                    <a href="{% url 'index' 'fantasy' 'story' 'carousel' %}">
+                {% elif attraction == 'cinderella' %}
+                    <a href="{% url 'index' 'fantasy' 'story' 'cinderella' %}">
+                {% elif attraction == 'beast' %}
+                    <a href="{% url 'index' 'fantasy' 'story' 'beast' %}">
+                {% elif attraction == 'pinocchio' %}
+                    <a href="{% url 'index' 'fantasy' 'story' 'pinocchio' %}">
+                {% elif attraction == 'haunted' %}
+                    <a href="{% url 'index' 'fantasy' 'story' 'haunted' %}">
+                {% elif attraction == 'philhar' %}
+                    <a href="{% url 'index' 'fantasy' 'story' 'philhar' %}">
+                {% elif attraction == 'fantasy-other' %}
+                    <a href="{% url 'index' 'fantasy' 'story' 'fantasy-other' %}">
+                {% endif %}
             {% elif area == 'toon' %}
                 <a href="{% url 'index' 'toon' 'story' %}">
             {% elif area == 'tomorrow' %}
