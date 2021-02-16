@@ -39,9 +39,8 @@ class IndexView(View):
         elif category == 'other':
             category_data = Category.objects.get(name='その他')
             post_data = post_data.filter(category=category_data)
-        # elif category == 'all':
-        #     category_data = Category.objects.get(name='全て')
-        #     post_data = post_data.filter(category=category_data)
+        elif category == 'all':
+            post_data = post_data
         else:
             post_data = post_data
         return post_data
