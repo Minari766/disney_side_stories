@@ -243,7 +243,7 @@
             {% endif %}
                 <img src="{% static 'img/mickey_b.png' %}" alt="隠れミッキー" class="icon-category">
                 <p>隠れミッキー</p>
-　ｍ            </a>
+            </a>
         </li>
         <li>
             {% if area == 'bazaar' %}
@@ -288,9 +288,9 @@
         </li>
         <li>
             {% if area == 'bazaar' %}
-                <a href="{% url 'index' 'fantasy' 'other' %}">
+                <a href="{% url 'index' 'bazaar' 'other' %}">
             {% elif area == 'adventure' %}
-                <a href="{% url 'index' 'toon' 'other' %}">
+                <a href="{% url 'index' 'adventure' 'other' %}">
             {% elif area == 'western' %}
                 <a href="{% url 'index' 'western' 'other' %}">
             {% elif area == 'critter' %}
