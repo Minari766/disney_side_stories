@@ -23,212 +23,50 @@ class IndexView(View):
         return page_obj
 # カテゴリ選択
     def category_select(self, post_data, category, area, attraction):
-        if category == 'story':
-            category_data = Category.objects.get(name='ストーリー')
+        if category != None :
+            category_data = Category.objects.get(slug=category)
             post_data = post_data.filter(category=category_data)
-        elif category == 'mickey':
-            category_data = Category.objects.get(name='隠れミッキー')
-            post_data = post_data.filter(category=category_data)
-        elif category == 'trivia':
-            category_data = Category.objects.get(name='豆知識')
-            post_data = post_data.filter(category=category_data)
-        elif category == 'other':
-            category_data = Category.objects.get(name='その他')
-            post_data = post_data.filter(category=category_data)
-        elif category == 'all':
-            post_data = post_data
-        else:
+        elif category == "all" :
             post_data = post_data
         return post_data
 # エリア選択
-    # def area_select(self, post_data, category, area_name, attraction):
-    #     if area == 'bazaar':
-    #         area_data = Area.objects.get(name='ワールドバザール')
-    #         post_data = post_data.filter(area=area_data)
-    #     elif area == 'adventure':
-    #         area_data = Area.objects.get(name='アドベンチャーランド')
-    #         post_data = post_data.filter(area=area_data)
-    #     elif area == 'western':
-    #         area_data = Area.objects.get(name='ウエスタンランド')
-    #         post_data = post_data.filter(area=area_data)
-    #     elif area == 'critter':
-    #         area_data = Area.objects.get(name='クリッターカントリー')
-    #         post_data = post_data.filter(area=area_data)
-    #     elif area == 'fantasy':
-    #         area_data = Area.objects.get(name='ファンタジーランド')
-    #         post_data = post_data.filter(area=area_data)
-    #     elif area == 'toon':
-    #         area_data = Area.objects.get(name='トゥーンタウン')
-    #         post_data = post_data.filter(area=area_data)
-    #     elif area == 'tomorrow':
-    #         area_data = Area.objects.get(name='トゥモローランド')
-    #         post_data = post_data.filter(area=area_data)
-    #     elif category == 'other':
-    #         post_data = post_data
-    #     else:
-    #         post_data = post_data
-    #     return post_data
-# 元々あったtest関数（カテゴリ決定関数）
-#     def category_select(self, post_data, category, area_name, attraction_name):
-#         area_data = Area.objects.get(name=area_name)
-#         attraction_data = Attraction.objects.get(name=attraction_name)
-#         post_data = post_data.filter(area=area_data)
-#         post_data = post_data.filter(attraction=attraction_data)
-#         print('test2')
-#         if category == 'story':
-#             category_data = Category.objects.get(name='ストーリー')
-#             post_data = post_data.filter(category=category_data)
-#         elif category == 'mickey':
-#             category_data = Category.objects.get(name='隠れミッキー')
-#             post_data = post_data.filter(category=category_data)
-#         elif category == 'trivia':
-#             category_data = Category.objects.get(name='豆知識')
-#             post_data = post_data.filter(category=category_data)
-#         elif category == 'other':
-#             category_data = Category.objects.get(name='その他')
-#             post_data = post_data.filter(category=category_data)
-#         else:
-#             post_data = post_data
-#         return post_data
-    
-    # アトラクション追加のコードを作成
-    # def attraction_select(self, post_data, category, area_name, attraction_name):
-    #     attraction_data = Attraction.objects.get(name=attraction_name)
-    #     post_data = post_data.filter(attraction=attraction_data)
-    #     if attraction == 'alice':
-    #         attraction_data = post_data.get(name='アリスのティーパーティー')
-    #         post_data = post_data.filter(attraction=attraction_data)
-    #     return post_data
-    #     if attraction == 'small':
-    #         attraction_data = post_data.filter(attraction=attraction_data)
-    #     if attraction == 'alice':
-    #         attraction_data = post_data.filter(attraction=attraction_data)
-    #     if attraction == 'alice':
-    #             post_data = self.category_select(post_data, category, 'ファンタジーランド', 'イッツ・ア・スモールワールド')
-    #         elif attraction == 'carousel':
-    #             post_data = self.category_select(post_data, category, 'ファンタジーランド', 'キャッスルカルーセル')
-    #         elif attraction == 'cinderella':
-    #             post_data = self.category_select(post_data, category, 'ファンタジーランド', 'シンデレラのフェアリーテイル・ホール')
-    #         elif attraction == 'dumbo':
-    #             post_data = self.category_select(post_data, category, 'ファンタジーランド', '空飛ぶダンボ')
-    #         elif attraction == 'beast':
-    #             post_data = self.category_select(post_data, category, 'ファンタジーランド', '美女と野獣"まほうのものがたり')
-    #         elif attraction == 'peter':
-    #             post_data = self.category_select(post_data, category, 'ファンタジーランド', 'ピーターパン空の旅')
-    #         elif attraction == 'pinocchio':
-    #             post_data = self.category_select(post_data, category, 'ファンタジーランド', 'ピノキオの冒険旅行')
-    #         elif attraction == 'pooh':
-    #             post_data = self.category_select(post_data, category, 'ファンタジーランド', 'プーさんのハニーハント')
-    #         elif attraction == 'haunted':
-    #             post_data = self.category_select(post_data, category, 'ファンタジーランド', 'ホーンテッドマンション')
-    #         elif attraction == 'philhar':
-    #             post_data = self.category_select(post_data, category, 'ファンタジーランド', 'ミッキーのフィルハーマジック')
-    #         elif attraction == 'fantasy-other':
-    #             post_data = self.category_select(post_data, category, 'ファンタジーランド', 'その他')
-
+    def area_select(self, post_data, category, area, attraction):
+        if area != None :
+            area_data = Area.objects.get(slug=area)
+            post_data = post_data.filter(area=area_data)
+        elif area == "all" :
+            post_data = post_data
+        return post_data
+# アトラクション選択
+    def attraction_select(self, post_data, category, area, attraction):
+        if attraction != None :
+            attraction_data = Attraction.objects.get(slug=attraction)
+            post_data = post_data.filter(attraction=attraction_data)
+        elif attraction == "all" :
+            post_data = post_data
+        return post_data
+ 
+ 
     def get(self, request, *args, **kwargs):
         post_data = Post.objects.order_by("-id")
         area = self.kwargs.get('area')
-        print(area)
         category = self.kwargs.get('category')
         attraction = self.kwargs.get('attraction')
-        # 110〜112行のように三度フィルタリングすることができないか？
-        # post_data = self.category_select(post_data, category, area, attraction)
-        # post_data = self.area_select(post_data, category, area, attraction)
-        # post_data = self.attraction_select(post_data, category, area, attraction)
-        if area == 'bazaar':
-            area_data = Area.objects.get(name='ワールドバザール')
-            post_data = post_data.filter(area=area_data)
-            # test関数を使うためにself.を頭につける必要がある
-            post_data = self.category_select(post_data, category, 'ワールドバザール')
-        elif area == 'adventure':
-            post_data = self.category_select(post_data, category, 'アドベンチャーランド')
-        elif area == 'western':
-            post_data = self.category_select(post_data, category, 'ウエスタンランド')
-        elif area == 'critter':
-            post_data = self.category_select(post_data, category, 'クリッターカントリー')
-        elif area == 'toon':
-            post_data = self.category_select(post_data, category, 'トゥーンタウン')
-        elif area == 'tomorrow':
-            post_data = self.category_select(post_data, category, 'トゥモローランド')
-        # elif area == 'fantasy':
-        #     post_data = self.category_select(post_data, category, 'ファンタジーランド')
-        #     if attraction == 'alice':
-        #         post_data = self.category_select(post_data, category, 'ファンタジーランド', 'アリスのティーパーティー')
-        #     elif attraction == 'small':
-        #         post_data = self.category_select(post_data, category, 'ファンタジーランド', 'イッツ・ア・スモールワールド')
-        #     elif attraction == 'carousel':
-        #         post_data = self.category_select(post_data, category, 'ファンタジーランド', 'キャッスルカルーセル')
-        #     elif attraction == 'cinderella':
-        #         post_data = self.category_select(post_data, category, 'ファンタジーランド', 'シンデレラのフェアリーテイル・ホール')
-        #     elif attraction == 'dumbo':
-        #         post_data = self.category_select(post_data, category, 'ファンタジーランド', '空飛ぶダンボ')
-        #     elif attraction == 'beast':
-        #         post_data = self.category_select(post_data, category, 'ファンタジーランド', '美女と野獣"まほうのものがたり')
-        #     elif attraction == 'peter':
-        #         post_data = self.category_select(post_data, category, 'ファンタジーランド', 'ピーターパン空の旅')
-        #     elif attraction == 'pinocchio':
-        #         post_data = self.category_select(post_data, category, 'ファンタジーランド', 'ピノキオの冒険旅行')
-        #     elif attraction == 'pooh':
-        #         post_data = self.category_select(post_data, category, 'ファンタジーランド', 'プーさんのハニーハント')
-        #     elif attraction == 'haunted':
-        #         post_data = self.category_select(post_data, category, 'ファンタジーランド', 'ホーンテッドマンション')
-        #     elif attraction == 'philhar':
-        #         post_data = self.category_select(post_data, category, 'ファンタジーランド', 'ミッキーのフィルハーマジック')
-        #     elif attraction == 'fantasy-other':
-        #         post_data = self.category_select(post_data, category, 'ファンタジーランド', 'その他')
-        elif area == 'fantasy':
-            area_data = Area.objects.get(name='ファンタジーランド')
-            post_data = post_data.filter(area=area_data)
-            print("test2")
-            if category == 'story':
-                category_data = Category.objects.get(name='ストーリー')
-                post_data = post_data.filter(category=category_data)
-                print("test3")
-                if attraction == 'pooh':
-                    attraction_data = Attraction.objects.get(name='プーさんのハニーハント')
-                    post_data = post_data.filter(attraction=attraction_data)
-            elif category == 'mickey':
-                category_data = Category.objects.get(name='隠れミッキー')
-                post_data = post_data.filter(category=category_data)
-            elif category == 'trivia':
-                category_data = Category.objects.get(name='豆知識')
-                post_data = post_data.filter(category=category_data)
-                if attraction == 'pooh':
-                    attraction_data = Attraction.objects.get(name='プーさんのハニーハント')
-                    post_data = post_data.filter(attraction=attraction_data)
-            elif category == 'other':
-                category_data = Category.objects.get(name='その他')
-                post_data = post_data.filter(category=category_data)
-            elif category == 'all':
-                if attraction == 'pooh':
-                    attraction_data = Attraction.objects.get(name='プーさんのハニーハント')
-                    post_data = post_data.filter(attraction=attraction_data)
-        elif area == 'all':
-            if category == 'story':
-                category_data = Category.objects.get(name='ストーリー')
-                post_data = post_data.filter(category=category_data)
-            elif category == 'mickey':
-                category_data = Category.objects.get(name='隠れミッキー')
-                post_data = post_data.filter(category=category_data)
-            elif category == 'trivia':
-                category_data = Category.objects.get(name='豆知識')
-                post_data = post_data.filter(category=category_data)
-            elif category == 'other':
-                category_data = Category.objects.get(name='その他')
-                post_data = post_data.filter(category=category_data)
-            # elif category == 'all':
-            #     category_data = Category.objects.get(name='全て')
-            #     post_data = post_data.filter(category=category_data)
-
+        print(area)
+        print(category)
+        print(attraction)
+        post_data = self.category_select(post_data, category, area, attraction)
+        post_data = self.area_select(post_data, category, area, attraction)
+        post_data = self.attraction_select(post_data, category, area, attraction)
+        
         page_obj = self.paginate_queryset(request, post_data, 10)
-
 
         return render(request, 'app/index.html', {
             'post_data': page_obj.object_list,
             'page_obj': page_obj,
             'area': area,
-            'category': category
+            'category': category,
+            'attraction': attraction
         })
 
 

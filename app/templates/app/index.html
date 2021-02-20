@@ -206,9 +206,9 @@
         </li>
         <li>
             {% if area == 'bazaar' %}
-                <a href="{% url 'index' 'fantasy' 'mickey' %}">
+                <a href="{% url 'index' 'bazaar' 'mickey' %}">
             {% elif area == 'adventure' %}
-                <a href="{% url 'index' 'toon' 'mickey' %}">
+                <a href="{% url 'index' 'adventure' 'mickey' %}">
             {% elif area == 'western' %}
                 <a href="{% url 'index' 'western' 'mickey' %}">
             {% elif area == 'critter' %}
@@ -247,9 +247,9 @@
         </li>
         <li>
             {% if area == 'bazaar' %}
-                <a href="{% url 'index' 'fantasy' 'trivia' %}">
+                <a href="{% url 'index' 'bazaar' 'trivia' %}">
             {% elif area == 'adventure' %}
-                <a href="{% url 'index' 'toon' 'trivia' %}">
+                <a href="{% url 'index' 'adventure' 'trivia' %}">
             {% elif area == 'western' %}
                 <a href="{% url 'index' 'western' 'trivia' %}">
             {% elif area == 'critter' %}
