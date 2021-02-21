@@ -203,8 +203,13 @@ a:hover {
 }
 
 .top-pic{
-  width: 50%;
-  height: 50%;  
+    width: 50%;
+    height: 50%;  
+}
+
+.top-pic-bazaar{
+    height: 40vw;  
+    width: auto;
 }
 
 .icon-category{
@@ -351,6 +356,77 @@ a:hover {
 }
 
 /* アトラクションリンク */
+.omni-link{
+    position: absolute;
+    top: 26%;
+    left: 67%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    margin:0;/*余計な隙間を除く*/
+    font-size: 1.85vw;
+    padding: 0.3vw;/*文字と線の間の余白*/
+    border: solid white 2px; /*線で囲う*/
+    border-radius: 12px;
+    color: white;/*文字色*/
+    background-color: #095c63;
+    text-decoration: none;/*下線を表示させない*/
+    white-space: nowrap;
+}
+
+.omni-link{
+    position: absolute;
+    top: 26%;
+    left: 67%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    margin:0;/*余計な隙間を除く*/
+    font-size: 1.85vw;
+    padding: 0.3vw;/*文字と線の間の余白*/
+    border: solid white 2px; /*線で囲う*/
+    border-radius: 12px;
+    color: white;/*文字色*/
+    background-color: #095c63;
+    text-decoration: none;/*下線を表示させない*/
+    white-space: nowrap;
+}
+
+.penny-link{
+    position: absolute;
+    top: 55%;
+    left: 68%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    margin:0;/*余計な隙間を除く*/
+    font-size: 1.85vw;
+    padding: 0.3vw;/*文字と線の間の余白*/
+    border: solid white 2px; /*線で囲う*/
+    border-radius: 12px;
+    color: white;/*文字色*/
+    background-color: #bb9546;
+    text-decoration: none;/*下線を表示させない*/
+    white-space: nowrap;
+}
+
+.bazaar-other-link{
+    position: absolute;
+    top: 5%;
+    left: 95%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    margin:0;
+    font-size: 1.85vmax;
+    padding: 0.3vw;
+    border: solid white 2px;
+    border-radius: 12px;
+    color: white;
+    background-color: gray;
+    text-decoration: none;
+    white-space: nowrap;
+}
 
 .alice-link{
     position: absolute;

@@ -10,9 +10,51 @@
         <div class="row h-100 align-items-center">
             <div class="col-12 text-center TDL-table">
                 {% if area == 'bazaar' %}
-                    <img src="{% static 'img/fantasy_top.png' %}" alt="">
+                    <img src="{% static 'img/WorldBazaar(testSS).png' %}" alt="" class="top-pic-bazaar">
+                    {% if category == 'story' %}
+                        <a href="{% url 'index' 'bazaar' 'story' 'omni' %}" class="omni-link">オムニバス</a>
+                        <a href="{% url 'index' 'bazaar' 'story' 'penny' %}" class="penny-link">ペニーアーケード</a>
+                        <a href="{% url 'index' 'bazaar' 'story' 'bazaar-other' %}" class="bazaar-other-link">その他</a>
+                    {% elif category == 'mickey' %}
+                        <a href="{% url 'index' 'bazaar' 'mickey' 'omni' %}" class="omni-link">オムニバス</a>
+                        <a href="{% url 'index' 'bazaar' 'mickey' 'penny' %}" class="penny-link">ペニーアーケード</a>
+                        <a href="{% url 'index' 'bazaar' 'mickey' 'bazaar-other' %}" class="bazaar-other-link">その他</a>
+                    {% elif category == 'trivia' %}
+                        <a href="{% url 'index' 'bazaar' 'trivia' 'omni' %}" class="omni-link">オムニバス</a>
+                        <a href="{% url 'index' 'bazaar' 'trivia' 'penny' %}" class="penny-link">ペニーアーケード</a>
+                        <a href="{% url 'index' 'bazaar' 'trivia' 'bazaar-other' %}" class="bazaar-other-link">その他</a>
+                    {% elif category == 'other' %}
+                        <a href="{% url 'index' 'bazaar' 'other' 'omni' %}" class="omni-link">オムニバス</a>
+                        <a href="{% url 'index' 'bazaar' 'other' 'penny' %}" class="penny-link">ペニーアーケード</a>
+                        <a href="{% url 'index' 'bazaar' 'other' 'bazaar-other' %}" class="bazaar-other-link">その他</a>
+                    {% else %}
+                        <a href="{% url 'index' 'bazaar' 'all' 'omni' %}" class="omni-link">オムニバス</a>
+                        <a href="{% url 'index' 'bazaar' 'all' 'penny' %}" class="penny-link">ペニーアーケード</a>
+                        <a href="{% url 'index' 'bazaar' 'all' 'bazaar-other' %}" class="bazaar-other-link">その他</a>
+                    {% endif %}
                 {% elif area == 'adventure' %}
-                    <img src="{% static 'img/fantasy_top.png' %}" alt="">
+                    <img src="{% static 'img/AdventureLand(testSS).png' %}" alt="">
+                    {% if category == 'story' %}
+                        <a href="{% url 'index' 'adventure' 'story' 'riverline' %}" class="riverline-link">ウエスタンリバー鉄道</a>
+                        <a href="{% url 'index' 'adventure' 'story' 'penny' %}" class="penny-link">ペニーアーケード</a>
+                        <a href="{% url 'index' 'adventure' 'story' 'adventure-other' %}" class="adventure-other-link">その他</a>
+                    {% elif category == 'mickey' %}
+                        <a href="{% url 'index' 'adventure' 'mickey' 'riverline' %}" class="riverline-link">ウエスタンリバー鉄道</a>
+                        <a href="{% url 'index' 'adventure' 'mickey' 'penny' %}" class="penny-link">ペニーアーケード</a>
+                        <a href="{% url 'index' 'adventure' 'mickey' 'adventure-other' %}" class="adventure-other-link">その他</a>
+                    {% elif category == 'trivia' %}
+                        <a href="{% url 'index' 'adventure' 'trivia' 'riverline' %}" class="riverline-link">ウエスタンリバー鉄道</a>
+                        <a href="{% url 'index' 'adventure' 'trivia' 'penny' %}" class="penny-link">ペニーアーケード</a>
+                        <a href="{% url 'index' 'adventure' 'trivia' 'adventure-other' %}" class="adventure-other-link">その他</a>
+                    {% elif category == 'other' %}
+                        <a href="{% url 'index' 'adventure' 'other' 'riverline' %}" class="riverline-link">ウエスタンリバー鉄道</a>
+                        <a href="{% url 'index' 'adventure' 'other' 'penny' %}" class="penny-link">ペニーアーケード</a>
+                        <a href="{% url 'index' 'adventure' 'other' 'adventure-other' %}" class="adventure-other-link">その他</a>
+                    {% else %}
+                        <a href="{% url 'index' 'adventure' 'all' 'riverline' %}" class="riverline-link">ウエスタンリバー鉄道</a>
+                        <a href="{% url 'index' 'adventure' 'all' 'penny' %}" class="penny-link">ペニーアーケード</a>
+                        <a href="{% url 'index' 'adventure' 'all' 'adventure-other' %}" class="adventure-other-link">その他</a>
+                    {% endif %}
                 {% elif area == 'western' %}
                     <img src="{% static 'img/fantasy_top.png' %}" alt="">
                 {% elif area == 'critter' %}
@@ -157,12 +199,6 @@
 
 <div class="picmenu">
     <ul class="table-ul">
-        <!-- <li>
-            <a href="{% url 'index' 'story' 'all' %}">
-                <img src="{% static 'img/box.png' %}" alt="全て" class="icon-category">
-                <p>全て</p>
-            </a>
-        </li> -->
         <li>
             {% if area == 'bazaar' %}
                 <a href="{% url 'index' 'bazaar' 'all' %}">
