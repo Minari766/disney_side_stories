@@ -158,7 +158,7 @@
 <div class="picmenu">
     <ul class="table-ul">
         <li>
-            <a href="{% url 'index' 'all' %}">
+            <a href="{% url 'index' 'story' 'all' %}">
                 <img src="{% static 'img/box.png' %}" alt="全て" class="icon-category">
                 <p>全て</p>
             </a>
@@ -180,12 +180,18 @@
                     <a href="{% url 'index' 'fantasy' 'story' 'small' %}">
                 {% elif attraction == 'carousel' %}
                     <a href="{% url 'index' 'fantasy' 'story' 'carousel' %}">
+                {% elif attraction == 'snow' %}
+                    <a href="{% url 'index' 'fantasy' 'story' 'snow' %}">
                 {% elif attraction == 'cinderella' %}
                     <a href="{% url 'index' 'fantasy' 'story' 'cinderella' %}">
+                {% elif attraction == 'dumbo' %}
+                    <a href="{% url 'index' 'fantasy' 'story' 'dumbo' %}">
                 {% elif attraction == 'beast' %}
                     <a href="{% url 'index' 'fantasy' 'story' 'beast' %}">
                 {% elif attraction == 'pinocchio' %}
                     <a href="{% url 'index' 'fantasy' 'story' 'pinocchio' %}">
+                {% elif attraction == 'pooh' %}
+                    <a href="{% url 'index' 'fantasy' 'story' 'pooh' %}">
                 {% elif attraction == 'haunted' %}
                     <a href="{% url 'index' 'fantasy' 'story' 'haunted' %}">
                 {% elif attraction == 'philhar' %}
@@ -221,12 +227,18 @@
                     <a href="{% url 'index' 'fantasy' 'mickey' 'small' %}">
                 {% elif attraction == 'carousel' %}
                     <a href="{% url 'index' 'fantasy' 'mickey' 'carousel' %}">
+                {% elif attraction == 'snow' %}
+                    <a href="{% url 'index' 'fantasy' 'mickey' 'snow' %}">
                 {% elif attraction == 'cinderella' %}
                     <a href="{% url 'index' 'fantasy' 'mickey' 'cinderella' %}">
+                {% elif attraction == 'dumbo' %}
+                    <a href="{% url 'index' 'fantasy' 'mickey' 'dumbo' %}">
                 {% elif attraction == 'beast' %}
                     <a href="{% url 'index' 'fantasy' 'mickey' 'beast' %}">
                 {% elif attraction == 'pinocchio' %}
                     <a href="{% url 'index' 'fantasy' 'mickey' 'pinocchio' %}">
+                {% elif attraction == 'pooh' %}
+                    <a href="{% url 'index' 'fantasy' 'mickey' 'pooh' %}">
                 {% elif attraction == 'haunted' %}
                     <a href="{% url 'index' 'fantasy' 'mickey' 'haunted' %}">
                 {% elif attraction == 'philhar' %}
@@ -255,19 +267,25 @@
             {% elif area == 'critter' %}
                 <a href="{% url 'index' 'critter' 'trivia' %}">
             {% elif area == 'fantasy' %}
-                <!-- <a href="{% url 'index' 'fantasy' 'trivia'%}"> -->
+                <a href="{% url 'index' 'fantasy' 'trivia'%}">
                 {% if attraction == 'alice' %}
                     <a href="{% url 'index' 'fantasy' 'trivia' 'alice' %}">
                 {% elif attraction == 'small' %}
                     <a href="{% url 'index' 'fantasy' 'trivia' 'small' %}">
                 {% elif attraction == 'carousel' %}
                     <a href="{% url 'index' 'fantasy' 'trivia' 'carousel' %}">
+                {% elif attraction == 'snow' %}
+                    <a href="{% url 'index' 'fantasy' 'trivia' 'snow' %}">
                 {% elif attraction == 'cinderella' %}
                     <a href="{% url 'index' 'fantasy' 'trivia' 'cinderella' %}">
+                {% elif attraction == 'dumbo' %}
+                    <a href="{% url 'index' 'fantasy' 'trivia' 'dumbo' %}">
                 {% elif attraction == 'beast' %}
                     <a href="{% url 'index' 'fantasy' 'trivia' 'beast' %}">
                 {% elif attraction == 'pinocchio' %}
                     <a href="{% url 'index' 'fantasy' 'trivia' 'pinocchio' %}">
+                {% elif attraction == 'pooh' %}
+                    <a href="{% url 'index' 'fantasy' 'trivia' 'pooh' %}">
                 {% elif attraction == 'haunted' %}
                     <a href="{% url 'index' 'fantasy' 'trivia' 'haunted' %}">
                 {% elif attraction == 'philhar' %}
@@ -296,19 +314,25 @@
             {% elif area == 'critter' %}
                 <a href="{% url 'index' 'critter' 'other' %}">
             {% elif area == 'fantasy' %}
-                <!-- <a href="{% url 'index' 'fantasy' 'other'%}"> -->
+                <a href="{% url 'index' 'fantasy' 'other'%}">
                 {% if attraction == 'alice' %}
                     <a href="{% url 'index' 'fantasy' 'other' 'alice' %}">
                 {% elif attraction == 'small' %}
                     <a href="{% url 'index' 'fantasy' 'other' 'small' %}">
                 {% elif attraction == 'carousel' %}
                     <a href="{% url 'index' 'fantasy' 'other' 'carousel' %}">
+                {% elif attraction == 'snow' %}
+                    <a href="{% url 'index' 'fantasy' 'other' 'snow' %}">
                 {% elif attraction == 'cinderella' %}
                     <a href="{% url 'index' 'fantasy' 'other' 'cinderella' %}">
+                {% elif attraction == 'dumbo' %}
+                    <a href="{% url 'index' 'fantasy' 'other' 'dumbo' %}">
                 {% elif attraction == 'beast' %}
                     <a href="{% url 'index' 'fantasy' 'other' 'beast' %}">
                 {% elif attraction == 'pinocchio' %}
                     <a href="{% url 'index' 'fantasy' 'other' 'pinocchio' %}">
+                {% elif attraction == 'pooh' %}
+                    <a href="{% url 'index' 'fantasy' 'other' 'pooh' %}">
                 {% elif attraction == 'haunted' %}
                     <a href="{% url 'index' 'fantasy' 'other' 'haunted' %}">
                 {% elif attraction == 'philhar' %}

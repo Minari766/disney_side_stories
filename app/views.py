@@ -23,27 +23,37 @@ class IndexView(View):
         return page_obj
 # カテゴリ選択
     def category_select(self, post_data, category, area, attraction):
-        if category != None :
+        if category == "all" :
+            post_data = post_data
+        elif category != None :
             category_data = Category.objects.get(slug=category)
             post_data = post_data.filter(category=category_data)
-        elif category == "all" :
-            post_data = post_data
+        # elif category is None :
+        #     post_data = post_data
         return post_data
 # エリア選択
     def area_select(self, post_data, category, area, attraction):
-        if area != None :
+        # if area != None :
+        #     area_data = Area.objects.get(slug=area)
+        #     post_data = post_data.filter(area=area_data)
+        # elif area is None :
+        #     post_data = post_data
+        # return post_data
+        if area == "all" :
+            post_data = post_data
+        elif area != None :
             area_data = Area.objects.get(slug=area)
             post_data = post_data.filter(area=area_data)
-        elif area == "all" :
-            post_data = post_data
         return post_data
 # アトラクション選択
     def attraction_select(self, post_data, category, area, attraction):
-        if attraction != None :
+        if attraction == "all" :
+            post_data = post_data
+        elif attraction != None :
             attraction_data = Attraction.objects.get(slug=attraction)
             post_data = post_data.filter(attraction=attraction_data)
-        elif attraction == "all" :
-            post_data = post_data
+        # elif attraction is None :
+        #     post_data = post_data
         return post_data
  
  
