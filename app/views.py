@@ -210,29 +210,29 @@ class PostDeleteView(LoginRequiredMixin, View):
         post_data.delete()
         return redirect('index')
 
-class AreaView(View):
-    def get(self, request, *args, **kwargs):
-        area_data = Area.objects.get(name=self.kwargs['area'])
-        post_data = Post.objects.order_by('-id').filter(area=area_data)
-        return render(request, 'app/index.html', {
-            'post_data': post_data
-        })
+# class AreaView(View):
+#     def get(self, request, *args, **kwargs):
+#         area_data = Area.objects.get(name=self.kwargs['area'])
+#         post_data = Post.objects.order_by('-id').filter(area=area_data)
+#         return render(request, 'app/index.html', {
+#             'post_data': post_data
+#         })
 
-class AttractionView(View):
-    def get(self, request, *args, **kwargs):
-        attraction_data = Attraction.objects.get(name=self.kwargs['attraction'])
-        post_data = Post.objects.order_by('-id').filter(attraction=attraction_data)
-        return render(request, 'app/index.html', {
-            'post_data': post_data
-        })
+# class AttractionView(View):
+#     def get(self, request, *args, **kwargs):
+#         attraction_data = Attraction.objects.get(name=self.kwargs['attraction'])
+#         post_data = Post.objects.order_by('-id').filter(attraction=attraction_data)
+#         return render(request, 'app/index.html', {
+#             'post_data': post_data
+#         })
 
-class CategoryView(View):
-    def get(self, request, *args, **kwargs):
-        category = self.kwargs.get('category')
-        post_data = Category.objects.get(name=self.kwargs['category'])
-        return render(request, 'app/index.html', {
-            'post_data': post_data
-        })
+# class CategoryView(View):
+#     def get(self, request, *args, **kwargs):
+#         category = self.kwargs.get('category')
+#         post_data = Category.objects.get(name=self.kwargs['category'])
+#         return render(request, 'app/index.html', {
+#             'post_data': post_data
+#         })
 
 class AboutView(View):
     def get(self, request, *args, **kwargs):
