@@ -428,6 +428,60 @@ a:hover {
     white-space: nowrap;
 }
 
+.riverline-link{
+    position: absolute;
+    top: 79%;
+    left: 38%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    margin:0;
+    font-size: 1.85vmax;
+    padding: 0.3vw;
+    border: solid white 2px;
+    border-radius: 12px;
+    color: white;
+    background-color:#b8303f;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.carib-link{
+    position: absolute;
+    top: 86%;
+    left: 74%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    margin:0;
+    font-size: 1.85vmax;
+    padding: 0.3vw;
+    border: solid white 2px;
+    border-radius: 12px;
+    color: white;
+    background-color:#011e75;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.cruise-link{
+    position: absolute;
+    top: 50%;
+    left: 41%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    margin:0;
+    font-size: 1.85vmax;
+    padding: 0.3vw;
+    border: solid white 2px;
+    border-radius: 12px;
+    color: white;
+    background-color:#379126;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
 .alice-link{
     position: absolute;
     top: 30%;
