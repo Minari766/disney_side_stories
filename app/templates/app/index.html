@@ -42,21 +42,21 @@
                         <a href="{% url 'index' 'adventure' 'story' 'tiki' %}" class="tiki-link">魅惑のチキルーム <br>“アロハ・エ・コモ・マイ!”</a>
                         <a href="{% url 'index' 'adventure' 'story' 'adventure-other' %}" class="adventure-other-link">その他</a>
                     {% elif category == 'mickey' %}
-                        <a href="{% url 'index' 'adventure' 'mickey' 'riverline' %}" class="riverline-link">種イーティング</a>
+                        <a href="{% url 'index' 'adventure' 'mickey' 'riverline' %}" class="riverline-link">ウエスタンリバー鉄道</a>
                         <a href="{% url 'index' 'adventure' 'mickey' 'carib' %}" class="carib-link">カリブの海賊</a>
                         <a href="{% url 'index' 'adventure' 'mickey' 'cruise' %}" class="cruise-link">ジャングルクルーズ</a>
                         <a href="{% url 'index' 'adventure' 'mickey' 'swiss' %}" class="swiss-link">スイスファミリー・ツリーハウス</a>
                         <a href="{% url 'index' 'adventure' 'mickey' 'tiki' %}" class="tiki-link">魅惑のチキルーム <br>“アロハ・エ・コモ・マイ!”</a>
                         <a href="{% url 'index' 'adventure' 'mickey' 'adventure-other' %}" class="adventure-other-link">その他</a>
                     {% elif category == 'trivia' %}
-                        <a href="{% url 'index' 'adventure' 'trivia' 'riverline' %}" class="riverline-link">種イーティングギャラリー</a>
+                        <a href="{% url 'index' 'adventure' 'trivia' 'riverline' %}" class="riverline-link">ウエスタンリバー鉄道</a>
                         <a href="{% url 'index' 'adventure' 'trivia' 'carib' %}" class="carib-link">カリブの海賊</a>
                         <a href="{% url 'index' 'adventure' 'trivia' 'cruise' %}" class="cruise-link">ジャングルクルーズ</a>
                         <a href="{% url 'index' 'adventure' 'trivia' 'swiss' %}" class="swiss-link">スイスファミリー・ツリーハウス</a>
                         <a href="{% url 'index' 'adventure' 'trivia' 'tiki' %}" class="tiki-link">魅惑のチキルーム <br>“アロハ・エ・コモ・マイ!”</a>
                         <a href="{% url 'index' 'adventure' 'trivia' 'adventure-other' %}" class="adventure-other-link">その他</a>
                     {% elif category == 'other' %}
-                        <a href="{% url 'index' 'adventure' 'other' 'riverline' %}" class="riverline-link">しゅいー</a>
+                        <a href="{% url 'index' 'adventure' 'other' 'riverline' %}" class="riverline-link">ウエスタンリバー鉄道</a>
                         <a href="{% url 'index' 'adventure' 'other' 'carib' %}" class="carib-link">カリブの海賊</a>
                         <a href="{% url 'index' 'adventure' 'other' 'cruise' %}" class="cruise-link">ジャングルクルーズ</a>
                         <a href="{% url 'index' 'adventure' 'other' 'swiss' %}" class="swiss-link">スイスファミリー・ツリーハウス</a>
@@ -263,7 +263,48 @@
                         <a href="{% url 'index' 'toon' 'all' 'toon-other' %}" class="toon-other-link">その他</a>
                     {% endif %}
                 {% elif area == 'tomorrow' %}
-                    <img src="{% static 'img/TomorrowLand(testSS).png' %}" alt="">
+                    <img src="{% static 'img/TomorrowLand(testSS).png' %}" alt="" class="top-pic-toon">
+                    {% if category == 'story' %}
+                        <a href="{% url 'index' 'tomorrow' 'story' 'tours' %}" class="tours-link">スター・ツアーズ</a>
+                        <a href="{% url 'index' 'tomorrow' 'story' 'stitch' %}" class="stitch-link">スティッチ・エンカウンター</a>
+                        <a href="{% url 'index' 'tomorrow' 'story' 'space' %}" class="space-link">スペース・マウンテン</a>
+                        <a href="{% url 'index' 'tomorrow' 'story' 'buzz' %}" class="buzz-link">バズ・ライトイヤーのアストロブラスター</a>
+                        <a href="{% url 'index' 'tomorrow' 'story' 'baymax' %}" class="baymax-link">ベイマックスのハッピーライド</a>
+                        <a href="{% url 'index' 'tomorrow' 'story' 'monsters' %}" class="monsters-link">モンスターズ・インク<br>"ライド&ゴーシーク！"</a>
+                        <a href="{% url 'index' 'tomorrow' 'story' 'tomorrow-other' %}" class="tomorrow-other-link">その他</a>
+                    {% elif category == 'mickey' %}
+                        <a href="{% url 'index' 'tomorrow' 'mickey' 'tours' %}" class="tours-link">スター・ツアーズ</a>
+                        <a href="{% url 'index' 'tomorrow' 'mickey' 'stitch' %}" class="stitch-link">スティッチ・エンカウンター</a>
+                        <a href="{% url 'index' 'tomorrow' 'mickey' 'space' %}" class="space-link">スペース・マウンテン</a>
+                        <a href="{% url 'index' 'tomorrow' 'mickey' 'buzz' %}" class="buzz-link">バズ・ライトイヤーのアストロブラスター</a>
+                        <a href="{% url 'index' 'tomorrow' 'mickey' 'baymax' %}" class="baymax-link">ベイマックスのハッピーライド</a>
+                        <a href="{% url 'index' 'tomorrow' 'mickey' 'monsters' %}" class="monsters-link">モンスターズ・インク<br>"ライド&ゴーシーク！"</a>
+                        <a href="{% url 'index' 'tomorrow' 'mickey' 'tomorrow-other' %}" class="tomorrow-other-link">その他</a>
+                    {% elif category == 'trivia' %}
+                        <a href="{% url 'index' 'tomorrow' 'trivia' 'tours' %}" class="tours-link">スター・ツアーズ</a>
+                        <a href="{% url 'index' 'tomorrow' 'trivia' 'stitch' %}" class="stitch-link">スティッチ・エンカウンター</a>
+                        <a href="{% url 'index' 'tomorrow' 'trivia' 'space' %}" class="space-link">スペース・マウンテン</a>
+                        <a href="{% url 'index' 'tomorrow' 'trivia' 'buzz' %}" class="buzz-link">バズ・ライトイヤーのアストロブラスター</a>
+                        <a href="{% url 'index' 'tomorrow' 'trivia' 'baymax' %}" class="baymax-link">ベイマックスのハッピーライド</a>
+                        <a href="{% url 'index' 'tomorrow' 'trivia' 'monsters' %}" class="monsters-link">モンスターズ・インク<br>"ライド&ゴーシーク！"</a>
+                        <a href="{% url 'index' 'tomorrow' 'trivia' 'tomorrow-other' %}" class="tomorrow-other-link">その他</a>
+                    {% elif category == 'other' %}
+                        <a href="{% url 'index' 'tomorrow' 'other' 'tours' %}" class="tours-link">スター・ツアーズ</a>
+                        <a href="{% url 'index' 'tomorrow' 'other' 'stitch' %}" class="stitch-link">スティッチ・エンカウンター</a>
+                        <a href="{% url 'index' 'tomorrow' 'other' 'space' %}" class="space-link">スペース・マウンテン</a>
+                        <a href="{% url 'index' 'tomorrow' 'other' 'buzz' %}" class="buzz-link">バズ・ライトイヤーのアストロブラスター</a>
+                        <a href="{% url 'index' 'tomorrow' 'other' 'baymax' %}" class="baymax-link">ベイマックスのハッピーライド</a>
+                        <a href="{% url 'index' 'tomorrow' 'other' 'monsters' %}" class="monsters-link">モンスターズ・インク<br>"ライド&ゴーシーク！"</a>
+                        <a href="{% url 'index' 'tomorrow' 'other' 'tomorrow-other' %}" class="tomorrow-other-link">その他</a>
+                    {% else %}
+                        <a href="{% url 'index' 'tomorrow' 'all' 'tours' %}" class="tours-link">スター・ツアーズ</a>
+                        <a href="{% url 'index' 'tomorrow' 'all' 'stitch' %}" class="stitch-link">スティッチ・エンカウンター</a>
+                        <a href="{% url 'index' 'tomorrow' 'all' 'space' %}" class="space-link">スペース・マウンテン</a>
+                        <a href="{% url 'index' 'tomorrow' 'all' 'buzz' %}" class="buzz-link">バズ・ライトイヤーのアストロブラスター</a>
+                        <a href="{% url 'index' 'tomorrow' 'all' 'baymax' %}" class="baymax-link">ベイマックスのハッピーライド</a>
+                        <a href="{% url 'index' 'tomorrow' 'all' 'monsters' %}" class="monsters-link">モンスターズ・インク<br>"ライド&ゴーシーク！"</a>
+                        <a href="{% url 'index' 'tomorrow' 'all' 'tomorrow-other' %}" class="tomorrow-other-link">その他</a>
+                    {% endif %}
                 {% else %}
                     <img src="{% static 'img/TDL_top.png' %}" class="top-pic" alt="">
                     {% if category == 'story' %}
