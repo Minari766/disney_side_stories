@@ -33,12 +33,6 @@ class IndexView(View):
         return post_data
 # エリア選択
     def area_select(self, post_data, category, area, attraction):
-        # if area != None :
-        #     area_data = Area.objects.get(slug=area)
-        #     post_data = post_data.filter(area=area_data)
-        # elif area is None :
-        #     post_data = post_data
-        # return post_data
         if area == "all" :
             post_data = post_data
         elif area != None :
@@ -55,10 +49,10 @@ class IndexView(View):
         # elif attraction is None :
         #     post_data = post_data
         return post_data
- 
- 
+
     def get(self, request, *args, **kwargs):
         post_data = Post.objects.order_by("-id")
+        print(post_data)
         area = self.kwargs.get('area')
         category = self.kwargs.get('category')
         attraction = self.kwargs.get('attraction')
@@ -83,6 +77,7 @@ class IndexView(View):
 class PostDetailView(View):
     def get(self, request, *args, **kwargs):
         post_data = Post.objects.get(id=self.kwargs['pk'])
+        print(post_data)
         liked_list = []
 
         if request.user.is_authenticated:
@@ -101,7 +96,6 @@ class PostDetailView(View):
 class CreatePostView(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
         form = PostForm(request.POST or None)
-        # return render(request, 'app/post_form.html', {
         return render(request, 'app/post_form.html', {
             'form': form
         })
@@ -122,8 +116,6 @@ class CreatePostView(LoginRequiredMixin, View):
             post_data.content = form.cleaned_data['content']
             if request.FILES:
                 post_data.image = request.FILES.get('image')
-            # post_data.save()
-            # return redirect('post_detail', post_data.id)
             return render(request, 'app/post_preview.html', {
                 'post_data' : post_data
             })

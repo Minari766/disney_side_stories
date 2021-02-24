@@ -617,7 +617,14 @@
     </div>
     <div class="col-md-8">
         <div class="author-created">
-            <h7 class="text_left">{{ post.author }}</h7>
+            <h7 class="text_left">
+            {% if post_data1.author.icon %}
+                <img src="{{ post_data1.author.icon.url }}" class="user-icon">
+            {% else %}
+                <img src="{% static 'img/user1.png' %}" alt="" class="urser-icon">
+            {% endif %}
+                {{ post.author }}
+            </h7>
             <h7 class="text_right">{{ post.created }}</h7>
         </div>
         <h3>{{ post.title }}</h3>
