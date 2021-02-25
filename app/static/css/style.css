@@ -122,7 +122,7 @@ main {
     right: 0;
 }
 
-.parent {
+/* .parent {
     margin: 40px;
     background-color: green;
     display: flex;
@@ -133,7 +133,7 @@ main {
 }
 .child2 {
     background-color: blue;
-}
+} */
 
 /* category */
 a {
@@ -142,7 +142,8 @@ a {
 
 a:hover {
     text-decoration: none;
-    color: orange;
+    transition: 1.0s;
+    color: red;
 }
 
 .ttl-bd{
@@ -152,11 +153,14 @@ a:hover {
 
 .table-ul {
     /* background-color: #3ae; */
-    border-bottom: 1px solid #dee2e6;
+    border: 1px solid #dee2e6;
+    border-radius: 25px;
+    /* border-bottom: 1px solid #dee2e6; */
     display: table;
     table-layout: fixed;
     text-align: center;
     width: 100%;
+    padding: 10px;
 }
 .table-ul li {
     border-right: 1px solid #dee2e6;
@@ -226,6 +230,10 @@ a:hover {
     object-fit: contain;
     width: 3rem;
     height: 3rem;
+}
+
+.icon-category p{
+    padding-top: 100px;
 }
 
 .icon-category-bulb{
@@ -1249,7 +1257,7 @@ a:hover {
 }
 
 .TDL-table a:hover{/*カーソルを当てたとき*/
-    opacity: 0.5;/*背景を半透明に*/
+    opacity: 0.7;/*背景を半透明に*/
     color: black;
 }
 
