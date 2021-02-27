@@ -607,11 +607,11 @@
 </div>
 
 {% for post in post_data %}
-<div class="row">
+<div class="row post-detail">
     <div class="col-md-4">
-        <a href="#">
+        <a href="{% url 'post_detail' post.id %}">
             {% if post.image %}
-            <img class="img-fluid rounded mb-3 mb-md-0" src="{{ post.image.url }}" alt="">
+            <img class="img-fluid rounded mb-3 mb-md-0 article-img" src="{{ post.image.url }}" alt="">
             {% endif %}
         </a>
     </div>
@@ -619,9 +619,9 @@
         <div class="author-created">
             <h7 class="text_left">
             {% if post.author.icon %}
-                <img src="{{ post.author.icon.url }}" class="user-icon">
+                <img src="{{ post.author.icon.url }}" class="user-icon-top">
             {% else %}
-                <img src="{% static 'img/user1.png' %}" alt="" class="user-icon">
+                <img src="{% static 'img/user1.png' %}" alt="" class="user-icon-top">
             {% endif %}
                 {{ post.author }}
             </h7>

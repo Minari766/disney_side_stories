@@ -1330,6 +1330,16 @@ a:hover {
     filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.6));
 }
 
+.user-icon-top {
+    height: 30px;
+    width: 30px;
+    margin: 10px;
+    object-fit: cover;
+    border-radius: 50%;
+    border:1.5px solid #eee;
+    filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.6));
+}
+
 /* ナビゲーションバー  */
 .navbar{
     background-color: #f5fdfe;
@@ -1347,7 +1357,7 @@ a:hover {
 
 .navbar-toggler .navbar-toggler-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(3,67,153,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-  }
+}
 
 /* フッター */
 .footer{
@@ -1366,4 +1376,13 @@ a:hover {
 
 .article-category-icon{
     padding-left: 20px;
+}
+
+/* .article-img{
+    width: 20px;
+    height: auto;
+} */
+
+.post-detail{
+    border: 3px solid black;
 }
