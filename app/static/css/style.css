@@ -143,7 +143,7 @@ a {
 a:hover {
     text-decoration: none;
     transition: 1.0s;
-    color: red;
+    color:white;
 }
 
 .ttl-bd{
@@ -151,32 +151,50 @@ a:hover {
     padding-bottom: 3px;
 }
 
-.table-ul {
+#table-ul {
     /* background-color: #3ae; */
     border: 1px solid #dee2e6;
-    border-radius: 25px;
+    border-radius: 20px;
+    z-index: 1;
+    will-change: transform;
     /* border-bottom: 1px solid #dee2e6; */
     display: table;
     table-layout: fixed;
     text-align: center;
     width: 100%;
-    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+    list-style-type: none;
+    overflow: hidden;
 }
-.table-ul li {
+
+#table-ul li {
     border-right: 1px solid #dee2e6;
     display: table-cell;
     vertical-align: middle;
     height: 40px;
+    padding:0;
+    margin:0;
 }
-.table-ul li:last-child {
-    border-right: 0;   
-}
-.table-ul li a {
+
+#table-ul li a {
     color: 1px solid #dee2e6;
     display: block;
     font-size: 10px;
+    margin: 0;
+    padding: 10px;
     text-decoration: none;
 }
+
+#table-ul li a:hover {
+    background: rgb(14, 66, 238);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+/* #table-ul li:last-child {
+    border-right: 0;   
+} */
+
 .icon-tw:before {
     color: #fff;
     content:"\f099";
@@ -1338,4 +1356,14 @@ a:hover {
 
 .footer p{
     color:#323332;
+}
+
+/* 記事リスト */
+.article-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.article-category-icon{
+    padding-left: 20px;
 }

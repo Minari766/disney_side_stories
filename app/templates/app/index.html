@@ -367,7 +367,7 @@
 </div>
 
 <div class="picmenu">
-    <ul class="table-ul">
+    <ul id="table-ul">
         <li>
             {% if area == 'bazaar' %}
                 <a href="{% url 'index' 'bazaar' 'all' %}">
@@ -618,17 +618,26 @@
     <div class="col-md-8">
         <div class="author-created">
             <h7 class="text_left">
-            {% if post_data1.author.icon %}
-                <img src="{{ post_data1.author.icon.url }}" class="user-icon">
+            {% if post.author.icon %}
+                <img src="{{ post.author.icon.url }}" class="user-icon">
             {% else %}
-                <img src="{% static 'img/user1.png' %}" alt="" class="urser-icon">
+                <img src="{% static 'img/user1.png' %}" alt="" class="user-icon">
             {% endif %}
                 {{ post.author }}
             </h7>
             <h7 class="text_right">{{ post.created }}</h7>
         </div>
-        <h3>{{ post.title }}</h3>
-        <p>{{ post.content|truncatechars:100 }}</p>
+        <div class="article-container">
+            <h3>{{ post.title }}</h3>
+            <div class="article-category-icon">
+                {% if post.category == "story" %}
+                <img src="{% static 'img/bookmark.png' %}" alt="book" class="">
+                {% else %}
+                <img src="{% static 'img/mickey.b.png' %}" alt="なんも">
+                {% endif %}
+            </div>
+        </div>
+        <p>{{ post.content|truncatechars:500 }}</p>
         <a style="float:right;" href="{% url 'post_detail' post.id %}">続きを読む</a>
     </div>
 </div>
