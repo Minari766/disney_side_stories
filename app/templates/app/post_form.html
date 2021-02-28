@@ -4,19 +4,22 @@
 {% block content %}
 
 <div>
-    <h2 class="ttl-bd mt-4 mb-4">投稿入力</h2>
+    <h2 class="ttl-bd mt-4 mb-4">投稿情報</h2>
 </div>
 
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="formpost">
-        {% render_field form.title class="form-control" placeholder="タイトル" %}
+        <div>タイトル<span>※必須</span></div>
+        {% render_field form.title class="form-control" placeholder="タイトル（必須）" %}
     </div>
     <div class="formpost">
-        {% render_field form.area class="form-control" placeholder="エリアを選択" %}
+        <div>エリア選択<span>※必須</span></div>
+        {% render_field form.area class="form-control" placeholder="" %}
     </div>
     <div class="formpost">
-        {% render_field form.attraction class="form-control" placeholder="アトラクションを選択" %}
+        <div>アトラクション選択<span>※必須</span></div>
+        {% render_field form.attraction class="form-control" placeholder="" %}
         {% for field in form %}
             {% for error in field.errors %}
                 ※アトラクションを選択してください<br>
@@ -27,13 +30,18 @@
         {% endfor %}
     </div>
     <div class="formpost">
-        {% render_field form.category class="form-control" placeholder="記事カテゴリを選択" %}
+        <div>記事カテゴリ選択<span>※必須</span></div>
+        {% render_field form.category class="form-control" placeholder="" %}
     </div>
     <div class="formpost">
-        {{ form.image }}
+        <div>写真<span2>※任意</span2></div>
+        <div class="photo-frame">
+            {{ form.image }}
+        </div>
     </div>
     <div class="formpost">
-        {% render_field form.content class="form-control" placeholder="本文を入力（10,000文字）" %}
+        <div>本文（最大10,000文字）<span>※必須</span></div>
+        {% render_field form.content class="form-control" placeholder="" %}
     </div>
     <div class="text-center">
         <button class="btn btn-info" type="submit">投稿確認画面へ進む</button>
