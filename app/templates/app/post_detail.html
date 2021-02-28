@@ -2,13 +2,10 @@
 {% load static %}
 
 {% block content %}
-<div>
-    <h2 class="ttl-bd mt-4 mb-4">投稿詳細</h2>
-</div>
 
 <h2 class="my-4 text-center mb-0">{{ post_data.title }}</h2>
 <hr>
-<div class="d-flex justify-content-between">
+<div class="d-flex justify-content-start align-middle">
     <div class="my-box">
         {% if post_data.author.icon %}
             <img src="{{ post_data.author.icon.url }}" class="user-icon">
@@ -17,15 +14,33 @@
         {% endif %}
     </div>
     <div class="my-box">{{ post_data.author }}</div>
-    <div class="my-box">{{ post_data.created }}</div>
 </div>
+<div>{{ post_data.created }}</div>
 <p>
     <div>{{ post_data.area }}</div>
     <div>{{ post_data.attraction }}</div>
     <div>{{ post_data.category }}</div>
 </p>
-<p>{{ post_data.content|linebreaksbr }}</p>
-{% if user.is_authenticated %}
+
+{% if post_data.image %}
+    <img class="mx-auto d-block img-fluid rounded detail-img mb-1" src="{{ post_data.image.url }}" alt="">         
+{% endif %}
+
+<div class="d-flex justify-content-start">
+    <form action="{% url 'like' %}" method="POST">
+        {% csrf_token %}
+        {% if post_data.id in liked_list %}
+        <button id="like" name="{{ post_data.id }}"><i class="fas fa-lg fa-heart like-red"></i></button>
+        {% else %}
+        <button id="like" name="{{ post_data.id }}"><i class="far fa-lg fa-heart"></i></button>      
+        {% endif %}
+    </form>
+    <p name="{{ post_data.id }}-count" class="count"> {{ post_data.like_set.count }} </p>
+    <img src="" alt="コメント">
+</div>
+    
+    <p>{{ post_data.content|linebreaksbr }}</p>
+    {% if user.is_authenticated %}
 <hr>
 <div class="d-flex mb-5">
     <a class="btn btn-warning mr-2" href="{% url 'post_edit' post_data.id %}">編集する</a>
@@ -33,20 +48,9 @@
 </div>
 {% endif %}
 
-{% if post_data.image %}
-    <img class="mx-auto d-block img-fluid rounded detail-img mb-5" src="{{ post_data.image.url }}" alt="">         
-{% endif %}
 
 <!-- likeボタン -->
-<form action="{% url 'like' %}" method="POST">
-    {% csrf_token %}
-    {% if post_data.id in liked_list %}
-        <button id="like" name="{{ post_data.id }}"><i class="fas fa-lg fa-heart like-red"></i></button>
-    {% else %}
-        <button id="like" name="{{ post_data.id }}"><i class="far fa-lg fa-heart"></i></button>      
-    {% endif %}
-</form>
-<p name="{{ post_data.id }}-count" class="count"> {{ post_data.like_set.count }} </p>
+
 
 {% endblock %}
 

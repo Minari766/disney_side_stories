@@ -155,7 +155,6 @@ a:hover {
     /* background-color: #3ae; */
     border: 1px solid #dee2e6;
     border-radius: 20px;
-    z-index: 1;
     will-change: transform;
     /* border-bottom: 1px solid #dee2e6; */
     display: table;
@@ -252,6 +251,12 @@ a:hover {
 
 .icon-category p{
     padding-top: 100px;
+    color: red;
+}
+
+.icon-category1 p{
+    padding-top: 100px;
+    color: green;
 }
 
 .icon-category-bulb{
@@ -1322,8 +1327,8 @@ a:hover {
 }
 
 .user-icon {
-    height: 80px;
-    width: 80px;
+    height: 45px;
+    width: 45px;
     object-fit: cover;
     border-radius: 50%;
     border:1.5px solid #eee;
@@ -1381,10 +1386,13 @@ a:hover {
 .article-img{
     width: 300px;
     height: 180px;
+    object-fit: cover;
 }
 
 .post-detail{
-    border: 3px solid black;
+    border-top: 1px solid #dee2e6;
+    margin: 20px 0px;
+    padding: 10px;
 }
 
 /* 記事投稿画面 */
@@ -1420,4 +1428,10 @@ span2{
 
 #id_image{
     position: absolute;
+}
+
+/* 投稿詳細画面 */
+.my-box{
+    display:flex;
+    justify-content: flex-end;
 }

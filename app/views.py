@@ -28,8 +28,8 @@ class IndexView(View):
         elif category != None :
             category_data = Category.objects.get(slug=category)
             post_data = post_data.filter(category=category_data)
-        # elif category is None :
-        #     post_data = post_data
+        elif category is None :
+            post_data = post_data
         return post_data
 # エリア選択
     def area_select(self, post_data, category, area, attraction):
@@ -46,8 +46,8 @@ class IndexView(View):
         elif attraction != None :
             attraction_data = Attraction.objects.get(slug=attraction)
             post_data = post_data.filter(attraction=attraction_data)
-        # elif attraction is None :
-        #     post_data = post_data
+        elif attraction is None :
+            post_data = post_data
         return post_data
 
     def get(self, request, *args, **kwargs):
@@ -70,7 +70,7 @@ class IndexView(View):
             'page_obj': page_obj,
             'area': area,
             'category': category,
-            'attraction': attraction
+            'attraction': attraction,
         })
 
 

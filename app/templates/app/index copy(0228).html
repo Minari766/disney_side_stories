@@ -365,72 +365,23 @@
 <div class="picmenu">
     <ul id="table-ul">
         <li>
-            {% if area == 'bazaar' %}
-                <a href="{% url 'index' 'bazaar' 'all' %}">
-            {% elif area == 'adventure' %}
-                <a href="{% url 'index' 'adventure' 'all' %}">
-            {% elif area == 'western' %}
-                <a href="{% url 'index' 'western' 'all' %}">
-            {% elif area == 'critter' %}
-                <a href="{% url 'index' 'critter' 'all' %}">
-            {% elif area == 'fantasy' %}
-                <a href="{% url 'index' 'fantasy' 'all'%}">
-                {% if attraction == 'alice' %}
-                    <a href="{% url 'index' 'fantasy' 'all' 'alice' %}">
-                {% elif attraction == 'small' %}
-                    <a href="{% url 'index' 'fantasy' 'all' 'small' %}">
-                {% elif attraction == 'carousel' %}
-                    <a href="{% url 'index' 'fantasy' 'all' 'carousel' %}">
-                {% elif attraction == 'snow' %}
-                    <a href="{% url 'index' 'fantasy' 'all' 'snow' %}">
-                {% elif attraction == 'cinderella' %}
-                    <a href="{% url 'index' 'fantasy' 'all' 'cinderella' %}">
-                {% elif attraction == 'dumbo' %}
-                    <a href="{% url 'index' 'fantasy' 'all' 'dumbo' %}">
-                {% elif attraction == 'beast' %}
-                    <a href="{% url 'index' 'fantasy' 'all' 'beast' %}">
-                {% elif attraction == 'pinocchio' %}
-                    <a href="{% url 'index' 'fantasy' 'all' 'pinocchio' %}">
-                {% elif attraction == 'pooh' %}
-                    <a href="{% url 'index' 'fantasy' 'all' 'pooh' %}">
-                {% elif attraction == 'haunted' %}
-                    <a href="{% url 'index' 'fantasy' 'all' 'haunted' %}">
-                {% elif attraction == 'philhar' %}
-                    <a href="{% url 'index' 'fantasy' 'all' 'philhar' %}">
-                {% elif attraction == 'fantasy-other' %}
-                    <a href="{% url 'index' 'fantasy' 'all' 'fantasy-other' %}">
+            <a href="{% url 'index' '{{ area }}' 'all' '{{ attraction }}' %}">
+                {% if category == "all" %}
+                    <img src="{% static 'img/box.png' %}" alt="全て" class="icon-category">
+                {% else %}
+                    <img src="{% static 'img/box.png' %}" alt="全て" class="icon-category1">
                 {% endif %}
-            {% elif area == 'toon' %}
-                <a href="{% url 'index' 'toon' 'all' %}">
-            {% elif area == 'tomorrow' %}
-                <a href="{% url 'index' 'tomorrow' 'all' %}">
-            {% else %}
-                <a href="{% url 'index' 'all' 'all' %}">
-            {% endif %}
-                <img src="{% static 'img/box.png' %}" alt="全て" class="icon-category">
-                <p>全て</p>
+                    <p>全て</p>
             </a>
         </li>
         <li>
-            {% if area == 'bazaar' %}
-                <a href="{% url 'index' 'bazaar' 'story' %}">
-            {% elif area == 'adventure' %}
-                <a href="{% url 'index' 'adventure' 'story' %}">
-            {% elif area == 'western' %}
-                <a href="{% url 'index' 'western' 'story' %}">
-            {% elif area == 'critter' %}
-                <a href="{% url 'index' 'critter' 'story' %}">
-            {% elif area == 'fantasy' %}
-                <a href="{% url 'index' 'fantasy' 'story' attraction %}">
-            {% elif area == 'toon' %}
-                <a href="{% url 'index' 'toon' 'story' attraction %}">
-            {% elif area == 'tomorrow' %}
-                <a href="{% url 'index' 'tomorrow' 'story' %}">
-            {% else %}
-                <a href="{% url 'index' 'all' 'story' %}">
-            {% endif %}
-                <img src="{% static 'img/memo.png' %}" alt="ストーリー" class="icon-category">
-                <p>ストーリー</p>
+            <a href="{% url 'index' '{{ area }}' 'story' '{{ attraction }}' %}">
+                {% if category == "story" %}
+                    <img src="{% static 'img/memo.png' %}" alt="ストーリー" class="icon-category">
+                {% else %}
+                    <img src="{% static 'img/memo.png' %}" alt="ストーリー" class="icon-category1">
+                {% endif %}
+                    <p>ストーリー</p>
             </a>
         </li>
         <li>
@@ -602,16 +553,17 @@
             <h3>{{ post.title }}</h3>
             <div class="article-category-icon">
                 {% if post.category == "story" %}
-                    <img src="{% static 'img/bookmark.png' %}" alt="book" class="">
+                <img src="{% static 'img/bookmark.png' %}" alt="book" class="">
                 {% else %}
-                    <img src="{% static 'img/mickey.b.png' %}" alt="なんも">
+                <img src="{% static 'img/mickey.b.png' %}" alt="なんも">
                 {% endif %}
             </div>
         </div>
         <p>{{ post.content|truncatechars:500 }}</p>
-        <a style="float:right;" href="{% url 'post_detail' post.id %}">もっと見る</a>
+        <a style="float:right;" href="{% url 'post_detail' post.id %}">続きを読む</a>
     </div>
 </div>
+<hr>
 {% endfor %}
 
 <ul class="pagination justify-content-center">
