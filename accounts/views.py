@@ -37,7 +37,6 @@ class ProfileEditView(LoginRequiredMixin, View):
             if request.FILES:
                 user_data.icon = request.FILES.get('icon')
             user_data.save()
-            # return redirect('profile')
             return render(request, 'accounts/profile.html', {
             'user_data': user_data,
         })

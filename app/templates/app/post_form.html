@@ -11,7 +11,7 @@
     {% csrf_token %}
     <div class="formpost">
         <div>タイトル<span>※必須</span></div>
-        {% render_field form.title class="form-control" placeholder="タイトル（必須）" %}
+        {% render_field form.title class="form-control" placeholder="" %}
     </div>
     <div class="formpost">
         <div>エリア選択<span>※必須</span></div>
@@ -33,12 +33,10 @@
         <div>記事カテゴリ選択<span>※必須</span></div>
         {% render_field form.category class="form-control" placeholder="" %}
     </div>
-    <div class="formpost">
-        <div>写真<span2>※任意</span2></div>
-        <div class="photo-frame">
-            {{ form.image }}
-        </div>
+    <div>
+        {{ form.image }}
     </div>
+    <hr>
     <div class="formpost">
         <div>本文（最大10,000文字）<span>※必須</span></div>
         {% render_field form.content class="form-control" placeholder="" %}

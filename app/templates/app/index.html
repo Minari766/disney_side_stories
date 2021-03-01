@@ -599,7 +599,7 @@
             <h7 class="text_right">{{ post.created }}</h7>
         </div>
         <div class="article-container">
-            <h3>{{ post.title }}</h3>
+            <h3>{{ post.title|truncatechars:20 }}</h3>
             <div class="article-category-icon">
                 {% if post.category == "story" %}
                     <img src="{% static 'img/bookmark.png' %}" alt="book" class="">
@@ -608,7 +608,7 @@
                 {% endif %}
             </div>
         </div>
-        <p>{{ post.content|truncatechars:500 }}</p>
+        <p>{{ post.content|truncatechars:80 }}</p>
         <a style="float:right;" href="{% url 'post_detail' post.id %}">もっと見る</a>
     </div>
 </div>

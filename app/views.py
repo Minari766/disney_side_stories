@@ -116,9 +116,16 @@ class CreatePostView(LoginRequiredMixin, View):
             post_data.content = form.cleaned_data['content']
             if request.FILES:
                 post_data.image = request.FILES.get('image')
-            return render(request, 'app/post_preview.html', {
-                'post_data' : post_data
-            })
+            post_data.save()
+        # 120-125まで一時的に
+            return redirect('post_detail', post_data.id)
+
+        return render(request, 'app/post_form.html', {
+            'form': form
+        })
+            # return render(request, 'app/post_preview.html', {
+            #     'post_data' : post_data
+            # })
 
     # 以下コードはformのvalidationが失敗したとき
         return render(request, 'app/post_form.html', {
