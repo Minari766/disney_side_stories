@@ -52,7 +52,6 @@ class IndexView(View):
 
     def get(self, request, *args, **kwargs):
         post_data = Post.objects.order_by("-id")
-        print(post_data)
         area = self.kwargs.get('area')
         category = self.kwargs.get('category')
         attraction = self.kwargs.get('attraction')
@@ -77,7 +76,6 @@ class IndexView(View):
 class PostDetailView(View):
     def get(self, request, *args, **kwargs):
         post_data = Post.objects.get(id=self.kwargs['pk'])
-        print(post_data)
         liked_list = []
 
         if request.user.is_authenticated:
@@ -116,16 +114,17 @@ class CreatePostView(LoginRequiredMixin, View):
             post_data.content = form.cleaned_data['content']
             if request.FILES:
                 post_data.image = request.FILES.get('image')
-            post_data.save()
+            print("createposttest")
+            # post_data.save()
         # 120-125まで一時的に
-            return redirect('post_detail', post_data.id)
+        #     return redirect('post_detail', post_data.id)
 
-        return render(request, 'app/post_form.html', {
-            'form': form
-        })
-            # return render(request, 'app/post_preview.html', {
-            #     'post_data' : post_data
-            # })
+        # return render(request, 'app/post_form.html', {
+        #     'form': form
+        # })
+            return render(request, 'app/post_preview.html', {
+                'post_data' : post_data
+            })
 
     # 以下コードはformのvalidationが失敗したとき
         return render(request, 'app/post_form.html', {
@@ -148,7 +147,8 @@ class PreviewPostView(LoginRequiredMixin, View):
         post_data.content = request.POST.get('content')
         post_data.image = request.POST.get('image')
         if request.FILES:
-                post_data.image = request.FILES.get('image')
+            post_data.image = request.FILES.get('image')
+        print("previewtest")
         post_data.title = request.POST.get('title')
         post_data.save()
         return redirect('index')
@@ -190,6 +190,7 @@ class PostEditView(LoginRequiredMixin, View):
             post_data.content = form.cleaned_data['content']
             if request.FILES:
                 post_data.image = request.FILES.get('image')
+            print("postedittest")
             post_data.save()
             return redirect('post_detail', self.kwargs['pk'])
 
@@ -279,7 +280,6 @@ class SearchView(View):
     def get(self, request, *args, **kwargs):
         post_data = Post.objects.order_by('-id')
         keyword = request.GET.get('keyword')
-        print("test1")
 
         if keyword:
             exclusion_list = set([' ', ' '])
@@ -291,7 +291,6 @@ class SearchView(View):
             # Qオブジェクトを使用して、投稿データをキーワードでフィルターがけする。キーワードをQオブジェクトでor検索
             query = reduce(and_, [Q(title__icontains=q) | Q(content__icontains=q) for q in query_list])
             post_data = post_data.filter(query)
-            print("test2")
         
         return render(request, 'app/search.html', {
             'keyword' : keyword,
