@@ -31,6 +31,7 @@ class Post(models.Model):
     title = models.CharField("タイトル", max_length=200)
     # blank=Trueであれば、QueryにデータがなくてもNot matchingエラーが出ない
     image = models.ImageField(upload_to='images', verbose_name='Image画像', null=True, blank=True)
+    if 
     content = models.TextField("本文")
     created = models.DateTimeField("作成日", default=timezone.now)
 

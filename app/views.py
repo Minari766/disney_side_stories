@@ -115,7 +115,7 @@ class CreatePostView(LoginRequiredMixin, View):
             if request.FILES:
                 post_data.image = request.FILES.get('image')
             print("createposttest")
-            # post_data.save()
+            post_data.save()
         # 120-125まで一時的に
         #     return redirect('post_detail', post_data.id)
 
