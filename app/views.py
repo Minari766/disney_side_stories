@@ -116,6 +116,7 @@ class CreatePostView(LoginRequiredMixin, View):
                 post_data.image = request.FILES.get('image')
             print("createposttest")
             post_data.save()
+            # show = False
         # 120-125まで一時的に
         #     return redirect('post_detail', post_data.id)
 
@@ -150,7 +151,7 @@ class PreviewPostView(LoginRequiredMixin, View):
             post_data.image = request.FILES.get('image')
         print("previewtest")
         post_data.title = request.POST.get('title')
-        post_data.save()
+        # show = not False
         return redirect('index')
 
 class PostEditView(LoginRequiredMixin, View):
