@@ -62,10 +62,15 @@
                     </li>
                 {% endif %}
                 </ul>
-                <form class="form-inline my-2 my-lg-0" action="{% url 'search' %}" method="get">
+                <!-- <form class="form-inline my-2 my-lg-0" action="{% url 'search' %}" method="get">
                     <input class="form-control mr-sm-0" name="keyword" type="search" placeholder="キーワード検索" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
                         <i class="fas fa-search"></i>
+                    </button>
+                </form> -->
+                <form action="/search.html" class="search-wrapper cf">
+                    <input type="text" placeholder="Search" required="">
+                    <button type="submit"> <span class="fontawesome-search"></span>
                     </button>
                 </form>
             </div>
@@ -85,6 +90,14 @@
     </footer>
 
     {% block extra_js %}
+    $(document).ready(function(){
+        $(".search-wrapper input").mouseenter(function(){
+            $(".search-wrapper button").css("background-color", "#4aba10");
+        });
+        $(".search-wrapper input").mouseout(function(){
+            $(".search-wrapper button").css("background-color", "" );
+        });
+    });
     {% endblock %}
 
 </body>
