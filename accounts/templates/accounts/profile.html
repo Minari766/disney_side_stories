@@ -30,6 +30,35 @@
     </div>
 </div>
 
+<div id="profile-tabs">
+    <ul class="nav nav-tabs">
+        <li class="nav-item"><a href="tabs-1" class="nav-link">プロフィール</a></li>
+        <li class="nav-item"><a href="tabs-2" class="nav-link">Myお気に入り</a></li>
+        <li class="nav-item"><a href="tabs-3" class="nav-link">My投稿</a></li>
+        <li class="nav-item"><a href="tabs-4" class="nav-link">設定</a></li>
+    </ul>
+    <div id="tabs-1" class="tab-pane">
+        <div class="card text-white bg-dark mb-3" style="max-width: 200rem;">
+            <div class="card-header"><h2>プロフィール</h2></div>
+        </div>
+    </div>
+    <div id="tabs-2" class="tab-pane">
+        <div class="card text-white bg-dark mb-3" style="max-width: 200rem;">
+            <div class="card-header"><h2>Myお気に入り</h2></div>
+        </div>
+    </div>
+    <div id="tabs-3" class="tab-pane">
+        <div class="card text-white bg-dark mb-3" style="max-width: 200rem;">
+            <div class="card-header"><h2>My投稿</h2></div>
+        </div>
+    </div>
+    <div id="tabs-4" class="tab-pane">
+        <div class="card text-white bg-dark mb-3" style="max-width: 200rem;">
+            <div class="card-header"><h2>設定</h2></div>
+        </div>
+    </div>
+</div>
+
 <h5>お気に入り記事</h5>
 {% for like in like_data %}
 <div class="row">
@@ -140,5 +169,11 @@
         </li>
     {% endif %}
 </ul>
+
+<script>
+$(function() {
+    $( "#tabs" ).tabs();
+});
+</script>
 
 {% endblock %}
