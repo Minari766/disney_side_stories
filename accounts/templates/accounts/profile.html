@@ -30,12 +30,12 @@
     </div>
 </div>
 
-<div id="profile-tabs">
+<div id="tabs">
     <ul class="nav nav-tabs">
-        <li class="nav-item"><a href="tabs-1" class="nav-link">プロフィール</a></li>
-        <li class="nav-item"><a href="tabs-2" class="nav-link">Myお気に入り</a></li>
-        <li class="nav-item"><a href="tabs-3" class="nav-link">My投稿</a></li>
-        <li class="nav-item"><a href="tabs-4" class="nav-link">設定</a></li>
+        <li class="nav-item"><a href="#tabs-1" class="nav-link">プロフィール</a></li>
+        <li class="nav-item"><a href="#tabs-2" class="nav-link">Myお気に入り</a></li>
+        <li class="nav-item"><a href="#tabs-3" class="nav-link">My投稿</a></li>
+        <li class="nav-item"><a href="#tabs-4" class="nav-link">設定</a></li>
     </ul>
     <div id="tabs-1" class="tab-pane">
         <div class="card text-white bg-dark mb-3" style="max-width: 200rem;">
@@ -45,8 +45,63 @@
     <div id="tabs-2" class="tab-pane">
         <div class="card text-white bg-dark mb-3" style="max-width: 200rem;">
             <div class="card-header"><h2>Myお気に入り</h2></div>
+            <h5>お気に入り記事</h5>
+            {% for like in like_data %}
+            <div class="row">
+                <div class="col-md-4">
+                    <a href="#">
+                        {% if like.post.image %}
+                        <img class="img-fluid rounded mb-3 mb-md-0" src="{{ like.post.image.url }}" alt="">
+                        {% endif %}
+                    </a>
+                </div>
+                <div class="col-md-8">
+                    <div class="author-created">
+                        <h7 class="text_left">{{ like.post.author }}</h7>
+                        <h7 class="text_right">{{ like.post.created }}</h7>
+                    </div>
+                    <h3>{{ like.post.title }}</h3>
+                    <p>{{ like.post.content|truncatechars:100 }}</p>
+                    <a style="float:right;" href="{% url 'post_detail' like.post.id %}">続きを読む</a>
+                </div>
+            </div>
+            <hr>
+            {% endfor %}
+            <!-- お気に入りページネーション -->
+            <ul class="pagination justify-content-center">
+                {% if page_obj_like.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj_like.previous_page_number }}">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                {% endif %}
+                {% for num in page_obj_like.paginator.page_range %}
+                    {% if page_obj_like.number == num %}
+                    <li class="page-item active">
+                        <a class="page-link" href="#!">
+                            {{ num }}
+                        </a>
+                    </li>
+                    {% else %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ num }}">
+                            {{ num }}
+                        </a>
+                    </li>
+                    {% endif %}
+                {% endfor %}
+                {% if page_obj_like.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj_like.next_page_number }}">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
         </div>
     </div>
+
     <div id="tabs-3" class="tab-pane">
         <div class="card text-white bg-dark mb-3" style="max-width: 200rem;">
             <div class="card-header"><h2>My投稿</h2></div>
@@ -58,62 +113,6 @@
         </div>
     </div>
 </div>
-
-<h5>お気に入り記事</h5>
-{% for like in like_data %}
-<div class="row">
-    <div class="col-md-4">
-        <a href="#">
-            {% if like.post.image %}
-            <img class="img-fluid rounded mb-3 mb-md-0" src="{{ like.post.image.url }}" alt="">
-            {% endif %}
-        </a>
-    </div>
-    <div class="col-md-8">
-        <div class="author-created">
-            <h7 class="text_left">{{ like.post.author }}</h7>
-            <h7 class="text_right">{{ like.post.created }}</h7>
-        </div>
-        <h3>{{ like.post.title }}</h3>
-        <p>{{ like.post.content|truncatechars:100 }}</p>
-        <a style="float:right;" href="{% url 'post_detail' like.post.id %}">続きを読む</a>
-    </div>
-</div>
-<hr>
-{% endfor %}
-<!-- お気に入りページネーション -->
-<ul class="pagination justify-content-center">
-    {% if page_obj_like.has_previous %}
-    <li class="page-item">
-        <a class="page-link" href="?page={{ page_obj_like.previous_page_number }}">
-            <span aria-hidden="true">&laquo;</span>
-        </a>
-    </li>
-    {% endif %}
-    {% for num in page_obj_like.paginator.page_range %}
-        {% if page_obj_like.number == num %}
-        <li class="page-item active">
-            <a class="page-link" href="#!">
-                {{ num }}
-            </a>
-        </li>
-        {% else %}
-        <li class="page-item">
-            <a class="page-link" href="?page={{ num }}">
-                {{ num }}
-            </a>
-        </li>
-        {% endif %}
-    {% endfor %}
-    {% if page_obj_like.has_next %}
-        <li class="page-item">
-            <a class="page-link" href="?page={{ page_obj_like.next_page_number }}">
-                <span aria-hidden="true">&raquo;</span>
-            </a>
-        </li>
-    {% endif %}
-</ul>
-
 
 <h5>投稿記事</h5>
 {% for mypost in mypost_data %}
