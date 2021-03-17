@@ -1,4 +1,6 @@
 from django.views import View
+from app.views import PostDetailView
+from app.models import Post, Area, Attraction, Category, Like
 from accounts.models import CustomUser
 from accounts.forms import ProfileForm, SignupUserForm
 from django.shortcuts import render, redirect
@@ -10,9 +12,21 @@ from django.contrib.auth import get_user_model
 class ProfileView(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
         user_data = CustomUser.objects.get(id=request.user.id)
+        like_data = Like.objects.order_by('-id').filter(author=request.user)
+        # post_data = Post.objects.get(id=self.kwargs['pk'])
+        # liked_list = []
+
+        # if request.user.is_authenticated:
+        #     liked = post_data.like_set.filter(author=request.user)
+        # else:
+        #     liked = post_data.like_set.all()
+    
+        # if liked.exists():
+        #     liked_list.append(post_data.id)
 
         return render(request, 'accounts/profile.html', {
             'user_data': user_data,
+            'like_data': like_data,
         })
 
 class ProfileEditView(LoginRequiredMixin, View):
