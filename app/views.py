@@ -25,6 +25,7 @@ class IndexView(View):
     def category_select(self, post_data, category, area, attraction):
         if category == "all" :
             post_data = post_data
+
             
         elif category != None :
             category_data = Category.objects.get(slug=category)
