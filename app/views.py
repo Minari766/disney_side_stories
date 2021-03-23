@@ -16,7 +16,7 @@ class IndexView(View):
         try:
             page_obj = paginator.page(page)
         except PageNotAnInteger:
-            page_obj = paginator.page(1)
+            page_obj = paginator.page(10)
         except EmptyPage:
             page_obj = paginator.page(paginator.num_pages)
         # page_obj:全体何ページ中のXページ目かを定義
@@ -26,7 +26,7 @@ class IndexView(View):
         if category == "all" :
             post_data = post_data
 
-            
+
         elif category != None :
             category_data = Category.objects.get(slug=category)
             post_data = post_data.filter(category=category_data)
@@ -248,7 +248,7 @@ class MypageView(View):
         try:
             page_obj = paginator.page(page)
         except PageNotAnInteger:
-            page_obj = paginator.page(1)
+            page_obj = paginator.page(10)
         except EmptyPage:
             page_obj = paginator.page(paginator.num_pages)
         return page_obj
