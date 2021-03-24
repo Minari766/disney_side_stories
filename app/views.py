@@ -16,7 +16,7 @@ class IndexView(View):
         try:
             page_obj = paginator.page(page)
         except PageNotAnInteger:
-            page_obj = paginator.page(10)
+            page_obj = paginator.page(1)
         except EmptyPage:
             page_obj = paginator.page(paginator.num_pages)
         # page_obj:全体何ページ中のXページ目かを定義
@@ -65,6 +65,7 @@ class IndexView(View):
         post_data = self.attraction_select(post_data, category, area, attraction)
         
         page_obj = self.paginate_queryset(request, post_data, 10)
+
 
         return render(request, 'app/index.html', {
             'post_data': page_obj.object_list,
