@@ -67,6 +67,7 @@ class IndexView(View):
         page_obj = self.paginate_queryset(request, post_data, 10)
 
 
+
         return render(request, 'app/index.html', {
             'post_data': page_obj.object_list,
             'page_obj': page_obj,
