@@ -20,12 +20,13 @@ class IndexView(View):
         except EmptyPage:
             page_obj = paginator.page(paginator.num_pages)
         # page_obj:全体何ページ中のXページ目かを定義
-        
+
         return page_obj
 # カテゴリ選択
     def category_select(self, post_data, category, area, attraction):
         if category == "all" :
             post_data = post_data
+
 
 
         elif category != None :
