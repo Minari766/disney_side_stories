@@ -27,6 +27,7 @@ class IndexView(View):
         if category == "all" :
             post_data = post_data
 
+# ブランク
 
 
         elif category != None :
