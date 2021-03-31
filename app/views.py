@@ -30,6 +30,7 @@ class IndexView(View):
 # ブランク
 
 
+
         elif category != None :
             category_data = Category.objects.get(slug=category)
             post_data = post_data.filter(category=category_data)
