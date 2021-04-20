@@ -13,6 +13,7 @@ class ProfileView(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
         user_data = CustomUser.objects.get(id=request.user.id)
         like_data = Like.objects.order_by('-id').filter(author=request.user)
+        mypost_data = Post.objects.order_by('-id').filter(author=request.user)
         # post_data = Post.objects.get(id=self.kwargs['pk'])
         # liked_list = []
 
@@ -27,6 +28,7 @@ class ProfileView(LoginRequiredMixin, View):
         return render(request, 'accounts/profile.html', {
             'user_data': user_data,
             'like_data': like_data,
+            'mypost_data': mypost_data
         })
 
 class ProfileEditView(LoginRequiredMixin, View):
