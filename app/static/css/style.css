@@ -31,6 +31,10 @@ main {
     border-radius: 10px;
 }
 
+.btn-sch{
+    border-radius: 0 10px 10px 0;
+}
+
 .profile_table {
     width: 100%;
     border: 1px solid #D1DBEB;
