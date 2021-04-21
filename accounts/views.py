@@ -7,9 +7,22 @@ from django.shortcuts import render, redirect
 from allauth.account import views
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import get_user_model
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 # Create your views here.
 class ProfileView(LoginRequiredMixin, View):
+    def paginate_queryset(self, request, queryset, count):
+        paginator = Paginator(queryset, count)
+        page = request.GET.get('page')
+        try:
+            page_obj = paginator.page(page)
+        except PageNotAnInteger:
+            page_obj = paginator.page(1)
+        except EmptyPage:
+            page_obj = paginator.page(paginator.num_pages)
+        # page_obj:全体何ページ中のXページ目かを定義
+        return page_obj
+
     def get(self, request, *args, **kwargs):
         user_data = CustomUser.objects.get(id=request.user.id)
         like_data = Like.objects.order_by('-id').filter(author=request.user)

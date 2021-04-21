@@ -26,11 +26,6 @@ class IndexView(View):
     def category_select(self, post_data, category, area, attraction):
         if category == "all" :
             post_data = post_data
-
-# ブランク
-
-
-
         elif category != None :
             category_data = Category.objects.get(slug=category)
             post_data = post_data.filter(category=category_data)
