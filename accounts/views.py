@@ -28,8 +28,6 @@ class ProfileView(LoginRequiredMixin, View):
         like_data = Like.objects.order_by('-id').filter(author=request.user)
         mypost_data = Post.objects.order_by('-id').filter(author=request.user)
         # post_data = Post.objects.get(id=self.kwargs['pk'])
-        # liked_list = []
-
         # if request.user.is_authenticated:
         #     liked = post_data.like_set.filter(author=request.user)
         # else:
@@ -37,11 +35,15 @@ class ProfileView(LoginRequiredMixin, View):
     
         # if liked.exists():
         #     liked_list.append(post_data.id)
+        page_obj_like = self.paginate_queryset(request, like_data, 3)
+        page_obj_mypost = self.paginate_queryset(request, mypost_data, 5)
 
         return render(request, 'accounts/profile.html', {
             'user_data': user_data,
             'like_data': like_data,
-            'mypost_data': mypost_data
+            'mypost_data': mypost_data,
+            'page_obj_like': page_obj_like,
+            'page_obj_mypost': page_obj_mypost,
         })
 
 class ProfileEditView(LoginRequiredMixin, View):
