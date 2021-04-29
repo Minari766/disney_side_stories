@@ -20,6 +20,17 @@
     <div>{{ post_data.area }}</div>
     <div>{{ post_data.attraction }}</div>
     <div>{{ post_data.category }}</div>
+    <div class="article-category-icon">
+        {% if post_data.category == "ストーリー" %}
+            <img src="{% static 'img/box.png' %}" alt="book" class="">
+        {% elif post_data.category == "隠れミッキー" %}
+            <img src="{% static 'img/movie.png' %}" alt="book" class="">
+        {% elif post_data.category == "豆知識" %}
+            <img src="{% static 'img/memo.png' %}" alt="book" class="">
+        {% else %}
+            <img src="{% static 'img/search.png' %}" alt="なんも">
+        {% endif %}
+    </div>
 </p>
 
 {% if post_data.image %}

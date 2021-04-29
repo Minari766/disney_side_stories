@@ -79,6 +79,7 @@ class PostDetailView(View):
     def get(self, request, *args, **kwargs):
         post_data = Post.objects.get(id=self.kwargs['pk'])
         liked_list = []
+        print(post_data)
 
         if request.user.is_authenticated:
             liked = post_data.like_set.filter(author=request.user)
@@ -275,6 +276,7 @@ class CategoryNameView(View):
         # inputボタンは押してないので、.getは不要
         category_data = Category.objects.get(name=self.kwargs['category'])
         post_data = Post.objects.filter(category=category_data)
+        print(category_data)
         return render(request, 'app/index.html', {
             'post_data' : post_data
         })
