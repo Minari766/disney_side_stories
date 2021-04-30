@@ -1417,6 +1417,12 @@ a:hover {
     object-fit: cover;
 }
 
+.article-noimg{
+    width: 300px;
+    height: 180px;
+    object-fit: cover;
+}
+
 .post-detail{
     border-top: 1px solid #dee2e6;
     margin: 20px 0px;

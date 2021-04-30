@@ -582,7 +582,9 @@
     <div class="col-md-4">
         <a href="{% url 'post_detail' post.id %}">
             {% if post.image %}
-            <img class="img-fluid rounded mb-3 mb-md-0 article-img" src="{{ post.image.url }}" alt="">
+                <img class="img-fluid rounded mb-3 mb-md-0 article-img" src="{{ post.image.url }}" alt="">
+            {% else %}    
+                <img class="img-fluid rounded mb-3 mb-md-0 article-noimg" src="{% static 'img/20161006_noimage.svg' %}" alt="">
             {% endif %}
         </a>
     </div>
