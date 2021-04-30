@@ -79,7 +79,6 @@ class PostDetailView(View):
     def get(self, request, *args, **kwargs):
         post_data = Post.objects.get(id=self.kwargs['pk'])
         liked_list = []
-        print(post_data)
 
         if request.user.is_authenticated:
             liked = post_data.like_set.filter(author=request.user)
