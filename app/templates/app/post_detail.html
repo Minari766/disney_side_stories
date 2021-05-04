@@ -13,30 +13,23 @@
             <img src="{% static 'img/user1.png' %}" alt="" class="user-icon">
         {% endif %}
     </div>
-    <div class="my-box">{{ post_data.author }}</div>
+    <div class="my-box text_right">{{ post_data.author }}</div>
 </div>
-<div>{{ post_data.created }}</div>
-<p>
-    <div>{{ post_data.area }}</div>
-    <div>{{ post_data.attraction }}</div>
-    <div>{{ post_data.category }}</div>
-    <div class="article-category-icon">
-        {% if post_data.category == "ストーリー" %}
-            <img src="{% static 'img/box.png' %}" alt="book" class="">
-        {% elif post_data.category == "隠れミッキー" %}
-            <img src="{% static 'img/movie.png' %}" alt="book" class="">
-        {% elif post_data.category == "豆知識" %}
-            <img src="{% static 'img/memo.png' %}" alt="book" class="">
-        {% else %}
-            <img src="{% static 'img/search.png' %}" alt="なんも">
-        {% endif %}
-    </div>
-</p>
-
+<div class="d-flex justify-content-between">{{ post_data.created }}</div>
 {% if post_data.image %}
-    <img class="mx-auto d-block img-fluid rounded detail-img mb-1" src="{{ post_data.image.url }}" alt="">         
+<img class="mx-auto d-block img-fluid rounded detail-img mb-1" src="{{ post_data.image.url }}" alt="">         
 {% endif %}
-
+<div class="article-category-icon">
+    {% if post_data.category == "ストーリー" %}
+        <img src="{% static 'img/box.png' %}" alt="book" class="">
+    {% elif post_data.category == "隠れミッキー" %}
+        <img src="{% static 'img/movie.png' %}" alt="book" class="">
+    {% elif post_data.category == "豆知識" %}
+        <img src="{% static 'img/memo.png' %}" alt="book" class="">
+    {% else %}
+        <img src="{% static 'img/search.png' %}" alt="なんも" class="article-category-icon">
+    {% endif %}
+</div>
 <div class="d-flex justify-content-start">
     <form action="{% url 'like' %}" method="POST">
         {% csrf_token %}
@@ -49,7 +42,10 @@
     <p name="{{ post_data.id }}-count" class="count"> {{ post_data.like_set.count }} </p>
     <img src="" alt="コメント">
 </div>
-    
+<div>{{ post_data.area }} > {{ post_data.attraction }}</div>
+<div>{{ post_data.category }}</div>
+
+<br>
     <p>{{ post_data.content|linebreaksbr }}</p>
     {% if user.is_authenticated %}
 <hr>

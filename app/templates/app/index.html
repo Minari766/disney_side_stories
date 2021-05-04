@@ -598,20 +598,19 @@
             {% endif %}
                 {{ post.author }}
             </h7>
-            <!-- ブランク -->
             <h7 class="text_right">{{ post.created }}</h7>
         </div>
         <div class="article-container">
             <h3>{{ post.title|truncatechars:17}}</h3>
-            <div class="article-category-icon">
-                {% if post.category == "story" %}
+            <div>
+                {% if post_data.category == "story" %}
                     <img src="{% static 'img/box.png' %}" alt="book" class="">
-                {% elif post.category == "mickey" %}
+                {% elif post_data.category == "mickey" %}
                     <img src="{% static 'img/movie.png' %}" alt="book" class="">
-                {% elif post.category == "trivia" %}
+                {% elif post_data.category == "trivia" %}
                     <img src="{% static 'img/memo.png' %}" alt="book" class="">
                 {% else %}
-                    <img src="{% static 'img/search.png' %}" alt="なんも">
+                    <img src="{% static 'img/search.png' %}" alt="なんも" class="article-category-icon">
                 {% endif %}
             </div>
         </div>

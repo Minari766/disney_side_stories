@@ -1409,6 +1409,8 @@ a:hover {
 
 .article-category-icon{
     padding-left: 20px;
+    width: 60px;
+    height: auto;
 }
 
 .article-img{
