@@ -150,6 +150,16 @@ main {
     right: 0;
 }
 
+.text-left{
+    position: absolute;
+    left: 0;
+}
+
+.text-right{
+    position: absolute;
+    right: 0;
+}
+
 /* .parent {
     margin: 40px;
     background-color: green;
