@@ -582,15 +582,15 @@
     <div class="col-md-4">
         <a href="{% url 'post_detail' post.id %}">
             {% if post.image %}
-                <img class="img-fluid rounded mb-3 mb-md-0 article-img" src="{{ post.image.url }}" alt="">
+                <img class="img-fluid rounded mb-md-0 article-img" src="{{ post.image.url }}" alt="">
             {% else %}    
-                <img class="img-fluid rounded mb-3 mb-md-0 article-noimg" src="{% static 'img/20161006_noimage.svg' %}" alt="">
+                <img class="img-fluid rounded mb-md-0 article-noimg" src="{% static 'img/20161006_noimage.svg' %}" alt="">
             {% endif %}
         </a>
     </div>
     <div class="col-md-8">
         <div class="author-created">
-            <h7 class="text_left">
+            <h7 class="text_left author-created">
             {% if post.author.icon %}
                 <img src="{{ post.author.icon.url }}" class="user-icon-top">
             {% else %}
@@ -614,8 +614,8 @@
                 {% endif %}
             </div>
         </div>
-        <p>{{ post.content|truncatechars:80 }}</p>
-        <a style="float:right;" href="{% url 'post_detail' post.id %}">もっと見る</a>
+        <p>{{ post.content|truncatechars:170 }}</p>
+        <a class="article-more" href="{% url 'post_detail' post.id %}">もっと見る</a>
     </div>
 </div>
 {% endfor %}

@@ -5,19 +5,15 @@
 
 <h2 class="my-4 text-center mb-0">{{ post_data.title }}</h2>
 <hr>
-<!-- <div class="d-flex justify-content-start align-middle"> -->
-<!-- <div class="d-flex align-middle"> -->
 <div class="author-created">
-    <!-- <div class="my-box text_left"> -->
-    <div class="text_left">
+    <div class="text_left author-created">
     {% if post_data.author.icon %}
         <img src="{{ post_data.author.icon.url }}" class="user-icon">
     {% else %}
         <img src="{% static 'img/user1.png' %}" alt="" class="user-icon">
     {% endif %}
-        {{ post_data.author }}
+        　{{ post_data.author }}
     </div>
-    <!-- <div class="my-box">{{ post_data.author }}</div> -->
     <div class="text_right">{{ post_data.created }}</div>
 </div>
 {% if post_data.image %}

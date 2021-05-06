@@ -138,6 +138,7 @@ main {
 .author-created{
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .author-created .text-left{
@@ -1424,8 +1425,8 @@ a:hover {
 }
 
 .article-img{
-    width: 300px;
-    height: 180px;
+    width: 330px;
+    height: 210px;
     object-fit: cover;
 }
 
@@ -1437,8 +1438,13 @@ a:hover {
 
 .post-detail{
     border-top: 1px solid #dee2e6;
-    margin: 20px 0px;
-    padding: 10px;
+    margin: 0px;
+    padding: 20px;
+}
+
+.article-more{
+    float: right;
+    float: bottom;
 }
 
 /* 記事投稿画面 */
