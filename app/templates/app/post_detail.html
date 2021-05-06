@@ -40,7 +40,7 @@
         {% endif %}
     </form>
     <p name="{{ post_data.id }}-count" class="count"> {{ post_data.like_set.count }} </p>
-    <img src="" alt="コメント">
+    <!-- <img src="" alt="コメント"> -->
 </div>
 <div>{{ post_data.area }} > {{ post_data.attraction }}</div>
 <div>{{ post_data.category }}</div>
@@ -77,7 +77,7 @@
                 success: function(response){
                     selector = document.getElementsByName(response.post_id);
                     if(response.liked){
-                        $(selector).html("<i class='fas fa-lg fa-heart'></i>");
+                        $(selector).html("<i class='fas fa-lg fa-heart like-button'></i>");
                     }
                     else {
                         $(selector).html("<i class='far fa-lg fa-heart'></i>");

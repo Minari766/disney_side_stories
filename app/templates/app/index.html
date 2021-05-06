@@ -588,7 +588,7 @@
             {% endif %}
         </a>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-8 article">
         <div class="author-created">
             <h7 class="text_left author-created">
             {% if post.author.icon %}
@@ -614,7 +614,7 @@
                 {% endif %}
             </div>
         </div>
-        <p>{{ post.content|truncatechars:170 }}</p>
+        <p>{{ post.content|truncatechars:200 }}</p>
         <a class="article-more" href="{% url 'post_detail' post.id %}">もっと見る</a>
     </div>
 </div>

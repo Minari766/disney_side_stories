@@ -1442,9 +1442,14 @@ a:hover {
     padding: 20px;
 }
 
+.article{
+    position: relative;
+}
+
 .article-more{
-    float: right;
-    float: bottom;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
 }
 
 /* 記事投稿画面 */
@@ -1489,3 +1494,8 @@ span2{
 }
 
 /* 検索ボックス */
+
+/* お気に入りボックス */
+.like-button{
+    color: blue;
+}
