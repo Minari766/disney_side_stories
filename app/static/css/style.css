@@ -1496,6 +1496,33 @@ span2{
 /* 検索ボックス */
 
 /* お気に入りボックス */
+.liked-button{
+    color: #ed638b;
+    width: 150px;
+    height: auto;
+    border: red;
+    /* outline: none !important;
+    border: none !important;
+    background: transparent !important; */
+}
+
 .like-button{
-    color: blue;
+    width: 150px;
+    height: auto;
+    border: red;
+    /* outline: none !important;
+    border: none !important;
+    background: transparent !important; */
+}
+
+.liked-red{
+    width: 150px;
+    height: auto;
+    border: red;
+
+}
+
+#like{
+    border: black;
+    background: transparent;
 }
