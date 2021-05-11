@@ -1511,9 +1511,7 @@ span2{
     width: 150px;
     height: auto;
     border: red;
-    /* outline: none !important;
-    border: none !important;
-    background: transparent !important; */
+
 }
 
 .liked-red{
