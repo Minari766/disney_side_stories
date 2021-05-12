@@ -1493,7 +1493,6 @@ span2{
     justify-content: flex-end;
 }
 
-
 /* 検索ボックス */
 
 /* お気に入りボックス */
@@ -1502,16 +1501,12 @@ span2{
     width: 150px;
     height: auto;
     border: red;
-    /* outline: none !important;
-    border: none !important;
-    background: transparent !important; */
 }
 
 .like-button{
     width: 150px;
     height: auto;
     border: red;
-
 }
 
 .liked-red{

@@ -12,7 +12,7 @@
     {% else %}
         <img src="{% static 'img/user1.png' %}" alt="" class="user-icon">
     {% endif %}
-        　{{ post_data.author }}
+          {{ post_data.author }}
     </div>
     <div class="text_right">{{ post_data.created }}</div>
 </div>
@@ -49,19 +49,14 @@
     <p>{{ post_data.content|linebreaksbr }}</p>
     {% if user.is_authenticated %}
 <hr>
-<div class="d-flex mb-5">
+<div class="d-flex justify-content-center mb-5">
     <a class="btn btn-warning mr-2" href="{% url 'post_edit' post_data.id %}">編集する</a>
     <a class="btn btn-danger" href="{% url 'post_delete' post_data.id %}">削除する</a>    
 </div>
 {% endif %}
 
-
-<!-- likeボタン -->
-
-
-
 {% endblock %}
-
+<!-- likeボタン -->
 {% block extra_js %}
 <script type="text/javascript">
     $(document).ready(function(event){
