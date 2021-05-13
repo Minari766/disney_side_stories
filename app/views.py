@@ -130,7 +130,8 @@ class CreatePostView(LoginRequiredMixin, View):
             })
 
     # 以下コードはformのvalidationが失敗したとき
-        return render(request, 'app/post_form.html', {
+        # return render(request, 'app/post_form.html', {
+        return render(request, 'app/indexƒ.html', {
             'form': form
         })
 

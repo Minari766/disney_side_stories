@@ -1,0 +1,43 @@
+{% extends "app/base.html" %}
+
+{% block content %}
+<div>
+    <h2 class="ttl-bd mt-4 mb-4">投稿確認画面</h2>
+</div>
+
+<h2 class="my-4 text-center mb-0">{{ post_data.title }}</h2>
+<hr>
+<div class="d-flex justify-content-between">
+    <div class="my-box">{{ post_data.author }}</div>
+    <div class="my-box">{{ post_data.created }}</div>
+</div>
+<div>{{ post_data.area }}</div>
+<div>{{ post_data.attraction }}</div>
+<p>{{ post_data.category }}</p>
+<p>{{ post_data.content|linebreaksbr }}</p>
+{% if user.is_authenticated %}
+<hr>
+<div class="text-center">
+    <form method="post" action="{% url 'preview' %}">
+        {% csrf_token %}
+        <!-- name="辞書キー" value="辞書の値" -->
+        <input type="hidden" name="area" value={{ post_data.area }}>
+        <input type="hidden" name="attraction" value={{ post_data.attraction }}>
+        <input type="hidden" name="category" value={{ post_data.category }}>
+        <input type="hidden" name="title" value={{ post_data.title }}>
+        <input type="hidden" name="image" value={{ post_data.image }}>
+        <input type="hidden" name="content" value={{ post_data.content }}>
+        <!-- <button class="btn btn-light" type="submit">戻る</button> -->
+        <button class="btn btn-info" type="submit">投稿する</button>
+        <button class="btn btn-light" type="submit">戻る</button>
+    </form>
+</div>
+<!-- <div class="text-center">
+</div> -->
+
+{% endif %}
+{% if post_data.image %}
+    <img class="mx-auto d-block img-fluid rounded detail-img mb-5" src="{{ post_data.image.url }}" alt="">         
+{% endif %}
+
+{% endblock %}
