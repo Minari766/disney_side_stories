@@ -480,7 +480,7 @@
                 <p>隠れミッキー</p>
             </a>
         </li>
-        <li>
+        <li class="img-bulb"> 
             {% if area == 'bazaar' %}
                 <a href="{% url 'index' 'bazaar' 'trivia' %}">
             {% elif area == 'adventure' %}
@@ -523,7 +523,8 @@
             {% else %}
                 <a href="{% url 'index' 'all' 'trivia' %}">
             {% endif %}
-                <img src="{% static 'img/blub.png' %}" alt="豆知識" class="icon-category">
+                <img src="{% static 'img/blub_white.png' %}" alt="豆知識" class="icon-category">
+                <img src="{% static 'img/blub_white.png' %}" alt="豆知識2" class="icon-category activate">
                 <p>豆知識</p>
             </a>
         </li>

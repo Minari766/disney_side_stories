@@ -224,10 +224,12 @@ a:hover {
 }
 
 #table-ul li a:hover {
-    background: rgb(14, 66, 238);
-    text-decoration: none;
+    background: rgb(5, 149, 167);
+    text-decoration: underline;
     transition: 0.3s;
 }
+
+#table-ul li a:hover
 
 /* #table-ul li:last-child {
     border-right: 0;   
@@ -298,9 +300,26 @@ a:hover {
     color: green;
 }
 
-.icon-category-bulb{
+.img-bulb .icon-category{
     transform: rotate(45deg);
 }
+
+.img-bulb{
+    position: relative;
+}
+
+.img-bulb .activate{
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.img-box:hover .activate{
+    opacity: 1;
+}
+
 
 /* TDL-tableに関するCSS */
 .TDL-talbe{
@@ -1401,6 +1420,14 @@ a:hover {
 
 .navbar-toggler .navbar-toggler-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(3,67,153,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.flex-flow-delete{
+    flex-flow: nowrap !important;
+}
+
+.nav-item{
+    white-space: nowrap;
 }
 
 /* フッター */
