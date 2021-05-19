@@ -552,7 +552,7 @@
             {% else %}
                 <a href="{% url 'index' 'all' 'trivia' %}">
             {% endif %}
-                <img src="{% static 'img/blub.png' %}" alt="豆知識" class="icon-category">
+                <img src="{% static 'img/bulb.png' %}" alt="豆知識" class="icon-category">
                 <p>豆知識</p>
             </a>
         </li>

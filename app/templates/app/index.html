@@ -523,8 +523,8 @@
             {% else %}
                 <a href="{% url 'index' 'all' 'trivia' %}">
             {% endif %}
-                <img src="{% static 'img/blub.png' %}" alt="豆知識" class="icon-category default">
-                <img src="{% static 'img/blub_white.png' %}" alt="豆知識2" class="icon-category activate">
+                <!-- <img src="{% static 'img/bulb-white.png' %}" alt="" class="icon-category default"> -->
+                <img src="{% static 'img/bulb_white.png' %}" alt="" class="icon-category" id="bulb1" onmouseover="mouseOn();" onmouseout="mouseOff();" />
                 <p>豆知識</p>
             </a>
         </li>
@@ -656,4 +656,18 @@
 <div class="text-right">
     <a href="{% url 'post_new' %}" class="btn btn-info">新しい記事を投稿</a>
 </div>
+{% endblock %}
+
+<!-- マウスオーバー変換 -->
+{% block extra_js %}
+<script type="text/javascript">
+    function mouseOn(){
+        var obj = document.getElementById("bulb1");
+        obj.src = "{% static 'img/bulb.png' %}";
+    }
+    function mouseOff(){
+        var obj = document.getElementById("bulb1");
+        obj.src = "{% static 'img/bulb_white.png' %}";
+    }
+</script>
 {% endblock %}

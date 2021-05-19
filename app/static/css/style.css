@@ -308,20 +308,24 @@ a:hover {
     transform: rotate(45deg);
 }
 
-.img-bulb .activate{
+/* .img-bulb .activate{
     position: absolute;
-    top: 0;
     opacity: 0;
     transition: 0.5s;
 }
 
-.img-bulb: hover .activate{
+.img-bulb .default{
+    position: absolute;
+}
+
+.img-bulb:hover .activate{
     opacity: 1;
 }
 
-/* .img-bulb: hover .default{
+.img-bulb:hover .default{
     opacity: 0;
 } */
+
 
 /* .img-bulb .activate{
     position: absolute;
