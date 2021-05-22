@@ -302,6 +302,7 @@ a:hover {
 
 .img-bulb{
     position: relative;
+    /* height: 100px; */
 }
 
 .img-bulb .icon-category{
