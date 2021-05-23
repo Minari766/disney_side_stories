@@ -523,10 +523,11 @@
             {% else %}
                 <a href="{% url 'index' 'all' 'trivia' %}">
             {% endif %}
-                <!-- <img src="{% static 'img/bulb-white.png' %}" alt="" class="icon-category default"> -->
+                <!-- <img src="{% static 'img/bulb.png' %}" alt="" class="icon-category default"> -->
+                <!-- <img src="{% static 'img/bulb_white.png' %}" alt="" class="icon-category activate"> -->
                 <img src="{% static 'img/bulb_white.png' %}" alt="" class="icon-category" id="bulb1" onmouseover="mouseOn();" onmouseout="mouseOff();" />
-                <p>豆知識</p>
             </a>
+            <p>豆知識</p>
         </li>
         <li>
             {% if area == 'bazaar' %}
@@ -664,10 +665,12 @@
     function mouseOn(){
         var obj = document.getElementById("bulb1");
         obj.src = "{% static 'img/bulb.png' %}";
+        obj.backgroundColor = 'black';
     }
     function mouseOff(){
         var obj = document.getElementById("bulb1");
         obj.src = "{% static 'img/bulb_white.png' %}";
+        obj.backgroundColor = 'white';
     }
 </script>
 {% endblock %}

@@ -302,14 +302,14 @@ a:hover {
 
 .img-bulb{
     position: relative;
-    /* height: 100px; */
+    height: 100px;
 }
 
 .img-bulb .icon-category{
     transform: rotate(45deg);
 }
 
-/* .img-bulb .activate{
+.img-bulb .activate{
     position: absolute;
     opacity: 0;
     transition: 0.5s;
@@ -317,13 +317,14 @@ a:hover {
 
 .img-bulb .default{
     position: absolute;
+    height: 100px;
 }
 
 .img-bulb:hover .activate{
     opacity: 1;
 }
 
-.img-bulb:hover .default{
+/* .img-bulb:hover .default{
     opacity: 0;
 } */
 
