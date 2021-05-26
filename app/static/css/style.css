@@ -157,7 +157,7 @@ main {
 }
 
 .text-right{
-    position: absolute;
+    /* position: absolute; */
     right: 0;
 }
 
@@ -224,7 +224,7 @@ a:hover {
 }
 
 #table-ul li a:hover {
-    background: rgb(5, 149, 167);
+    background-color: rgb(5, 149, 167);
     text-decoration: underline;
     transition: 0.3s;
 }
@@ -301,6 +301,7 @@ a:hover {
 }
 
 .img-bulb{
+    display: block;
     position: relative;
     height: 100px;
 }

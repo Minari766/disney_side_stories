@@ -12,7 +12,7 @@
     {% else %}
         <img src="{% static 'img/user1.png' %}" alt="" class="user-icon">
     {% endif %}
-          {{ post_data.author }}
+        {{ post_data.author }}
     </div>
     <div class="text_right">{{ post_data.created }}</div>
 </div>
@@ -20,11 +20,11 @@
 <img class="mx-auto d-block img-fluid rounded detail-img mb-1" src="{{ post_data.image.url }}" alt="">         
 {% endif %}
 <div class="article-category-icon">
-    {% if post_data.category == "ストーリー" %}
+    {% if post_data.category == 'ストーリー' %}
         <img src="{% static 'img/box.png' %}" alt="book" class="">
-    {% elif post_data.category == "隠れミッキー" %}
+    {% elif post_data.category == '隠れミッキー' %}
         <img src="{% static 'img/movie.png' %}" alt="book" class="">
-    {% elif post_data.category == "豆知識" %}
+    {% elif post_data.category == '豆知識' %}
         <img src="{% static 'img/memo.png' %}" alt="book" class="">
     {% else %}
         <img src="{% static 'img/search.png' %}" alt="なんも" class="article-category-icon">

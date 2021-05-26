@@ -87,6 +87,9 @@ class PostDetailView(View):
     
         if liked.exists():
             liked_list.append(post_data.id)
+        
+        print("カテゴリチェック")
+        print(post_data.category)
 
         return render(request, 'app/post_detail.html', {
             'post_data': post_data,
