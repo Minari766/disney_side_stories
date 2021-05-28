@@ -611,13 +611,13 @@
         <div class="article-container">
             <h3>{{ post.title|truncatechars:17}}</h3>
             <div>
-            {% if post.category == "ストーリー" %}
+            {% if post.category|stringformat:"s" == "ストーリー" %}
                 <img src="{% static 'img/memo.png' %}" alt="book" class="article-category-icon">
-            {% elif post.category == "隠れミッキー" %}
+            {% elif post.category|stringformat:"s" == "隠れミッキー" %}
                 <img src="{% static 'img/mickey.png' %}" alt="book" class="article-category-icon">
-            {% elif post.category == "豆知識" %}
+            {% elif post.category|stringformat:"s" == "豆知識" %}
                 <img src="{% static 'img/bulb.png' %}" alt="book" class="article-category-icon">
-            {% elif post.category == "その他" %}
+            {% elif post.category|stringformat:"s" == "その他" %}
                 <img src="{% static 'img/bookmark_green.png' %}" alt="book" class="article-category-icon">
             {% else %}
                 <img src="{% static 'img/memo.png' %}" alt="なんも" class="article-category-icon">

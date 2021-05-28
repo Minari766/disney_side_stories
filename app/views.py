@@ -99,6 +99,7 @@ class PostDetailView(View):
 class CreatePostView(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
         form = PostForm(request.POST or None)
+        print("ルーティング")
         return render(request, 'app/post_form.html', {
             'form': form
         })
@@ -119,8 +120,7 @@ class CreatePostView(LoginRequiredMixin, View):
             post_data.content = form.cleaned_data['content']
             if request.FILES:
                 post_data.image = request.FILES.get('image')
-            print("createposttest")
-            post_data.save()
+            # post_data.save()
             # show = False
         # 120-125まで一時的に
         #     return redirect('post_detail', post_data.id)
@@ -128,13 +128,15 @@ class CreatePostView(LoginRequiredMixin, View):
         # return render(request, 'app/post_form.html', {
         #     'form': form
         # })
+            print("ルーティング成功")
             return render(request, 'app/post_preview.html', {
                 'post_data' : post_data
             })
 
     # 以下コードはformのvalidationが失敗したとき
         # return render(request, 'app/post_form.html', {
-        return render(request, 'app/indexƒ.html', {
+        print("ルーティング失敗")
+        return render(request, 'app/index.html', {
             'form': form
         })
 
@@ -155,8 +157,8 @@ class PreviewPostView(LoginRequiredMixin, View):
         post_data.image = request.POST.get('image')
         if request.FILES:
             post_data.image = request.FILES.get('image')
-        print("previewtest")
         post_data.title = request.POST.get('title')
+        post_data.save()
         # show = not False
         return redirect('index')
 
