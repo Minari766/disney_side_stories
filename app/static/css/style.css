@@ -310,6 +310,10 @@ a:hover {
     transform: rotate(45deg);
 }
 
+.article-category-icon .bulb{
+    transform: rotate(45deg);
+}
+
 .img-bulb .activate{
     position: absolute;
     opacity: 0;
@@ -1472,8 +1476,9 @@ a:hover {
 
 .article-category-icon{
     padding-left: 20px;
-    width: 60px;
+    width: 50px;
     height: auto;
+    align-items: center;
 }
 
 .article-img{

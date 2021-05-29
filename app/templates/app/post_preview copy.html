@@ -29,8 +29,8 @@
         <input type="hidden" name="content" value={{ post_data.content }}>
         <!-- <button class="btn btn-light" type="submit">戻る</button> -->
         <button class="btn btn-info" type="submit">投稿する</button>
-        <button class="btn btn-light" type="submit">戻る</button>
     </form>
+    <a class="btn btn-light" href="{% url 'post_edit' post_data.id %}">編集画面へ戻る</a>
 </div>
 <!-- <div class="text-center">
 </div> -->

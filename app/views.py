@@ -51,7 +51,7 @@ class IndexView(View):
         return post_data
 
     def get(self, request, *args, **kwargs):
-        post_data = Post.objects.order_by("-id")
+        post_data = Post.objects.filter(public=True).order_by("-id")
         area = self.kwargs.get('area')
         category = self.kwargs.get('category')
         attraction = self.kwargs.get('attraction')
@@ -63,6 +63,9 @@ class IndexView(View):
         post_data = self.attraction_select(post_data, category, area, attraction)
         
         page_obj = self.paginate_queryset(request, post_data, 10)
+        
+        for post in post_data:
+            print(type(post.category))
 
 
 
@@ -87,9 +90,7 @@ class PostDetailView(View):
     
         if liked.exists():
             liked_list.append(post_data.id)
-        
-        print("カテゴリチェック")
-        print(post_data.category)
+    
 
         return render(request, 'app/post_detail.html', {
             'post_data': post_data,
@@ -99,7 +100,6 @@ class PostDetailView(View):
 class CreatePostView(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
         form = PostForm(request.POST or None)
-        print("ルーティング")
         return render(request, 'app/post_form.html', {
             'form': form
         })
@@ -120,7 +120,7 @@ class CreatePostView(LoginRequiredMixin, View):
             post_data.content = form.cleaned_data['content']
             if request.FILES:
                 post_data.image = request.FILES.get('image')
-            # post_data.save()
+            post_data.save()
             # show = False
         # 120-125まで一時的に
         #     return redirect('post_detail', post_data.id)
@@ -158,6 +158,7 @@ class PreviewPostView(LoginRequiredMixin, View):
         if request.FILES:
             post_data.image = request.FILES.get('image')
         post_data.title = request.POST.get('title')
+        post_data.public = True
         post_data.save()
         # show = not False
         return redirect('index')
@@ -199,7 +200,7 @@ class PostEditView(LoginRequiredMixin, View):
             post_data.content = form.cleaned_data['content']
             if request.FILES:
                 post_data.image = request.FILES.get('image')
-            print("postedittest")
+            post_data.public = True
             post_data.save()
             return redirect('post_detail', self.kwargs['pk'])
 

@@ -33,6 +33,7 @@ class Post(models.Model):
     image = models.ImageField(upload_to='images', verbose_name='Image画像', null=True, blank=True)
     content = models.TextField("本文")
     created = models.DateTimeField("作成日", default=timezone.now)
+    public = models.BooleanField("公開フラグ", default=False)
 
     def __str__(self):
         return self.title

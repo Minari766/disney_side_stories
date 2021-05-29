@@ -364,7 +364,7 @@
 
 <div class="picmenu">
     <ul id="table-ul">
-        <li>
+        <li onmouseover="mouseOn1();" onmouseout="mouseOff1();">
             {% if area == 'bazaar' %}
                 <a href="{% url 'index' 'bazaar' 'all' %}">
             {% elif area == 'adventure' %}
@@ -408,7 +408,7 @@
                 <a href="{% url 'index' 'all' 'all' %}">
             {% endif %}
                 <!-- <img src="{% static 'img/box.png' %}" alt="全て" class="icon-category"> -->
-                <img src="{% static 'img/box.png' %}" alt="" class="icon-category" id="box" onmouseover="mouseOn();" onmouseout="mouseOff();" />
+                <img src="{% static 'img/star.png' %}" alt="" class="icon-category" id="star" />
                 <p>全て</p>
             </a>
         </li>
@@ -483,7 +483,7 @@
                 <p>隠れミッキー</p>
             </a>
         </li>
-        <li class="img-bulb"> 
+        <li class="img-bulb" onmouseover="mouseOn4();" onmouseout="mouseOff4();"> 
             {% if area == 'bazaar' %}
                 <a href="{% url 'index' 'bazaar' 'trivia' %}">
             {% elif area == 'adventure' %}
@@ -528,7 +528,8 @@
             {% endif %}
                 <!-- <img src="{% static 'img/bulb.png' %}" alt="" class="icon-category default"> -->
                 <!-- <img src="{% static 'img/bulb_white.png' %}" alt="" class="icon-category activate"> -->
-                <img src="{% static 'img/bulb_white.png' %}" alt="" class="icon-category" id="bulb1" onmouseover="mouseOn2();" onmouseout="mouseOff2();" />
+                <!-- <img src="{% static 'img/bulb_white.png' %}" alt="" class="icon-category" id="bulb1" onmouseover="mouseOn2();" onmouseout="mouseOff2();" /> -->
+                <img src="{% static 'img/bulb.png' %}" alt="" class="icon-category" id="bulb1" />
                 <p>豆知識</p>
             </a>
         </li>
@@ -604,7 +605,7 @@
                 <img src="{% static 'img/user1.png' %}" class="user-icon-top">
             {% endif %}
                 {{ post.author }}
-                {{ post.category }}
+                {{ post.area }} > {{ post.attraction }}
             </h7>
             <h7 class="text_right">{{ post.created }}</h7>
         </div>
@@ -616,14 +617,13 @@
             {% elif post.category|stringformat:"s" == "隠れミッキー" %}
                 <img src="{% static 'img/mickey.png' %}" alt="book" class="article-category-icon">
             {% elif post.category|stringformat:"s" == "豆知識" %}
-                <img src="{% static 'img/bulb.png' %}" alt="book" class="article-category-icon">
+                <img src="{% static 'img/bulb.png' %}" alt="book" class="article-category-icon bulb">
             {% elif post.category|stringformat:"s" == "その他" %}
                 <img src="{% static 'img/bookmark_green.png' %}" alt="book" class="article-category-icon">
             {% else %}
                 <img src="{% static 'img/memo.png' %}" alt="なんも" class="article-category-icon">
             {% endif %}
             </div>
-            {{ post.category }}
         </div>
         <p>{{ post.content|truncatechars:200 }}</p>
         <a class="article-more" href="{% url 'post_detail' post.id %}">もっと見る</a>
@@ -671,38 +671,24 @@
 <!-- マウスオーバー変換 -->
 {% block extra_js %}
 <script type="text/javascript">
-    function mouseOn(){
-        var obj = document.getElementById("box");
-        obj.src = "{% static 'img/box.png' %}";
-        var obj = document.getElementById("memo");
-        obj.src = "{% static 'img/memo_black.png' %}";
-        var obj = document.getElementById("mickey");
-        obj.src = "{% static 'img/mickey_b.png' %}";
-        // var obj = document.getElementById("bulb1");
-        // obj.src = "{% static 'img/bulb.png' %}";
-        var obj = document.getElementById("bookmark");
-        obj.src = "{% static 'img/bookmark_white.png' %}";
+    function mouseOn1(){
+        var obj = document.getElementById("star");
+        obj.src = "{% static 'img/star_white.png' %}";
     }
-    function mouseOn2(){
-        var obj = document.getElementById("bulb1");
-        obj.src = "{% static 'img/bulb.png' %}";
 
-    }
-    function mouseOff(){
-        var obj = document.getElementById("box");
-        obj.src = "{% static 'img/box.png' %}";
-        var obj = document.getElementById("memo");
-        obj.src = "{% static 'img/memo_black.png' %}";
-        var obj = document.getElementById("mickey");
-        obj.src = "{% static 'img/mickey_b.png' %}";
-        // var obj = document.getElementById("bulb1");
-        // obj.src = "{% static 'img/bulb_white.png' %}";
-        var obj = document.getElementById("bookmark");
-        obj.src = "{% static 'img/bookmark_green.png' %}";
-    }
-    function mouseOff2(){
+    function mouseOn4(){
         var obj = document.getElementById("bulb1");
         obj.src = "{% static 'img/bulb_white.png' %}";
+    }
+
+    function mouseOff1(){
+        var obj = document.getElementById("star");
+        obj.src = "{% static 'img/star.png' %}";
+    }
+
+    function mouseOff4(){
+        var obj = document.getElementById("bulb1");
+        obj.src = "{% static 'img/bulb.png' %}";
     }
 
     function color1(){
