@@ -191,7 +191,7 @@ a:hover {
 }
 
 #table-ul {
-    /* background-color: #3ae; */
+    background-color: #3ae;
     border: 1px solid #dee2e6;
     border-radius: 20px;
     will-change: transform;
@@ -203,6 +203,10 @@ a:hover {
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
     list-style-type: none;
     overflow: hidden;
+}
+
+#table-ul-all {
+    background-color:red;
 }
 
 #table-ul li {
@@ -229,8 +233,9 @@ a:hover {
     transition: 0.3s;
 }
 
-#table-ul li a:hover
-
+#table-ul p{
+    margin: 10px;
+}
 /* #table-ul li:last-child {
     border-right: 0;   
 } */

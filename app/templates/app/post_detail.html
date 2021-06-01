@@ -20,12 +20,14 @@
 <img class="mx-auto d-block img-fluid rounded detail-img mb-1" src="{{ post_data.image.url }}" alt="">         
 {% endif %}
 <div class="article-category-icon">
-    {% if post_data.category == 'ストーリー' %}
-        <img src="{% static 'img/box.png' %}" alt="book" class="">
-    {% elif post_data.category == '隠れミッキー' %}
-        <img src="{% static 'img/movie.png' %}" alt="book" class="">
-    {% elif post_data.category == '豆知識' %}
-        <img src="{% static 'img/memo.png' %}" alt="book" class="">
+    {% if post_data.category|stringformat:"s" == 'ストーリー' %}
+        <img src="{% static 'img/memo.png' %}" alt="book" class="article-category-icon">
+    {% elif post_data.category|stringformat:"s" == '隠れミッキー' %}
+        <img src="{% static 'img/mickey.png' %}" alt="book" class="article-category-icon">
+    {% elif post_data.category|stringformat:"s" == '豆知識' %}
+        <img src="{% static 'img/bulb.png' %}" alt="book" class="article-category-icon">
+    {% elif post_data.category|stringformat:"s" == 'その他' %}
+        <img src="{% static 'img/comment.png' %}" alt="book" class="article-category-icon">
     {% else %}
         <img src="{% static 'img/search.png' %}" alt="なんも" class="article-category-icon">
     {% endif %}

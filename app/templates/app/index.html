@@ -364,7 +364,7 @@
 
 <div class="picmenu">
     <ul id="table-ul">
-        <li onmouseover="mouseOn1();" onmouseout="mouseOff1();">
+        <li id="table-ul-all" onmouseover="mouseOn1();" onmouseout="mouseOff1();">
             {% if area == 'bazaar' %}
                 <a href="{% url 'index' 'bazaar' 'all' %}">
             {% elif area == 'adventure' %}
@@ -407,12 +407,11 @@
             {% else %}
                 <a href="{% url 'index' 'all' 'all' %}">
             {% endif %}
-                <!-- <img src="{% static 'img/box.png' %}" alt="全て" class="icon-category"> -->
                 <img src="{% static 'img/star.png' %}" alt="" class="icon-category" id="star" />
                 <p>全て</p>
             </a>
         </li>
-        <li>
+        <li onmouseover="mouseOn2();" onmouseout="mouseOff2();">
             {% if area == 'bazaar' %}
                 <a href="{% url 'index' 'bazaar' 'story' %}">
             {% elif area == 'adventure' %}
@@ -430,12 +429,11 @@
             {% else %}
                 <a href="{% url 'index' 'all' 'story' %}">
             {% endif %}
-                <!-- <img src="{% static 'img/memo.png' %}" alt="ストーリー" class="icon-category"> -->
-                <img src="{% static 'img/memo.png' %}" alt="" class="icon-category" id="memo" onmouseover="mouseOn();" onmouseout="mouseOff();" />
+                <img src="{% static 'img/memo.png' %}" alt="" class="icon-category" id="memo" />
                 <p>ストーリー</p>
             </a>
         </li>
-        <li id="target">
+        <li  onmouseover="mouseOn3();" onmouseout="mouseOff3();">
             {% if area == 'bazaar' %}
                 <a href="{% url 'index' 'bazaar' 'mickey' %}">
             {% elif area == 'adventure' %}
@@ -478,8 +476,7 @@
             {% else %}
                 <a href="{% url 'index' 'all' 'mickey' %}">
             {% endif %}
-                <!-- <img src="{% static 'img/mickey_b.png' %}" alt="隠れミッキー" class="icon-category"> -->
-                <img src="{% static 'img/mickey_b.png' %}" alt="" class="icon-category" id="mickey" onmouseover="mouseOn();" onmouseout="mouseOff();" />
+                <img src="{% static 'img/mickey.png' %}" alt="" class="icon-category" id="mickey" />
                 <p>隠れミッキー</p>
             </a>
         </li>
@@ -526,14 +523,11 @@
             {% else %}
                 <a href="{% url 'index' 'all' 'trivia' %}">
             {% endif %}
-                <!-- <img src="{% static 'img/bulb.png' %}" alt="" class="icon-category default"> -->
-                <!-- <img src="{% static 'img/bulb_white.png' %}" alt="" class="icon-category activate"> -->
-                <!-- <img src="{% static 'img/bulb_white.png' %}" alt="" class="icon-category" id="bulb1" onmouseover="mouseOn2();" onmouseout="mouseOff2();" /> -->
                 <img src="{% static 'img/bulb.png' %}" alt="" class="icon-category" id="bulb1" />
                 <p>豆知識</p>
             </a>
         </li>
-        <li>
+        <li onmouseover="mouseOn5();" onmouseout="mouseOff5();">
             {% if area == 'bazaar' %}
                 <a href="{% url 'index' 'bazaar' 'other' %}">
             {% elif area == 'adventure' %}
@@ -576,8 +570,7 @@
             {% else %}
                 <a href="{% url 'index' 'all' 'other' %}">
             {% endif %}
-                <!-- <img src="{% static 'img/bookmark.png' %}" alt="その他" class="icon-category"> -->
-                <img src="{% static 'img/bookmark_green.png' %}" alt="" class="icon-category" id="bookmark" onmouseover="mouseOn();" onmouseout="mouseOff();" />
+                <img src="{% static 'img/comment.png' %}" alt="" class="icon-category" id="comment" />
                 <p>その他</p>
             </a>
         </li>
@@ -619,9 +612,9 @@
             {% elif post.category|stringformat:"s" == "豆知識" %}
                 <img src="{% static 'img/bulb.png' %}" alt="book" class="article-category-icon bulb">
             {% elif post.category|stringformat:"s" == "その他" %}
-                <img src="{% static 'img/bookmark_green.png' %}" alt="book" class="article-category-icon">
+                <img src="{% static 'img/comment.png' %}" alt="book" class="article-category-icon">
             {% else %}
-                <img src="{% static 'img/memo.png' %}" alt="なんも" class="article-category-icon">
+                <img src="{% static 'img/search.png' %}" alt="なんも" class="article-category-icon">
             {% endif %}
             </div>
         </div>
@@ -676,9 +669,24 @@
         obj.src = "{% static 'img/star_white.png' %}";
     }
 
+    function mouseOn2(){
+        var obj = document.getElementById("memo");
+        obj.src = "{% static 'img/memo_white.png' %}";
+    }
+
+    function mouseOn3(){
+        var obj = document.getElementById("mickey");
+        obj.src = "{% static 'img/mickey_white.png' %}";
+    }
+
     function mouseOn4(){
         var obj = document.getElementById("bulb1");
         obj.src = "{% static 'img/bulb_white.png' %}";
+    }
+
+    function mouseOn5(){
+        var obj = document.getElementById("comment");
+        obj.src = "{% static 'img/comment_white.png' %}";
     }
 
     function mouseOff1(){
@@ -686,14 +694,49 @@
         obj.src = "{% static 'img/star.png' %}";
     }
 
+    function mouseOff2(){
+        var obj = document.getElementById("memo");
+        obj.src = "{% static 'img/memo.png' %}";
+    }
+
+    function mouseOff3(){
+        var obj = document.getElementById("mickey");
+        obj.src = "{% static 'img/mickey.png' %}";
+    }
+
     function mouseOff4(){
         var obj = document.getElementById("bulb1");
         obj.src = "{% static 'img/bulb.png' %}";
     }
 
+    function mouseOff5(){
+        var obj = document.getElementById("comment");
+        obj.src = "{% static 'img/comment.png' %}";
+    }
+
     function color1(){
+        var obj = 
         document.bgColor = "#eeeeff"
     }
+
+// 色取得のコード
+    function color1(){
+        var url = new URLSearchParams(window.location.href);
+        var params = url.searchParams;
+        if (params.has("all")){
+            documents.getElementById("table-ul-all").style.backgroundColor = "#dee2e6"
+            console.log("allデバッグ")
+        } else if (params.has("story")){
+            documents.bgColor = red
+        } else if (params.has("mickey")){
+            documents.bgColor = red
+        } else if (params.has("trivia")){
+            documents.bgColor = red
+        } else if (paramas.has("other")){
+            documents.bgColor = red
+        }
+    }
+
 </script>
 
 
