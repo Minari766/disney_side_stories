@@ -405,7 +405,7 @@
             {% elif area == 'tomorrow' %}
                 <a href="{% url 'index' 'tomorrow' 'all' %}">
             {% else %}
-                <a href="{% url 'index' 'all' 'all' %}">
+                <a href="{% url 'index' 'all' 'all' %}" onclick="color1();">
             {% endif %}
                 <img src="{% static 'img/star.png' %}" alt="" class="icon-category" id="star" />
                 <p>全て</p>
@@ -667,6 +667,7 @@
     function mouseOn1(){
         var obj = document.getElementById("star");
         obj.src = "{% static 'img/star_white.png' %}";
+        // console.log("mouseOn1")
     }
 
     function mouseOn2(){
@@ -714,18 +715,16 @@
         obj.src = "{% static 'img/comment.png' %}";
     }
 
-    function color1(){
-        var obj = 
-        document.bgColor = "#eeeeff"
-    }
-
 // 色取得のコード
     function color1(){
-        var url = new URLSearchParams(window.location.href);
+        // var url = new URLSearchParams(window.location.href);
+        var url = location.href;
+        console.log(url)
         var params = url.searchParams;
+        console.log(params)
         if (params.has("all")){
-            documents.getElementById("table-ul-all").style.backgroundColor = "#dee2e6"
-            console.log("allデバッグ")
+            documents.bgColor = "#dee2e6"
+            console.log("デバッグall")
         } else if (params.has("story")){
             documents.bgColor = red
         } else if (params.has("mickey")){

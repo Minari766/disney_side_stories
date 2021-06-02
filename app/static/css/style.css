@@ -191,7 +191,7 @@ a:hover {
 }
 
 #table-ul {
-    background-color: #3ae;
+    /* background-color: #3ae; */
     border: 1px solid #dee2e6;
     border-radius: 20px;
     will-change: transform;
@@ -205,9 +205,9 @@ a:hover {
     overflow: hidden;
 }
 
-#table-ul-all {
+/* #table-ul-all {
     background-color:red;
-}
+} */
 
 #table-ul li {
     border-right: 1px solid #dee2e6;
