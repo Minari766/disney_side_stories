@@ -41,7 +41,7 @@
 <hr>
 {% endfor %}
 <!-- お気に入りページネーション -->
-<ul class="pagination justify-content-center">
+<!-- <ul class="pagination justify-content-center">
     {% if page_obj_like.has_previous %}
     <li class="page-item">
         <a class="page-link" href="?page={{ page_obj_like.previous_page_number }}">
@@ -71,7 +71,7 @@
             </a>
         </li>
     {% endif %}
-</ul>
+</ul> -->
 
 
 <h5>投稿記事</h5>
@@ -97,7 +97,7 @@
 <hr>
 {% endfor %}
 <!-- 投稿記事ページネーション -->
-<ul class="pagination justify-content-center">
+<!-- <ul class="pagination justify-content-center">
     {% if page_obj_mypost.has_previous %}
     <li class="page-item">
         <a class="page-link" href="?page={{ page_obj_mypost.previous_page_number }}">
@@ -127,6 +127,6 @@
             </a>
         </li>
     {% endif %}
-</ul>
+</ul> -->
 
 {% endblock %}

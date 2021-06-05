@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block content %}
-<!-- <div>
+<div>
     <ul class="nav navbar-nav navbar-right ttl-bd mt-4 mb-4">
         <li><a href="">プロフィール　</a></li>
     </ul>
@@ -28,9 +28,9 @@
     <div class="button mx-auto">
         <a class="btn btn-lg btn-warning btn-block" href="{% url 'profile_edit' %}">編集する</a>
     </div>
-</div> -->
+</div>
 
-<div id="tabs">
+<!-- <div id="tabs">
     <ul class="nav nav-tabs">
         <li class="nav-item"><a href="#tabs-1" class="nav-link">プロフィール</a></li>
         <li class="nav-item"><a href="#tabs-2" class="nav-link">Myお気に入り</a></li>
@@ -85,7 +85,6 @@
             <hr>
             {% endfor %}
 
-            <!-- お気に入りページネーション -->
             <ul class="pagination justify-content-center">
                 {% if page_obj_like.has_previous %}
                 <li class="page-item">
@@ -146,7 +145,6 @@
             <hr>
             {% endfor %}
 
-            <!-- お気に入りページネーション -->
             <ul class="pagination justify-content-center">
                 {% if page_obj_like.has_previous %}
                 <li class="page-item">
@@ -185,12 +183,6 @@
             <div class="card-header"><h2>設定</h2></div>
         </div>
     </div>
-</div>
-
-<script>
-$(function() {
-    $( "#tabs" ).tabs();
-});
-</script>
+</div> -->
 
 {% endblock %}

@@ -405,13 +405,15 @@
             {% elif area == 'tomorrow' %}
                 <a href="{% url 'index' 'tomorrow' 'all' %}">
             {% else %}
-                <a href="{% url 'index' 'all' 'all' %}" onclick="color1();">
+                <!-- <a href="{% url 'index' 'all' 'all' %}" onload="color1();"> -->
+                <!-- <a href="{% url 'index' 'all' 'all' %}" onload="color1();"> -->
+                <a href="{% url 'index' 'all' 'all' %}">
             {% endif %}
                 <img src="{% static 'img/star.png' %}" alt="" class="icon-category" id="star" />
                 <p>全て</p>
             </a>
         </li>
-        <li onmouseover="mouseOn2();" onmouseout="mouseOff2();">
+        <li id="table-ul-story" onmouseover="mouseOn2();" onmouseout="mouseOff2();">
             {% if area == 'bazaar' %}
                 <a href="{% url 'index' 'bazaar' 'story' %}">
             {% elif area == 'adventure' %}
@@ -433,7 +435,7 @@
                 <p>ストーリー</p>
             </a>
         </li>
-        <li  onmouseover="mouseOn3();" onmouseout="mouseOff3();">
+        <li id="table-ul-mickey" onmouseover="mouseOn3();" onmouseout="mouseOff3();">
             {% if area == 'bazaar' %}
                 <a href="{% url 'index' 'bazaar' 'mickey' %}">
             {% elif area == 'adventure' %}
@@ -480,7 +482,7 @@
                 <p>隠れミッキー</p>
             </a>
         </li>
-        <li class="img-bulb" onmouseover="mouseOn4();" onmouseout="mouseOff4();"> 
+        <li id="table-ul-trivia" class="img-bulb" onmouseover="mouseOn4();" onmouseout="mouseOff4();"> 
             {% if area == 'bazaar' %}
                 <a href="{% url 'index' 'bazaar' 'trivia' %}">
             {% elif area == 'adventure' %}
@@ -527,7 +529,7 @@
                 <p>豆知識</p>
             </a>
         </li>
-        <li onmouseover="mouseOn5();" onmouseout="mouseOff5();">
+        <li id="table-ul-other" onmouseover="mouseOn5();" onmouseout="mouseOff5();">
             {% if area == 'bazaar' %}
                 <a href="{% url 'index' 'bazaar' 'other' %}">
             {% elif area == 'adventure' %}
@@ -667,7 +669,6 @@
     function mouseOn1(){
         var obj = document.getElementById("star");
         obj.src = "{% static 'img/star_white.png' %}";
-        // console.log("mouseOn1")
     }
 
     function mouseOn2(){
@@ -716,23 +717,54 @@
     }
 
 // 色取得のコード
-    function color1(){
-        // var url = new URLSearchParams(window.location.href);
-        var url = location.href;
-        console.log(url)
-        var params = url.searchParams;
-        console.log(params)
-        if (params.has("all")){
-            documents.bgColor = "#dee2e6"
-            console.log("デバッグall")
-        } else if (params.has("story")){
-            documents.bgColor = red
-        } else if (params.has("mickey")){
-            documents.bgColor = red
-        } else if (params.has("trivia")){
-            documents.bgColor = red
-        } else if (paramas.has("other")){
-            documents.bgColor = red
+    window.onload = function() {
+        let url = window.location.href;
+        let indexOfLastSlash = url.lastIndexOf('/');
+        let indexOfLast2Slash = url.lastIndexOf('/', url.length-2);
+        let str = url.substring(indexOfLast2Slash+1, indexOfLastSlash)
+        var obj1 = document.getElementById("table-ul-all");
+        var obj2 = document.getElementById("table-ul-story");
+        var obj3 = document.getElementById("table-ul-mickey");
+        var obj4 = document.getElementById("table-ul-trivia");
+        var obj5 = document.getElementById("table-ul-other");
+        var obj = document.getElementById("star");
+        if (str == "all"){
+            console.log("デバッグall");
+            obj1.style.backgroundColor = "rgb(5, 149, 167)";
+            obj2.style.backgroundColor = "none";
+            obj3.style.backgroundColor = "none";
+            obj4.style.backgroundColor = "none";
+            obj5.style.backgroundColor = "none";
+            obj.src = "{% static 'img/star_white.png' %}";
+        } else if (str == "story"){
+            console.log("デバッグstory");
+            obj1.style.backgroundColor = "none";
+            obj2.style.backgroundColor = "rgb(5, 149, 167)";
+            obj3.style.backgroundColor = "none";
+            obj4.style.backgroundColor = "none";
+            obj5.style.backgroundColor = "none";
+            obj.src = "{% static 'img/star_white.png' %}";
+        } else if (str == "mickey"){
+            console.log("デバッグmickey");
+            obj1.style.backgroundColor = "none";
+            obj2.style.backgroundColor = "none";
+            obj3.style.backgroundColor = "rgb(5, 149, 167)";
+            obj4.style.backgroundColor = "none";
+            obj5.style.backgroundColor = "none";
+        } else if (str == "trivia"){
+            console.log("デバッグtrivia");
+            obj1.style.backgroundColor = "none";
+            obj2.style.backgroundColor = "none";
+            obj3.style.backgroundColor = "none";
+            obj4.style.backgroundColor = "rgb(5, 149, 167)";
+            obj5.style.backgroundColor = "none";
+        } else if (str == "other"){
+            console.log("デバッグother");
+            obj1.style.backgroundColor = "none";
+            obj2.style.backgroundColor = "none";
+            obj3.style.backgroundColor = "none";
+            obj4.style.backgroundColor = "none";
+            obj5.style.backgroundColor = "rgb(5, 149, 167)";
         }
     }
 
