@@ -6,8 +6,8 @@
 
 <!-- トップ絵部分 -->
 <header class="masthead">
-    <div class="container h-100">
-        <div class="row h-100 align-items-center">
+    <div class="container h-auto my-4">
+        <div class="row h-auto align-items-center">
             <div class="col-12 text-center TDL-table">
                 {% if area == 'bazaar' %}
                     <img src="{% static 'img/WorldBazaar(testSS).png' %}" alt="" class="top-pic-bazaar">
@@ -362,13 +362,9 @@
     </div>
 </header>
 
-<div class="row my-4">
-
-</div>
-
 <div class="picmenu">
-    <ul class="table-ul">
-        <li>
+    <ul id="table-ul">
+        <li id="table-ul-all" onmouseover="mouseOn();" onmouseout="mouseOff1();">
             {% if area == 'bazaar' %}
                 <a href="{% url 'index' 'bazaar' 'all' %}">
             {% elif area == 'adventure' %}
@@ -409,13 +405,14 @@
             {% elif area == 'tomorrow' %}
                 <a href="{% url 'index' 'tomorrow' 'all' %}">
             {% else %}
+                <!-- <a href="{% url 'index' 'all' 'all' %}" onload="color1();"> -->
                 <a href="{% url 'index' 'all' 'all' %}">
             {% endif %}
-                <img src="{% static 'img/box.png' %}" alt="全て" class="icon-category">
+                <img src="{% static 'img/star.png' %}" alt="" class="icon-category" id="star" />
                 <p>全て</p>
             </a>
         </li>
-        <li>
+        <li id="table-ul-story" onmouseover="mouseOn();" onmouseout="mouseOff2();">
             {% if area == 'bazaar' %}
                 <a href="{% url 'index' 'bazaar' 'story' %}">
             {% elif area == 'adventure' %}
@@ -425,44 +422,19 @@
             {% elif area == 'critter' %}
                 <a href="{% url 'index' 'critter' 'story' %}">
             {% elif area == 'fantasy' %}
-                <a href="{% url 'index' 'fantasy' 'story'%}">
-                {% if attraction == 'alice' %}
-                    <a href="{% url 'index' 'fantasy' 'story' 'alice' %}">
-                {% elif attraction == 'small' %}
-                    <a href="{% url 'index' 'fantasy' 'story' 'small' %}">
-                {% elif attraction == 'carousel' %}
-                    <a href="{% url 'index' 'fantasy' 'story' 'carousel' %}">
-                {% elif attraction == 'snow' %}
-                    <a href="{% url 'index' 'fantasy' 'story' 'snow' %}">
-                {% elif attraction == 'cinderella' %}
-                    <a href="{% url 'index' 'fantasy' 'story' 'cinderella' %}">
-                {% elif attraction == 'dumbo' %}
-                    <a href="{% url 'index' 'fantasy' 'story' 'dumbo' %}">
-                {% elif attraction == 'beast' %}
-                    <a href="{% url 'index' 'fantasy' 'story' 'beast' %}">
-                {% elif attraction == 'pinocchio' %}
-                    <a href="{% url 'index' 'fantasy' 'story' 'pinocchio' %}">
-                {% elif attraction == 'pooh' %}
-                    <a href="{% url 'index' 'fantasy' 'story' 'pooh' %}">
-                {% elif attraction == 'haunted' %}
-                    <a href="{% url 'index' 'fantasy' 'story' 'haunted' %}">
-                {% elif attraction == 'philhar' %}
-                    <a href="{% url 'index' 'fantasy' 'story' 'philhar' %}">
-                {% elif attraction == 'fantasy-other' %}
-                    <a href="{% url 'index' 'fantasy' 'story' 'fantasy-other' %}">
-                {% endif %}
+                <a href="{% url 'index' 'fantasy' 'story' attraction %}">
             {% elif area == 'toon' %}
-                <a href="{% url 'index' 'toon' 'story' %}">
+                <a href="{% url 'index' 'toon' 'story' attraction %}">
             {% elif area == 'tomorrow' %}
                 <a href="{% url 'index' 'tomorrow' 'story' %}">
             {% else %}
                 <a href="{% url 'index' 'all' 'story' %}">
             {% endif %}
-                <img src="{% static 'img/memo.png' %}" alt="ストーリー" class="icon-category">
+                <img src="{% static 'img/memo.png' %}" alt="" class="icon-category" id="memo" />
                 <p>ストーリー</p>
             </a>
         </li>
-        <li>
+        <li id="table-ul-mickey" onmouseover="mouseOn();" onmouseout="mouseOff3();">
             {% if area == 'bazaar' %}
                 <a href="{% url 'index' 'bazaar' 'mickey' %}">
             {% elif area == 'adventure' %}
@@ -505,11 +477,11 @@
             {% else %}
                 <a href="{% url 'index' 'all' 'mickey' %}">
             {% endif %}
-                <img src="{% static 'img/mickey_b.png' %}" alt="隠れミッキー" class="icon-category">
+                <img src="{% static 'img/mickey.png' %}" alt="" class="icon-category" id="mickey" />
                 <p>隠れミッキー</p>
             </a>
         </li>
-        <li>
+        <li id="table-ul-trivia" class="img-bulb" onmouseover="mouseOn();" onmouseout="mouseOff4();"> 
             {% if area == 'bazaar' %}
                 <a href="{% url 'index' 'bazaar' 'trivia' %}">
             {% elif area == 'adventure' %}
@@ -552,11 +524,11 @@
             {% else %}
                 <a href="{% url 'index' 'all' 'trivia' %}">
             {% endif %}
-                <img src="{% static 'img/bulb.png' %}" alt="豆知識" class="icon-category">
+                <img src="{% static 'img/bulb.png' %}" alt="" class="icon-category" id="bulb1" />
                 <p>豆知識</p>
             </a>
         </li>
-        <li>
+        <li id="table-ul-other" onmouseover="mouseOn();" onmouseout="mouseOff5();">
             {% if area == 'bazaar' %}
                 <a href="{% url 'index' 'bazaar' 'other' %}">
             {% elif area == 'adventure' %}
@@ -599,40 +571,58 @@
             {% else %}
                 <a href="{% url 'index' 'all' 'other' %}">
             {% endif %}
-                <img src="{% static 'img/bookmark.png' %}" alt="その他" class="icon-category">
+                <img src="{% static 'img/comment.png' %}" alt="" class="icon-category" id="comment" />
                 <p>その他</p>
             </a>
         </li>
     </ul>
 </div>
 
+<!-- 投稿部分 -->
 {% for post in post_data %}
-<div class="row">
+<div class="row post-detail">
     <div class="col-md-4">
-        <a href="#">
+        <a href="{% url 'post_detail' post.id %}">
             {% if post.image %}
-            <img class="img-fluid rounded mb-3 mb-md-0" src="{{ post.image.url }}" alt="">
+                <img class="img-fluid rounded mb-md-0 article-img" src="{{ post.image.url }}" alt="">
+            {% else %}    
+                <img class="img-fluid rounded mb-md-0 article-noimg" src="{% static 'img/20161006_noimage.svg' %}" alt="">
             {% endif %}
         </a>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-8 article">
         <div class="author-created">
-            <h7 class="text_left">
-            {% if post_data1.author.icon %}
-                <img src="{{ post_data1.author.icon.url }}" class="user-icon">
+            <h7 class="text_left author-created">
+            {% if post.author.icon %}
+                <img src="{{ post.author.icon.url }}" class="user-icon-top">
             {% else %}
-                <img src="{% static 'img/user1.png' %}" alt="" class="urser-icon">
+                <img src="{% static 'img/user1.png' %}" class="user-icon-top">
             {% endif %}
                 {{ post.author }}
+                {{ post.area }} > {{ post.attraction }}
             </h7>
             <h7 class="text_right">{{ post.created }}</h7>
         </div>
-        <h3>{{ post.title }}</h3>
-        <p>{{ post.content|truncatechars:100 }}</p>
-        <a style="float:right;" href="{% url 'post_detail' post.id %}">続きを読む</a>
+        <div class="article-container">
+            <h3>{{ post.title|truncatechars:17}}</h3>
+            <div>
+            {% if post.category|stringformat:"s" == "ストーリー" %}
+                <img src="{% static 'img/memo.png' %}" alt="book" class="article-category-icon">
+            {% elif post.category|stringformat:"s" == "隠れミッキー" %}
+                <img src="{% static 'img/mickey.png' %}" alt="book" class="article-category-icon">
+            {% elif post.category|stringformat:"s" == "豆知識" %}
+                <img src="{% static 'img/bulb.png' %}" alt="book" class="article-category-icon bulb">
+            {% elif post.category|stringformat:"s" == "その他" %}
+                <img src="{% static 'img/comment.png' %}" alt="book" class="article-category-icon">
+            {% else %}
+                <img src="{% static 'img/search.png' %}" alt="なんも" class="article-category-icon">
+            {% endif %}
+            </div>
+        </div>
+        <p>{{ post.content|truncatechars:200 }}</p>
+        <a class="article-more" href="{% url 'post_detail' post.id %}">もっと見る</a>
     </div>
 </div>
-<hr>
 {% endfor %}
 
 <ul class="pagination justify-content-center">
@@ -670,4 +660,139 @@
 <div class="text-right">
     <a href="{% url 'post_new' %}" class="btn btn-info">新しい記事を投稿</a>
 </div>
+{% endblock %}
+
+<!-- マウスオーバー変換 -->
+{% block extra_js %}
+<script type="text/javascript">
+    // function mouseOn(){
+    //     var obj = document.getAttribute("id");
+    //         console.log(obj);
+    //         console.log("obj");
+    //     if (obj == "table-ul-all"){
+    //         console.log("デバッグ1");
+    //         obj.src = "{% static 'img/star_white.png' %}";
+    //     } else if (obj == "table-ul-story"){
+    //         console.log("デバッグ2");   
+    //         obj.src = "{% static 'img/memo_white.png' %}";
+    //     } else if (obj == "table-ul-mickey"){
+    //         console.log("デバッグ3");
+    //         obj.src = "{% static 'img/mickey_white.png' %}";
+    //     } else if (obj == "table-ul-trivia"){
+    //         console.log("デバッグ4");
+    //         obj.src = "{% static 'img/bulb_white.png' %}";
+    //     } else if (obj == "table-ul-other"){
+    //         console.log("デバッグ5");
+    //         obj.src = "{% static 'img/comment_white.png' %}";
+    //     }
+    // }
+
+    // function mouseOn1(){
+    //     var obj = document.getElementById("star");
+    //     obj.src = "{% static 'img/star_white.png' %}";
+    // }
+
+    // function mouseOn2(){
+    //     var obj = document.getElementById("memo");
+    //     obj.src = "{% static 'img/memo_white.png' %}";
+    // }
+
+    // function mouseOn3(){
+    //     var obj = document.getElementById("mickey");
+    //     obj.src = "{% static 'img/mickey_white.png' %}";
+    // }
+
+    // function mouseOn4(){
+    //     var obj = document.getElementById("bulb1");
+    //     obj.src = "{% static 'img/bulb_white.png' %}";
+    // }
+
+    // function mouseOn5(){
+    //     var obj = document.getElementById("comment");
+    //     obj.src = "{% static 'img/comment_white.png' %}";
+    // }
+
+    // function mouseOff1(){
+    //     var obj = document.getElementById("star");
+    //     obj.src = "{% static 'img/star.png' %}";
+    // }
+
+    // function mouseOff2(){
+    //     var obj = document.getElementById("memo");
+    //     obj.src = "{% static 'img/memo.png' %}";
+    // }
+
+    // function mouseOff3(){
+    //     var obj = document.getElementById("mickey");
+    //     obj.src = "{% static 'img/mickey.png' %}";
+    // }
+
+    // function mouseOff4(){
+    //     var obj = document.getElementById("bulb1");
+    //     obj.src = "{% static 'img/bulb.png' %}";
+    // }
+
+    // function mouseOff5(){
+
+    //     var obj = document.getElementById("comment");
+    //     obj.src = "{% static 'img/comment.png' %}";
+    // }
+
+
+// 色取得のコード
+    window.onload = function() {
+        let url = window.location.href;
+        let indexOfLastSlash = url.lastIndexOf('/');
+        let indexOfLast2Slash = url.lastIndexOf('/', url.length-2);
+        let str = url.substring(indexOfLast2Slash+1, indexOfLastSlash)
+        var obj1 = document.getElementById("table-ul-all");
+        var obj2 = document.getElementById("table-ul-story");
+        var obj3 = document.getElementById("table-ul-mickey");
+        var obj4 = document.getElementById("table-ul-trivia");
+        var obj5 = document.getElementById("table-ul-other");
+        var obj = document.getElementById("star");
+        if (str == "all"){
+            console.log("デバッグall");
+            // obj1.style.backgroundColor = "rgb(5, 149, 167)";
+            obj1.style.backgroundColor = "rgb(239, 235, 224)";
+            obj2.style.backgroundColor = "none";
+            obj3.style.backgroundColor = "none";
+            obj4.style.backgroundColor = "none";
+            obj5.style.backgroundColor = "none";
+            obj.src = "{% static 'img/star_white.png' %}";
+        } else if (str == "story"){
+            console.log("デバッグstory");
+            obj1.style.backgroundColor = "none";
+            obj2.style.backgroundColor = "rgb(5, 149, 167)";
+            obj3.style.backgroundColor = "none";
+            obj4.style.backgroundColor = "none";
+            obj5.style.backgroundColor = "none";
+            obj.src = "{% static 'img/star_white.png' %}";
+        } else if (str == "mickey"){
+            console.log("デバッグmickey");
+            obj1.style.backgroundColor = "none";
+            obj2.style.backgroundColor = "none";
+            obj3.style.backgroundColor = "rgb(5, 149, 167)";
+            obj4.style.backgroundColor = "none";
+            obj5.style.backgroundColor = "none";
+        } else if (str == "trivia"){
+            console.log("デバッグtrivia");
+            obj1.style.backgroundColor = "none";
+            obj2.style.backgroundColor = "none";
+            obj3.style.backgroundColor = "none";
+            obj4.style.backgroundColor = "rgb(5, 149, 167)";
+            obj5.style.backgroundColor = "none";
+        } else if (str == "other"){
+            console.log("デバッグother");
+            obj1.style.backgroundColor = "none";
+            obj2.style.backgroundColor = "none";
+            obj3.style.backgroundColor = "none";
+            obj4.style.backgroundColor = "none";
+            obj5.style.backgroundColor = "rgb(5, 149, 167)";
+        }
+    }
+
+</script>
+
+
 {% endblock %}
