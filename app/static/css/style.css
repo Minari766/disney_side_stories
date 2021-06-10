@@ -181,8 +181,8 @@ a {
 
 a:hover {
     text-decoration: none;
-    transition: 1.0s;
-    color:white;
+    transition: 10.0s;
+    color:black;
 }
 
 .ttl-bd{
@@ -228,12 +228,14 @@ a:hover {
 }
 
 #table-ul li a:hover {
-    background-color: rgb(5, 149, 167);
+    /* background-color: rgb(5, 149, 167); */
     text-decoration: underline;
+    /* font-weight: bold; */
     transition: 0.3s;
 }
 
 #table-ul p{
+    font-size: 14px;
     margin: 10px;
 }
 /* #table-ul li:last-child {
