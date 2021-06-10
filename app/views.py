@@ -184,7 +184,6 @@ class PostEditView(LoginRequiredMixin, View):
     
     def post(self, request, *args, **kwargs):
         form = PostForm(request.POST or None)
-
         if form.is_valid():
             post_data = Post.objects.get(id=self.kwargs['pk'])
             post_data.title = form.cleaned_data['title']
@@ -248,7 +247,33 @@ class AboutView(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'app/about.html')
 
-class MypageView(View):
+# class MypageView(View):
+#     def paginate_queryset(self, request, queryset, count):
+#         paginator = Paginator(queryset, count)
+#         page = request.GET.get('page')
+#         try:
+#             page_obj = paginator.page(page)
+#         except PageNotAnInteger:
+#             page_obj = paginator.page(1)
+#         except EmptyPage:
+#             page_obj = paginator.page(paginator.num_pages)
+#         return page_obj
+
+#     def get(self, request, *args, **kwargs):
+#         like_data = Like.objects.order_by('-id').filter(author=request.user)
+#         mypost_data = Post.objects.order_by('-id').filter(author=request.user)
+        
+#         page_obj_like = self.paginate_queryset(request, like_data, 3)
+#         page_obj_mypost = self.paginate_queryset(request, mypost_data, 5)
+        
+#         return render(request, 'app/mypage.html', {
+#             'like_data': page_obj_like.object_list,
+#             'mypost_data': page_obj_mypost.object_list,
+#             'page_obj_like': page_obj_like,
+#             'page_obj_mypost': page_obj_mypost
+#         })
+
+class FavoriteView(View):
     def paginate_queryset(self, request, queryset, count):
         paginator = Paginator(queryset, count)
         page = request.GET.get('page')
@@ -267,7 +292,32 @@ class MypageView(View):
         page_obj_like = self.paginate_queryset(request, like_data, 3)
         page_obj_mypost = self.paginate_queryset(request, mypost_data, 5)
         
-        return render(request, 'app/mypage.html', {
+        return render(request, 'app/favorite.html', {
+            'like_data': page_obj_like.object_list,
+            'mypost_data': page_obj_mypost.object_list,
+            'page_obj_like': page_obj_like,
+            'page_obj_mypost': page_obj_mypost
+        })
+class MyPostView(View):
+    def paginate_queryset(self, request, queryset, count):
+        paginator = Paginator(queryset, count)
+        page = request.GET.get('page')
+        try:
+            page_obj = paginator.page(page)
+        except PageNotAnInteger:
+            page_obj = paginator.page(1)
+        except EmptyPage:
+            page_obj = paginator.page(paginator.num_pages)
+        return page_obj
+
+    def get(self, request, *args, **kwargs):
+        like_data = Like.objects.order_by('-id').filter(author=request.user)
+        mypost_data = Post.objects.order_by('-id').filter(author=request.user)
+        
+        page_obj_like = self.paginate_queryset(request, like_data, 3)
+        page_obj_mypost = self.paginate_queryset(request, mypost_data, 5)
+        
+        return render(request, 'app/mypost.html', {
             'like_data': page_obj_like.object_list,
             'mypost_data': page_obj_mypost.object_list,
             'page_obj_like': page_obj_like,

@@ -6,19 +6,10 @@
 
 <div>
     <ul class="nav navbar-nav navbar-right ttl-bd mt-4 mb-4">
-        <li><a href="">プロフィール</a></li>
+        <li><a href="">My お気に入り</a></li>
     </ul>
 </div> 
-<div class="container">
-    <p class="user-picture-box">プロフ画像予定</p>
-</div>
 
-<div class="row my-4">
-
-</div>
-
-
-<h5>お気に入り記事</h5>
 {% for like in like_data %}
 <div class="row">
     <div class="col-md-4">
@@ -41,7 +32,7 @@
 <hr>
 {% endfor %}
 <!-- お気に入りページネーション -->
-<!-- <ul class="pagination justify-content-center">
+<ul class="pagination justify-content-center">
     {% if page_obj_like.has_previous %}
     <li class="page-item">
         <a class="page-link" href="?page={{ page_obj_like.previous_page_number }}">
@@ -71,7 +62,7 @@
             </a>
         </li>
     {% endif %}
-</ul> -->
+</ul>
 
 
 <h5>投稿記事</h5>
