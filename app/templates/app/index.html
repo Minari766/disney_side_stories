@@ -12,63 +12,63 @@
                 {% if area == 'bazaar' %}
                     <img src="{% static 'img/WorldBazaar(testSS).png' %}" alt="" class="top-pic-bazaar">
                     {% if category == 'story' %}
-                        <a href="{% url 'index' 'bazaar' 'story' 'omni' %}" class="omni-link">オムニバス</a>
-                        <a href="{% url 'index' 'bazaar' 'story' 'penny' %}" class="penny-link">ペニーアーケード</a>
-                        <a href="{% url 'index' 'bazaar' 'story' 'bazaar-other' %}" class="bazaar-other-link">その他</a>
+                        <a href="{% url 'index' 'bazaar' 'omni' 'story' %}" class="omni-link">オムニバス</a>
+                        <a href="{% url 'index' 'bazaar' 'penny' 'story' %}" class="penny-link">ペニーアーケード</a>
+                        <a href="{% url 'index' 'bazaar' 'bazaar-other' 'story' %}" class="bazaar-other-link">その他</a>
                     {% elif category == 'mickey' %}
-                        <a href="{% url 'index' 'bazaar' 'mickey' 'omni' %}" class="omni-link">オムニバス</a>
-                        <a href="{% url 'index' 'bazaar' 'mickey' 'penny' %}" class="penny-link">ペニーアーケード</a>
-                        <a href="{% url 'index' 'bazaar' 'mickey' 'bazaar-other' %}" class="bazaar-other-link">その他</a>
+                        <a href="{% url 'index' 'bazaar' 'omni' 'mickey' %}" class="omni-link">オムニバス</a>
+                        <a href="{% url 'index' 'bazaar' 'penny' 'mickey' %}" class="penny-link">ペニーアーケード</a>
+                        <a href="{% url 'index' 'bazaar' 'bazaar-other' 'mickey' %}" class="bazaar-other-link">その他</a>
                     {% elif category == 'trivia' %}
-                        <a href="{% url 'index' 'bazaar' 'trivia' 'omni' %}" class="omni-link">オムニバス</a>
-                        <a href="{% url 'index' 'bazaar' 'trivia' 'penny' %}" class="penny-link">ペニーアーケード</a>
-                        <a href="{% url 'index' 'bazaar' 'trivia' 'bazaar-other' %}" class="bazaar-other-link">その他</a>
+                        <a href="{% url 'index' 'bazaar' 'omni' 'trivia' %}" class="omni-link">オムニバス</a>
+                        <a href="{% url 'index' 'bazaar' 'penny' 'trivia' %}" class="penny-link">ペニーアーケード</a>
+                        <a href="{% url 'index' 'bazaar' 'bazaar-other' 'trivia' %}" class="bazaar-other-link">その他</a>
                     {% elif category == 'other' %}
-                        <a href="{% url 'index' 'bazaar' 'other' 'omni' %}" class="omni-link">オムニバス</a>
-                        <a href="{% url 'index' 'bazaar' 'other' 'penny' %}" class="penny-link">ペニーアーケード</a>
-                        <a href="{% url 'index' 'bazaar' 'other' 'bazaar-other' %}" class="bazaar-other-link">その他</a>
+                        <a href="{% url 'index' 'bazaar' 'omni' 'other' %}" class="omni-link">オムニバス</a>
+                        <a href="{% url 'index' 'bazaar' 'penny' 'other' %}" class="penny-link">ペニーアーケード</a>
+                        <a href="{% url 'index' 'bazaar' 'bazaar-other' 'other' %}" class="bazaar-other-link">その他</a>
                     {% else %}
-                        <a href="{% url 'index' 'bazaar' 'all' 'omni' %}" class="omni-link">オムニバス</a>
-                        <a href="{% url 'index' 'bazaar' 'all' 'penny' %}" class="penny-link">ペニーアーケード</a>
-                        <a href="{% url 'index' 'bazaar' 'all' 'bazaar-other' %}" class="bazaar-other-link">その他</a>
+                        <a href="{% url 'index' 'bazaar' 'omni' 'all' %}" class="omni-link">オムニバス</a>
+                        <a href="{% url 'index' 'bazaar' 'penny' 'all' %}" class="penny-link">ペニーアーケード</a>
+                        <a href="{% url 'index' 'bazaar' 'bazaar-other' 'all' %}" class="bazaar-other-link">その他</a>
                     {% endif %}
                 {% elif area == 'adventure' %}
                     <img src="{% static 'img/AdventureLand(testSS).png' %}" alt="">
                     {% if category == 'story' %}
-                        <a href="{% url 'index' 'adventure' 'story' 'riverline' %}" class="riverline-link">ウエスタンリバー鉄道</a>
-                        <a href="{% url 'index' 'adventure' 'story' 'carib' %}" class="carib-link">カリブの海賊</a>
-                        <a href="{% url 'index' 'adventure' 'story' 'cruise' %}" class="cruise-link">ジャングルクルーズ</a>
-                        <a href="{% url 'index' 'adventure' 'story' 'swiss' %}" class="swiss-link">スイスファミリー・ツリーハウス</a>
-                        <a href="{% url 'index' 'adventure' 'story' 'tiki' %}" class="tiki-link">魅惑のチキルーム <br>“アロハ・エ・コモ・マイ!”</a>
-                        <a href="{% url 'index' 'adventure' 'story' 'adventure-other' %}" class="adventure-other-link">その他</a>
+                        <a href="{% url 'index' 'adventure' 'riverline' 'story' %}" class="riverline-link">ウエスタンリバー鉄道</a>
+                        <a href="{% url 'index' 'adventure' 'carib' 'story' %}" class="carib-link">カリブの海賊</a>
+                        <a href="{% url 'index' 'adventure' 'cruise' 'story' %}" class="cruise-link">ジャングルクルーズ</a>
+                        <a href="{% url 'index' 'adventure' 'swiss' 'story' %}" class="swiss-link">スイスファミリー・ツリーハウス</a>
+                        <a href="{% url 'index' 'adventure' 'tiki' 'story' %}" class="tiki-link">魅惑のチキルーム <br>“アロハ・エ・コモ・マイ!”</a>
+                        <a href="{% url 'index' 'adventure' 'adventure-other' 'story' %}" class="adventure-other-link">その他</a>
                     {% elif category == 'mickey' %}
-                        <a href="{% url 'index' 'adventure' 'mickey' 'riverline' %}" class="riverline-link">ウエスタンリバー鉄道</a>
-                        <a href="{% url 'index' 'adventure' 'mickey' 'carib' %}" class="carib-link">カリブの海賊</a>
-                        <a href="{% url 'index' 'adventure' 'mickey' 'cruise' %}" class="cruise-link">ジャングルクルーズ</a>
-                        <a href="{% url 'index' 'adventure' 'mickey' 'swiss' %}" class="swiss-link">スイスファミリー・ツリーハウス</a>
-                        <a href="{% url 'index' 'adventure' 'mickey' 'tiki' %}" class="tiki-link">魅惑のチキルーム <br>“アロハ・エ・コモ・マイ!”</a>
-                        <a href="{% url 'index' 'adventure' 'mickey' 'adventure-other' %}" class="adventure-other-link">その他</a>
+                        <a href="{% url 'index' 'adventure' 'riverline' 'mickey' %}" class="riverline-link">ウエスタンリバー鉄道</a>
+                        <a href="{% url 'index' 'adventure' 'carib' 'mickey' %}" class="carib-link">カリブの海賊</a>
+                        <a href="{% url 'index' 'adventure' 'cruise' 'mickey' %}" class="cruise-link">ジャングルクルーズ</a>
+                        <a href="{% url 'index' 'adventure' 'swiss' 'mickey' %}" class="swiss-link">スイスファミリー・ツリーハウス</a>
+                        <a href="{% url 'index' 'adventure' 'tiki' 'mickey' %}" class="tiki-link">魅惑のチキルーム <br>“アロハ・エ・コモ・マイ!”</a>
+                        <a href="{% url 'index' 'adventure' 'adventure-other' 'mickey' %}" class="adventure-other-link">その他</a>
                     {% elif category == 'trivia' %}
-                        <a href="{% url 'index' 'adventure' 'trivia' 'riverline' %}" class="riverline-link">ウエスタンリバー鉄道</a>
-                        <a href="{% url 'index' 'adventure' 'trivia' 'carib' %}" class="carib-link">カリブの海賊</a>
-                        <a href="{% url 'index' 'adventure' 'trivia' 'cruise' %}" class="cruise-link">ジャングルクルーズ</a>
-                        <a href="{% url 'index' 'adventure' 'trivia' 'swiss' %}" class="swiss-link">スイスファミリー・ツリーハウス</a>
-                        <a href="{% url 'index' 'adventure' 'trivia' 'tiki' %}" class="tiki-link">魅惑のチキルーム <br>“アロハ・エ・コモ・マイ!”</a>
-                        <a href="{% url 'index' 'adventure' 'trivia' 'adventure-other' %}" class="adventure-other-link">その他</a>
+                        <a href="{% url 'index' 'adventure' 'riverline' 'trivia' %}" class="riverline-link">ウエスタンリバー鉄道</a>
+                        <a href="{% url 'index' 'adventure' 'carib' 'trivia' %}" class="carib-link">カリブの海賊</a>
+                        <a href="{% url 'index' 'adventure' 'cruise' 'trivia' %}" class="cruise-link">ジャングルクルーズ</a>
+                        <a href="{% url 'index' 'adventure' 'swiss' 'trivia' %}" class="swiss-link">スイスファミリー・ツリーハウス</a>
+                        <a href="{% url 'index' 'adventure' 'tiki' 'trivia' %}" class="tiki-link">魅惑のチキルーム <br>“アロハ・エ・コモ・マイ!”</a>
+                        <a href="{% url 'index' 'adventure' 'adventure-other' 'trivia' %}" class="adventure-other-link">その他</a>
                     {% elif category == 'other' %}
-                        <a href="{% url 'index' 'adventure' 'other' 'riverline' %}" class="riverline-link">ウエスタンリバー鉄道</a>
-                        <a href="{% url 'index' 'adventure' 'other' 'carib' %}" class="carib-link">カリブの海賊</a>
-                        <a href="{% url 'index' 'adventure' 'other' 'cruise' %}" class="cruise-link">ジャングルクルーズ</a>
-                        <a href="{% url 'index' 'adventure' 'other' 'swiss' %}" class="swiss-link">スイスファミリー・ツリーハウス</a>
-                        <a href="{% url 'index' 'adventure' 'other' 'tiki' %}" class="tiki-link">魅惑のチキルーム <br>“アロハ・エ・コモ・マイ!”</a>
-                        <a href="{% url 'index' 'adventure' 'other' 'adventure-other' %}" class="adventure-other-link">その他</a>
+                        <a href="{% url 'index' 'adventure' 'riverline' 'other' %}" class="riverline-link">ウエスタンリバー鉄道</a>
+                        <a href="{% url 'index' 'adventure' 'carib' 'other' %}" class="carib-link">カリブの海賊</a>
+                        <a href="{% url 'index' 'adventure' 'cruise' 'other' %}" class="cruise-link">ジャングルクルーズ</a>
+                        <a href="{% url 'index' 'adventure' 'swiss' 'other' %}" class="swiss-link">スイスファミリー・ツリーハウス</a>
+                        <a href="{% url 'index' 'adventure' 'tiki' 'other' %}" class="tiki-link">魅惑のチキルーム <br>“アロハ・エ・コモ・マイ!”</a>
+                        <a href="{% url 'index' 'adventure' 'adventure-other' 'other' %}" class="adventure-other-link">その他</a>
                     {% else %}
-                        <a href="{% url 'index' 'adventure' 'all' 'riverline' %}" class="riverline-link">ウエスタンリバー鉄道</a>
-                        <a href="{% url 'index' 'adventure' 'all' 'carib' %}" class="carib-link">カリブの海賊</a>
-                        <a href="{% url 'index' 'adventure' 'all' 'cruise' %}" class="cruise-link">ジャングルクルーズ</a>
-                        <a href="{% url 'index' 'adventure' 'all' 'swiss' %}" class="swiss-link">スイスファミリー・ツリーハウス</a>
-                        <a href="{% url 'index' 'adventure' 'all' 'tiki' %}" class="tiki-link">魅惑のチキルーム <br>“アロハ・エ・コモ・マイ!”</a>
-                        <a href="{% url 'index' 'adventure' 'all' 'adventure-other' %}" class="adventure-other-link">その他</a>
+                        <a href="{% url 'index' 'adventure' 'riverline' 'all' %}" class="riverline-link">ウエスタンリバー鉄道</a>
+                        <a href="{% url 'index' 'adventure' 'carib' 'all' %}" class="carib-link">カリブの海賊</a>
+                        <a href="{% url 'index' 'adventure' 'cruise' 'all' %}" class="cruise-link">ジャングルクルーズ</a>
+                        <a href="{% url 'index' 'adventure' 'swiss' 'all' %}" class="swiss-link">スイスファミリー・ツリーハウス</a>
+                        <a href="{% url 'index' 'adventure' 'tiki' 'all' %}" class="tiki-link">魅惑のチキルーム <br>“アロハ・エ・コモ・マイ!”</a>
+                        <a href="{% url 'index' 'adventure' 'adventure-other' 'all' %}" class="adventure-other-link">その他</a>
                     {% endif %}
                 {% elif area == 'western' %}
                     <img src="{% static 'img/WesternLand(testSS).png' %}" alt="">

@@ -364,7 +364,8 @@
 
 <div class="picmenu">
     <ul id="table-ul">
-        <li id="table-ul-all" onmouseover="mouseOn();" onmouseout="mouseOff1();">
+        <li id="table-ul-all" onmouseover="mouseOn1();" onmouseout="mouseOff1();">
+        <!-- <li id="table-ul-all"> -->
             {% if area == 'bazaar' %}
                 <a href="{% url 'index' 'bazaar' 'all' %}">
             {% elif area == 'adventure' %}
@@ -409,10 +410,11 @@
                 <a href="{% url 'index' 'all' 'all' %}">
             {% endif %}
                 <img src="{% static 'img/star.png' %}" alt="" class="icon-category" id="star" />
-                <p>全て</p>
+                <p id="subete">全て</p>
             </a>
         </li>
-        <li id="table-ul-story" onmouseover="mouseOn();" onmouseout="mouseOff2();">
+        <li id="table-ul-story" onmouseover="mouseOn2();" onmouseout="mouseOff2();">
+        <!-- <li id="table-ul-story" > -->
             {% if area == 'bazaar' %}
                 <a href="{% url 'index' 'bazaar' 'story' %}">
             {% elif area == 'adventure' %}
@@ -431,10 +433,10 @@
                 <a href="{% url 'index' 'all' 'story' %}">
             {% endif %}
                 <img src="{% static 'img/memo.png' %}" alt="" class="icon-category" id="memo" />
-                <p>ストーリー</p>
+                <p id="story">ストーリー</p>
             </a>
         </li>
-        <li id="table-ul-mickey" onmouseover="mouseOn();" onmouseout="mouseOff3();">
+        <li id="table-ul-mickey" onmouseover="mouseOn3();" onmouseout="mouseOff3();">
             {% if area == 'bazaar' %}
                 <a href="{% url 'index' 'bazaar' 'mickey' %}">
             {% elif area == 'adventure' %}
@@ -478,10 +480,10 @@
                 <a href="{% url 'index' 'all' 'mickey' %}">
             {% endif %}
                 <img src="{% static 'img/mickey.png' %}" alt="" class="icon-category" id="mickey" />
-                <p>隠れミッキー</p>
+                <p id="kakure">隠れミッキー</p>
             </a>
         </li>
-        <li id="table-ul-trivia" class="img-bulb" onmouseover="mouseOn();" onmouseout="mouseOff4();"> 
+        <li id="table-ul-trivia" class="img-bulb" onmouseover="mouseOn4();" onmouseout="mouseOff4();"> 
             {% if area == 'bazaar' %}
                 <a href="{% url 'index' 'bazaar' 'trivia' %}">
             {% elif area == 'adventure' %}
@@ -524,11 +526,11 @@
             {% else %}
                 <a href="{% url 'index' 'all' 'trivia' %}">
             {% endif %}
-                <img src="{% static 'img/bulb.png' %}" alt="" class="icon-category" id="bulb1" />
-                <p>豆知識</p>
+                <img src="{% static 'img/bulb.png' %}" alt="" class="icon-category" id="bulb" />
+                <p id="mame">豆知識</p>
             </a>
         </li>
-        <li id="table-ul-other" onmouseover="mouseOn();" onmouseout="mouseOff5();">
+        <li id="table-ul-other" onmouseover="mouseOn5();" onmouseout="mouseOff5();">
             {% if area == 'bazaar' %}
                 <a href="{% url 'index' 'bazaar' 'other' %}">
             {% elif area == 'adventure' %}
@@ -572,7 +574,7 @@
                 <a href="{% url 'index' 'all' 'other' %}">
             {% endif %}
                 <img src="{% static 'img/comment.png' %}" alt="" class="icon-category" id="comment" />
-                <p>その他</p>
+                <p id="sonohoka">その他</p>
             </a>
         </li>
     </ul>
@@ -665,28 +667,6 @@
 <!-- マウスオーバー変換 -->
 {% block extra_js %}
 <script type="text/javascript">
-    // function mouseOn(){
-    //     var obj = document.getAttribute("id");
-    //         console.log(obj);
-    //         console.log("obj");
-    //     if (obj == "table-ul-all"){
-    //         console.log("デバッグ1");
-    //         obj.src = "{% static 'img/star_white.png' %}";
-    //     } else if (obj == "table-ul-story"){
-    //         console.log("デバッグ2");   
-    //         obj.src = "{% static 'img/memo_white.png' %}";
-    //     } else if (obj == "table-ul-mickey"){
-    //         console.log("デバッグ3");
-    //         obj.src = "{% static 'img/mickey_white.png' %}";
-    //     } else if (obj == "table-ul-trivia"){
-    //         console.log("デバッグ4");
-    //         obj.src = "{% static 'img/bulb_white.png' %}";
-    //     } else if (obj == "table-ul-other"){
-    //         console.log("デバッグ5");
-    //         obj.src = "{% static 'img/comment_white.png' %}";
-    //     }
-    // }
-
     // function mouseOn1(){
     //     var obj = document.getElementById("star");
     //     obj.src = "{% static 'img/star_white.png' %}";
@@ -740,7 +720,7 @@
 
 
 // 色取得のコード
-    window.onload = function() {
+window.onload = function() {
         let url = window.location.href;
         let indexOfLastSlash = url.lastIndexOf('/');
         let indexOfLast2Slash = url.lastIndexOf('/', url.length-2);
@@ -750,47 +730,44 @@
         var obj3 = document.getElementById("table-ul-mickey");
         var obj4 = document.getElementById("table-ul-trivia");
         var obj5 = document.getElementById("table-ul-other");
-        var obj = document.getElementById("star");
+        var obj1_img = document.getElementById("star");
+        var obj2_img = document.getElementById("memo");
+        var obj3_img = document.getElementById("mickey");
+        var obj4_img = document.getElementById("bulb");
+        var obj5_img = document.getElementById("comment");
+        var obj1_txt = document.getElementById("subete");
+        var obj2_txt = document.getElementById("story");
+        var obj3_txt = document.getElementById("kakure");
+        var obj4_txt = document.getElementById("mame");
+        var obj5_txt = document.getElementById("sonohoka");
         if (str == "all"){
             console.log("デバッグall");
-            // obj1.style.backgroundColor = "rgb(5, 149, 167)";
-            obj1.style.backgroundColor = "rgb(239, 235, 224)";
-            obj2.style.backgroundColor = "none";
-            obj3.style.backgroundColor = "none";
-            obj4.style.backgroundColor = "none";
-            obj5.style.backgroundColor = "none";
-            obj.src = "{% static 'img/star_white.png' %}";
+            obj1.style.backgroundColor = "rgb(5, 149, 167)";
+            obj1_txt.style.color = "white";
+            obj1_img.src = "{% static 'img/star_white.png' %}";
         } else if (str == "story"){
             console.log("デバッグstory");
-            obj1.style.backgroundColor = "none";
             obj2.style.backgroundColor = "rgb(5, 149, 167)";
-            obj3.style.backgroundColor = "none";
-            obj4.style.backgroundColor = "none";
-            obj5.style.backgroundColor = "none";
-            obj.src = "{% static 'img/star_white.png' %}";
+            obj2_txt.style.color = "white";
+            obj2_img.src = "{% static 'img/memo_white.png' %}";
         } else if (str == "mickey"){
             console.log("デバッグmickey");
-            obj1.style.backgroundColor = "none";
-            obj2.style.backgroundColor = "none";
             obj3.style.backgroundColor = "rgb(5, 149, 167)";
-            obj4.style.backgroundColor = "none";
-            obj5.style.backgroundColor = "none";
+            obj3_txt.style.color = "white";
+            obj3_img.src = "{% static 'img/mickey_white.png' %}";
         } else if (str == "trivia"){
             console.log("デバッグtrivia");
-            obj1.style.backgroundColor = "none";
-            obj2.style.backgroundColor = "none";
-            obj3.style.backgroundColor = "none";
             obj4.style.backgroundColor = "rgb(5, 149, 167)";
-            obj5.style.backgroundColor = "none";
+            obj4_txt.style.color = "white";
+            obj4_img.src = "{% static 'img/bulb_white.png' %}";
         } else if (str == "other"){
             console.log("デバッグother");
-            obj1.style.backgroundColor = "none";
-            obj2.style.backgroundColor = "none";
-            obj3.style.backgroundColor = "none";
-            obj4.style.backgroundColor = "none";
             obj5.style.backgroundColor = "rgb(5, 149, 167)";
+            obj5_txt.style.color = "white";
+            obj5_img.src = "{% static 'img/comment_white.png' %}";
         }
     }
+
 
 </script>
 
