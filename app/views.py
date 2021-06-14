@@ -67,14 +67,12 @@ class IndexView(View):
         for post in post_data:
             print(type(post.category))
 
-
-
         return render(request, 'app/index.html', {
             'post_data': page_obj.object_list,
             'page_obj': page_obj,
-            'area': area,
-            'category': category,
-            'attraction': attraction,
+            # 'area': area,
+            # 'attraction': attraction,
+            # 'category': category,
         })
 
 
