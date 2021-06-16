@@ -364,7 +364,7 @@
 
 <div class="picmenu">
     <ul id="table-ul">
-        <li id="table-ul-all" onmouseover="mouseOn1();" onmouseout="mouseOff1();">
+        <li id="table-ul-all">
         <!-- <li id="table-ul-all"> -->
             {% if area == 'bazaar' %}
                 <a href="{% url 'index' 'bazaar' 'all' %}">
@@ -413,7 +413,7 @@
                 <p id="subete">全て</p>
             </a>
         </li>
-        <li id="table-ul-story" onmouseover="mouseOn2();" onmouseout="mouseOff2();">
+        <li id="table-ul-story">
         <!-- <li id="table-ul-story" > -->
             {% if area == 'bazaar' %}
                 <a href="{% url 'index' 'bazaar' 'story' %}">
@@ -436,7 +436,7 @@
                 <p id="story">ストーリー</p>
             </a>
         </li>
-        <li id="table-ul-mickey" onmouseover="mouseOn3();" onmouseout="mouseOff3();">
+        <li id="table-ul-mickey">
             {% if area == 'bazaar' %}
                 <a href="{% url 'index' 'bazaar' 'mickey' %}">
             {% elif area == 'adventure' %}
@@ -483,7 +483,7 @@
                 <p id="kakure">隠れミッキー</p>
             </a>
         </li>
-        <li id="table-ul-trivia" class="img-bulb" onmouseover="mouseOn4();" onmouseout="mouseOff4();"> 
+        <li id="table-ul-trivia" class="img-bulb"> 
             {% if area == 'bazaar' %}
                 <a href="{% url 'index' 'bazaar' 'trivia' %}">
             {% elif area == 'adventure' %}
@@ -530,7 +530,7 @@
                 <p id="mame">豆知識</p>
             </a>
         </li>
-        <li id="table-ul-other" onmouseover="mouseOn5();" onmouseout="mouseOff5();">
+        <li id="table-ul-other">
             {% if area == 'bazaar' %}
                 <a href="{% url 'index' 'bazaar' 'other' %}">
             {% elif area == 'adventure' %}
@@ -765,11 +765,14 @@ window.onload = function() {
             obj5.style.backgroundColor = "rgb(5, 149, 167)";
             obj5_txt.style.color = "white";
             obj5_img.src = "{% static 'img/comment_white.png' %}";
+        } else {
+            console.log("デフォルト");
+            obj1.style.backgroundColor = "rgb(5, 149, 167)";
+            obj1_txt.style.color = "white";
+            obj1_img.src = "{% static 'img/star_white.png' %}";
         }
     }
 
-
 </script>
-
 
 {% endblock %}

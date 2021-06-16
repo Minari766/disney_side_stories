@@ -21,16 +21,6 @@ class IndexView(View):
             page_obj = paginator.page(paginator.num_pages)
         # page_obj:全体何ページ中のXページ目かを定義
         return page_obj
-# カテゴリ選択
-    def category_select(self, post_data, category, area, attraction):
-        if category == "all" :
-            post_data = post_data
-        elif category != None :
-            category_data = Category.objects.get(slug=category)
-            post_data = post_data.filter(category=category_data)
-        elif category is None :
-            post_data = post_data
-        return post_data
 # エリア選択
     def area_select(self, post_data, category, area, attraction):
         if area == "all" :
@@ -49,6 +39,16 @@ class IndexView(View):
         elif attraction is None :
             post_data = post_data
         return post_data
+        # カテゴリ選択
+    def category_select(self, post_data, category, area, attraction):
+        if category == "all" :
+            post_data = post_data
+        elif category != None :
+            category_data = Category.objects.get(slug=category)
+            post_data = post_data.filter(category=category_data)
+        elif category is None :
+            post_data = post_data
+        return post_data
 
     def get(self, request, *args, **kwargs):
         post_data = Post.objects.filter(public=True).order_by("-id")
@@ -58,10 +58,10 @@ class IndexView(View):
         print(area)
         print(category)
         print(attraction)
-        post_data = self.category_select(post_data, category, area, attraction)
         post_data = self.area_select(post_data, category, area, attraction)
         post_data = self.attraction_select(post_data, category, area, attraction)
-        
+        post_data = self.category_select(post_data, category, area, attraction)
+        print(post_data)
         page_obj = self.paginate_queryset(request, post_data, 10)
         
         for post in post_data:
@@ -70,9 +70,9 @@ class IndexView(View):
         return render(request, 'app/index.html', {
             'post_data': page_obj.object_list,
             'page_obj': page_obj,
-            # 'area': area,
-            # 'attraction': attraction,
-            # 'category': category,
+            'area': area,
+            'attraction': attraction,
+            'category': category,
         })
 
 
