@@ -375,10 +375,25 @@
                 {% endif %}
             {% elif area == 'adventure' %}
                 <a href="{% url 'index' 'adventure' 'all' %}">
+                {% if attraction is None %}
+                    <a href="{% url 'index' 'adventure' 'all' %}">
+                {% else %}
+                    <a href="{% url 'index' 'adventure' attraction 'all' %}">
+                {% endif %}
             {% elif area == 'western' %}
                 <a href="{% url 'index' 'western' 'all' %}">
+                {% if attraction is None %}
+                    <a href="{% url 'index' 'western' 'all' %}">
+                {% else %}
+                    <a href="{% url 'index' 'western' attraction 'all' %}">
+                {% endif %}
             {% elif area == 'critter' %}
                 <a href="{% url 'index' 'fantasy' 'all' %}">
+                {% if attraction is None %}
+                    <a href="{% url 'index' 'fantasy' 'all' %}">
+                {% else %}
+                    <a href="{% url 'index' 'fantasy' attraction 'all' %}">
+                {% endif %}
             {% elif area == 'fantasy' %}        
                 <a href="{% url 'index' 'fantasy' 'all' %}">
                 {% if attraction is None %}
@@ -388,10 +403,25 @@
                 {% endif %}
             {% elif area == 'toon' %}
                 <a href="{% url 'index' 'toon' 'all' %}">
+                {% if attraction is None %}
+                    <a href="{% url 'index' 'toon' 'all' %}">
+                {% else %}
+                    <a href="{% url 'index' 'toon' attraction 'all' %}">
+                {% endif %}
             {% elif area == 'tomorrow' %}
                 <a href="{% url 'index' 'tomorrow' 'all' %}">
+                {% if attraction is None %}
+                    <a href="{% url 'index' 'tomorrow' 'all' %}">
+                {% else %}
+                    <a href="{% url 'index' 'tomorrow' attraction 'all' %}">
+                {% endif %}
             {% else %}
                 <a href="{% url 'index' 'all' 'all' %}">
+                {% if attraction is None %}
+                    <a href="{% url 'index' 'all' 'all' %}">
+                {% else %}
+                    <a href="{% url 'index' 'all' attraction 'all' %}">
+                {% endif %}
             {% endif %}
                 <img src="{% static 'img/star.png' %}" alt="" class="icon-category" id="star" />
                 <p id="subete">全て</p>
@@ -407,10 +437,25 @@
                 {% endif %}
             {% elif area == 'adventure' %}
                 <a href="{% url 'index' 'adventure' 'story' %}">
+                {% if attraction is None %}
+                    <a href="{% url 'index' 'adventure' 'story' %}">
+                {% else %}
+                    <a href="{% url 'index' 'adventure' attraction 'story' %}">
+                {% endif %}
             {% elif area == 'western' %}
                 <a href="{% url 'index' 'western' 'story' %}">
+                {% if attraction is None %}
+                    <a href="{% url 'index' 'western' 'story' %}">
+                {% else %}
+                    <a href="{% url 'index' 'western' attraction 'story' %}">
+                {% endif %}
             {% elif area == 'critter' %}
                 <a href="{% url 'index' 'critter' 'story' %}">
+                {% if attraction is None %}
+                    <a href="{% url 'index' 'critter' 'story' %}">
+                {% else %}
+                    <a href="{% url 'index' 'critter' attraction 'story' %}">
+                {% endif %}
             {% elif area == 'fantasy' %}
                 <a href="{% url 'index' 'fantasy' 'story' %}">
                 {% if attraction is None %}
@@ -419,11 +464,26 @@
                     <a href="{% url 'index' 'fantasy' attraction 'story' %}">
                 {% endif %}
             {% elif area == 'toon' %}
-                <a href="{% url 'index' 'toon' attraction 'story' %}">
+                <a href="{% url 'index' 'toon' 'story' %}">
+                {% if attraction is None %}
+                    <a href="{% url 'index' 'toon' 'story' %}">
+                {% else %}
+                    <a href="{% url 'index' 'toon' attraction 'story' %}">
+                {% endif %}
             {% elif area == 'tomorrow' %}
                 <a href="{% url 'index' 'tomorrow' 'story' %}">
+                {% if attraction is None %}
+                    <a href="{% url 'index' 'tomorrow' 'story' %}">
+                {% else %}
+                    <a href="{% url 'index' 'tomorrow' attraction 'story' %}">
+                {% endif %}
             {% else %}
                 <a href="{% url 'index' 'all' 'story' %}">
+                {% if attraction is None %}
+                    <a href="{% url 'index' 'all' 'story' %}">
+                {% else %}
+                    <a href="{% url 'index' 'all' attraction 'story' %}">
+                {% endif %}
             {% endif %}
                 <img src="{% static 'img/memo.png' %}" alt="" class="icon-category" id="memo" />
                 <p id="story">ストーリー</p>
@@ -439,10 +499,25 @@
                 {% endif %}
             {% elif area == 'adventure' %}
                 <a href="{% url 'index' 'adventure' 'mickey' %}">
+                {% if attraction is None %}
+                    <a href="{% url 'index' 'adventure' 'mickey' %}">
+                {% else %}
+                    <a href="{% url 'index' 'adventure' attraction 'mickey' %}">
+                {% endif %}
             {% elif area == 'western' %}
                 <a href="{% url 'index' 'western' 'mickey' %}">
+                {% if attraction is None %}
+                    <a href="{% url 'index' 'western' 'mickey' %}">
+                {% else %}
+                    <a href="{% url 'index' 'western' attraction 'mickey' %}">
+                {% endif %}
             {% elif area == 'critter' %}
                 <a href="{% url 'index' 'critter' 'mickey' %}">
+                {% if attraction is None %}
+                    <a href="{% url 'index' 'critter' 'mickey' %}">
+                {% else %}
+                    <a href="{% url 'index' 'critter' attraction 'mickey' %}">
+                {% endif %}
             {% elif area == 'fantasy' %}
             <a href="{% url 'index' 'fantasy' 'mickey' %}">
                 {% if attraction is None %}
@@ -452,10 +527,25 @@
                 {% endif %}
             {% elif area == 'toon' %}
                 <a href="{% url 'index' 'toon' 'mickey' %}">
+                {% if attraction is None %}
+                    <a href="{% url 'index' 'toon' 'mickey' %}">
+                {% else %}
+                    <a href="{% url 'index' 'toon' attraction 'mickey' %}">
+                {% endif %}
             {% elif area == 'tomorrow' %}
                 <a href="{% url 'index' 'tomorrow' 'mickey' %}">
+                {% if attraction is None %}
+                    <a href="{% url 'index' 'tomorrow' 'mickey' %}">
+                {% else %}
+                    <a href="{% url 'index' 'tomorrow' attraction 'mickey' %}">
+                {% endif %}
             {% else %}
                 <a href="{% url 'index' 'all' 'mickey' %}">
+                {% if attraction is None %}
+                    <a href="{% url 'index' 'all' 'mickey' %}">
+                {% else %}
+                    <a href="{% url 'index' 'all' attraction 'mickey' %}">
+                {% endif %}
             {% endif %}
                 <img src="{% static 'img/mickey.png' %}" alt="" class="icon-category" id="mickey" />
                 <p id="kakure">隠れミッキー</p>
@@ -471,10 +561,25 @@
                 {% endif %}
             {% elif area == 'adventure' %}
                 <a href="{% url 'index' 'adventure' 'trivia' %}">
+                {% if attraction is None %}
+                    <a href="{% url 'index' 'adventure' 'trivia' %}">
+                {% else %}
+                    <a href="{% url 'index' 'adventure' attraction 'trivia' %}">
+                {% endif %}
             {% elif area == 'western' %}
                 <a href="{% url 'index' 'western' 'trivia' %}">
+                {% if attraction is None %}
+                    <a href="{% url 'index' 'western' 'trivia' %}">
+                {% else %}
+                    <a href="{% url 'index' 'western' attraction 'trivia' %}">
+                {% endif %}
             {% elif area == 'critter' %}
                 <a href="{% url 'index' 'critter' 'trivia' %}">
+                {% if attraction is None %}
+                    <a href="{% url 'index' 'critter' 'trivia' %}">
+                {% else %}
+                    <a href="{% url 'index' 'critter' attraction 'trivia' %}">
+                {% endif %}
             {% elif area == 'fantasy' %}
                 <a href="{% url 'index' 'fantasy' 'trivia' %}">
                 {% if attraction is None %}
@@ -484,10 +589,25 @@
                 {% endif %}
             {% elif area == 'toon' %}
                 <a href="{% url 'index' 'toon' 'trivia' %}">
+                {% if attraction is None %}
+                    <a href="{% url 'index' 'toon' 'trivia' %}">
+                {% else %}
+                    <a href="{% url 'index' 'toon' attraction 'trivia' %}">
+                {% endif %}
             {% elif area == 'tomorrow' %}
                 <a href="{% url 'index' 'tomorrow' 'trivia' %}">
+                {% if attraction is None %}
+                    <a href="{% url 'index' 'tomorrow' 'trivia' %}">
+                {% else %}
+                    <a href="{% url 'index' 'tomorrow' attraction 'trivia' %}">
+                {% endif %}
             {% else %}
                 <a href="{% url 'index' 'all' 'trivia' %}">
+                {% if attraction is None %}
+                    <a href="{% url 'index' 'all' 'trivia' %}">
+                {% else %}
+                    <a href="{% url 'index' 'all' attraction 'trivia' %}">
+                {% endif %}
             {% endif %}
                 <img src="{% static 'img/bulb.png' %}" alt="" class="icon-category" id="bulb" />
                 <p id="mame">豆知識</p>
@@ -503,10 +623,25 @@
                 {% endif %}
             {% elif area == 'adventure' %}
                 <a href="{% url 'index' 'adventure' 'other' %}">
+                {% if attraction is None %}
+                    <a href="{% url 'index' 'adventure' 'other' %}">
+                {% else %}
+                    <a href="{% url 'index' 'adventure' attraction 'other' %}">
+                {% endif %}
             {% elif area == 'western' %}
                 <a href="{% url 'index' 'western' 'other' %}">
+                {% if attraction is None %}
+                    <a href="{% url 'index' 'western' 'other' %}">
+                {% else %}
+                    <a href="{% url 'index' 'western attraction 'other' %}">
+                {% endif %}
             {% elif area == 'critter' %}
                 <a href="{% url 'index' 'critter' 'other' %}">
+                {% if attraction is None %}
+                    <a href="{% url 'index' 'critter' 'other' %}">
+                {% else %}
+                    <a href="{% url 'index' 'critter' attraction 'other' %}">
+                {% endif %}
             {% elif area == 'fantasy' %}
                 <a href="{% url 'index' 'fantasy' 'other' %}">
                 {% if attraction is None %}
@@ -516,10 +651,25 @@
                 {% endif %}
             {% elif area == 'toon' %}
                 <a href="{% url 'index' 'toon' 'other' %}">
+                {% if attraction is None %}
+                    <a href="{% url 'index' 'toon' 'other' %}">
+                {% else %}
+                    <a href="{% url 'index' 'toon' attraction 'other' %}">
+                {% endif %}
             {% elif area == 'tomorrow' %}
                 <a href="{% url 'index' 'tomorrow' 'other' %}">
+                {% if attraction is None %}
+                    <a href="{% url 'index' 'tomorrow' 'other' %}">
+                {% else %}
+                    <a href="{% url 'index' 'tomorrow' attraction 'other' %}">
+                {% endif %}
             {% else %}
                 <a href="{% url 'index' 'all' 'other' %}">
+                {% if attraction is None %}
+                    <a href="{% url 'index' 'all' 'other' %}">
+                {% else %}
+                    <a href="{% url 'index' 'all' attraction 'other' %}">
+                {% endif %}
             {% endif %}
                 <img src="{% static 'img/comment.png' %}" alt="" class="icon-category" id="comment" />
                 <p id="sonohoka">その他</p>
