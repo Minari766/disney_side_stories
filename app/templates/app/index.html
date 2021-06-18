@@ -633,7 +633,7 @@
                 {% if attraction is None %}
                     <a href="{% url 'index' 'western' 'other' %}">
                 {% else %}
-                    <a href="{% url 'index' 'western attraction 'other' %}">
+                    <a href="{% url 'index' 'western' attraction 'other' %}">
                 {% endif %}
             {% elif area == 'critter' %}
                 <a href="{% url 'index' 'critter' 'other' %}">
