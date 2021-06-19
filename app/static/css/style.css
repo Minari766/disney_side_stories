@@ -274,17 +274,19 @@ a:hover {
 }
 
 .top-pic-bazaar{
-    height: 40vw;  
-    width: auto;
+    /* height: 50vw;   */
+    height: 750px;  
+    /* width: auto; */
 }
 
 .top-pic-toon{
-    height: 40vw;  
+    /* height: 50vw;   */
+    height: 750px;  
     width: auto;
 }
 
 .tomorrow-pic-toon{
-    height: 40vw;  
+    height: 50vw;  
     width: auto;
 }
 
