@@ -1,5 +1,8 @@
 from django.http import JsonResponse
+from django.urls import reverse_lazy
 from django.views.generic import View
+from django.views.generic.edit import FormView
+from django.forms import ContactForm
 from django.shortcuts import render,redirect, get_object_or_404
 from .models import Post, Area, Attraction, Category, Like
 from .forms import PostForm
@@ -379,3 +382,19 @@ def LikeView(request):
                 return JsonResponse(context)
         # elifでlikeボタン押下後、サインアップ画面に誘導させることは可能
 
+class ContactFormView(FormView):
+    template_name = 'contact/contact_form.html'
+    form_class = ContactForm
+    success_url = reverse_lazy('contact_result')
+
+    def form_valid(self, form):
+        form.send_email()
+        return super().form_valid(form)
+
+class ContactResultView(TemplateView):
+    template_name = 'contact/contact_result.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['success'] = "お問い合わせは正常に送信されました。"
+        return context

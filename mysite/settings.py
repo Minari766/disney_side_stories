@@ -166,3 +166,10 @@ if not DEBUG:
 
     STATIC_ROOT = '/usr/share/nginx/html/static'
     MEDIA_ROOT = '/usr/share/nginx/html/media'
+
+# メール設定
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'disney.side.stories@gmail.com'
+EMAIL_HOST_PASSWORD = 'wofpiphpqnyfntvz'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True

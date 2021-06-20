@@ -1,5 +1,6 @@
 from django.urls import path
 from app import views
+from .views import ContactFormView, ContactResultView
 
 urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
@@ -21,5 +22,7 @@ urlpatterns = [
     path('category/<str:category>/', views.CategoryNameView.as_view(), name='category_name'),
     path('search/', views.SearchView.as_view(), name='search'),
     path('like/', views.LikeView, name='like'),
+    path('contact/', ContactFormView.as_view(), name='contact_form'),
+    path('contact/result/', ContactResultView.as_view(), name='contact_result'),
 ]
 
