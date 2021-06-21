@@ -1,8 +1,9 @@
 from django.http import JsonResponse
 from django.urls import reverse_lazy
-from django.views.generic import View
+from django.views import View
 from django.views.generic.edit import FormView
-from django.forms import ContactForm
+from django.views.generic import TemplateView
+from .forms import ContactForm
 from django.shortcuts import render,redirect, get_object_or_404
 from .models import Post, Area, Attraction, Category, Like
 from .forms import PostForm
@@ -64,11 +65,10 @@ class IndexView(View):
         post_data = self.area_select(post_data, category, area, attraction)
         post_data = self.attraction_select(post_data, category, area, attraction)
         post_data = self.category_select(post_data, category, area, attraction)
-        print(post_data)
         page_obj = self.paginate_queryset(request, post_data, 10)
         
-        for post in post_data:
-            print(type(post.category))
+        # for post in post_data:
+        #     print(type(post.category))
 
         return render(request, 'app/index.html', {
             'post_data': page_obj.object_list,
@@ -129,14 +129,12 @@ class CreatePostView(LoginRequiredMixin, View):
         # return render(request, 'app/post_form.html', {
         #     'form': form
         # })
-            print("ルーティング成功")
             return render(request, 'app/post_preview.html', {
                 'post_data' : post_data
             })
 
     # 以下コードはformのvalidationが失敗したとき
         # return render(request, 'app/post_form.html', {
-        print("ルーティング失敗")
         return render(request, 'app/index.html', {
             'form': form
         })
@@ -333,7 +331,6 @@ class CategoryNameView(View):
         # inputボタンは押してないので、.getは不要
         category_data = Category.objects.get(name=self.kwargs['category'])
         post_data = Post.objects.filter(category=category_data)
-        print(category_data)
         return render(request, 'app/index.html', {
             'post_data' : post_data
         })
@@ -383,7 +380,7 @@ def LikeView(request):
         # elifでlikeボタン押下後、サインアップ画面に誘導させることは可能
 
 class ContactFormView(FormView):
-    template_name = 'contact/contact_form.html'
+    template_name = 'app/contact_form.html'
     form_class = ContactForm
     success_url = reverse_lazy('contact_result')
 
@@ -392,7 +389,7 @@ class ContactFormView(FormView):
         return super().form_valid(form)
 
 class ContactResultView(TemplateView):
-    template_name = 'contact/contact_result.html'
+    template_name = 'app/contact_result.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

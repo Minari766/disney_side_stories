@@ -1,13 +1,15 @@
-{% extends "base.html" %}
+{% extends "app/base.html" %}
+{% load widget_tweaks %}
 
 {% block content %}
 
 <div class="container">
     <div class="row">
-        <div class="col-md-8">
-            <h1>お問い合わせ</h1>
+        <div class="col-md-12">
+            <h2 class="ttl-bd mt-4 mb-4">お問い合わせ</h2>
             <p>お問い合わせフォームです。</p>
-            <form method="POST">{% csrf_token %}
+            <form method="POST">
+                {% csrf_token %}
                 {{ form.as_p }}
                 <button type="submit" class="btn btn-primary">送信</button>
             </form>
