@@ -53,6 +53,10 @@ class IndexView(View):
         elif category is None :
             post_data = post_data
         return post_data
+    
+    # def postcount(self, request, *args, **kwargs):
+    #     counted_posts = Post.objects.count()
+    #     print(counted_posts)
 
     def get(self, request, *args, **kwargs):
         post_data = Post.objects.filter(public=True).order_by("-id")
@@ -66,7 +70,6 @@ class IndexView(View):
         post_data = self.attraction_select(post_data, category, area, attraction)
         post_data = self.category_select(post_data, category, area, attraction)
         page_obj = self.paginate_queryset(request, post_data, 10)
-        
         # for post in post_data:
         #     print(type(post.category))
 
@@ -395,3 +398,4 @@ class ContactResultView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['success'] = "お問い合わせは正常に送信されました。"
         return context
+

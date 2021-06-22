@@ -1,7 +1,6 @@
 from django.conf import settings
 from django.db import models
 from django.utils import timezone
-from django.utils.models import Count
 
 class Area(models.Model):
     name = models.CharField("エリア", max_length=100)

@@ -5,7 +5,7 @@
 {% block content %}
 <div>
     <ul class="nav navbar-nav navbar-right ttl-bd mt-4 mb-4">
-        <li><a href="">プロフィール　</a></li>
+        <li><a href="">プロフィールここ？2</a></li>
     </ul>
 </div> 
 <div class="container">
@@ -24,6 +24,9 @@
     </div>
     <div id="user_post">
         <p class="list-t">{{ user_data.user_name }}さんの投稿一覧</p>
+    </div>
+    <div id="user_post">
+        <p class="list-t">{{ post_count }}さんの投稿数</p>
     </div>
     <div class="button mx-auto">
         <a class="btn btn-lg btn-warning btn-block" href="{% url 'profile_edit' %}">編集する</a>
