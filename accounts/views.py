@@ -91,6 +91,7 @@ class LogoutView(views.LogoutView):
 
 class SignupView(views.SignupView):
     template_name = 'accounts/signup.html'
-    form_class = SignupUserForm
-    
+    form_class = SignupUserForm    
     # form_valid(self, form)
+
+class CountView

@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.db import models
 from django.utils import timezone
+from django.utils.models import Count
 
 class Area(models.Model):
     name = models.CharField("エリア", max_length=100)
@@ -34,6 +35,7 @@ class Post(models.Model):
     content = models.TextField("本文")
     created = models.DateTimeField("作成日", default=timezone.now)
     public = models.BooleanField("公開フラグ", default=False)
+    # for post in Post.objects.annotate(Count('post')):
 
     def __str__(self):
         return self.title
