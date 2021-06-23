@@ -291,8 +291,8 @@ class FavoriteView(View):
         like_data = Like.objects.order_by('-id').filter(author=request.user)
         mypost_data = Post.objects.order_by('-id').filter(author=request.user)
         
-        page_obj_like = self.paginate_queryset(request, like_data, 3)
-        page_obj_mypost = self.paginate_queryset(request, mypost_data, 5)
+        page_obj_like = self.paginate_queryset(request, like_data, 10)
+        page_obj_mypost = self.paginate_queryset(request, mypost_data, 10)
         
         return render(request, 'app/favorite.html', {
             'like_data': page_obj_like.object_list,
@@ -316,8 +316,8 @@ class MyPostView(View):
         like_data = Like.objects.order_by('-id').filter(author=request.user)
         mypost_data = Post.objects.order_by('-id').filter(author=request.user)
         
-        page_obj_like = self.paginate_queryset(request, like_data, 3)
-        page_obj_mypost = self.paginate_queryset(request, mypost_data, 5)
+        page_obj_like = self.paginate_queryset(request, like_data, 10)
+        page_obj_mypost = self.paginate_queryset(request, mypost_data, 10)
         
         return render(request, 'app/mypost.html', {
             'like_data': page_obj_like.object_list,
