@@ -31,14 +31,7 @@ class ProfileView(LoginRequiredMixin, View):
         post_count = mypost_data.count()
         print(post_count)
         print(like_count)
-        # post_data = Post.objects.get(id=self.kwargs['pk'])
-        # if request.user.is_authenticated:
-        #     liked = post_data.like_set.filter(author=request.user)
-        # else:
-        #     liked = post_data.like_set.all()
-    
-        # if liked.exists():
-        #     liked_list.append(post_data.id)
+
         page_obj_like = self.paginate_queryset(request, like_data, 10)
         page_obj_mypost = self.paginate_queryset(request, mypost_data, 10)
 
