@@ -26,9 +26,11 @@ class ProfileView(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
         user_data = CustomUser.objects.get(id=request.user.id)
         like_data = Like.objects.order_by('-id').filter(author=request.user)
+        like_count = like_data.count()
         mypost_data = Post.objects.order_by('-id').filter(author=request.user) 
-        post_count = Post.objects.order_by('-id').filter(author=request.user).count()
-        print(post_count) 
+        post_count = mypost_data.count()
+        print(post_count)
+        print(like_count)
         # post_data = Post.objects.get(id=self.kwargs['pk'])
         # if request.user.is_authenticated:
         #     liked = post_data.like_set.filter(author=request.user)
