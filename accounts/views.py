@@ -60,8 +60,6 @@ class ProfileView(LoginRequiredMixin, View):
 
         return render(request, 'accounts/profile.html', {
             'user_data': user_data,
-            # 'like_data': like_data,
-            # 'mypost_data': mypost_data,
             'like_data': page_obj_like.object_list,
             'mypost_data': page_obj_mypost.object_list,
             'page_obj_like': page_obj_like,
@@ -71,6 +69,18 @@ class ProfileView(LoginRequiredMixin, View):
         })
 
 class ProfileEditView(LoginRequiredMixin, View):
+    def paginate_queryset(self, request, queryset, count):
+        paginator = Paginator(queryset, count)
+        page = request.GET.get('page')
+        try:
+            page_obj = paginator.page(page)
+        except PageNotAnInteger:
+            page_obj = paginator.page(1)
+        except EmptyPage:
+            page_obj = paginator.page(paginator.num_pages)
+        # page_obj:全体何ページ中のXページ目かを定義
+        return page_obj
+
     def get(self, request, *args, **kwargs):
         user_data = CustomUser.objects.get(id=request.user.id)
         form = ProfileForm(
@@ -80,23 +90,51 @@ class ProfileEditView(LoginRequiredMixin, View):
                 'icon': user_data.icon,
             }
         )
-        # return render(request, 'accounts/profile_edit.html', {
+        print("てすと1")
         return render(request, 'accounts/profile_edit.html', {
             'form': form
         })
 
     def post(self, request, *args, **kwargs):
         form = ProfileForm(request.POST or None)
+        print("テスト3")
         if form.is_valid():
             user_data = CustomUser.objects.get(id=request.user.id)
+            # ここからコピー
+            like_data = Like.objects.order_by('-id').filter(author=request.user)
+            like_count = like_data.count()
+            print("like_count", like_count)
+            # like_all = Like.objects.all().count()
+            # print("like_all", like_all)
+            mypost_data = Post.objects.order_by('-id').filter(author=request.user) 
+            post_count = mypost_data.count()
+            print("post_count", post_count)
+            page_obj_like = self.paginate_queryset(request, like_data, 10)
+            page_obj_mypost = self.paginate_queryset(request, mypost_data, 10)
+
+            like_all = 0
+            for post in mypost_data:
+                count = post.like_set.count()
+                like_all += count
+            print("like_all", like_all)
+            # ここまで
             user_data.user_name = form.cleaned_data['user_name']
             if request.FILES:
                 user_data.icon = request.FILES.get('icon')
             user_data.save()
             return render(request, 'accounts/profile.html', {
             'user_data': user_data,
+            # ここから
+            'like_data': page_obj_like.object_list,
+            'mypost_data': page_obj_mypost.object_list,
+            'page_obj_like': page_obj_like,
+            'page_obj_mypost': page_obj_mypost,
+            'post_count': post_count,
+            'like_all': like_all
+            # ここまで
         })
         # このreturnはis_valid()（バリデーション機能）に問題があった場合にprofile画面にリダイレクトするようにする
+        print("テスト2")
         return render(request, 'accounts/profile.html', {
             'form': form
         })
