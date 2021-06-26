@@ -11,17 +11,17 @@
 <div class="container">
     <p class="user-picture-box">プロフ画像予定</p>
 </div>
-
 <div class="container">
     <div class="row">
         <div id="profile_page" class="d-none d-sm-none d-md-none d-lg-none d-xl-block col-xl-3">
             <div id="user_status">
                 {% if user_data.icon %}
-                    <img src="{{ user_data.icon.url }}" class="user-icon">
+                <img src="{{ user_data.icon.url }}" class="user-icon">
                 {% else %}
-                    <img src="{% static 'img/user1.png' %}" alt="" class="user-icon">
+                <img src="{% static 'img/user1.png' %}" alt="" class="user-icon">
                 {% endif %}
                 <h2>{{ user_data.user_name }}</h2>
+                <p class="followBtn">フォローする</p>
             </div>
             <div id="user_post">
                 <p class="list-t">{{ user_data.user_name }}さんの投稿一覧</p>
@@ -29,18 +29,16 @@
             <div id="user_post">
                 <p class="list-t">{{ post_count }}さんの投稿数</p>
             </div>
-            <div id="user_post">
-                <p class="list-t">{{ like_all }}さんの総いいね数</p>
-            </div>
             <div class="button mx-auto">
                 <a class="btn btn-lg btn-warning btn-block" href="{% url 'profile_edit' %}">編集する</a>
             </div>
         </div>
         <div class="col-xl-9">
+            <!-- ここからコピペ -->
             {% for like in like_data %}
             <div class="row post-detail">
-                <div class="col-md-5">
-                    <a href="{% url 'post_detail' like.post.id %}">
+                <div class="col-md-3">
+                    <a href="{% url 'app/post_detail' post.id %}">
                         {% if like.post.image %}
                             <img class="img-fluid rounded mb-md-0 article-img" src="{{ like.post.image.url }}" alt="">
                         {% else %}    
@@ -48,7 +46,7 @@
                         {% endif %}
                     </a>
                 </div>
-                <div class="col-md-7 article">
+                <div class="col-md-9 article">
                     <div class="author-created">
                         <h7 class="text_left author-created">
                         {% if like.post.author.icon %}
@@ -77,12 +75,13 @@
                         </div>
                     </div>
                     <p>{{ like.post.content|truncatechars:200 }}</p>
-                    <a class="article-more" href="#">もっと見る</a>
+                    <a class="article-more" href="{% url 'post_detail' post.id %}">もっと見る</a>
                 </div>
             </div>
             {% endfor %}
         </div>
         <hr>
+        <!-- お気に入りページネーション -->
         <ul class="pagination justify-content-center">
             {% if page_obj_like.has_previous %}
             <li class="page-item">
@@ -116,6 +115,5 @@
         </ul>
     </div>
 </div>
-
 
 {% endblock %}

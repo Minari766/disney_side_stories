@@ -1,4 +1,5 @@
 from django import forms
+from django.shortcuts import render, redirect
 from django.conf import settings
 from django.core.mail import BadHeaderError, message, send_mail
 from django.http import HttpResponse
@@ -83,7 +84,12 @@ class ContactForm(forms.Form):
         email = self.cleaned_data['email']
         from_email = '{name} <{email}>'.format(name=name, email=email)
         recipient_list = [settings.EMAIL_HOST_USER]  # 受信者リスト
+        # recipient_list = ['kkeeper.ch@gmail.com']  # 受信者リスト
         try:
             send_mail(subject, cntct_category, message, from_email, recipient_list)
         except BadHeaderError:
             return HttpResponse("無効なヘッダが検出されました。")
+        return redirect('thanks')
+    
+    def thanks(request):
+        return HttpResponse('Thank you for your message.')

@@ -148,6 +148,11 @@ if DEBUG:
     ALLOWED_HOSTS = ['*']
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
     MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_HOST_USER = 'disney.side.stories@gmail.com'
+    EMAIL_HOST_PASSWORD = 'wofpiphpqnyfntvz'
+    EMAIL_PORT = 587
+    EMAIL_USE_TLS = True
 
 if not DEBUG:
     import environ
@@ -168,8 +173,3 @@ if not DEBUG:
     MEDIA_ROOT = '/usr/share/nginx/html/media'
 
 # メール設定
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'disney.side.stories@gmail.com'
-EMAIL_HOST_PASSWORD = 'wofpiphpqnyfntvz'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True

@@ -1,5 +1,5 @@
 from django.views import View
-from app.views import PostDetailView
+from app.views import MyPostView, PostDetailView
 from app.models import Post, Area, Attraction, Category, Like
 from accounts.models import CustomUser
 from accounts.forms import ProfileForm, SignupUserForm
@@ -27,21 +27,47 @@ class ProfileView(LoginRequiredMixin, View):
         user_data = CustomUser.objects.get(id=request.user.id)
         like_data = Like.objects.order_by('-id').filter(author=request.user)
         like_count = like_data.count()
+        print("like_count", like_count)
+        # like_all = Like.objects.all().count()
+        # print("like_all", like_all)
         mypost_data = Post.objects.order_by('-id').filter(author=request.user) 
         post_count = mypost_data.count()
-        print(post_count)
-        print(like_count)
-
+        print("post_count", post_count)
         page_obj_like = self.paginate_queryset(request, like_data, 10)
         page_obj_mypost = self.paginate_queryset(request, mypost_data, 10)
 
+        like_all = 0
+        for post in mypost_data:
+            count = post.like_set.count()
+            like_all += count
+        print("like_all", like_all)
+        # post = get_object_or_404(Post, pk=request.POST.get("post_id"))
+        # user = request.user
+        # liked = False
+        # like = Like.objects.filter(post=post, author=user)
+        # if like.exists():
+        #     like.delete()
+        # else:
+        #     like.create(post=post, author=user)
+        #     liked = True
+        
+        # context={
+        #     'post_id': post.id,
+        #     'liked': liked,
+        #     'count': post.like_set.count(),
+        # }
+
+
         return render(request, 'accounts/profile.html', {
             'user_data': user_data,
-            'like_data': like_data,
-            'mypost_data': mypost_data,
+            # 'like_data': like_data,
+            # 'mypost_data': mypost_data,
+            'like_data': page_obj_like.object_list,
+            'mypost_data': page_obj_mypost.object_list,
             'page_obj_like': page_obj_like,
             'page_obj_mypost': page_obj_mypost,
             'post_count': post_count,
+            'like_all': like_all
         })
 
 class ProfileEditView(LoginRequiredMixin, View):
@@ -54,6 +80,7 @@ class ProfileEditView(LoginRequiredMixin, View):
                 'icon': user_data.icon,
             }
         )
+        # return render(request, 'accounts/profile_edit.html', {
         return render(request, 'accounts/profile_edit.html', {
             'form': form
         })
