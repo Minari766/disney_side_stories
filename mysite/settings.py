@@ -144,6 +144,7 @@ except ImportError:
     pass
 
 # ローカル用設定
+# local_setting.pyにてDEBUG = Trueの状態。（デフォルトでTrue）開発環境で使う。エラー時にエラーコードが表示される。
 if DEBUG:
     ALLOWED_HOSTS = ['*']
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -154,6 +155,7 @@ if DEBUG:
     EMAIL_PORT = 587
     EMAIL_USE_TLS = True
 
+# local_setting.pyにてDEBUG = Falseの状態。本番環境。
 if not DEBUG:
     import environ
     env = environ.Env()

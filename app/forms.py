@@ -29,7 +29,6 @@ class PostForm(forms.Form):
     content = forms.CharField(label='内容', widget=forms.Textarea())
     image = forms.ImageField(label='イメージ画像', required=False)
 
-
 CATEGORIES = (
     ('0', 'このサイトについて'),
     ('1', '投稿記事について'),
@@ -37,33 +36,16 @@ CATEGORIES = (
     ('3', 'ご意見・ご要望'),
 )
 class ContactForm(forms.Form):
-    name = forms.CharField(
-        label='お名前',
-        max_length=100,
-        widget=forms.TextInput(attrs={
-            'class': 'form-control',
-            'placeholder': "お名前",
-        }),
-    )
-    cntct_category = forms.ChoiceField(
-        label='カテゴリー',
-        choices=CATEGORIES
-    )
-    email = forms.EmailField(
-        label='',
-        widget=forms.EmailInput(attrs={
-            'class': 'form-control',
-            'placeholder': "メールアドレス",
-        }),
-    )
+    name = forms.CharField(label='お名前', max_length=30)
+    email = forms.EmailField(label='Email', max_length=100)
+    # cntct_category = forms.ChoiceField(label='カテゴリー', choices=CATEGORIES)
     message = forms.CharField(
-        label='',
+        label='お問い合わせ内容',
         widget=forms.Textarea(attrs={
             'class': 'form-control',
             'placeholder': "お問い合わせ内容",
         }),
     )
-
     def clean_name(self):
         name = self.cleaned_data.get('name')
         if name in ('ばか', 'あほ', 'まぬけ', 'うんこ', '死ね'):
@@ -76,20 +58,61 @@ class ContactForm(forms.Form):
             self.add_error('name', 'お問い合わせ内容にに禁止ワードが含まれています')
         return message
 
-    def send_email(self):
-        subject = "お問い合わせ"
-        message = self.cleaned_data['message']
-        cntct_category = self.cleaned_data['cntct_category']
-        name = self.cleaned_data['name']
-        email = self.cleaned_data['email']
-        from_email = '{name} <{email}>'.format(name=name, email=email)
-        recipient_list = [settings.EMAIL_HOST_USER]  # 受信者リスト
-        # recipient_list = ['kkeeper.ch@gmail.com']  # 受信者リスト
-        try:
-            send_mail(subject, cntct_category, message, from_email, recipient_list)
-        except BadHeaderError:
-            return HttpResponse("無効なヘッダが検出されました。")
-        return redirect('thanks')
+
+# class ContactForm(forms.Form):
+#     name = forms.CharField(
+#         label='お名前',
+#         max_length=100,
+#         widget=forms.TextInput(attrs={
+#             'class': 'form-control',
+#             'placeholder': "お名前",
+#         }),
+#     )
+#     cntct_category = forms.ChoiceField(
+#         label='カテゴリー',
+#         choices=CATEGORIES
+#     )
+#     email = forms.EmailField(
+#         label='',
+#         widget=forms.EmailInput(attrs={
+#             'class': 'form-control',
+#             'placeholder': "メールアドレス",
+#         }),
+#     )
+#     message = forms.CharField(
+#         label='',
+#         widget=forms.Textarea(attrs={
+#             'class': 'form-control',
+#             'placeholder': "お問い合わせ内容",
+#         }),
+#     )
+
+#     def clean_name(self):
+#         name = self.cleaned_data.get('name')
+#         if name in ('ばか', 'あほ', 'まぬけ', 'うんこ', '死ね'):
+#             self.add_error('name', 'お名前に禁止ワードが含まれています')
+#         return name
+
+#     def clean_message(self):
+#         message = self.cleaned_data.get('message')
+#         if message in ('ばか', 'あほ', 'まぬけ', 'うんこ', '死ね'):
+#             self.add_error('name', 'お問い合わせ内容にに禁止ワードが含まれています')
+#         return message
+
+#     def send_email(self):
+#         subject = "お問い合わせ"
+#         message = self.cleaned_data['message']
+#         cntct_category = self.cleaned_data['cntct_category']
+#         name = self.cleaned_data['name']
+#         email = self.cleaned_data['email']
+#         from_email = '{name} <{email}>'.format(name=name, email=email)
+#         recipient_list = [settings.EMAIL_HOST_USER]  # 受信者リスト
+#         # recipient_list = ['kkeeper.ch@gmail.com']  # 受信者リスト
+#         try:
+#             send_mail(subject, cntct_category, message, from_email, recipient_list)
+#         except BadHeaderError:
+#             return HttpResponse("無効なヘッダが検出されました。")
+#         return redirect('thanks')
     
-    def thanks(request):
-        return HttpResponse('Thank you for your message.')
+#     def thanks(request):
+#         return HttpResponse('Thank you for your message.')

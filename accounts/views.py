@@ -41,23 +41,6 @@ class ProfileView(LoginRequiredMixin, View):
             count = post.like_set.count()
             like_all += count
         print("like_all", like_all)
-        # post = get_object_or_404(Post, pk=request.POST.get("post_id"))
-        # user = request.user
-        # liked = False
-        # like = Like.objects.filter(post=post, author=user)
-        # if like.exists():
-        #     like.delete()
-        # else:
-        #     like.create(post=post, author=user)
-        #     liked = True
-        
-        # context={
-        #     'post_id': post.id,
-        #     'liked': liked,
-        #     'count': post.like_set.count(),
-        # }
-
-
         return render(request, 'accounts/profile.html', {
             'user_data': user_data,
             'like_data': page_obj_like.object_list,
@@ -90,14 +73,12 @@ class ProfileEditView(LoginRequiredMixin, View):
                 'icon': user_data.icon,
             }
         )
-        print("てすと1")
         return render(request, 'accounts/profile_edit.html', {
             'form': form
         })
 
     def post(self, request, *args, **kwargs):
         form = ProfileForm(request.POST or None)
-        print("テスト3")
         if form.is_valid():
             user_data = CustomUser.objects.get(id=request.user.id)
             # ここからコピー
@@ -134,7 +115,6 @@ class ProfileEditView(LoginRequiredMixin, View):
             # ここまで
         })
         # このreturnはis_valid()（バリデーション機能）に問題があった場合にprofile画面にリダイレクトするようにする
-        print("テスト2")
         return render(request, 'accounts/profile.html', {
             'form': form
         })

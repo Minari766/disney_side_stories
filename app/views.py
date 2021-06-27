@@ -4,6 +4,10 @@ from django.views import View
 from django.views.generic.edit import FormView
 from django.views.generic import TemplateView
 from .forms import ContactForm
+from django.conf import settings
+from django.core.mail import BadHeaderError, EmailMessage
+from django.http import HttpResponse
+import textwrap
 from django.shortcuts import render,redirect, get_object_or_404
 from .models import Post, Area, Attraction, Category, Like
 from .forms import PostForm
@@ -382,14 +386,62 @@ def LikeView(request):
                 return JsonResponse(context)
         # elifでlikeボタン押下後、サインアップ画面に誘導させることは可能
 
-class ContactFormView(FormView):
-    template_name = 'app/contact_form.html'
-    form_class = ContactForm
-    success_url = reverse_lazy('contact_result')
+class ContactView(View):
+    def get(self, request, *args, **kwargs):
+        form = ContactForm(request.POST or None)
+        return render(request, 'app/contact.html',{
+            'form': form
+        })
 
-    def form_valid(self, form):
-        form.send_email()
-        return super().form_valid(form)
+    def post(self, request, *args, **kwargs):
+        form = ContactForm(request.POST or None)
+        
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            message = form.cleaned_data['message']
+            # cntct_category = form.cleaned_data['cntct_category']
+            subject = 'お問い合わせありがとうございます。'
+            contact = textwrap.dedent('''
+                ※このメールはシステムからの自動返信です。
+
+                {name} 様
+
+                お問い合わせ有り難うございました。
+                以下の内容でお問い合わせを受け付け致しました。
+                内容を確認させていただき改めて回答致しますので、少々お待ちください。
+
+                ーーーーーーーーーーーーーーー
+                ■お名前
+                {name}
+
+                ■メールアドレス
+                {email}
+
+                ■メッセージ
+                {message}
+                ーーーーーーーーーーーーーーー
+                ''').format(
+                    name=name,
+                    email=email,
+                    message=message
+                    # cntct_category,
+                )
+            to_list = [email]
+            bcc_list = [settings.EMAIL_HOST_USER]
+
+            try:
+                message = EmailMessage(subject=subject, body=contact, to=to_list, bcc=bcc_list)
+                message.send()
+            except BadHeaderError:
+                return HttpResponse("無効なヘッダが検出されました。")
+            
+            return redirect('contact_result')
+            # return redirect('index')
+        # フォーム内容に不備があった場合(form.is_validがFalseの場合)、からのフォームを返す
+        return render(request, 'app/contact.html', {
+            'form': form
+        })
 
 class ContactResultView(TemplateView):
     template_name = 'app/contact_result.html'
@@ -398,4 +450,3 @@ class ContactResultView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['success'] = "お問い合わせは正常に送信されました。"
         return context
-
