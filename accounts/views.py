@@ -28,8 +28,6 @@ class ProfileView(LoginRequiredMixin, View):
         like_data = Like.objects.order_by('-id').filter(author=request.user)
         like_count = like_data.count()
         print("like_count", like_count)
-        # like_all = Like.objects.all().count()
-        # print("like_all", like_all)
         mypost_data = Post.objects.order_by('-id').filter(author=request.user) 
         post_count = mypost_data.count()
         print("post_count", post_count)
@@ -137,3 +135,24 @@ class SignupView(views.SignupView):
     form_class = SignupUserForm    
     # form_valid(self, form)
 
+class MainProfView(LoginRequiredMixin, View):
+
+    def get(self, request, *args, **kwargs):
+        user_data = CustomUser.objects.get(id=request.user.id)
+        like_data = Like.objects.order_by('-id').filter(author=request.user)
+        like_count = like_data.count()
+        print("like_count", like_count)
+        mypost_data = Post.objects.order_by('-id').filter(author=request.user) 
+        post_count = mypost_data.count()
+        print("post_count", post_count)
+
+        like_all = 0
+        for post in mypost_data:
+            count = post.like_set.count()
+            like_all += count
+        print("like_all", like_all)
+        return render(request, 'accounts/mainprof.html', {
+            'user_data': user_data,
+            'post_count': post_count,
+            'like_all': like_all
+        })

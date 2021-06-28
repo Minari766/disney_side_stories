@@ -1,25 +1,35 @@
 {% extends "app/base.html" %}
 {% load widget_tweaks %}
+{% load static %}
 
 {% block content %}
 
 <div class="card card-profile my-5 mx-auto">
     <div class="card-body">
-        <h5 class="card-title text-center">プロフィール</h5>
+        <h5 class="card-title text-center">{{ user_data.user_name }}さんのプロフィール</h5>
         <table class="profile_table mb-4">
-            <img src="{{ user_data.icon.url }}" class="user-icon">
+            <img src="{{ user_data.icon.url }}" class="m-4 d-block mx-auto">
             <tbody>
                 <tr>
                     <th class="header">名前</th>
-                    <td class="data">{{ user_data.username }}</td>
+                    <td class="data">{{ user_data.user_name }}</td>
                 </tr>
                 <tr>
                     <th class="header">メールアドレス</th>
                     <td class="data">{{ user_data.email }}</td>
                 </tr>
                 <tr>
-                    <th class="header">入会日</th>
+                    <th class="header">登録日</th>
                     <td class="data">{{ user_data.created }}</td>
+                </tr>
+                <tr>
+                    <th class="header">投稿記事数</th>
+                    <td class="data">{{ post_count }}</td>
+                </tr>
+                <tr>
+                    <th class="header">総いいね数</th>
+                    <div class="description2">投稿した記事に対して"いいね"をもらった数です</div>
+                    <td class="data">{{ like_all }}</td>
                 </tr>
             </tbody>
         </table>
