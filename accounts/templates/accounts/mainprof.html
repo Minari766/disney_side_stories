@@ -20,15 +20,14 @@
                 </tr>
                 <tr>
                     <th class="header">登録日</th>
-                    <td class="data">{{ user_data.created }}</td>
+                    <td class="data">{{ user_data.created|date:"Y年m月j日" }}</td>
                 </tr>
                 <tr>
                     <th class="header">投稿記事数</th>
                     <td class="data">{{ post_count }}</td>
                 </tr>
-                <tr>
-                    <th class="header">総いいね数</th>
-                    <div class="description2">投稿した記事に対して"いいね"をもらった数です</div>
+                <tr class="tooltip2">
+                    <th class="header">獲得いいね数</th>
                     <td class="data">{{ like_all }}</td>
                 </tr>
             </tbody>

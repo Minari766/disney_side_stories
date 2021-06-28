@@ -701,7 +701,7 @@
                 {{ post.author }}
                 {{ post.area }} > {{ post.attraction }}
             </h7>
-            <h7 class="text_right">{{ post.created }}</h7>
+            <h7 class="text_right">{{ post.created|date:"Y年m月j日" }}</h7>
         </div>
         <div class="article-container">
             <h3>{{ post.title|truncatechars:17}}</h3>
@@ -728,7 +728,7 @@
 <ul class="pagination justify-content-center">
     {% if page_obj.has_previous %}
     <li class="page-item">
-        <a class="page-link" href="?{%  url_replace request 'page' page_obj.previous_page_number %}">
+        <a class="page-link" href="?{% url_replace request 'page' page_obj.previous_page_number %}">
             <span aria-hidden="true">&laquo;</span>
         </a>
     </li>

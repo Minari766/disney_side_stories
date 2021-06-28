@@ -161,19 +161,6 @@ main {
     right: 0;
 }
 
-/* .parent {
-    margin: 40px;
-    background-color: green;
-    display: flex;
-    justify-content: space-between;
-}
-.child1 {
-    background-color: greenyellow;
-}
-.child2 {
-    background-color: blue;
-} */
-
 /* category */
 a {
     color: black;
@@ -1391,6 +1378,7 @@ a:hover {
 
 #profile_page {
     padding-left: 3%;
+    
 }
 
 #user_status {
@@ -1432,6 +1420,11 @@ a:hover {
     border-radius: 50%;
     border:1.5px solid #eee;
     filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.6));
+}
+
+/* ページネーション */
+.pagination{
+    justify-content: center !important;
 }
 
 /* ナビゲーションバー  */
@@ -1581,28 +1574,3 @@ span2{
 }
 
 /* プロフィール */
-.description2 {
-    display: none;
-    position: absolute;
-    padding: 10px;
-    font-size: 12px;
-    line-height: 1.6em;
-    color: #fff;
-    border-radius: 5px;
-    background: #000;
-    width: 100px;
-}
-.description2:before {
-    content: "";
-    position: absolute;
-    top: 0%;
-    right: 95%;
-    border: 15px solid transparent;
-    border-top: 15px solid #000;
-    margin-left: -15px;
-    transform: rotateZ(90deg);
-}
-.tooltip2:hover .description2{
-    display: inline-block;
-    top: 0px;
-    left: 80px;

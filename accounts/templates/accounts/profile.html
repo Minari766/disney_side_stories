@@ -10,7 +10,7 @@
 </div> 
 <div class="container">
     <div class="row">
-        <div id="profile_page" class="d-none d-sm-none d-md-none d-lg-none d-xl-block col-xl-3">
+        <div id="profile_page" class="card d-none d-sm-none d-md-none d-lg-none d-xl-block col-xl-3">
             <div id="user_status">
                 {% if user_data.icon %}
                     <img src="{{ user_data.icon.url }}" class="user-icon">
@@ -54,7 +54,7 @@
                         {% endif %}
                             {{ like.post.author }}
                         </h7>
-                        <h7 class="text_right">{{ like.post.created }}</h7>
+                        <h7 class="text_right">{{ like.post.created|date:"Y年m月j日" }}</h7>
                     </div>
                     <div class="article-container">
                         <h3>{{ like.post.title|truncatechars:17}}</h3>
@@ -77,9 +77,8 @@
                 </div>
             </div>
             {% endfor %}
-        </div>
         <hr>
-        <ul class="pagination justify-content-center">
+        <ul class="pagination justrify-content-center">
             {% if page_obj_like.has_previous %}
             <li class="page-item">
                 <a class="page-link" href="?page={{ page_obj_like.previous_page_number }}">
@@ -88,28 +87,29 @@
             </li>
             {% endif %}
             {% for num in page_obj_like.paginator.page_range %}
-            {% if page_obj_like.number == num %}
-            <li class="page-item active">
-                <a class="page-link" href="#!">
-                    {{ num }}
-                </a>
-            </li>
-            {% else %}
-            <li class="page-item">
-                <a class="page-link" href="?page={{ num }}">
-                    {{ num }}
-                </a>
-            </li>
-            {% endif %}
+                {% if page_obj_like.number == num %}
+                <li class="page-item active">
+                    <a class="page-link" href="#!">
+                        {{ num }}
+                    </a>
+                </li>
+                {% else %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ num }}">
+                        {{ num }}
+                    </a>
+                </li>
+                {% endif %}
             {% endfor %}
             {% if page_obj_like.has_next %}
-            <li class="page-item">
-                <a class="page-link" href="?page={{ page_obj_like.next_page_number }}">
-                    <span aria-hidden="true">&raquo;</span>
-                </a>
-            </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj_like.next_page_number }}">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
             {% endif %}
         </ul>
+        </div>  
     </div>
 </div>
 

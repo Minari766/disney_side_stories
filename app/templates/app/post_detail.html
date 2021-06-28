@@ -14,7 +14,7 @@
     {% endif %}
         {{ post_data.author }}
     </div>
-    <div class="text_right">{{ post_data.created }}</div>
+    <div class="text_right">{{ post_data.created|date:"Y年m月j日" }}</div>
 </div>
 {% if post_data.image %}
 <img class="mx-auto d-block img-fluid rounded detail-img mb-1" src="{{ post_data.image.url }}" alt="">         

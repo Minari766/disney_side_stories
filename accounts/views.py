@@ -31,7 +31,7 @@ class ProfileView(LoginRequiredMixin, View):
         mypost_data = Post.objects.order_by('-id').filter(author=request.user) 
         post_count = mypost_data.count()
         print("post_count", post_count)
-        page_obj_like = self.paginate_queryset(request, like_data, 10)
+        page_obj_like = self.paginate_queryset(request, like_data, 5)
         page_obj_mypost = self.paginate_queryset(request, mypost_data, 10)
 
         like_all = 0
