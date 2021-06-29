@@ -10,23 +10,23 @@
 </div> 
 <div class="container">
     <div class="row">
-        <div id="profile_page" class="card d-none d-sm-none d-md-none d-lg-none d-xl-block col-xl-3">
-            <div id="user_status">
+        <div class="card d-none d-sm-none d-md-none d-lg-none d-xl-block col-xl-3">
+            <p class="block text-center">
                 {% if user_data.icon %}
                     <img src="{{ user_data.icon.url }}" class="user-icon">
                 {% else %}
                     <img src="{% static 'img/user1.png' %}" alt="" class="user-icon">
                 {% endif %}
-                <h2>{{ user_data.user_name }}</h2>
+                <big class="d-block">{{ user_data.user_name }}</big>
+            </p>
+            <hr id="inner-bar">
+            <div id="user_post">
+                <div class="col-md-7 text-right">投稿数</div>
+                <div class="col-md-5 text-left">{{ post_count }}</div>
             </div>
             <div id="user_post">
-                <p class="list-t">{{ user_data.user_name }}さんの投稿一覧</p>
-            </div>
-            <div id="user_post">
-                <p class="list-t">{{ post_count }}さんの投稿数</p>
-            </div>
-            <div id="user_post">
-                <p class="list-t">{{ like_all }}さんの総いいね数</p>
+                <p class="col-md-7 text-right">総いいね数</p>
+                <p class="col-md-3 text-left">{{ like_all }}</p>
             </div>
             <div class="button mx-auto">
                 <a class="btn btn-lg btn-warning btn-block" href="{% url 'profile_edit' %}">編集する</a>

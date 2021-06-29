@@ -151,16 +151,6 @@ main {
     right: 0;
 }
 
-.text-left{
-    position: absolute;
-    left: 0;
-}
-
-.text-right{
-    /* position: absolute; */
-    right: 0;
-}
-
 /* category */
 a {
     color: black;
@@ -1376,11 +1366,6 @@ a:hover {
     margin-top: 2rem;
 }
 
-#profile_page {
-    padding-left: 3%;
-    
-}
-
 #user_status {
     display: inline-block;
 }
@@ -1393,9 +1378,10 @@ a:hover {
 }
 
 #user_post {
-    display: inline-block;
+    /* display: inline-block; */
     vertical-align: top;
-    margin-left: 70px;
+    /* margin-left: 70px; */
+    text-align: center;
 }
 
 .list-t {
