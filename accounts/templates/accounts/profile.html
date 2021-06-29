@@ -13,20 +13,20 @@
         <div class="card d-none d-sm-none d-md-none d-lg-none d-xl-block col-xl-3">
             <p class="block text-center">
                 {% if user_data.icon %}
-                    <img src="{{ user_data.icon.url }}" class="user-icon">
+                    <img src="{{ user_data.icon.url }}" class="user-icon2 m-4">
                 {% else %}
                     <img src="{% static 'img/user1.png' %}" alt="" class="user-icon">
                 {% endif %}
                 <big class="d-block">{{ user_data.user_name }}</big>
             </p>
             <hr id="inner-bar">
-            <div id="user_post">
+            <div id="user_post" class="row">
                 <div class="col-md-7 text-right">投稿数</div>
                 <div class="col-md-5 text-left">{{ post_count }}</div>
             </div>
-            <div id="user_post">
-                <p class="col-md-7 text-right">総いいね数</p>
-                <p class="col-md-3 text-left">{{ like_all }}</p>
+            <div id="user_post" class="row">
+                <div class="col-md-7 text-right">総いいね数</div>
+                <div class="col-md-5 text-left">{{ like_all }}</div>
             </div>
             <div class="button mx-auto">
                 <a class="btn btn-lg btn-warning btn-block" href="{% url 'profile_edit' %}">編集する</a>

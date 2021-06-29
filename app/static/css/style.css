@@ -1384,6 +1384,10 @@ a:hover {
     text-align: center;
 }
 
+/* #user_post li{
+    display: inline-block;
+} */
+
 .list-t {
     font-size: 1.9rem;
     font-weight: 700;
@@ -1392,6 +1396,15 @@ a:hover {
 .user-icon {
     height: 45px;
     width: 45px;
+    object-fit: cover;
+    border-radius: 50%;
+    border:1.5px solid #eee;
+    filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.6));
+}
+
+.user-icon2 {
+    height: 150px;
+    width: 150px;
     object-fit: cover;
     border-radius: 50%;
     border:1.5px solid #eee;
