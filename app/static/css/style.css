@@ -9,6 +9,8 @@ body {
     display: flex;
     flex-flow: column;
     min-height: 100vh;
+    /* font-family: 'Noto Sans JP', 'Kosugi Maru',  sans-serif; */
+    font-family: 'Kosugi Maru',  sans-serif;
 }
 
 main {
