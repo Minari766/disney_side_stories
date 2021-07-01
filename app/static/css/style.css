@@ -9,8 +9,8 @@ body {
     display: flex;
     flex-flow: column;
     min-height: 100vh;
-    /* font-family: 'Noto Sans JP', 'Kosugi Maru',  sans-serif; */
-    font-family: 'Kosugi Maru',  sans-serif;
+    font-family: 'Noto Sans JP', 'Kosugi Maru',  sans-serif;
+    /* font-family: 'Kosugi Maru',  sans-serif; */
 }
 
 main {
@@ -295,7 +295,11 @@ a:hover {
     transform: rotate(45deg);
 }
 
-.article-category-icon .bulb{
+/* .article-category-icon .bulb{
+    transform: rotate(45deg);
+} */
+
+.bulb{
     transform: rotate(45deg);
 }
 
@@ -1575,3 +1579,15 @@ span2{
 }
 
 /* プロフィール */
+.card{
+    background:#dee2e6;
+    border: 0px;
+}
+
+.sidebar-block{
+    margin: 20px 11px 11px 11px;
+    padding: 0px 5px 10px;
+    border: 2px solid #CCC;
+    background-color: white;
+    word-break: break-all;
+}

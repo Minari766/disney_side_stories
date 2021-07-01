@@ -11,25 +11,73 @@
 <div class="container">
     <div class="row">
         <div class="card d-none d-sm-none d-md-none d-lg-none d-xl-block col-xl-3">
-            <p class="block text-center">
-                {% if user_data.icon %}
-                    <img src="{{ user_data.icon.url }}" class="user-icon2 m-4">
-                {% else %}
-                    <img src="{% static 'img/user1.png' %}" alt="" class="user-icon">
-                {% endif %}
-                <big class="d-block">{{ user_data.user_name }}</big>
-            </p>
-            <hr id="inner-bar">
-            <div id="user_post" class="row">
-                <div class="col-md-7 text-right">投稿数</div>
-                <div class="col-md-5 text-left">{{ post_count }}</div>
+            <div class="sidebar-block">
+                <p class="block text-center">
+                    {% if user_data.icon %}
+                        <img src="{{ user_data.icon.url }}" class="user-icon2 m-4">
+                    {% else %}
+                        <img src="{% static 'img/user1.png' %}" alt="" class="user-icon">
+                    {% endif %}
+                    <big class="d-block">{{ user_data.user_name }}</big>
+                </p>
+                <div class="button mx-auto mt-3">
+                    <a class="btn btn-lg btn-warning btn-block" href="{% url 'profile_edit' %}">編集する</a>
+                </div>
+                <hr id="inner-bar">
+                <div id="user_post" class="row mb-1">
+                    <div class="col-md-7 text-right">投稿記事数</div>
+                    <div class="col-md-5 text-left">{{ post_count }}</div>
+                </div>
+                <div id="user_post" class="row mb-1">
+                    <div class="col-md-7 text-right">総いいね数</div>
+                    <div class="col-md-5 text-left">{{ like_all }}</div>
+                </div>
             </div>
-            <div id="user_post" class="row">
-                <div class="col-md-7 text-right">総いいね数</div>
-                <div class="col-md-5 text-left">{{ like_all }}</div>
+            <div class="sidebar-block">
+                <p class="block text-center">
+                    最多獲得"いいね"数
+                    {% if user_data.icon %}
+                        <img src="{{ user_data.icon.url }}" class="user-icon2 m-4">
+                    {% else %}
+                        <img src="{% static 'img/user1.png' %}" alt="" class="user-icon">
+                    {% endif %}
+                    <big class="d-block">{{ user_data.user_name }}</big>
+                </p>
+                <div class="button mx-auto mt-3">
+                    <a class="btn btn-lg btn-warning btn-block" href="{% url 'profile_edit' %}">編集する</a>
+                </div>
+                <hr id="inner-bar">
+                <div id="user_post" class="row mb-1">
+                    <div class="col-md-7 text-right">投稿記事数</div>
+                    <div class="col-md-5 text-left">{{ post_count }}</div>
+                </div>
+                <div id="user_post" class="row mb-1">
+                    <div class="col-md-7 text-right">総いいね数</div>
+                    <div class="col-md-5 text-left">{{ like_all }}</div>
+                </div>
             </div>
-            <div class="button mx-auto">
-                <a class="btn btn-lg btn-warning btn-block" href="{% url 'profile_edit' %}">編集する</a>
+            <div class="sidebar-block">
+                <p class="block text-center">
+                    最多獲得"いいね"My投稿数
+                    {% if user_data.icon %}
+                        <img src="{{ user_data.icon.url }}" class="user-icon2 m-4">
+                    {% else %}
+                        <img src="{% static 'img/user1.png' %}" alt="" class="user-icon">
+                    {% endif %}
+                    <big class="d-block">{{ user_data.user_name }}</big>
+                </p>
+                <div class="button mx-auto mt-3">
+                    <a class="btn btn-lg btn-warning btn-block" href="{% url 'profile_edit' %}">編集する</a>
+                </div>
+                <hr id="inner-bar">
+                <div id="user_post" class="row mb-1">
+                    <div class="col-md-7 text-right">投稿記事数</div>
+                    <div class="col-md-5 text-left">{{ post_count }}</div>
+                </div>
+                <div id="user_post" class="row mb-1">
+                    <div class="col-md-7 text-right">総いいね数</div>
+                    <div class="col-md-5 text-left">{{ like_all }}</div>
+                </div>
             </div>
         </div>
         <div class="col-xl-9">
