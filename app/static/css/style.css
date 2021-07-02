@@ -1579,13 +1579,15 @@ span2{
 }
 
 /* プロフィール */
-.card{
+.sidebar{
     background:#dee2e6;
     border: 0px;
+    padding: 5px;
 }
 
 .sidebar-block{
-    margin: 20px 11px 11px 11px;
+    margin: 11px 11px 11px 11px;
+    /* margin: 20px 2px 2px 11px; */
     padding: 0px 5px 10px;
     border: 2px solid #CCC;
     background-color: white;
