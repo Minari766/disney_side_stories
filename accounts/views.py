@@ -48,6 +48,45 @@ class ProfileView(LoginRequiredMixin, View):
             'post_count': post_count,
             'like_all': like_all
         })
+        
+class MyPostView(LoginRequiredMixin, View):
+    def paginate_queryset(self, request, queryset, count):
+        paginator = Paginator(queryset, count)
+        page = request.GET.get('page')
+        try:
+            page_obj = paginator.page(page)
+        except PageNotAnInteger:
+            page_obj = paginator.page(1)
+        except EmptyPage:
+            page_obj = paginator.page(paginator.num_pages)
+        # page_obj:全体何ページ中のXページ目かを定義
+        return page_obj
+
+    def get(self, request, *args, **kwargs):
+        user_data = CustomUser.objects.get(id=request.user.id)
+        like_data = Like.objects.order_by('-id').filter(author=request.user)
+        like_count = like_data.count()
+        print("like_count", like_count)
+        mypost_data = Post.objects.order_by('-id').filter(author=request.user) 
+        post_count = mypost_data.count()
+        print("post_count", post_count)
+        page_obj_like = self.paginate_queryset(request, like_data, 5)
+        page_obj_mypost = self.paginate_queryset(request, mypost_data, 10)
+
+        like_all = 0
+        for post in mypost_data:
+            count = post.like_set.count()
+            like_all += count
+        print("like_all", like_all)
+        return render(request, 'accounts/mypost.html', {
+            'user_data': user_data,
+            'like_data': page_obj_like.object_list,
+            'mypost_data': page_obj_mypost.object_list,
+            'page_obj_like': page_obj_like,
+            'page_obj_mypost': page_obj_mypost,
+            'post_count': post_count,
+            'like_all': like_all
+        })
 
 class ProfileEditView(LoginRequiredMixin, View):
     def paginate_queryset(self, request, queryset, count):
