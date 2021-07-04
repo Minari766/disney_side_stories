@@ -304,31 +304,31 @@ class FavoriteView(View):
             'page_obj_like': page_obj_like,
             'page_obj_mypost': page_obj_mypost
         })
-class MyPostView(View):
-    def paginate_queryset(self, request, queryset, count):
-        paginator = Paginator(queryset, count)
-        page = request.GET.get('page')
-        try:
-            page_obj = paginator.page(page)
-        except PageNotAnInteger:
-            page_obj = paginator.page(1)
-        except EmptyPage:
-            page_obj = paginator.page(paginator.num_pages)
-        return page_obj
+# class MyPostView(View):
+#     def paginate_queryset(self, request, queryset, count):
+#         paginator = Paginator(queryset, count)
+#         page = request.GET.get('page')
+#         try:
+#             page_obj = paginator.page(page)
+#         except PageNotAnInteger:
+#             page_obj = paginator.page(1)
+#         except EmptyPage:
+#             page_obj = paginator.page(paginator.num_pages)
+#         return page_obj
 
-    def get(self, request, *args, **kwargs):
-        like_data = Like.objects.order_by('-id').filter(author=request.user)
-        mypost_data = Post.objects.order_by('-id').filter(author=request.user)
+#     def get(self, request, *args, **kwargs):
+#         like_data = Like.objects.order_by('-id').filter(author=request.user)
+#         mypost_data = Post.objects.order_by('-id').filter(author=request.user)
         
-        page_obj_like = self.paginate_queryset(request, like_data, 10)
-        page_obj_mypost = self.paginate_queryset(request, mypost_data, 10)
+#         page_obj_like = self.paginate_queryset(request, like_data, 10)
+#         page_obj_mypost = self.paginate_queryset(request, mypost_data, 10)
         
-        return render(request, 'app/mypost.html', {
-            'like_data': page_obj_like.object_list,
-            'mypost_data': page_obj_mypost.object_list,
-            'page_obj_like': page_obj_like,
-            'page_obj_mypost': page_obj_mypost
-        })
+#         return render(request, 'app/mypost.html', {
+#             'like_data': page_obj_like.object_list,
+#             'mypost_data': page_obj_mypost.object_list,
+#             'page_obj_like': page_obj_like,
+#             'page_obj_mypost': page_obj_mypost
+#         })
 
 
 class CategoryNameView(View):
