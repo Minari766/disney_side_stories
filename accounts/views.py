@@ -53,7 +53,7 @@ class ProfileView(LoginRequiredMixin, View):
             'like_all': like_all
         })
 
-class MyPostView(LoginRequiredMixin, View):
+class MyPostViewTwo(LoginRequiredMixin, View):
     def paginate_queryset(self, request, queryset, count):
         paginator = Paginator(queryset, count)
         page = request.GET.get('page')
