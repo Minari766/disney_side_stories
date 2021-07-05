@@ -69,17 +69,12 @@ class MyPostViewTwo(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
         user_data = CustomUser.objects.get(id=request.user.id)
         like_data = Like.objects.order_by('-id').filter(author=request.user)
-        print("like_data_type", type(like_data))
-        # print(like_data)
         like_count = like_data.count()
         print("like_count", like_count)
         mypost_data = Post.objects.order_by('-id').filter(author=request.user) 
-        print("mypost_data_type", type(mypost_data))
-        print(mypost_data)
         mypost_count = mypost_data.count()
         print("mypost_count", mypost_count)
         post_count = mypost_data.count()
-        print("post_count", post_count)
         page_obj_like = self.paginate_queryset(request, like_data, 5)
         page_obj_mypost = self.paginate_queryset(request, mypost_data, 10)
 
@@ -92,7 +87,6 @@ class MyPostViewTwo(LoginRequiredMixin, View):
             'user_data': user_data,
             'like_data': page_obj_like.object_list,
             'mypost_data': page_obj_mypost.object_list,
-            'mypost_2': mypost_data,
             'page_obj_like': page_obj_like,
             'page_obj_mypost': page_obj_mypost,
             'post_count': post_count,
