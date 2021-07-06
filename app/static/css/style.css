@@ -1452,7 +1452,8 @@ a:hover {
 
 /* フッター */
 .footer{
-    background-color: #fefffe;
+    /* background-color: #fefffe; */
+    background-color: #f5fdfe;
 }
 
 .footer p{

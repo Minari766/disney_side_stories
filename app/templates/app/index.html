@@ -760,66 +760,14 @@
 <div class="text-right">
     <a href="{% url 'post_new' %}" class="btn btn-info">新しい記事を投稿</a>
 </div>
-<div class="text-right">
+<!-- <div class="text-right">
     <a href="{% url 'contact' %}" class="btn btn-info">問い合わせ</a>
-</div>
+</div> -->
 {% endblock %}
 
 <!-- マウスオーバー変換 -->
 {% block extra_js %}
 <script type="text/javascript">
-    // function mouseOn1(){
-    //     var obj = document.getElementById("star");
-    //     obj.src = "{% static 'img/star_white.png' %}";
-    // }
-
-    // function mouseOn2(){
-    //     var obj = document.getElementById("memo");
-    //     obj.src = "{% static 'img/memo_white.png' %}";
-    // }
-
-    // function mouseOn3(){
-    //     var obj = document.getElementById("mickey");
-    //     obj.src = "{% static 'img/mickey_white.png' %}";
-    // }
-
-    // function mouseOn4(){
-    //     var obj = document.getElementById("bulb1");
-    //     obj.src = "{% static 'img/bulb_white.png' %}";
-    // }
-
-    // function mouseOn5(){
-    //     var obj = document.getElementById("comment");
-    //     obj.src = "{% static 'img/comment_white.png' %}";
-    // }
-
-    // function mouseOff1(){
-    //     var obj = document.getElementById("star");
-    //     obj.src = "{% static 'img/star.png' %}";
-    // }
-
-    // function mouseOff2(){
-    //     var obj = document.getElementById("memo");
-    //     obj.src = "{% static 'img/memo.png' %}";
-    // }
-
-    // function mouseOff3(){
-    //     var obj = document.getElementById("mickey");
-    //     obj.src = "{% static 'img/mickey.png' %}";
-    // }
-
-    // function mouseOff4(){
-    //     var obj = document.getElementById("bulb1");
-    //     obj.src = "{% static 'img/bulb.png' %}";
-    // }
-
-    // function mouseOff5(){
-
-    //     var obj = document.getElementById("comment");
-    //     obj.src = "{% static 'img/comment.png' %}";
-    // }
-
-
 // 色取得のコード
 window.onload = function() {
         let url = window.location.href;
