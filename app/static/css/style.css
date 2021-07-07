@@ -1426,10 +1426,16 @@ a:hover {
 /* ナビゲーションバー  */
 .navbar{
     background-color: #f5fdfe;
+    /* background-color: #d3e9d0; */
     border: 2px black; 
 }
 
 .navbar-brand img{
+    width: 20%;
+    height: auto;
+}
+
+.footer-brand img{
     width: 20%;
     height: auto;
 }

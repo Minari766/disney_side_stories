@@ -104,9 +104,19 @@
 
     <footer class="mt-4 py-2 footer border-top">
         <!-- <div class="text-right"> -->
-        <div>
-            <a href="{% url 'contact' %}" class="btn">お問い合わせ</a>
+        <div class="container">
+            <ul>
+                <a class="footer-brand list-inline-item" href="#">
+                    <img src="{% static 'img/DSS_logo.png' %}" alt="">
+                </a>
+                <li href="{% url 'contact' %}" class="btn list-inline-item">お問い合わせ</li>
+                <li href="#" class="btn list-inline-item">更新履歴</li>
+            </ul>
+            <!-- <a href="{% url 'contact' %}" class="btn">お問い合わせ</a> -->
         </div>
+        <!-- <div>
+            <a href="#" class="btn">更新履歴</a>
+        </div> -->
         <p class="m-0 text-center">2020 - 2021 みなり</p>
     </footer>
 
