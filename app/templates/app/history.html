@@ -1,0 +1,50 @@
+{% extends "app/base.html" %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block content %}
+
+<div>
+    <h2 class="ttl-bd mt-4 mb-4">更新履歴</h2>
+</div>
+<div class="container">
+    <div class="col-xs-12 col-lg-12">
+        <p>ディズニーランドにまつわる裏話やお得情報を共有・投稿するファンサイトです。<br>The Walt Disney Companyや株式会社オリエンタルランド等のディズニー関連会社とは一切関係ありません。</p>
+    </div>
+    <div class="contents row">
+        <div class="col-xs-12 col-lg-6">
+            <h4>1.テキストテキストテキストテキストテキスト</h4>
+            <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+        </div>
+        <div class="col-xs-12 col-lg-6 rounded">
+            <img src="https://d2l930y2yx77uc.cloudfront.net/production/uploads/images/6432843/picture_pc_0c274de1b76f4063c7ce088be3b57004.jpg"
+                alt="" class="img-fluid img1">
+        </div>
+    </div>
+    <div class="contents row mt-5">
+        <div class="ccol-xs-12 col-lg-6 rounded">
+            <img src="https://d2l930y2yx77uc.cloudfront.net/production/uploads/images/6432845/picture_pc_3d21e88b8ee49951e3c0931173a8f8ed.jpg"
+                alt="" class="img-fluid">
+        </div>
+        <div class="col-xs-12 col-lg-6">
+            <h4>2.テキストテキストテキストテキスト</h4>
+            <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+        </div>
+    </div>
+</div>
+<hr class="about-border">
+<div class="container mt-5">
+    <div class="profile row">
+        <div class="col-xs-12 col-lg-5">
+            <img src="{% static 'img/minari.png' %}" alt="" class="img-thumbnail rounded-circle img-profile mx-auto d-block">
+        </div>
+        <div class="col-xs-12 col-lg-7">
+            <h4>みなり766</h4>
+            <p>みなりですみなりですみなりですみなりですみなりです</p>
+            <p>パーク訪問実績：東京ディズニーランド、東京ディズニーシー、香港ディズニーランド、ウォルトディズニーワールド、ディズニーランドパリ</p>
+        </div>
+    </div>
+</div>
+
+
+    {% endblock %}

@@ -1,6 +1,6 @@
 from django.urls import path
 from app import views
-from .views import ContactView, ContactResultView
+from .views import ContactView, ContactResultView, HistoryView
 
 urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
@@ -22,5 +22,6 @@ urlpatterns = [
     path('like/', views.LikeView, name='like'),
     path('contact/', ContactView.as_view(), name='contact'),
     path('contact/result/', ContactResultView.as_view(), name='contact_result'),
+    path('histroy', HistoryView.as_view(), name='history'),
 ]
 
