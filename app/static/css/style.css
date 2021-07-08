@@ -1466,6 +1466,22 @@ a:hover {
     display: inline-block;
 }
 
+.link-twitter{
+    color: #1DA1F2;
+}
+
+.link-twitter:hover{
+    opacity: 0.6;
+}
+
+.link-instagram{
+    color: #E4761C;   
+}
+
+.link-instagram:hover{
+    opacity: 0.6;
+}
+
 .footer p{
     color:#323332;
 }

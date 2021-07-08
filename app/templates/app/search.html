@@ -5,29 +5,54 @@
 <!-- トップ絵部分 -->
 <a name="search">
 {% if keyword %}
-    <h4 class="mb-4">「{{ keyword}}」のサイト内検索</h4>
+    <h4 class="mb-4">「{{ keyword }}」のサイト内検索</h4>
+    <h4 class="mb-4">「{{ count }}」件</h4>
 {% endif %}
 
 {% for post in post_data %}
-<div class="row">
+<div class="row post-detail">
     <div class="col-md-4">
-        <a href="#">
-        {% if post.image %}
-            <img class="img-fluid rounded mb-3 mb-md-0" src="{{ post.image.url }}" alt="">
-        {% endif %}
+        <a href="{% url 'post_detail' post.id %}">
+            {% if post.image %}
+                <img class="img-fluid rounded mb-md-0 article-img" src="{{ post.image.url }}" alt="">
+            {% else %}
+                <img class="img-fluid rounded mb-md-0 article-noimg" src="{% static 'img/20161006_noimage.svg' %}" alt="">
+            {% endif %}
         </a>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-8 article">
         <div class="author-created">
-            <h7 class="text_left">{{ post.author }}</h7>
-            <h7 class="text_right">{{ post.created }}</h7>
+            <h7 class="text_left author-created">
+            {% if post.author.icon %}
+                <img src="{{ post.author.icon.url }}" class="user-icon-top">
+            {% else %}
+                <img src="{% static 'img/user1.png' %}" class="user-icon-top">
+            {% endif %}
+                {{ post.author }}
+                {{ post.area }} > {{ post.attraction }}
+            </h7>
+            <h7 class="text_right">{{ post.created|date:"Y年m月j日" }}</h7>
         </div>
-        <h3>{{ post.title }}</h3>
-        <p>{{ post.content|truncatechars:100 }}</p>
-        <a style="float:right;" href="{% url 'post_detail' post.id %}">続きを読む</a>
+        <div class="article-container">
+            <h3>{{ post.title|truncatechars:17}}</h3>
+            <div>
+            {% if post.category|stringformat:"s" == "ストーリー" %}
+                <img src="{% static 'img/memo.png' %}" alt="book" class="article-category-icon">
+            {% elif post.category|stringformat:"s" == "隠れミッキー" %}
+                <img src="{% static 'img/mickey.png' %}" alt="book" class="article-category-icon">
+            {% elif post.category|stringformat:"s" == "豆知識" %}
+                <img src="{% static 'img/bulb.png' %}" alt="book" class="article-category-icon bulb">
+            {% elif post.category|stringformat:"s" == "その他" %}
+                <img src="{% static 'img/comment.png' %}" alt="book" class="article-category-icon">
+            {% else %}
+                <img src="{% static 'img/search.png' %}" alt="なんも" class="article-category-icon">
+            {% endif %}
+            </div>
+        </div>
+        <p>{{ post.content|truncatechars:200 }}</p>
+        <a class="article-more" href="{% url 'post_detail' post.id %}">もっと見る</a>
     </div>
 </div>
-<hr>
 {% endfor %}
 
 {% endblock %}

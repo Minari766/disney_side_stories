@@ -74,8 +74,6 @@ class IndexView(View):
         post_data = self.attraction_select(post_data, category, area, attraction)
         post_data = self.category_select(post_data, category, area, attraction)
         page_obj = self.paginate_queryset(request, post_data, 10)
-        # for post in post_data:
-        #     print(type(post.category))
 
         return render(request, 'app/index.html', {
             'post_data': page_obj.object_list,
@@ -306,10 +304,21 @@ class SearchView(View):
             # Qオブジェクトを使用して、投稿データをキーワードでフィルターがけする。キーワードをQオブジェクトでor検索
             query = reduce(and_, [Q(title__icontains=q) | Q(content__icontains=q) for q in query_list])
             post_data = post_data.filter(query)
+            count = post_data.count()
+            print(post_data)
+            print("count", count)
+
+        # search_result = 0
+        # for post in post_data:
+        #     count = post.count()
+        #     search_result += count
+        # print("search_result", search_result)
+
         
         return render(request, 'app/search.html', {
             'keyword' : keyword,
-            'post_data' : post_data
+            'post_data' : post_data,
+            'count': count
         })
 
 def LikeView(request):
