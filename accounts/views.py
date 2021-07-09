@@ -6,8 +6,9 @@ from accounts.forms import ProfileForm, SignupUserForm
 from django.shortcuts import render, redirect
 from allauth.account import views
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth import get_user_model
+from django.contrib.auth import get_user_model, login
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.http import HttpResponse
 
 # Create your views here.
 class ProfileView(LoginRequiredMixin, View):
@@ -200,3 +201,8 @@ class MainProfView(LoginRequiredMixin, View):
             'post_count': post_count,
             'like_all': like_all
         })
+
+def guest_login(request):
+    guest_user = CustomUser.objects.get(email='guset_DSS@gmail.com')
+    login(request, guest_user, backend='django.contrib.auth.backends.ModelBackend')
+    return redirect('index')
