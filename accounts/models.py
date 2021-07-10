@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.base_user import AbstractBaseUser
-from django.contrib.auth.models import UserManager, PermissionsMixin
+from django.contrib.auth.models import UserManager, PermissionsMixin, AbstractUser
 from django.utils import timezone
 
 
@@ -29,7 +29,7 @@ class UserManager(UserManager):
         return self._create_user(email, password, **extra_fields)
 
 
-class CustomUser(AbstractBaseUser, PermissionsMixin):
+class CustomUser(AbstractBaseUser, PermissionsMixin, AbstractUser):
     email = models.EmailField('メールアドレス', unique=True)
     user_name = models.CharField(('ニックネーム'), max_length=30, blank=True, null=True)  
     created = models.DateTimeField(('入会日'), default=timezone.now)

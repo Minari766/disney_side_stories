@@ -184,6 +184,7 @@ class MainProfView(LoginRequiredMixin, View):
 
     def get(self, request, *args, **kwargs):
         user_data = CustomUser.objects.get(id=request.user.id)
+        print("user_data", user_data)
         like_data = Like.objects.order_by('-id').filter(author=request.user)
         like_count = like_data.count()
         print("like_count", like_count)
@@ -203,6 +204,7 @@ class MainProfView(LoginRequiredMixin, View):
         })
 
 def guest_login(request):
-    guest_user = CustomUser.objects.get(email='guset_DSS@gmail.com')
+    guest_user = CustomUser.objects.get(email='guest_DSS@gmail.com')
+    print("guest_user", guest_user)
     login(request, guest_user, backend='django.contrib.auth.backends.ModelBackend')
     return redirect('index')
