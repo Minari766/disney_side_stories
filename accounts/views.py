@@ -70,11 +70,8 @@ class MyPostViewTwo(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
         user_data = CustomUser.objects.get(id=request.user.id)
         like_data = Like.objects.order_by('-id').filter(author=request.user)
-        like_count = like_data.count()
-        print("like_count", like_count)
         mypost_data = Post.objects.order_by('-id').filter(author=request.user) 
         mypost_count = mypost_data.count()
-        print("mypost_count", mypost_count)
         post_count = mypost_data.count()
         page_obj_like = self.paginate_queryset(request, like_data, 5)
         page_obj_mypost = self.paginate_queryset(request, mypost_data, 5)
@@ -181,22 +178,23 @@ class SignupView(views.SignupView):
     # form_valid(self, form)
 
 class MainProfView(LoginRequiredMixin, View):
-
     def get(self, request, *args, **kwargs):
+        print("テスト1")
         user_data = CustomUser.objects.get(id=request.user.id)
-        print("user_data", user_data)
+        print("テスト2")
         like_data = Like.objects.order_by('-id').filter(author=request.user)
+        print("テスト3")
         like_count = like_data.count()
-        print("like_count", like_count)
-        mypost_data = Post.objects.order_by('-id').filter(author=request.user) 
+        print("テスト4")
+        mypost_data = Post.objects.order_by('-id').filter(author=request.user)  
+        print("テスト5")
         post_count = mypost_data.count()
-        print("post_count", post_count)
+        print("テスト6")
 
         like_all = 0
         for post in mypost_data:
             count = post.like_set.count()
             like_all += count
-        print("like_all", like_all)
         return render(request, 'accounts/mainprof.html', {
             'user_data': user_data,
             'post_count': post_count,

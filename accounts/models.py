@@ -29,7 +29,7 @@ class UserManager(UserManager):
         return self._create_user(email, password, **extra_fields)
 
 
-class CustomUser(AbstractBaseUser, PermissionsMixin, AbstractUser):
+class CustomUser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField('メールアドレス', unique=True)
     user_name = models.CharField(('ニックネーム'), max_length=30, blank=True, null=True)  
     created = models.DateTimeField(('入会日'), default=timezone.now)
@@ -57,7 +57,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin, AbstractUser):
 
     class Meta:
         verbose_name = ('user')
-        verbose_name_plural = ('users')
+        verbose_name_plural = ('ユーザーs')
 
     def clean(self):
         super().clean()

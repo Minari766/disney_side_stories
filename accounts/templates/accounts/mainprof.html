@@ -8,7 +8,11 @@
     <div class="card-body">
         <h5 class="card-title text-center">{{ user_data.user_name }}さんのプロフィール</h5>
         <table class="profile_table mb-4">
-            <img src="{{ user_data.icon.url }}" class="m-4 d-block mx-auto">
+            {% if user_data.icon %}
+                <img src="{{ user_data.icon.url }}" class="">
+            {% else %}
+                <img src="{% static 'img/user1.png' %}" alt="" class="">
+            {% endif %}
             <tbody>
                 <tr>
                     <th class="header">名前</th>
