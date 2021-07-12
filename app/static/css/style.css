@@ -1534,10 +1534,10 @@ span{
     padding: 15px;
 }
 
-span2{
+/* span2{
     font-size: 80%;
     padding: 15px;
-}
+} */
 
 .photo-frame{
     display: flex;

@@ -699,9 +699,9 @@
                 <img src="{% static 'img/user1.png' %}" class="user-icon-top">
             {% endif %}
                 {{ post.author }}
-                {{ post.area }} > {{ post.attraction }}
+
             </h7>
-            <h7 class="text_right">{{ post.created|date:"Y年m月j日" }}</h7>
+            <h7 class="text_right">{{ post.created|date:"Y/m/j" }}</h7>
         </div>
         <div class="article-container">
             <h3>{{ post.title|truncatechars:17}}</h3>
@@ -719,6 +719,7 @@
             {% endif %}
             </div>
         </div>
+        <div class="">{{ post.attraction }}</div>
         <p>{{ post.content|truncatechars:200 }}</p>
         <a class="article-more" href="{% url 'post_detail' post.id %}">もっと見る</a>
     </div>
