@@ -34,20 +34,20 @@
             </button>
     
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mx-auto">
+                <ul class="navbar-nav ml-auto">
                 {% if user.is_authenticated %}
                     <li class="nav-item ">
-                        <a class="nav-link font-weight-bold mx-xs-3" href="/">ホーム <span class="sr-only">(current)</span></a>
+                        <a class="nav-link font-weight-bold mx-xs-3" href="/"><img src="{% static 'img/planeicon.png' %}" class="navicon" />記事一覧 <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link font-weight-bold mx-xs-3" href="{% url 'post_new' %}">投稿 </span></a>
+                        <a class="nav-link font-weight-bold mx-xs-3" href="{% url 'post_new' %}"><img src="{% static 'img/planeicon.png' %}" class="navicon" />投稿 </span></a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link font-weight-bold mx-xs-3" href="{% url 'about_top' %}">このサイト </a>
-                    </li>
+                    </li> -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle font-weight-bold mx-xs-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            マイページ
+                            <img src="{% static 'img/mypageicon.png' %}" class="navicon" />マイページ
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{% url 'mypost' %}">My 投稿記事</a>
@@ -58,20 +58,20 @@
                         </div>
                     </li>
                 {% else %}
-                    <li class="nav-item ">
-                        <a class="nav-link font-weight-bold mx-xs-3" href="/">ホーム <span class="sr-only">(current)</span></a>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link font-weight-bold mx-xs-3" href="/"><img src="{% static 'img/homeicon.png' %}" class="navicon home-icon" /> <span class="sr-only">(current)</span></a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link font-weight-bold mx-xs-3" href="{% url 'post_new' %}"><img src="{% static 'img/planeicon.png' %}" class="navicon" />投稿 </span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link font-weight-bold mx-xs-3" href="{% url 'about_top' %}">DSSについて </a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link font-weight-bold mx-xs-3" href="{% url 'account_signup' %}">会員登録 <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link font-weight-bold mx-xs-3" href="{% url 'guest_login' %}">ゲストログイン <span class="sr-only">(current)</span></a>
+                        <a class="nav-link font-weight-bold mx-xs-3" href="{% url 'account_login' %}"><img src="{% static 'img/login.png' %}" class="navicon" />ログイン </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link font-weight-bold mx-xs-3" href="{% url 'account_login' %}">ログイン </a>
+                        <a class="nav-link font-weight-bold mx-xs-3" href="{% url 'guest_login' %}"><img src="{% static 'img/login.png' %}" class="navicon" />ゲストログイン <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link font-weight-bold mx-xs-3" href="{% url 'account_signup' %}"><img src="{% static 'img/signupicon.png' %}" class="navicon" />新規登録 <span class="sr-only">(current)</span></a>
                     </li>
                 {% endif %}
                 </ul>
@@ -107,6 +107,7 @@
 
     <footer class="mt-4 py-2 footer border-top">
         <div class="container link">
+            <a href="{% url 'about_top' %}" class="linklink" >DSSについて </a>
             <a href="{% url 'contact' %}" class="linklink">お問い合わせ</a>
             <a href="{% url 'history' %}" class="linklink">更新履歴</a>
             <a rel="noopener" href="https://twitter.com/minari766"class="linklink"><i class="fab fa-lg fa-twitter link-twitter"></i></a>

@@ -1447,8 +1447,23 @@ a:hover {
     flex-flow: nowrap !important;
 }
 
+
 .nav-item{
     white-space: nowrap;
+    font-size: 14px;
+    margin-right: 0.25rem;
+}
+
+.navicon{
+    height: 100%;
+    width: 20px;
+    /* object-fit:cover; */
+    margin-right: 4px;
+}
+
+.navicon .home-icon{
+    height: 50px;
+    /* width: 100%; */
 }
 
 /* フッター */
