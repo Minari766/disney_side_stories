@@ -47,7 +47,7 @@
                     </li> -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle font-weight-bold mx-xs-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src="{% static 'img/mypageicon.png' %}" class="navicon" />マイページ
+                            <img src="{% static 'img/user-icon1.png' %}" class="navicon-user" />マイページ
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{% url 'mypost' %}">My 投稿記事</a>
@@ -71,7 +71,7 @@
                         <a class="nav-link font-weight-bold mx-xs-3" href="{% url 'guest_login' %}"><img src="{% static 'img/login.png' %}" class="navicon" />ゲストログイン <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link font-weight-bold mx-xs-3" href="{% url 'account_signup' %}"><img src="{% static 'img/signupicon.png' %}" class="navicon" />新規登録 <span class="sr-only">(current)</span></a>
+                        <a class="nav-link font-weight-bold mx-xs-3" href="{% url 'account_signup' %}"><img src="{% static 'img/usericon2.png' %}" class="navicon-user" />新規登録 <span class="sr-only">(current)</span></a>
                     </li>
                 {% endif %}
                 </ul>
