@@ -365,9 +365,8 @@
 <div class="picmenu">
     <ul id="table-ul">
         <li id="table-ul-all">
-        <!-- <li id="table-ul-all"> -->
             {% if area == 'bazaar' %}
-                <a href="{% url 'index' 'bazaar' 'all' %}">
+                <a href="{% url 'index' 'bazaar' 'all' %}" class="">
                 {% if attraction is None %}
                     <a href="{% url 'index' 'bazaar' 'all' %}">
                 {% else %}

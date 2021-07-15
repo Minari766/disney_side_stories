@@ -169,12 +169,15 @@ a:hover {
     padding-bottom: 3px;
 }
 
+.picmenu{
+    /* height: 0px; */
+    padding: 0px;
+}
+
 #table-ul {
-    /* background-color: #3ae; */
     border: 1px solid #dee2e6;
     border-radius: 20px;
     will-change: transform;
-    /* border-bottom: 1px solid #dee2e6; */
     display: table;
     table-layout: fixed;
     text-align: center;
@@ -182,17 +185,14 @@ a:hover {
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
     list-style-type: none;
     overflow: hidden;
+    padding: 0px;
 }
-
-/* #table-ul-all {
-    background-color:red;
-} */
 
 #table-ul li {
     border-right: 1px solid #dee2e6;
     display: table-cell;
     vertical-align: middle;
-    height: 40px;
+    height: 100px;
     padding:0;
     margin:0;
 }
@@ -202,7 +202,7 @@ a:hover {
     display: block;
     font-size: 10px;
     margin: 0;
-    padding: 10px;
+    padding: 5px;
     text-decoration: none;
 }
 
@@ -212,7 +212,7 @@ a:hover {
 
 #table-ul p{
     font-size: 14px;
-    margin: 10px;
+    margin: 7px;
 }
 /* #table-ul li:last-child {
     border-right: 0;   
@@ -1370,6 +1370,10 @@ a:hover {
     /* height: 200px; */
     border: bold;
     margin-top: 2rem;
+}
+
+.admin-info{
+
 }
 
 #user_status {
