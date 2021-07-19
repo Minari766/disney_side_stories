@@ -1518,9 +1518,13 @@ a:hover {
     flex-direction: row;
 }
 
+.article-title{
+    margin-right:20px;
+}
+
 .article-category-icon{
-    padding-left: 20px;
-    width: 50px;
+    /* padding-left: 20px; */
+    width: 30px;
     height: auto;
     align-items: center;
 }
