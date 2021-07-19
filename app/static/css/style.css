@@ -1432,11 +1432,12 @@ a:hover {
     background-color: #f5fdfe;
     /* background-color: #d3e9d0; */
     border: 2px black; 
+    padding: 2px !important;
 }
 
 .navbar-brand img{
-    width: 20%;
-    height: auto;
+    /* width: 20%; */
+    height: 60px;
 }
 
 .navbar-toggler {
