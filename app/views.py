@@ -74,6 +74,7 @@ class IndexView(View):
         post_data = self.attraction_select(post_data, category, area, attraction)
         post_data = self.category_select(post_data, category, area, attraction)
         page_obj = self.paginate_queryset(request, post_data, 10)
+        print("テスト5")
 
         return render(request, 'app/index.html', {
             'post_data': page_obj.object_list,
@@ -106,12 +107,14 @@ class PostDetailView(View):
 class CreatePostView(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
         form = PostForm(request.POST or None)
+        print("テスト1")
         return render(request, 'app/post_form.html', {
             'form': form
         })
     
     def post(self, request, *args, **kwargs):
         form = PostForm(request.POST or None)
+        print("テスト6")
 
         if form.is_valid():
             post_data = Post()
@@ -124,9 +127,11 @@ class CreatePostView(LoginRequiredMixin, View):
             category = form.cleaned_data['category']
             post_data.category = Category.objects.get(name=category)
             post_data.content = form.cleaned_data['content']
+            print("テスト2")
             if request.FILES:
                 post_data.image = request.FILES.get('image')
             post_data.save()
+            print("テスト3")
             # show = False
         # 120-125まで一時的に
         #     return redirect('post_detail', post_data.id)
@@ -159,6 +164,7 @@ class PreviewPostView(LoginRequiredMixin, View):
         post_data.author = request.user
         post_data.content = request.POST.get('content')
         post_data.image = request.POST.get('image')
+        print("テスト4")
         if request.FILES:
             post_data.image = request.FILES.get('image')
         post_data.title = request.POST.get('title')

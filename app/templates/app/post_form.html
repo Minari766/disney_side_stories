@@ -11,15 +11,15 @@
     {% csrf_token %}
     <div class="formpost">
         <div>タイトル<span>※必須</span></div>
-        {% render_field form.title class="form-control" placeholder="" %}
+        {% render_field form.title class="form-control" placeholder="タイトルを入力してください" %}
     </div>
     <div class="formpost">
         <div>エリア選択<span>※必須</span></div>
-        {% render_field form.area class="form-control" placeholder="" %}
+        {% render_field form.area class="form-control" placeholder="選択してください" %}
     </div>
     <div class="formpost">
         <div>アトラクション選択<span>※必須</span></div>
-        {% render_field form.attraction class="form-control" placeholder="" %}
+        {% render_field form.attraction class="form-control" placeholder="選択してください" %}
         {% for field in form %}
             {% for error in field.errors %}
                 ※アトラクションを選択してください<br>
@@ -291,7 +291,7 @@
         attractionElement.children().remove();
         const parentId = areaElement.val();
         const categoryList = area_attraction[parentId];
-        attractionElement.append('<option>選択</option>');
+        // attractionElement.append('<option>テスト</option>');
         for (const category of categoryList) {
             const option = $('<option>');
                 option.val(category['value']);

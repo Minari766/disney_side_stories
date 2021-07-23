@@ -29,6 +29,12 @@ class PostForm(forms.Form):
     content = forms.CharField(label='内容', widget=forms.Textarea())
     image = forms.ImageField(label='イメージ画像', required=False)
 
+    def clean_area(self):
+        area = self.cleaned_data.get('area')
+        if area in ('選択'):
+            self.add_error('area', 'エリアを選択してください')
+        return area
+
 CATEGORIES = (
     ('0', 'このサイトについて'),
     ('1', '投稿記事について'),
@@ -55,7 +61,7 @@ class ContactForm(forms.Form):
     def clean_message(self):
         message = self.cleaned_data.get('message')
         if message in ('ばか', 'あほ', 'まぬけ', 'うんこ', '死ね'):
-            self.add_error('name', 'お問い合わせ内容にに禁止ワードが含まれています')
+            self.add_error('message', 'お問い合わせ内容にに禁止ワードが含まれています')
         return message
 
 
