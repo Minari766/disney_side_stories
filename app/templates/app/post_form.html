@@ -31,7 +31,7 @@
     </div>
     <div class="formpost">
         <div>記事カテゴリ選択<span>※必須</span></div>
-        {% render_field form.category class="form-control" placeholder="" %}
+        {% render_field form.category class="form-control" placeholder="選択してください" %}
     </div>
     <div class="formpost">
         {{ form.image }}
@@ -53,6 +53,10 @@
     const attractionElement = $('#id_attraction');
     const area_attraction = {
         'ワールドバザール': [
+            {
+                'value': '選択してください',
+                'name': '選択してください'
+            },
             {
                 'value': 'オムニバス',
                 'name': 'オムニバス'

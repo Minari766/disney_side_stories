@@ -114,7 +114,7 @@ class CreatePostView(LoginRequiredMixin, View):
     
     def post(self, request, *args, **kwargs):
         form = PostForm(request.POST or None)
-        print("テスト6")
+        print("テスト7")
 
         if form.is_valid():
             post_data = Post()
@@ -139,13 +139,15 @@ class CreatePostView(LoginRequiredMixin, View):
         # return render(request, 'app/post_form.html', {
         #     'form': form
         # })
+            print("テスト8")
             return render(request, 'app/post_preview.html', {
                 'post_data' : post_data
             })
 
     # 以下コードはformのvalidationが失敗したとき
         # return render(request, 'app/post_form.html', {
-        return render(request, 'app/index.html', {
+        print("テスト9")
+        return render(request, 'app/post_form.html', {
             'form': form
         })
 
