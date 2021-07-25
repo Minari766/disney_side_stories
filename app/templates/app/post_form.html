@@ -54,10 +54,6 @@
     const area_attraction = {
         'ワールドバザール': [
             {
-                'value': '選択してください',
-                'name': '選択してください'
-            },
-            {
                 'value': 'オムニバス',
                 'name': 'オムニバス'
             },
@@ -310,7 +306,6 @@
         changeArea();
     });
     if (areaElement.val()) {
-
         const selectedCategory = attractionElement.val();
         changeArea(selectedCategory);
     }

@@ -23,11 +23,17 @@ class PostForm(forms.Form):
         category_choice[category] = category
     
     title = forms.CharField(max_length=50, label='タイトル')
-    area = forms.ChoiceField(label='エリア', widget=forms.Select, choices=list(area_choice.items()))
-    attraction = forms.ChoiceField(label='アトラクション', widget=forms.Select, choices=list(attraction_choice.items()))
-    category = forms.ChoiceField(label='カテゴリ', widget=forms.Select, choices=list(category_choice.items()))
+    area = forms.ChoiceField(label='エリア', widget=forms.Select, choices=list(area_choice.items()), initial="----選択してください")
+    attraction = forms.ChoiceField(label='アトラクション', widget=forms.Select, choices=list(attraction_choice.items()), initial="----エリアを選択してください")
+    category = forms.ChoiceField(label='カテゴリ', widget=forms.Select, choices=list(category_choice.items()), initial="----選択してください")
     content = forms.CharField(label='内容', widget=forms.Textarea())
     image = forms.ImageField(label='イメージ画像', required=False)
+    
+    def clean_name(self):
+        area = self.cleaned_data.get('area')
+        if area in ('ワールドバザール'):
+            self.add_error('area', 'お名前に禁止ワードが含まれています')
+        return area
 
 CATEGORIES = (
     ('0', 'このサイトについて'),
@@ -38,7 +44,7 @@ CATEGORIES = (
 class ContactForm(forms.Form):
     name = forms.CharField(label='お名前', max_length=30)
     email = forms.EmailField(label='Email', max_length=100)
-    # cntct_category = forms.ChoiceField(label='カテゴリー', choices=CATEGORIES)
+    cntct_category = forms.ChoiceField(label='カテゴリー', choices=CATEGORIES)
     message = forms.CharField(
         label='お問い合わせ内容',
         widget=forms.Textarea(attrs={

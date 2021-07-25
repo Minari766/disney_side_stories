@@ -147,6 +147,7 @@ class CreatePostView(LoginRequiredMixin, View):
     # 以下コードはformのvalidationが失敗したとき
         # return render(request, 'app/post_form.html', {
         print("テスト9")
+        print(form)
         return render(request, 'app/post_form.html', {
             'form': form
         })
@@ -355,6 +356,7 @@ def LikeView(request):
 class ContactView(View):
     def get(self, request, *args, **kwargs):
         form = ContactForm(request.POST or None)
+        print("validation_access")
         return render(request, 'app/contact.html',{
             'form': form
         })
@@ -363,10 +365,11 @@ class ContactView(View):
         form = ContactForm(request.POST or None)
         
         if form.is_valid():
+            print("validation_True")
             name = form.cleaned_data['name']
             email = form.cleaned_data['email']
             message = form.cleaned_data['message']
-            # cntct_category = form.cleaned_data['cntct_category']
+            cntct_category = form.cleaned_data['cntct_category']
             subject = 'お問い合わせありがとうございます。'
             contact = textwrap.dedent('''
                 ※このメールはシステムからの自動返信です。
@@ -383,6 +386,9 @@ class ContactView(View):
 
                 ■メールアドレス
                 {email}
+
+                ■カテゴリー
+                {cntct_category}
 
                 ■メッセージ
                 {message}
@@ -405,6 +411,8 @@ class ContactView(View):
             return redirect('contact_result')
             # return redirect('index')
         # フォーム内容に不備があった場合(form.is_validがFalseの場合)、からのフォームを返す
+        print("validation_エラー")
+        # print(form)
         return render(request, 'app/contact.html', {
             'form': form
         })
