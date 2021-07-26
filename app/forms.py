@@ -24,7 +24,7 @@ class PostForm(forms.Form):
     
     title = forms.CharField(max_length=50, label='タイトル')
     area = forms.ChoiceField(label='エリア', widget=forms.Select, choices=list(area_choice.items()), initial="----選択してください")
-    attraction = forms.ChoiceField(label='アトラクション', widget=forms.Select, choices=list(attraction_choice.items()), initial="----エリアを選択してください")
+    attraction = forms.ChoiceField(label='アトラクション', widget=forms.Select, choices=list(attraction_choice.items()))
     category = forms.ChoiceField(label='カテゴリ', widget=forms.Select, choices=list(category_choice.items()), initial="----選択してください")
     content = forms.CharField(label='内容', widget=forms.Textarea())
     image = forms.ImageField(label='イメージ画像', required=False)

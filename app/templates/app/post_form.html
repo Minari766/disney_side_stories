@@ -14,12 +14,24 @@
         {% render_field form.title class="form-control" placeholder="タイトルを入力してください" %}
     </div>
     <div class="formpost">
-        <div>エリア選択<span>※必須</span></div>
+        <div>エリア<span>※必須</span></div>
         {% render_field form.area class="form-control" placeholder="選択してください" %}
+        <!-- <select name="area" class="form-control" id="id_area">
+            <option value="選択肢A">選択肢A</option>
+            <option value="選択肢B">選択肢B</option>
+            <option value="選択肢C">選択肢C</option>
+            <option value="選択肢D">選択肢D</option>
+        </select> -->
     </div>
     <div class="formpost">
-        <div>アトラクション選択<span>※必須</span></div>
+        <div>アトラクション<span>※必須</span></div>
         {% render_field form.attraction class="form-control" placeholder="選択してください" %}
+        <!-- <select name="attraction" class="form-control" id="id_attraction">
+            <option value="選択肢a">選択肢a</option>
+            <option value="選択肢b">選択肢b</option>
+            <option value="選択肢c">選択肢c</option>
+            <option value="選択肢d">選択肢d</option>
+        </select> -->
         {% for field in form %}
             {% for error in field.errors %}
                 ※アトラクションを選択してください<br>
@@ -30,7 +42,7 @@
         {% endfor %}
     </div>
     <div class="formpost">
-        <div>記事カテゴリ選択<span>※必須</span></div>
+        <div>記事カテゴリ<span>※必須</span></div>
         {% render_field form.category class="form-control" placeholder="選択してください" %}
     </div>
     <div class="formpost">
@@ -52,6 +64,32 @@
     const areaElement = $('#id_area');
     const attractionElement = $('#id_attraction');
     const area_attraction = {
+        '----選択してください': [
+            {
+                'value': '----エリアを選択してください',
+                'name': '----エリアを選択してください'
+            },
+        ],
+        '選択肢A': [
+            {
+                'value': '選択肢a',
+                'name': '選択肢a'
+            },
+            {
+                'value': '選択肢b',
+                'name': '選択肢b'
+            },
+        ],
+        '選択肢B': [
+            {
+                'value': '選択肢c',
+                'name': '選択肢c'
+            },
+            {
+                'value': '選択肢d',
+                'name': '選択肢d'
+            },
+        ],
         'ワールドバザール': [
             {
                 'value': 'オムニバス',
