@@ -15,23 +15,23 @@
     </div>
     <div class="formpost">
         <div>エリア<span>※必須</span></div>
-        {% render_field form.area class="form-control" placeholder="選択してください" %}
-        <!-- <select name="area" class="form-control" id="id_area">
+        <!-- {% render_field form.area class="form-control" placeholder="選択してください" %} -->
+        <select name="area" class="form-control" id="id_area">
+            <option value="----選択してください">----選択してください</option>
             <option value="選択肢A">選択肢A</option>
             <option value="選択肢B">選択肢B</option>
-            <option value="選択肢C">選択肢C</option>
-            <option value="選択肢D">選択肢D</option>
-        </select> -->
+        </select>
     </div>
     <div class="formpost">
         <div>アトラクション<span>※必須</span></div>
-        {% render_field form.attraction class="form-control" placeholder="選択してください" %}
-        <!-- <select name="attraction" class="form-control" id="id_attraction">
+        <!-- {% render_field form.attraction class="form-control" placeholder="選択してください" %} -->
+        <select name="attraction" class="form-control" id="id_attraction">
+            <option value="----エリアを選択してください">----エリアを選択してください</option>
             <option value="選択肢a">選択肢a</option>
             <option value="選択肢b">選択肢b</option>
             <option value="選択肢c">選択肢c</option>
             <option value="選択肢d">選択肢d</option>
-        </select> -->
+        </select>
         {% for field in form %}
             {% for error in field.errors %}
                 ※アトラクションを選択してください<br>
@@ -61,6 +61,10 @@
 
 {% block extra_js %}
 <script>
+    document.getElementById('id_area').options[0].disabled=true;
+    document.getElementById('id_attraction').options[0].disabled=true;
+    // const select = document.getElementById('id_area').options[0];
+    // select.disabled=true
     const areaElement = $('#id_area');
     const attractionElement = $('#id_attraction');
     const area_attraction = {
@@ -329,7 +333,6 @@
         attractionElement.children().remove();
         const parentId = areaElement.val();
         const categoryList = area_attraction[parentId];
-        // attractionElement.append('<option>テスト</option>');
         for (const category of categoryList) {
             const option = $('<option>');
                 option.val(category['value']);
@@ -349,3 +352,5 @@
     }
 </script>
 {% endblock %}
+<!-- document.getElementById('id_area').options[0].disabled=true; -->
+<!-- document.getElementById('id_attraction').options[0].disabled=true;     -->
