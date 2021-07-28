@@ -1435,7 +1435,7 @@ a:hover {
     padding: 2px !important;
 }
 
-.navbar-brand img{
+.navbar-b img{
     /* width: 20%; */
     height: 60px;
 }
@@ -1537,8 +1537,8 @@ a:hover {
 }
 
 .article-noimg{
-    width: 300px;
-    height: 180px;
+    width: 330px;
+    height: 210px;
     object-fit: cover;
 }
 

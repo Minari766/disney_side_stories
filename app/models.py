@@ -7,21 +7,24 @@ class Area(models.Model):
     slug = models.SlugField("スラッグ")
 
     def __str__(self):
-        return self.name
+    #     return self.name
+        return str(self.name)
 
 class Attraction(models.Model):
     name = models.CharField("アトラクション", max_length=100)
     slug = models.SlugField("スラッグ")
 
     def __str__(self):
-        return self.name
+    #     return self.name
+        return str(self.name)
 
 class Category(models.Model):
     name = models.CharField("カテゴリ", max_length=100)
     slug = models.SlugField("スラッグ")
 
     def __str__(self):
-        return self.name
+    #     return self.name
+        return str(self.name)
 
 class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
@@ -37,7 +40,7 @@ class Post(models.Model):
     # for post in Post.objects.annotate(Count('post')):
 
     def __str__(self):
-        return self.title
+        return str(self.title)
 
 class Like(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
@@ -47,4 +50,4 @@ class Like(models.Model):
 
     # 管理画面で表示される文字列
     def __str__(self):
-        return self.post
+        return str(self.post)

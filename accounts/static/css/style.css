@@ -1440,7 +1440,16 @@ a:hover {
     border: 2px black; 
 }
 
-.navbar-brand img{
+.navbar-b{
+    display: inline-block;
+    padding: 0px ;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+}
+
+.navbar-b img{
     width: 20%;
     height: auto;
 }
@@ -1490,8 +1499,8 @@ a:hover {
 }
 
 .article-noimg{
-    width: 300px;
-    height: 180px;
+    width: 330px;
+    height: 210px;
     object-fit: cover;
 }
 
