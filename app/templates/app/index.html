@@ -705,20 +705,56 @@
         <div class="article-container">
             <h3 class="article-title">{{ post.title|truncatechars:17}}</h3>
             <div>
+                {{ post.category.url }}
             {% if post.category|stringformat:"s" == "ストーリー" %}
+            <a href="{% url 'index' 'all' 'story' %}">
                 <img src="{% static 'img/memo.png' %}" alt="book" class="article-category-icon">
+            </a>
             {% elif post.category|stringformat:"s" == "隠れミッキー" %}
+            <a href="{% url 'index' 'all' 'mickey' %}">
                 <img src="{% static 'img/mickey.png' %}" alt="book" class="article-category-icon">
+            </a>
             {% elif post.category|stringformat:"s" == "豆知識" %}
+            <a href="{% url 'index' 'all' 'trivia' %}">
                 <img src="{% static 'img/bulb.png' %}" alt="book" class="article-category-icon bulb">
+            </a>
             {% elif post.category|stringformat:"s" == "その他" %}
+            <a href="{% url 'index' 'all' 'other' %}">
                 <img src="{% static 'img/comment.png' %}" alt="book" class="article-category-icon">
+            </a>
             {% else %}
+            <a href="{% url 'index' 'all' 'all' %}">
                 <img src="{% static 'img/search.png' %}" alt="なんも" class="article-category-icon">
+            </a>
             {% endif %}
             </div>
         </div>
-        <div class="">{{ post.attraction }}</div>
+        <div class="">
+            {% if post.area|stringformat:"s" == "ワールドバザール" %}
+                <a href="{% url 'index' 'bazaar' %}">{{ post.area }}</a>
+            {% elif post.area|stringformat:"s" == "アドベンチャーランド" %}
+                <a href="{% url 'index' 'adventure' %}">{{ post.area }}</a>
+            {% elif post.area|stringformat:"s" == "ウエスタンランド" %}
+                <a href="{% url 'index' 'western' %}">{{ post.area }}</a>
+            {% elif post.area|stringformat:"s" == "クリッターカントリー" %}
+                <a href="{% url 'index' 'critter' %}">{{ post.area }}</a>
+            {% elif post.area|stringformat:"s" == "ファンタジーランド" %}
+                <a href="{% url 'index' 'fantasy' %}">{{ post.area }}</a>
+            {% elif post.area|stringformat:"s" == "トゥーンタウン" %}
+                <a href="{% url 'index' 'toon' %}">{{ post.area }}</a>
+            {% elif post.area|stringformat:"s" == "トゥモローランド" %}
+                <a href="{% url 'index' 'tomorrow' %}">{{ post.area }}</a>
+            {% else %}
+                <a href="{% url 'index' 'all' %}">{{ post.area }}</a>
+            {% endif %}
+        </div>
+        <div class="">
+            {% if post.attraction|stringformat:"s" == "ワールドバザール（その他）" %}
+                <a href="{% url 'index' 'bazaar' 'bazaar-other' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
+            {% else %}
+                <a href="{% url 'index' 'all' %}">{{ post.attraction }}</a>
+            {% endif %}
+        </div>
         <p>{{ post.content|truncatechars:200 }}</p>
         <a class="article-more" href="{% url 'post_detail' post.id %}">もっと見る</a>
     </div>
