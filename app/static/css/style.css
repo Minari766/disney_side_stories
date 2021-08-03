@@ -1542,6 +1542,16 @@ a:hover {
     object-fit: cover;
 }
 
+/* タブ */
+.tab-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.tab-design{
+    
+}
+
 .post-detail{
     border-top: 1px solid #dee2e6;
     margin: 0px;

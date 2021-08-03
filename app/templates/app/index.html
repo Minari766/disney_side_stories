@@ -704,150 +704,152 @@
         </div>
         <div class="article-container">
             <h3 class="article-title">{{ post.title|truncatechars:17}}</h3>
-            <div>
+        </div>
+        <div class="tab-container">
+            <div class="">
                 {{ post.category.url }}
-            {% if post.category|stringformat:"s" == "ストーリー" %}
-            <a href="{% url 'index' 'all' 'story' %}">
-                <img src="{% static 'img/memo.png' %}" alt="book" class="article-category-icon">
-            </a>
-            {% elif post.category|stringformat:"s" == "隠れミッキー" %}
-            <a href="{% url 'index' 'all' 'mickey' %}">
-                <img src="{% static 'img/mickey.png' %}" alt="book" class="article-category-icon">
-            </a>
-            {% elif post.category|stringformat:"s" == "豆知識" %}
-            <a href="{% url 'index' 'all' 'trivia' %}">
-                <img src="{% static 'img/bulb.png' %}" alt="book" class="article-category-icon bulb">
-            </a>
-            {% elif post.category|stringformat:"s" == "その他" %}
-            <a href="{% url 'index' 'all' 'other' %}">
-                <img src="{% static 'img/comment.png' %}" alt="book" class="article-category-icon">
-            </a>
-            {% else %}
-            <a href="{% url 'index' 'all' 'all' %}">
-                <img src="{% static 'img/search.png' %}" alt="なんも" class="article-category-icon">
-            </a>
-            {% endif %}
+                {% if post.category|stringformat:"s" == "ストーリー" %}
+                <a href="{% url 'index' 'all' 'story' %}">
+                    <img src="{% static 'img/memo.png' %}" alt="book" class="article-category-icon">
+                </a>
+                {% elif post.category|stringformat:"s" == "隠れミッキー" %}
+                <a href="{% url 'index' 'all' 'mickey' %}">
+                    <img src="{% static 'img/mickey.png' %}" alt="book" class="article-category-icon">
+                </a>
+                {% elif post.category|stringformat:"s" == "豆知識" %}
+                <a href="{% url 'index' 'all' 'trivia' %}">
+                    <img src="{% static 'img/bulb.png' %}" alt="book" class="article-category-icon bulb">
+                </a>
+                {% elif post.category|stringformat:"s" == "その他" %}
+                <a href="{% url 'index' 'all' 'other' %}">
+                    <img src="{% static 'img/comment.png' %}" alt="book" class="article-category-icon">
+                </a>
+                {% else %}
+                <a href="{% url 'index' 'all' 'all' %}">
+                    <img src="{% static 'img/search.png' %}" alt="なんも" class="article-category-icon">
+                </a>
+                {% endif %}
             </div>
-        </div>
-        <div class="">
-            {% if post.area|stringformat:"s" == "ワールドバザール" %}
-                <a href="{% url 'index' 'bazaar' %}">{{ post.area }}</a>
-            {% elif post.area|stringformat:"s" == "アドベンチャーランド" %}
-                <a href="{% url 'index' 'adventure' %}">{{ post.area }}</a>
-            {% elif post.area|stringformat:"s" == "ウエスタンランド" %}
-                <a href="{% url 'index' 'western' %}">{{ post.area }}</a>
-            {% elif post.area|stringformat:"s" == "クリッターカントリー" %}
-                <a href="{% url 'index' 'critter' %}">{{ post.area }}</a>
-            {% elif post.area|stringformat:"s" == "ファンタジーランド" %}
-                <a href="{% url 'index' 'fantasy' %}">{{ post.area }}</a>
-            {% elif post.area|stringformat:"s" == "トゥーンタウン" %}
-                <a href="{% url 'index' 'toon' %}">{{ post.area }}</a>
-            {% elif post.area|stringformat:"s" == "トゥモローランド" %}
-                <a href="{% url 'index' 'tomorrow' %}">{{ post.area }}</a>
-            {% else %}
-                <a href="{% url 'index' 'all' %}">{{ post.area }}</a>
-            {% endif %}
-        </div>
-        <div class="">
-            {% if post.attraction|stringformat:"s" == "ワールドバザール（その他）" %}
-                <a href="{% url 'index' 'bazaar' 'bazaar-other' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
-            {% elif post.attraction|stringformat:"s" == "オムニバス" %}
-                <a href="{% url 'index' 'bazaar' 'omni' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
-            {% elif post.attraction|stringformat:"s" == "ペニーアーケード" %}
-                <a href="{% url 'index' 'bazaar' 'penny' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
-            {% elif post.attraction|stringformat:"s" == "ウエスタンリバー鉄道" %}
-                <a href="{% url 'index' 'adventure' 'riverline' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
-            {% elif post.attraction|stringformat:"s" == "カリブの海賊" %}
-                <a href="{% url 'index' 'adventure' 'carib' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
-            {% elif post.attraction|stringformat:"s" == "ジャングルクルーズ" %}
-                <a href="{% url 'index' 'adventure' 'cruise' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
-            {% elif post.attraction|stringformat:"s" == "スイスファミリー・ツリーハウス" %}
-                <a href="{% url 'index' 'adventure' 'swiss' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
-            {% elif post.attraction|stringformat:"s" == "魅惑のチキルーム “アロハ・エ・コモ・マイ!”" %}
-                <a href="{% url 'index' 'adventure' 'swiss' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
-            {% elif post.attraction|stringformat:"s" == "アドベンチャーワールド（その他）" %}
-                <a href="{% url 'index' 'adventure' 'adventure-other' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
-            {% elif post.attraction|stringformat:"s" == "シューティングギャラリー" %}
-                <a href="{% url 'index' 'western' 'shooting' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
-            {% elif post.attraction|stringformat:"s" == "カントリーベア・シアター" %}
-                <a href="{% url 'index' 'western' 'bear' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
-            {% elif post.attraction|stringformat:"s" == "蒸気船マークトウェイン号" %}
-                <a href="{% url 'index' 'western' 'mark' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
-            {% elif post.attraction|stringformat:"s" == "トムソーヤ島いかだ" %}
-                <a href="{% url 'index' 'western' 'tom' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
-            {% elif post.attraction|stringformat:"s" == "ビッグサンダー・マウンテン" %}
-                <a href="{% url 'index' 'western' 'big' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
-            {% elif post.attraction|stringformat:"s" == "ウエスタンランド（その他）" %}
-                <a href="{% url 'index' 'western' 'western-other' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
-            {% elif post.attraction|stringformat:"s" == "スプラッシュ・マウンテン" %}
-                <a href="{% url 'index' 'critter' 'splash' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
-            {% elif post.attraction|stringformat:"s" == "ビーバーブラザーズのカヌー探険" %}
-                <a href="{% url 'index' 'critter' 'canoe' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
-            {% elif post.attraction|stringformat:"s" == "クリッターカントリー（その他）" %}
-                <a href="{% url 'index' 'critter' 'critter-other' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
-            {% elif post.attraction|stringformat:"s" == "アリスのティーパーティー" %}
-                <a href="{% url 'index' 'fantasy' 'alice' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
-            {% elif post.attraction|stringformat:"s" == "イッツ・ア・スモールワールド" %}
-                <a href="{% url 'index' 'fantasy' 'small' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
-            {% elif post.attraction|stringformat:"s" == "白雪姫と七人のこびと" %}
-                <a href="{% url 'index' 'fantasy' 'snow' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
-            {% elif post.attraction|stringformat:"s" == "シンデレラのフェアリーテイル・ホール" %}
-                <a href="{% url 'index' 'fantasy' 'cinderella' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
-            {% elif post.attraction|stringformat:"s" == "空飛ぶダンボ" %}
-                <a href="{% url 'index' 'fantasy' 'dumbo' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
-            {% elif post.attraction|stringformat:"s" == '美女と野獣"まほうのものがたり"' %}
-                <a href="{% url 'index' 'fantasy' 'dumbo' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
-            {% elif post.attraction|stringformat:"s" == "ピーターパン空の旅" %}
-                <a href="{% url 'index' 'fantasy' 'peter' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
-            {% elif post.attraction|stringformat:"s" == "ピノキオの冒険旅行" %}
-                <a href="{% url 'index' 'fantasy' 'pinocchio' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
-            {% elif post.attraction|stringformat:"s" == "プーさんのハニーハント" %}
-                <a href="{% url 'index' 'fantasy' 'pooh' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
-            {% elif post.attraction|stringformat:"s" == "ホーンテッドマンション" %}
-                <a href="{% url 'index' 'fantasy' 'haunted' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
-            {% elif post.attraction|stringformat:"s" == "ミッキーのフィルハーマジック" %}
-                <a href="{% url 'index' 'fantasy' 'philhar' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
-            {% elif post.attraction|stringformat:"s" == "キャッスルカルーセル" %}
-                <a href="{% url 'index' 'fantasy' 'carousel' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
-            {% elif post.attraction|stringformat:"s" == "ファンタジーランド（その他）" %}
-                <a href="{% url 'index' 'fantasy' 'fantasy-other' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
-            {% elif post.attraction|stringformat:"s" == "ガジェットのゴーコースター" %}
-                <a href="{% url 'index' 'toon' 'gadget' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
-            {% elif post.attraction|stringformat:"s" == "グーフィーのペイント＆プレイハウス" %}
-                <a href="{% url 'index' 'toon' 'goofy' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
-            {% elif post.attraction|stringformat:"s" == "チップとデールのツリーハウス" %}
-                <a href="{% url 'index' 'toon' 'chip' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
-            {% elif post.attraction|stringformat:"s" == "トゥーンパーク" %}
-                <a href="{% url 'index' 'toon' 'park' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
-            {% elif post.attraction|stringformat:"s" == "ドナルドのボート" %}
-                <a href="{% url 'index' 'toon' 'donald' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
-            {% elif post.attraction|stringformat:"s" == "ミニーの家" %}
-                <a href="{% url 'index' 'toon' 'minnie' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
-            {% elif post.attraction|stringformat:"s" == "ロジャーラビットのカートゥーンスピン" %}
-                <a href="{% url 'index' 'toon' 'roger' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
-            {% elif post.attraction|stringformat:"s" == "ミニーのスタイルスタジオ" %}
-                <a href="{% url 'index' 'toon' 'style' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
-            {% elif post.attraction|stringformat:"s" == "ミッキーの家とミート・ミッキー" %}
-                <a href="{% url 'index' 'toon' 'mickey' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
-            {% elif post.attraction|stringformat:"s" == "トゥーンタウン（その他）" %}
-                <a href="{% url 'index' 'toon' 'toon-other' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
-            {% elif post.attraction|stringformat:"s" == "スター・ツアーズ" %}
-                <a href="{% url 'index' 'tomorrow' 'tours' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
-            {% elif post.attraction|stringformat:"s" == "スティッチ・エンカウンター" %}
-                <a href="{% url 'index' 'tomorrow' 'stitch' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
-            {% elif post.attraction|stringformat:"s" == "スペース・マウンテン" %}
-                <a href="{% url 'index' 'tomorrow' 'space' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
-            {% elif post.attraction|stringformat:"s" == "バズ・ライトイヤーのアストロブラスター" %}
-                <a href="{% url 'index' 'tomorrow' 'buzz' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
-            {% elif post.attraction|stringformat:"s" == "ベイマックスのハッピーライド" %}
-                <a href="{% url 'index' 'tomorrow' 'baymax' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
-            {% elif post.attraction|stringformat:"s" == 'モンスターズ・インク"ライド&ゴーシーク！"' %}
-                <a href="{% url 'index' 'tomorrow' 'baymax' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
-            {% elif post.attraction|stringformat:"s" == "トゥモローランド（その他）" %}
-                <a href="{% url 'index' 'tomorrow' 'tomorrow-other' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
-            {% else %}
-                <a href="{% url 'index' 'all' %}">{{ post.attraction }}</a>
-            {% endif %}
+            <div class="tab-design">
+                {% if post.area|stringformat:"s" == "ワールドバザール" %}
+                    <a href="{% url 'index' 'bazaar' %}">{{ post.area }}</a>
+                {% elif post.area|stringformat:"s" == "アドベンチャーランド" %}
+                    <a href="{% url 'index' 'adventure' %}">{{ post.area }}</a>
+                {% elif post.area|stringformat:"s" == "ウエスタンランド" %}
+                    <a href="{% url 'index' 'western' %}">{{ post.area }}</a>
+                {% elif post.area|stringformat:"s" == "クリッターカントリー" %}
+                    <a href="{% url 'index' 'critter' %}">{{ post.area }}</a>
+                {% elif post.area|stringformat:"s" == "ファンタジーランド" %}
+                    <a href="{% url 'index' 'fantasy' %}">{{ post.area }}</a>
+                {% elif post.area|stringformat:"s" == "トゥーンタウン" %}
+                    <a href="{% url 'index' 'toon' %}">{{ post.area }}</a>
+                {% elif post.area|stringformat:"s" == "トゥモローランド" %}
+                    <a href="{% url 'index' 'tomorrow' %}">{{ post.area }}</a>
+                {% else %}
+                    <a href="{% url 'index' 'all' %}">{{ post.area }}</a>
+                {% endif %}
+            </div>
+            <div class="tab-design">
+                {% if post.attraction|stringformat:"s" == "ワールドバザール（その他）" %}
+                    <a href="{% url 'index' 'bazaar' 'bazaar-other' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
+                {% elif post.attraction|stringformat:"s" == "オムニバス" %}
+                    <a href="{% url 'index' 'bazaar' 'omni' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
+                {% elif post.attraction|stringformat:"s" == "ペニーアーケード" %}
+                    <a href="{% url 'index' 'bazaar' 'penny' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
+                {% elif post.attraction|stringformat:"s" == "ウエスタンリバー鉄道" %}
+                    <a href="{% url 'index' 'adventure' 'riverline' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
+                {% elif post.attraction|stringformat:"s" == "カリブの海賊" %}
+                    <a href="{% url 'index' 'adventure' 'carib' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
+                {% elif post.attraction|stringformat:"s" == "ジャングルクルーズ" %}
+                    <a href="{% url 'index' 'adventure' 'cruise' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
+                {% elif post.attraction|stringformat:"s" == "スイスファミリー・ツリーハウス" %}
+                    <a href="{% url 'index' 'adventure' 'swiss' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
+                {% elif post.attraction|stringformat:"s" == "魅惑のチキルーム “アロハ・エ・コモ・マイ!”" %}
+                    <a href="{% url 'index' 'adventure' 'swiss' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
+                {% elif post.attraction|stringformat:"s" == "アドベンチャーワールド（その他）" %}
+                    <a href="{% url 'index' 'adventure' 'adventure-other' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
+                {% elif post.attraction|stringformat:"s" == "シューティングギャラリー" %}
+                    <a href="{% url 'index' 'western' 'shooting' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
+                {% elif post.attraction|stringformat:"s" == "カントリーベア・シアター" %}
+                    <a href="{% url 'index' 'western' 'bear' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
+                {% elif post.attraction|stringformat:"s" == "蒸気船マークトウェイン号" %}
+                    <a href="{% url 'index' 'western' 'mark' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
+                {% elif post.attraction|stringformat:"s" == "トムソーヤ島いかだ" %}
+                    <a href="{% url 'index' 'western' 'tom' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
+                {% elif post.attraction|stringformat:"s" == "ビッグサンダー・マウンテン" %}
+                    <a href="{% url 'index' 'western' 'big' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
+                {% elif post.attraction|stringformat:"s" == "ウエスタンランド（その他）" %}
+                    <a href="{% url 'index' 'western' 'western-other' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
+                {% elif post.attraction|stringformat:"s" == "スプラッシュ・マウンテン" %}
+                    <a href="{% url 'index' 'critter' 'splash' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
+                {% elif post.attraction|stringformat:"s" == "ビーバーブラザーズのカヌー探険" %}
+                    <a href="{% url 'index' 'critter' 'canoe' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
+                {% elif post.attraction|stringformat:"s" == "クリッターカントリー（その他）" %}
+                    <a href="{% url 'index' 'critter' 'critter-other' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
+                {% elif post.attraction|stringformat:"s" == "アリスのティーパーティー" %}
+                    <a href="{% url 'index' 'fantasy' 'alice' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
+                {% elif post.attraction|stringformat:"s" == "イッツ・ア・スモールワールド" %}
+                    <a href="{% url 'index' 'fantasy' 'small' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
+                {% elif post.attraction|stringformat:"s" == "白雪姫と七人のこびと" %}
+                    <a href="{% url 'index' 'fantasy' 'snow' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
+                {% elif post.attraction|stringformat:"s" == "シンデレラのフェアリーテイル・ホール" %}
+                    <a href="{% url 'index' 'fantasy' 'cinderella' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
+                {% elif post.attraction|stringformat:"s" == "空飛ぶダンボ" %}
+                    <a href="{% url 'index' 'fantasy' 'dumbo' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
+                {% elif post.attraction|stringformat:"s" == '美女と野獣"まほうのものがたり"' %}
+                    <a href="{% url 'index' 'fantasy' 'dumbo' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
+                {% elif post.attraction|stringformat:"s" == "ピーターパン空の旅" %}
+                    <a href="{% url 'index' 'fantasy' 'peter' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
+                {% elif post.attraction|stringformat:"s" == "ピノキオの冒険旅行" %}
+                    <a href="{% url 'index' 'fantasy' 'pinocchio' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
+                {% elif post.attraction|stringformat:"s" == "プーさんのハニーハント" %}
+                    <a href="{% url 'index' 'fantasy' 'pooh' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
+                {% elif post.attraction|stringformat:"s" == "ホーンテッドマンション" %}
+                    <a href="{% url 'index' 'fantasy' 'haunted' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
+                {% elif post.attraction|stringformat:"s" == "ミッキーのフィルハーマジック" %}
+                    <a href="{% url 'index' 'fantasy' 'philhar' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
+                {% elif post.attraction|stringformat:"s" == "キャッスルカルーセル" %}
+                    <a href="{% url 'index' 'fantasy' 'carousel' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
+                {% elif post.attraction|stringformat:"s" == "ファンタジーランド（その他）" %}
+                    <a href="{% url 'index' 'fantasy' 'fantasy-other' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
+                {% elif post.attraction|stringformat:"s" == "ガジェットのゴーコースター" %}
+                    <a href="{% url 'index' 'toon' 'gadget' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
+                {% elif post.attraction|stringformat:"s" == "グーフィーのペイント＆プレイハウス" %}
+                    <a href="{% url 'index' 'toon' 'goofy' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
+                {% elif post.attraction|stringformat:"s" == "チップとデールのツリーハウス" %}
+                    <a href="{% url 'index' 'toon' 'chip' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
+                {% elif post.attraction|stringformat:"s" == "トゥーンパーク" %}
+                    <a href="{% url 'index' 'toon' 'park' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
+                {% elif post.attraction|stringformat:"s" == "ドナルドのボート" %}
+                    <a href="{% url 'index' 'toon' 'donald' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
+                {% elif post.attraction|stringformat:"s" == "ミニーの家" %}
+                    <a href="{% url 'index' 'toon' 'minnie' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
+                {% elif post.attraction|stringformat:"s" == "ロジャーラビットのカートゥーンスピン" %}
+                    <a href="{% url 'index' 'toon' 'roger' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
+                {% elif post.attraction|stringformat:"s" == "ミニーのスタイルスタジオ" %}
+                    <a href="{% url 'index' 'toon' 'style' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
+                {% elif post.attraction|stringformat:"s" == "ミッキーの家とミート・ミッキー" %}
+                    <a href="{% url 'index' 'toon' 'mickey' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
+                {% elif post.attraction|stringformat:"s" == "トゥーンタウン（その他）" %}
+                    <a href="{% url 'index' 'toon' 'toon-other' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
+                {% elif post.attraction|stringformat:"s" == "スター・ツアーズ" %}
+                    <a href="{% url 'index' 'tomorrow' 'tours' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
+                {% elif post.attraction|stringformat:"s" == "スティッチ・エンカウンター" %}
+                    <a href="{% url 'index' 'tomorrow' 'stitch' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
+                {% elif post.attraction|stringformat:"s" == "スペース・マウンテン" %}
+                    <a href="{% url 'index' 'tomorrow' 'space' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
+                {% elif post.attraction|stringformat:"s" == "バズ・ライトイヤーのアストロブラスター" %}
+                    <a href="{% url 'index' 'tomorrow' 'buzz' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
+                {% elif post.attraction|stringformat:"s" == "ベイマックスのハッピーライド" %}
+                    <a href="{% url 'index' 'tomorrow' 'baymax' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
+                {% elif post.attraction|stringformat:"s" == 'モンスターズ・インク"ライド&ゴーシーク！"' %}
+                    <a href="{% url 'index' 'tomorrow' 'baymax' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
+                {% elif post.attraction|stringformat:"s" == "トゥモローランド（その他）" %}
+                    <a href="{% url 'index' 'tomorrow' 'tomorrow-other' 'all' %}">{{ post.attraction|truncatechars:17 }}</a>
+                {% else %}
+                    <a href="{% url 'index' 'all' %}">{{ post.attraction }}</a>
+                {% endif %}
+            </div>
         </div>
         <p>{{ post.content|truncatechars:200 }}</p>
         <a class="article-more" href="{% url 'post_detail' post.id %}">もっと見る</a>
