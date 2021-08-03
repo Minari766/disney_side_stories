@@ -1549,7 +1549,24 @@ a:hover {
 }
 
 .tab-design{
-    
+    box-sizing: border-box;
+    border: 0.5px solid rgb(223, 223, 223);
+    border-radius: 4px;
+    padding:4px 6px;
+    margin : 0px 10px 0px 0px;
+    display:flex;
+}
+
+.tab-design i{
+    justify-content: center;
+    align-items: center;
+    color: red;
+}
+
+.tab-design a{
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
 }
 
 .post-detail{
