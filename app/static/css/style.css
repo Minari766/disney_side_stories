@@ -1543,30 +1543,26 @@ a:hover {
 }
 
 /* タブ */
-.tab-container{
+.tag-container{
     display: flex;
     flex-direction: row;
+    text-align:center;
 }
 
-.tab-design{
+.tag-design{
     box-sizing: border-box;
     border: 0.5px solid rgb(223, 223, 223);
     border-radius: 4px;
     padding:4px 6px;
     margin : 0px 10px 0px 0px;
-    display:flex;
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
 }
 
-.tab-design i{
-    justify-content: center;
-    align-items: center;
-    color: red;
-}
-
-.tab-design a{
-    justify-content: center;
-    align-items: center;
-    margin-left: 10px;
+.tag-design i{
+    margin: 3px;
+    color: rgb(5, 149, 167);
 }
 
 .post-detail{
