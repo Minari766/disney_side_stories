@@ -1546,7 +1546,7 @@ a:hover {
 .tag-container{
     display: flex;
     flex-direction: row;
-    text-align:center;
+    text-align:left;
 }
 
 .tag-design{
