@@ -24,7 +24,7 @@
 
 <!-- タグ追加 -->
 
-<div class="tag-container">
+<div class="tag-container my-2 d-none d-sm-none d-md-none d-lg-none d-xl-block">
     <div class="tag-design">
         {{ post_data.category.url }}
         {% if post_data.category|stringformat:"s" == "ストーリー" %}
@@ -176,11 +176,7 @@
     </form>
     <p name="{{ post_data.id }}-count" class="count"> {{ post_data.like_set.count }} </p>
 </div>
-<div>{{ post_data.area }} > {{ post_data.attraction }}</div>
-<div>{{ post_data.category }}</div>
-
-<br>
-    <p>{{ post_data.content|linebreaksbr }}</p>
+<p>{{ post_data.content|linebreaksbr }}</p>
     {% if user.is_authenticated %}
 <hr>
 <div class="d-flex justify-content-center mb-5">

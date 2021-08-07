@@ -28,12 +28,12 @@
                 <img src="{% static 'img/user1.png' %}" class="user-icon-top">
             {% endif %}
             </h7>
-            <h7 class="text_right">{{ post.created|date:"Y/m/j/" }}</h7>
+            <h7 class="text_right">{{ post.created|date:"Y/m/j" }}</h7>
         </div>
         <div class="article-container">
             <h3 class="article-title">{{ post.title|truncatechars:17}}</h3>
         </div>
-        <div class="tag-container">
+        <div class="tag-container my-2 d-none d-sm-none d-md-none d-lg-none d-xl-block">
             <div class="tag-design">
                 {{ post.category.url }}
                 {% if post.category|stringformat:"s" == "ストーリー" %}
