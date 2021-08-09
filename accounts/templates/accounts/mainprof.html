@@ -9,9 +9,9 @@
         <h5 class="card-title text-center">{{ user_data.user_name }}さんのプロフィール</h5>
         <table class="profile_table mb-4">
             {% if user_data.icon %}
-                <img src="{{ user_data.icon.url }}" class="">
+                <img src="{{ user_data.icon.url }}" class="d-block mx-auto">
             {% else %}
-                <img src="{% static 'img/user1.png' %}" alt="" class="">
+                <img src="{% static 'img/user1.png' %}" alt="" class="d-block mx-auto">
             {% endif %}
             <tbody>
                 <tr>

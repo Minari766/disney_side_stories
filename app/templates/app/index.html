@@ -698,7 +698,6 @@
                 <img src="{% static 'img/user1.png' %}" class="user-icon-top">
             {% endif %}
                 {{ post.author }}
-
             </h7>
             <h7 class="text_right">{{ post.created|date:"Y/m/j" }}</h7>
         </div>
@@ -843,7 +842,7 @@
                 {% endif %}
             </div>
         </div>
-        <p>{{ post.content|truncatechars:200 }}</p>
+        <p>{{ post.content|truncatechars:115 }}</p>
         <a class="article-more" href="{% url 'post_detail' post.id %}">もっと見る</a>
     </div>
 </div>
@@ -882,7 +881,8 @@
 </ul>
 
 <div class="text-right">
-    <a href="{% url 'post_new' %}" class="btn btn-info">新しい記事を投稿</a>
+    <!-- <a href="{% url 'post_new' %}" class="btn btn-info">新しい記事を投稿</a> -->
+    <a href="{% url 'preview' %}" class="btn btn-info">新しい記事を投稿</a>
 </div>
 <!-- <div class="text-right">
     <a href="{% url 'contact' %}" class="btn btn-info">問い合わせ</a>

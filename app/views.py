@@ -57,10 +57,7 @@ class IndexView(View):
         elif category is None :
             post_data = post_data
         return post_data
-    
-    # def postcount(self, request, *args, **kwargs):
-    #     counted_posts = Post.objects.count()
-    #     print(counted_posts)
+
 
     def get(self, request, *args, **kwargs):
         post_data = Post.objects.filter(public=True).order_by("-id")
@@ -74,7 +71,6 @@ class IndexView(View):
         post_data = self.attraction_select(post_data, category, area, attraction)
         post_data = self.category_select(post_data, category, area, attraction)
         page_obj = self.paginate_queryset(request, post_data, 10)
-        print("テスト5")
 
         return render(request, 'app/index.html', {
             'post_data': page_obj.object_list,
@@ -107,14 +103,12 @@ class PostDetailView(View):
 class CreatePostView(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
         form = PostForm(request.POST or None)
-        print("テスト1")
         return render(request, 'app/post_form.html', {
             'form': form
         })
     
     def post(self, request, *args, **kwargs):
         form = PostForm(request.POST or None)
-        print("テスト7")
 
         if form.is_valid():
             post_data = Post()
@@ -127,27 +121,19 @@ class CreatePostView(LoginRequiredMixin, View):
             category = form.cleaned_data['category']
             post_data.category = Category.objects.get(name=category)
             post_data.content = form.cleaned_data['content']
-            print("テスト2")
             if request.FILES:
                 post_data.image = request.FILES.get('image')
+            # ココ追加
+            post_data.public = True
             post_data.save()
-            print("テスト3")
-            # show = False
-        # 120-125まで一時的に
-        #     return redirect('post_detail', post_data.id)
-
-        # return render(request, 'app/post_form.html', {
-        #     'form': form
-        # })
-            print("テスト8")
+            print("テスト1")
+            show = False
             return render(request, 'app/post_preview.html', {
                 'post_data' : post_data
             })
 
     # 以下コードはformのvalidationが失敗したとき
         # return render(request, 'app/post_form.html', {
-        print("テスト9")
-        print(form)
         return render(request, 'app/post_form.html', {
             'form': form
         })
@@ -157,6 +143,8 @@ class PreviewPostView(LoginRequiredMixin, View):
         # POSTのPOST（データ入力フォームに記載された情報）の中身をリクエストして表示している。
         # print(request.POST)
         post_data = Post()
+        post_data.author = request.user
+        post_data.title = request.POST.get('title')
         area = request.POST.get('area')
         post_data.area = Area.objects.get(name=area)
         attraction = request.POST.get('attraction')
@@ -164,16 +152,15 @@ class PreviewPostView(LoginRequiredMixin, View):
         category = request.POST.get('category')
         post_data.category = Category.objects.get(name=category)
         # request.userでログインユーザー情報を入手できる。
-        post_data.author = request.user
         post_data.content = request.POST.get('content')
         post_data.image = request.POST.get('image')
-        print("テスト4")
         if request.FILES:
             post_data.image = request.FILES.get('image')
-        post_data.title = request.POST.get('title')
         post_data.public = True
-        post_data.save()
-        # show = not False
+        print(post_data.public)
+        # post_data.save()
+        print("テスト2")
+        show = not False
         return redirect('index')
 
 class PostEditView(LoginRequiredMixin, View):
@@ -314,16 +301,7 @@ class SearchView(View):
             query = reduce(and_, [Q(title__icontains=q) | Q(content__icontains=q) for q in query_list])
             post_data = post_data.filter(query)
             count = post_data.count()
-            print(post_data)
-            print("count", count)
 
-        # search_result = 0
-        # for post in post_data:
-        #     count = post.count()
-        #     search_result += count
-        # print("search_result", search_result)
-
-        
         return render(request, 'app/search.html', {
             'keyword' : keyword,
             'post_data' : post_data,
@@ -356,7 +334,6 @@ def LikeView(request):
 class ContactView(View):
     def get(self, request, *args, **kwargs):
         form = ContactForm(request.POST or None)
-        print("validation_access")
         return render(request, 'app/contact.html',{
             'form': form
         })
@@ -365,7 +342,6 @@ class ContactView(View):
         form = ContactForm(request.POST or None)
         
         if form.is_valid():
-            print("validation_True")
             name = form.cleaned_data['name']
             email = form.cleaned_data['email']
             message = form.cleaned_data['message']
@@ -411,8 +387,6 @@ class ContactView(View):
             return redirect('contact_result')
             # return redirect('index')
         # フォーム内容に不備があった場合(form.is_validがFalseの場合)、からのフォームを返す
-        print("validation_エラー")
-        # print(form)
         return render(request, 'app/contact.html', {
             'form': form
         })
