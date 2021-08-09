@@ -1,0 +1,98 @@
+[
+    {
+        "model": "app.area",
+        "pk": 1,
+        "fields": {
+        "name": "ワールドバザール",
+        "slug": "bazaar"
+        }
+    },
+    {
+        "model": "app.area",
+        "pk": 2,
+        "fields": {
+        "name": "アドベンチャーランド",
+        "slug": "adventure"
+        }
+    },
+    {
+        "model": "app.area",
+        "pk": 3,
+        "fields": {
+        "name": "ウエスタンランド",
+        "slug": "western"
+        }
+    },
+    {
+        "model": "app.area",
+        "pk": 4,
+        "fields": {
+        "name": "クリッターカントリー",
+        "slug": "critter"
+        }
+    },
+    {
+        "model": "app.area",
+        "pk": 5,
+        "fields": {
+        "name": "ファンタジーランド",
+        "slug": "fantasy"
+        }
+    },
+    {
+        "model": "app.Area",
+        "pk": 6,
+        "fields": {
+        "name": "トゥーンタウン",
+        "slug": "toon"
+        }
+    },
+    {
+        "model": "app.Area",
+        "pk": 7,
+        "fields": {
+        "name": "トゥモローランド",
+        "slug": "tomorrow"
+        }
+    },
+    {
+        "model": "app.Attraction",
+        "pk": 1,
+        "fields": {
+        "name": "オムニバス",
+        "slug": "omni"
+        }
+    },
+    {
+        "model": "app.category",
+        "pk": 1,
+        "fields": {
+        "name": "ストーリー",
+        "slug": "story"
+        }
+    }
+    {
+        "model": "app.category",
+        "pk": 2,
+        "fields": {
+        "name": "ミッキー",
+        "slug": "mickey"
+        }
+    }
+    {
+        "model": "app.category",
+        "pk": 3,
+        "fields": {
+        "name": "豆知識",
+        "slug": "trivia"
+        }
+    }
+    {
+        "model": "app.category",
+        "pk": 4,
+        "fields": {
+        "name": "その他",
+        "slug": "other"
+        }
+    }
+]
