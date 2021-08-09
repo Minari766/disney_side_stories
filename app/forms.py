@@ -7,6 +7,7 @@ from .models import Area, Attraction, Category
 
 
 class PostForm(forms.Form):
+    # pass
     area_data = Area.objects.all()
     area_choice = {}
     for area in area_data:

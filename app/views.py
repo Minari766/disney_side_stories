@@ -124,10 +124,10 @@ class CreatePostView(LoginRequiredMixin, View):
             if request.FILES:
                 post_data.image = request.FILES.get('image')
             # ココ追加
-            post_data.public = True
+            # post_data.public = True
             post_data.save()
             print("テスト1")
-            show = False
+            # show = False
             return render(request, 'app/post_preview.html', {
                 'post_data' : post_data
             })
@@ -140,27 +140,30 @@ class CreatePostView(LoginRequiredMixin, View):
 
 class PreviewPostView(LoginRequiredMixin, View):
     def post(self, request, *args, **kwargs):
+        id = request.POST.get('id')
+        post_data = Post.objects.get(id=id)
+        post_data.public = True
+        post_data.save()
         # POSTのPOST（データ入力フォームに記載された情報）の中身をリクエストして表示している。
         # print(request.POST)
-        post_data = Post()
-        post_data.author = request.user
-        post_data.title = request.POST.get('title')
-        area = request.POST.get('area')
-        post_data.area = Area.objects.get(name=area)
-        attraction = request.POST.get('attraction')
-        post_data.attraction = Attraction.objects.get(name=attraction)
-        category = request.POST.get('category')
-        post_data.category = Category.objects.get(name=category)
-        # request.userでログインユーザー情報を入手できる。
-        post_data.content = request.POST.get('content')
-        post_data.image = request.POST.get('image')
-        if request.FILES:
-            post_data.image = request.FILES.get('image')
-        post_data.public = True
-        print(post_data.public)
+        # post_data = Post()
+        # post_data.author = request.user
+        # post_data.title = request.POST.get('title')
+        # area = request.POST.get('area')
+        # post_data.area = Area.objects.get(name=area)
+        # attraction = request.POST.get('attraction')
+        # post_data.attraction = Attraction.objects.get(name=attraction)
+        # category = request.POST.get('category')
+        # post_data.category = Category.objects.get(name=category)
+        # # request.userでログインユーザー情報を入手できる。
+        # post_data.content = request.POST.get('content')
+        # post_data.image = request.POST.get('image')
+        # if request.FILES:
+        #     post_data.image = request.FILES.get('image')
+        # post_data.public = True
+        # print(post_data.public)
         # post_data.save()
         print("テスト2")
-        show = not False
         return redirect('index')
 
 class PostEditView(LoginRequiredMixin, View):
