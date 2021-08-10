@@ -123,8 +123,6 @@ class CreatePostView(LoginRequiredMixin, View):
             post_data.content = form.cleaned_data['content']
             if request.FILES:
                 post_data.image = request.FILES.get('image')
-            # ココ追加
-            # post_data.public = True
             post_data.save()
             print("テスト1")
             # show = False
@@ -141,7 +139,12 @@ class CreatePostView(LoginRequiredMixin, View):
 class PreviewPostView(LoginRequiredMixin, View):
     def post(self, request, *args, **kwargs):
         id = request.POST.get('id')
+        print("テスト2")
+        print(id)
+        print("テスト3")
         post_data = Post.objects.get(id=id)
+        print(post_data)
+        print("テスト4")
         post_data.public = True
         post_data.save()
         # POSTのPOST（データ入力フォームに記載された情報）の中身をリクエストして表示している。
@@ -163,7 +166,6 @@ class PreviewPostView(LoginRequiredMixin, View):
         # post_data.public = True
         # print(post_data.public)
         # post_data.save()
-        print("テスト2")
         return redirect('index')
 
 class PostEditView(LoginRequiredMixin, View):

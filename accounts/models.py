@@ -64,5 +64,6 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         self.email = self.__class__.objects.normalize_email(self.email)
     
     def __str__(self):
-        return self.user_name
+        # return self.user_name
+        return str(self.user_name)
 # Create your models here.

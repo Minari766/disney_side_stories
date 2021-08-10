@@ -116,7 +116,7 @@
                     <a href="{% url 'index' 'fantasy' 'cinderella' 'all' %}"><i class="fas fa-tags"></i>{{ post.attraction|truncatechars:15 }}</a>
                 {% elif post.attraction|stringformat:"s" == "空飛ぶダンボ" %}
                     <a href="{% url 'index' 'fantasy' 'dumbo' 'all' %}"><i class="fas fa-tags"></i>{{ post.attraction|truncatechars:15 }}</a>
-                {% elif post.attraction|stringformat:"s" == '美女と野獣"まほうのものがたり"' %}
+                {% elif post.attraction|stringformat:"s" == '美女と野獣“まほうのものがたり”' %}
                     <a href="{% url 'index' 'fantasy' 'dumbo' 'all' %}"><i class="fas fa-tags"></i>{{ post.attraction|truncatechars:15 }}</a>
                 {% elif post.attraction|stringformat:"s" == "ピーターパン空の旅" %}
                     <a href="{% url 'index' 'fantasy' 'peter' 'all' %}"><i class="fas fa-tags"></i>{{ post.attraction|truncatechars:15 }}</a>
@@ -162,7 +162,7 @@
                     <a href="{% url 'index' 'tomorrow' 'buzz' 'all' %}"><i class="fas fa-tags"></i>{{ post.attraction|truncatechars:15 }}</a>
                 {% elif post.attraction|stringformat:"s" == "ベイマックスのハッピーライド" %}
                     <a href="{% url 'index' 'tomorrow' 'baymax' 'all' %}"><i class="fas fa-tags"></i>{{ post.attraction|truncatechars:15 }}</a>
-                {% elif post.attraction|stringformat:"s" == 'モンスターズ・インク"ライド&ゴーシーク！"' %}
+                {% elif post.attraction|stringformat:"s" == 'モンスターズ・インク“ライド&ゴーシーク！”' %}
                     <a href="{% url 'index' 'tomorrow' 'baymax' 'all' %}"><i class="fas fa-tags"></i>{{ post.attraction|truncatechars:15 }}</a>
                 {% elif post.attraction|stringformat:"s" == "トゥモローランド（その他）" %}
                     <a href="{% url 'index' 'tomorrow' 'tomorrow-other' 'all' %}"><i class="fas fa-tags"></i>{{ post.attraction|truncatechars:15 }}</a>
