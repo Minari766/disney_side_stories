@@ -139,12 +139,7 @@ class CreatePostView(LoginRequiredMixin, View):
 class PreviewPostView(LoginRequiredMixin, View):
     def post(self, request, *args, **kwargs):
         id = request.POST.get('id')
-        print("テスト2")
-        print(id)
-        print("テスト3")
         post_data = Post.objects.get(id=id)
-        print(post_data)
-        print("テスト4")
         post_data.public = True
         post_data.save()
         # POSTのPOST（データ入力フォームに記載された情報）の中身をリクエストして表示している。
@@ -252,31 +247,31 @@ class AboutView(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'app/about.html')
 
-class MyPostView(View):
-    def paginate_queryset(self, request, queryset, count):
-        paginator = Paginator(queryset, count)
-        page = request.GET.get('page')
-        try:
-            page_obj = paginator.page(page)
-        except PageNotAnInteger:
-            page_obj = paginator.page(1)
-        except EmptyPage:
-            page_obj = paginator.page(paginator.num_pages)
-        return page_obj
+# class MyPostView(View):
+#     def paginate_queryset(self, request, queryset, count):
+#         paginator = Paginator(queryset, count)
+#         page = request.GET.get('page')
+#         try:
+#             page_obj = paginator.page(page)
+#         except PageNotAnInteger:
+#             page_obj = paginator.page(1)
+#         except EmptyPage:
+#             page_obj = paginator.page(paginator.num_pages)
+#         return page_obj
 
-    def get(self, request, *args, **kwargs):
-        like_data = Like.objects.order_by('-id').filter(author=request.user)
-        mypost_data = Post.objects.order_by('-id').filter(author=request.user)
+#     def get(self, request, *args, **kwargs):
+#         like_data = Like.objects.order_by('-id').filter(author=request.user)
+#         mypost_data = Post.objects.order_by('-id').filter(author=request.user)
         
-        page_obj_like = self.paginate_queryset(request, like_data, 10)
-        page_obj_mypost = self.paginate_queryset(request, mypost_data, 10)
+#         page_obj_like = self.paginate_queryset(request, like_data, 10)
+#         page_obj_mypost = self.paginate_queryset(request, mypost_data, 10)
         
-        return render(request, 'app/mypost.html', {
-            'like_data': page_obj_like.object_list,
-            'mypost_data': page_obj_mypost.object_list,
-            'page_obj_like': page_obj_like,
-            'page_obj_mypost': page_obj_mypost
-        })
+#         return render(request, 'app/mypost.html', {
+#             'like_data': page_obj_like.object_list,
+#             'mypost_data': page_obj_mypost.object_list,
+#             'page_obj_like': page_obj_like,
+#             'page_obj_mypost': page_obj_mypost
+#         })
 
 
 class CategoryNameView(View):

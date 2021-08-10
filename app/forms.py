@@ -37,20 +37,38 @@ class PostForm(forms.Form):
         return area
 
 CATEGORIES = (
-    ('0', 'このサイトについて'),
-    ('1', '投稿記事について'),
-    ('2', '不具合について'),
-    ('3', 'ご意見・ご要望'),
+    ('0', '----選択してください'),
+    ('1', 'このサイトについて'),
+    ('2', '投稿記事について'),
+    ('3', '不具合について'),
+    ('4', 'ご意見・ご要望'),
 )
 class ContactForm(forms.Form):
-    name = forms.CharField(label='お名前', max_length=30)
-    email = forms.EmailField(label='Email', max_length=100)
-    cntct_category = forms.ChoiceField(label='カテゴリー', choices=CATEGORIES)
+    name = forms.CharField(
+        label='お名前', 
+        max_length=30, 
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+        })
+    )
+    email = forms.EmailField(
+        label='Email',
+        max_length=100,
+        widget=forms.TextInput(attrs={
+        'class': 'form-control',
+        })
+    )
+    cntct_category = forms.ChoiceField(
+        label='カテゴリー',
+        choices=CATEGORIES,
+        widget=forms.Select(attrs={
+        'class': 'form-control',
+        })
+    )
     message = forms.CharField(
         label='お問い合わせ内容',
         widget=forms.Textarea(attrs={
             'class': 'form-control',
-            'placeholder': "お問い合わせ内容",
         }),
     )
     def clean_name(self):

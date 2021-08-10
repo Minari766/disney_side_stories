@@ -68,6 +68,13 @@ main {
     border-radius: 10px;
 }
 
+#id_email{
+    width: max;
+    height: auto;
+    margin: 5px;
+    border-radius: 10px;
+}
+
 .form-control-search {
     margin: 5px;
     display: block;

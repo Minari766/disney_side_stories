@@ -54,7 +54,7 @@ class ProfileView(LoginRequiredMixin, View):
             'like_all': like_all
         })
 
-class MyPostViewTwo(LoginRequiredMixin, View):
+class MyPostView(LoginRequiredMixin, View):
     def paginate_queryset(self, request, queryset, count):
         paginator = Paginator(queryset, count)
         page = request.GET.get('page')
@@ -70,7 +70,7 @@ class MyPostViewTwo(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
         user_data = CustomUser.objects.get(id=request.user.id)
         like_data = Like.objects.order_by('-id').filter(author=request.user)
-        mypost_data = Post.objects.order_by('-id').filter(author=request.user) 
+        mypost_data = Post.objects.order_by('-id').filter(public=True).filter(author=request.user) 
         mypost_count = mypost_data.count()
         post_count = mypost_data.count()
         page_obj_like = self.paginate_queryset(request, like_data, 5)
@@ -179,17 +179,11 @@ class SignupView(views.SignupView):
 
 class MainProfView(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
-        print("テスト1")
         user_data = CustomUser.objects.get(id=request.user.id)
-        print("テスト2")
         like_data = Like.objects.order_by('-id').filter(author=request.user)
-        print("テスト3")
         like_count = like_data.count()
-        print("テスト4")
         mypost_data = Post.objects.order_by('-id').filter(author=request.user)  
-        print("テスト5")
         post_count = mypost_data.count()
-        print("テスト6")
 
         like_all = 0
         for post in mypost_data:
