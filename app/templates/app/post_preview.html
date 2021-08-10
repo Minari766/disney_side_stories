@@ -211,6 +211,7 @@
 <div class="d-flex justify-content-center mb-5">
     <form method="post" action="{% url 'preview' %}">
         {% csrf_token %}
+        <input type="hidden" name="id" value={{ post_data.id }}>       
         <input type="hidden" name="area" value={{ post_data.area }}>
         <input type="hidden" name="attraction" value={{ post_data.attraction }}>
         <input type="hidden" name="category" value={{ post_data.category }}>
