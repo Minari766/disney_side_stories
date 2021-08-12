@@ -45,10 +45,11 @@ CATEGORIES = (
 )
 class ContactForm(forms.Form):
     name = forms.CharField(
-        label='お名前', 
+        label='お名前',
         max_length=30, 
         widget=forms.TextInput(attrs={
             'class': 'form-control',
+            'placeholder': '入力してください',
         })
     )
     email = forms.EmailField(
@@ -56,6 +57,7 @@ class ContactForm(forms.Form):
         max_length=100,
         widget=forms.TextInput(attrs={
         'class': 'form-control',
+        'placeholder': '入力してください',
         })
     )
     cntct_category = forms.ChoiceField(
@@ -67,8 +69,10 @@ class ContactForm(forms.Form):
     )
     message = forms.CharField(
         label='お問い合わせ内容',
+        max_length=5000,
         widget=forms.Textarea(attrs={
-            'class': 'form-control',
+        'class': 'form-control',
+        'placeholder': '入力してください(最大5,000文字)',
         }),
     )
     def clean_name(self):
