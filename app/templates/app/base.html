@@ -42,9 +42,6 @@
                     <li class="nav-item">
                         <a class="nav-link font-weight-bold mx-xs-3" href="{% url 'post_new' %}"><img src="{% static 'img/planeicon.png' %}" class="navicon" />投稿 </span></a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link font-weight-bold mx-xs-3" href="{% url 'about_top' %}">このサイト </a>
-                    </li> -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle font-weight-bold mx-xs-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img src="{% static 'img/user-icon1.png' %}" class="navicon-user" />マイページ
@@ -58,18 +55,15 @@
                         </div>
                     </li>
                 {% else %}
-                    <!-- <li class="nav-item">
-                        <a class="nav-link font-weight-bold mx-xs-3" href="/"><img src="{% static 'img/homeicon.png' %}" class="navicon home-icon" /> <span class="sr-only">(current)</span></a>
-                    </li> -->
                     <li class="nav-item">
                         <a class="nav-link font-weight-bold mx-xs-3" href="{% url 'post_new' %}"><img src="{% static 'img/planeicon.png' %}" class="navicon" />投稿 </span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link font-weight-bold mx-xs-3" href="{% url 'account_login' %}"><img src="{% static 'img/login.png' %}" class="navicon" />ログイン </a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link font-weight-bold mx-xs-3" href="{% url 'guest_login' %}"><img src="{% static 'img/login.png' %}" class="navicon" />ゲストログイン <span class="sr-only">(current)</span></a>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
                         <a class="nav-link font-weight-bold mx-xs-3" href="{% url 'account_signup' %}"><img src="{% static 'img/usericon2.png' %}" class="navicon-user" />新規登録 <span class="sr-only">(current)</span></a>
                     </li>
