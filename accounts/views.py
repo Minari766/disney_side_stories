@@ -28,14 +28,10 @@ class ProfileView(LoginRequiredMixin, View):
         user_data = CustomUser.objects.get(id=request.user.id)
         like_data = Like.objects.order_by('-id').filter(author=request.user)
         like_count = like_data.count()
-        print("like_count", like_count)
-        mypost_data = Post.objects.order_by('-id').filter(author=request.user) 
+        mypost_data = Post.objects.order_by('-id').filter(public=True).filter(author=request.user) 
         post_count = mypost_data.count()
-        print("post_count", post_count)
         page_obj_like = self.paginate_queryset(request, like_data, 5)
-        print(page_obj_like)
         page_obj_mypost = self.paginate_queryset(request, mypost_data, 5)
-        print(page_obj_mypost)
 
         like_all = 0
         for post in mypost_data:
@@ -69,7 +65,6 @@ class MyPostView(LoginRequiredMixin, View):
         user_data = CustomUser.objects.get(id=request.user.id)
         like_data = Like.objects.order_by('-id').filter(author=request.user)
         mypost_data = Post.objects.order_by('-id').filter(public=True).filter(author=request.user) 
-        mypost_count = mypost_data.count()
         post_count = mypost_data.count()
         page_obj_like = self.paginate_queryset(request, like_data, 5)
         page_obj_mypost = self.paginate_queryset(request, mypost_data, 5)
