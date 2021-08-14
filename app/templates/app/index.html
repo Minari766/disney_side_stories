@@ -680,7 +680,7 @@
 <!-- 投稿部分 -->
 {% for post in post_data %}
 <div class="row post-detail">
-    <div class="col-md-4">
+    <div class="col-md-4 mx-auto">
         <a href="{% url 'post_detail' post.id %}">
             {% if post.image %}
                 <img class="img-fluid rounded mb-md-0 article-img" src="{{ post.image.url }}" alt="">
@@ -693,9 +693,9 @@
         <div class="author-created">
             <h7 class="text_left author-created">
             {% if post.author.icon %}
-                <img src="{{ post.author.icon.url }}" class="user-icon-top">
+                <img src="{{ post.author.icon.url }}" class="user-icon">
             {% else %}
-                <img src="{% static 'img/user1.png' %}" class="user-icon-top">
+                <img src="{% static 'img/user1.png' %}" class="user-icon">
             {% endif %}
                 {{ post.author }}
             </h7>

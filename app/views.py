@@ -286,9 +286,22 @@ class CategoryNameView(View):
         })
 
 class SearchView(View):
+    def paginate_queryset(self, request, queryset, count):
+        paginator = Paginator(queryset, count)
+        page = request.GET.get('page')
+        try:
+            page_obj = paginator.page(page)
+        except PageNotAnInteger:
+            page_obj = paginator.page(1)
+        except EmptyPage:
+            page_obj = paginator.page(paginator.num_pages)
+        # page_obj:全体何ページ中のXページ目かを定義
+        return page_obj
+    
     def get(self, request, *args, **kwargs):
         post_data = Post.objects.order_by('-id')
         keyword = request.GET.get('keyword')
+        count = post_data.count()
 
         if keyword:
             exclusion_list = set([' ', ' '])
@@ -301,10 +314,13 @@ class SearchView(View):
             query = reduce(and_, [Q(title__icontains=q) | Q(content__icontains=q) for q in query_list])
             post_data = post_data.filter(query)
             count = post_data.count()
+        
+        page_obj = self.paginate_queryset(request, post_data, 10)
 
         return render(request, 'app/search.html', {
             'keyword' : keyword,
-            'post_data' : post_data,
+            'post_data' : page_obj.object_list,
+            'page_obj': page_obj,
             'count': count
         })
 

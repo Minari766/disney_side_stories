@@ -49,7 +49,6 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{% url 'mypost' %}">My 投稿記事</a>
                             <a class="dropdown-item" href="{% url 'profile' %}">My お気に入り</a>
-                            <a class="dropdown-item" href="{% url 'mainprof' %}">プロフィール</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{% url 'account_logout' %}">ログアウト</a>
                         </div>
@@ -61,9 +60,6 @@
                     <li class="nav-item">
                         <a class="nav-link font-weight-bold mx-xs-3" href="{% url 'account_login' %}"><img src="{% static 'img/login.png' %}" class="navicon" />ログイン </a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link font-weight-bold mx-xs-3" href="{% url 'guest_login' %}"><img src="{% static 'img/login.png' %}" class="navicon" />ゲストログイン <span class="sr-only">(current)</span></a>
-                    </li> -->
                     <li class="nav-item">
                         <a class="nav-link font-weight-bold mx-xs-3" href="{% url 'account_signup' %}"><img src="{% static 'img/usericon2.png' %}" class="navicon-user" />新規登録 <span class="sr-only">(current)</span></a>
                     </li>

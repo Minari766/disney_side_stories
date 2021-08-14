@@ -11,13 +11,13 @@
 </div> 
 <div class="container">
     <div class="row">
-        <div class="sidebar d-none d-sm-none d-md-none d-lg-none d-xl-block col-xl-3">
+        <div class="sidebar d-xl-block col-lg-3">
             <div class="sidebar-block">
                 <p class="block text-center">
                     {% if user_data.icon %}
-                        <img src="{{ user_data.icon.url }}" class="user-icon2 m-4">
+                        <img src="{{ user_data.icon.url }}" class="user-img mx-auto my-3">
                     {% else %}
-                        <img src="{% static 'img/user1.png' %}" alt="" class="user-icon">
+                        <img src="{% static 'img/user1.png' %}" alt="" class="user-img mx-auto my-4">
                     {% endif %}
                     <big class="d-block">{{ user_data.user_name }}</big>
                 </p>
@@ -25,63 +25,31 @@
                     <a class="btn btn-lg btn-warning btn-block" href="{% url 'profile_edit' %}">編集する</a>
                 </div>
                 <hr id="inner-bar">
-                <div id="user_post" class="row mb-1">
-                    <div class="col-md-7 text-right">投稿記事数</div>
-                    <div class="col-md-5 text-left">{{ post_count }}</div>
+                <!-- <div id="user_post" class="row mb-1"> -->
+                <div id="user_post" class="mb-4">
+                    <u class="font-weight-bold text-center">アドレス</u>
+                    <div class="text-center">{{ user_data.email }}</div>
                 </div>
-                <div id="user_post" class="row mb-1">
-                    <div class="col-md-7 text-right">総いいね数</div>
-                    <div class="col-md-5 text-left">{{ like_all }}</div>
+                <!-- <div id="user_post" class="row mb-1"> -->
+                <div id="user_post" class="mb-4">
+                    <!-- <div class="col-md-7 ml-1 text-left">登録日</div>
+                    <div class="col-md-5 ml-1 text-left">{{ user_data.created|date:"Y年m月j日" }}</div> -->
+                    <u class="font-weight-bold text-center">登録日</u>
+                    <div class="text-center">{{ user_data.created|date:"Y/m/j" }}</div>
                 </div>
-            </div>
-            <div class="sidebar-block">
-                <p class="block text-center">
-                    最多獲得"いいね"数
-                    {% if user_data.icon %}
-                        <img src="{{ user_data.icon.url }}" class="user-icon2 m-4">
-                    {% else %}
-                        <img src="{% static 'img/user1.png' %}" alt="" class="user-icon">
-                    {% endif %}
-                    <big class="d-block">{{ user_data.user_name }}</big>
-                </p>
-                <div class="button mx-auto mt-3">
-                    <a class="btn btn-lg btn-warning btn-block" href="{% url 'profile_edit' %}">編集する</a>
+                <!-- <div id="user_post" class="row mb-1"> -->
+                <div id="user_post" class="mb-4">
+                    <u class="font-weight-bold text-center">投稿記事数</u>
+                    <div class="text-center">{{ post_count }}</div>
                 </div>
-                <hr id="inner-bar">
-                <div id="user_post" class="row mb-1">
-                    <div class="col-md-7 text-right">投稿記事数</div>
-                    <div class="col-md-5 text-left">{{ post_count }}</div>
-                </div>
-                <div id="user_post" class="row mb-1">
-                    <div class="col-md-7 text-right">総いいね数</div>
-                    <div class="col-md-5 text-left">{{ like_all }}</div>
-                </div>
-            </div>
-            <div class="sidebar-block">
-                <p class="block text-center">
-                    最多獲得"いいね"My投稿数
-                    {% if user_data.icon %}
-                        <img src="{{ user_data.icon.url }}" class="user-icon2 m-4">
-                    {% else %}
-                        <img src="{% static 'img/user1.png' %}" alt="" class="user-icon">
-                    {% endif %}
-                    <big class="d-block">{{ user_data.user_name }}</big>
-                </p>
-                <div class="button mx-auto mt-3">
-                    <a class="btn btn-lg btn-warning btn-block" href="{% url 'profile_edit' %}">編集する</a>
-                </div>
-                <hr id="inner-bar">
-                <div id="user_post" class="row mb-1">
-                    <div class="col-md-7 text-right">投稿記事数</div>
-                    <div class="col-md-5 text-left">{{ post_count }}</div>
-                </div>
-                <div id="user_post" class="row mb-1">
-                    <div class="col-md-7 text-right">総いいね数</div>
-                    <div class="col-md-5 text-left">{{ like_all }}</div>
+                <!-- <div id="user_post" class="row mb-1"> -->
+                <div id="user_post" class="mb-1">
+                    <u class="font-weight-bold text-center">総いいね数</u>
+                    <div class="text-center">{{ like_all }}</div>
                 </div>
             </div>
         </div>
-        <div class="col-xl-9">
+        <div class="col-lg-9">
             {% for mypost in mypost_data %}
             <div class="row post-detail">
                 <div class="col-md-5">
@@ -97,13 +65,13 @@
                     <div class="author-created">
                         <h7 class="text_left author-created">
                         {% if mypost.author.icon %}
-                            <img src="{{ mypost.author.icon.url }}" class="user-icon-top">
+                            <img src="{{ mypost.author.icon.url }}" class="user-icon">
                         {% else %}
-                            <img src="{% static 'img/user1.png' %}" class="user-icon-top">
+                            <img src="{% static 'img/user1.png' %}" class="user-icon">
                         {% endif %}
                             {{ mypost.author }}
                         </h7>
-                        <h7 class="text_right">{{ mypost.created|date:"Y年m月j日" }}</h7>
+                        <h7 class="text_right">{{ mypost.created|date:"Y/m/j" }}</h7>
                     </div>
                     <div class="article-container">
                         <h3>{{ mypost.title|truncatechars:17}}</h3>
