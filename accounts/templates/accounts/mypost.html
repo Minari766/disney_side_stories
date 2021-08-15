@@ -25,24 +25,18 @@
                     <a class="btn btn-lg btn-warning btn-block" href="{% url 'profile_edit' %}">編集する</a>
                 </div>
                 <hr id="inner-bar">
-                <!-- <div id="user_post" class="row mb-1"> -->
                 <div id="user_post" class="mb-4">
                     <u class="font-weight-bold text-center">アドレス</u>
                     <div class="text-center">{{ user_data.email }}</div>
                 </div>
-                <!-- <div id="user_post" class="row mb-1"> -->
                 <div id="user_post" class="mb-4">
-                    <!-- <div class="col-md-7 ml-1 text-left">登録日</div>
-                    <div class="col-md-5 ml-1 text-left">{{ user_data.created|date:"Y年m月j日" }}</div> -->
                     <u class="font-weight-bold text-center">登録日</u>
                     <div class="text-center">{{ user_data.created|date:"Y/m/j" }}</div>
                 </div>
-                <!-- <div id="user_post" class="row mb-1"> -->
                 <div id="user_post" class="mb-4">
                     <u class="font-weight-bold text-center">投稿記事数</u>
                     <div class="text-center">{{ post_count }}</div>
                 </div>
-                <!-- <div id="user_post" class="row mb-1"> -->
                 <div id="user_post" class="mb-1">
                     <u class="font-weight-bold text-center">総いいね数</u>
                     <div class="text-center">{{ like_all }}</div>

@@ -131,9 +131,9 @@ main {
 }
 
 .detail-img {
-    object-fit: cover;
     width: 100%;
-    height: 600px;
+    height:  auto;
+    object-fit: cover;
     text-align: center;
 }
 
@@ -813,8 +813,8 @@ a:hover {
 
 .alice-link{
     position: absolute;
-    top: 30%;
-    left:35%;
+    top: 27%;
+    left: 45%;
     -ms-transform: translate(-50%,-50%);
     -webkit-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
@@ -831,8 +831,8 @@ a:hover {
 
 .small-link{
     position: absolute;
-    top: 10%;
-    left:60%;
+    top: 4%;
+    left:58%;
     -ms-transform: translate(-50%,-50%);
     -webkit-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
@@ -850,7 +850,7 @@ a:hover {
 .carousel-link{
     position: absolute;
     top: 43%;
-    left:33%;
+    left: 34.5%;
     -ms-transform: translate(-50%,-50%);
     -webkit-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
@@ -867,8 +867,8 @@ a:hover {
 
 .snow-link{
     position: absolute;
-    top: 65%;
-    left:10%;
+    top: 66%;
+    left: 27%;
     -ms-transform: translate(-50%,-50%);
     -webkit-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
@@ -885,8 +885,8 @@ a:hover {
 
 .cinderella-link{
     position: absolute;
-    top: 85%;
-    left:22%;
+    top: 82%;
+    left: 39%;
     -ms-transform: translate(-50%,-50%);
     -webkit-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
@@ -903,8 +903,8 @@ a:hover {
 
 .dumbo-link{
     position: absolute;
-    top: 43%;
-    left:10%;
+    top: 27%;
+    left: 22%;
     -ms-transform: translate(-50%,-50%);
     -webkit-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
@@ -921,8 +921,8 @@ a:hover {
 
 .beast-link{
     position: absolute;
-    top: 87%;
-    left:92%;
+    top: 89%;
+    left:85%;
     -ms-transform: translate(-50%,-50%);
     -webkit-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
@@ -939,8 +939,8 @@ a:hover {
 
 .peter-link{
     position: absolute;
-    top: 75%;
-    left:10%;
+    top: 58%;
+    left: 15%;
     -ms-transform: translate(-50%,-50%);
     -webkit-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
@@ -957,8 +957,8 @@ a:hover {
 
 .pinocchio-link{
     position: absolute;
-    top: 65%;
-    left:50%;
+    top: 52%;
+    left: 66%;
     -ms-transform: translate(-50%,-50%);
     -webkit-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
@@ -975,8 +975,8 @@ a:hover {
 
 .pooh-link{
     position: absolute;
-    top: 45%;
-    left:64%;
+    top: 34%;
+    left: 75%;
     -ms-transform: translate(-50%,-50%);
     -webkit-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
@@ -993,8 +993,8 @@ a:hover {
 
 .haunted-link{
     position: absolute;
-    top: 10%;
-    left: 5%;
+    top: 4%;
+    left: 23%;
     -ms-transform: translate(-50%,-50%);
     -webkit-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
@@ -1011,8 +1011,8 @@ a:hover {
 
 .philhar-link{
     position: absolute;
-    top: 75%;
-    left: 55%;
+    top: 60.5%;
+    left: 53%;
     -ms-transform: translate(-50%,-50%);
     -webkit-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
