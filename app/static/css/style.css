@@ -1439,8 +1439,8 @@ a:hover {
     height: 100%;
     width: 24px;
     margin-right: 4px;
-    margin-top: -0.1em;
-    vertical-align: middle;
+    /* margin-top: -0.1em;
+    vertical-align: middle; */
 }
 
 .navicon .home-icon{
