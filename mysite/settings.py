@@ -157,12 +157,14 @@ if DEBUG:
 
 # local_setting.pyにてDEBUG = Falseの状態。本番環境。
 if not DEBUG:
+    DEBUG = True
     import environ
     env = environ.Env()
     env.read_env(os.path.join(BASE_DIR,'.env'))
 
     SECRET_KEY = env('SECRET_KEY')
-    ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
+    # ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
+    ALLOWED_HOSTS = ['*']
 
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
     EMAIL_HOST = 'smtp.gmail.com'
