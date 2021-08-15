@@ -361,7 +361,7 @@ class ContactView(View):
             name = form.cleaned_data['name']
             email = form.cleaned_data['email']
             message = form.cleaned_data['message']
-            cntct_category = form.cleaned_data['cntct_category']
+            # cntct_category = form.cleaned_data['cntct_category']
             subject = 'お問い合わせありがとうございます。'
             contact = textwrap.dedent('''
                 ※このメールはシステムからの自動返信です。
@@ -378,9 +378,6 @@ class ContactView(View):
 
                 ■メールアドレス
                 {email}
-
-                ■カテゴリー
-                {cntct_category}
 
                 ■メッセージ
                 {message}
