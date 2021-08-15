@@ -36,8 +36,8 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                 {% if user.is_authenticated %}
-                    <li class="nav-item ">
-                        <a class="nav-link font-weight-bold mx-xs-3" href="/"><img src="{% static 'img/planeicon.png' %}" class="navicon" />記事一覧 <span class="sr-only">(current)</span></a>
+                    <li class="nav-item">
+                        <a class="nav-link font-weight-bold mx-xs-3 " href="/"><img src="{% static 'img/list.png' %}" class="navicon-list" />記事一覧 <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link font-weight-bold mx-xs-3" href="{% url 'post_new' %}"><img src="{% static 'img/planeicon.png' %}" class="navicon" />投稿 </span></a>
@@ -48,14 +48,14 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{% url 'mypost' %}">My 投稿記事</a>
-                            <a class="dropdown-item" href="{% url 'profile' %}">My お気に入り</a>
+                            <a class="dropdown-item" href="{% url 'myfavorite' %}">My お気に入り</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{% url 'account_logout' %}">ログアウト</a>
                         </div>
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link font-weight-bold mx-xs-3" href="{% url 'post_new' %}"><img src="{% static 'img/planeicon.png' %}" class="navicon" />投稿 </span></a>
+                        <a class="nav-link font-weight-bold mx-xs-3" href="{% url 'post_new' %}"><img src="{% static 'img/planeicon.png' %}" class="navicon" /><p>投稿</p> </span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link font-weight-bold mx-xs-3" href="{% url 'account_login' %}"><img src="{% static 'img/login.png' %}" class="navicon" />ログイン </a>
@@ -71,18 +71,6 @@
                         <i class="fas fa-search"></i>
                     </button>
                 </form>
-                <!-- 以下、追加部分 -->
-                <!-- <form action="/search.html" class="search-wrapper cf">
-                    <input type="text" placeholder="Search" required="">
-                    <button type="submit"> <span class="fontawesome-search"></span>
-                    </button>
-                </form> -->
-                <!-- <form action="{% url 'search' %}" class="search-wrapper cf" method="get">
-                    <input name="keyword" type="search" placeholder="キーワード 検索" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </form> -->
             </div>
         </div>
     </nav>

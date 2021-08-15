@@ -7,7 +7,6 @@ class Area(models.Model):
     slug = models.SlugField("スラッグ")
 
     def __str__(self):
-    #     return self.name
         return str(self.name)
 
 class Attraction(models.Model):
@@ -15,7 +14,6 @@ class Attraction(models.Model):
     slug = models.SlugField("スラッグ")
 
     def __str__(self):
-    #     return self.name
         return str(self.name)
 
 class Category(models.Model):
@@ -23,7 +21,6 @@ class Category(models.Model):
     slug = models.SlugField("スラッグ")
 
     def __str__(self):
-    #     return self.name
         return str(self.name)
 
 class Post(models.Model):

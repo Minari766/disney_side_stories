@@ -47,7 +47,7 @@ class IndexView(View):
         elif attraction is None :
             post_data = post_data
         return post_data
-        # カテゴリ選択
+# カテゴリ選択
     def category_select(self, post_data, category, area, attraction):
         if category == "all" :
             post_data = post_data
@@ -131,7 +131,6 @@ class CreatePostView(LoginRequiredMixin, View):
             })
 
     # 以下コードはformのvalidationが失敗したとき
-        # return render(request, 'app/post_form.html', {
         return render(request, 'app/post_form.html', {
             'form': form
         })
@@ -142,25 +141,6 @@ class PreviewPostView(LoginRequiredMixin, View):
         post_data = Post.objects.get(id=id)
         post_data.public = True
         post_data.save()
-        # POSTのPOST（データ入力フォームに記載された情報）の中身をリクエストして表示している。
-        # print(request.POST)
-        # post_data = Post()
-        # post_data.author = request.user
-        # post_data.title = request.POST.get('title')
-        # area = request.POST.get('area')
-        # post_data.area = Area.objects.get(name=area)
-        # attraction = request.POST.get('attraction')
-        # post_data.attraction = Attraction.objects.get(name=attraction)
-        # category = request.POST.get('category')
-        # post_data.category = Category.objects.get(name=category)
-        # # request.userでログインユーザー情報を入手できる。
-        # post_data.content = request.POST.get('content')
-        # post_data.image = request.POST.get('image')
-        # if request.FILES:
-        #     post_data.image = request.FILES.get('image')
-        # post_data.public = True
-        # print(post_data.public)
-        # post_data.save()
         return redirect('index')
 
 class PostEditView(LoginRequiredMixin, View):
@@ -219,60 +199,9 @@ class PostDeleteView(LoginRequiredMixin, View):
         post_data.delete()
         return redirect('index')
 
-# class AreaView(View):
-#     def get(self, request, *args, **kwargs):
-#         area_data = Area.objects.get(name=self.kwargs['area'])
-#         post_data = Post.objects.order_by('-id').filter(area=area_data)
-#         return render(request, 'app/index.html', {
-#             'post_data': post_data
-#         })
-
-# class AttractionView(View):
-#     def get(self, request, *args, **kwargs):
-#         attraction_data = Attraction.objects.get(name=self.kwargs['attraction'])
-#         post_data = Post.objects.order_by('-id').filter(attraction=attraction_data)
-#         return render(request, 'app/index.html', {
-#             'post_data': post_data
-#         })
-
-# class CategoryView(View):
-#     def get(self, request, *args, **kwargs):
-#         category = self.kwargs.get('category')
-#         post_data = Category.objects.get(name=self.kwargs['category'])
-#         return render(request, 'app/index.html', {
-#             'post_data': post_data
-#         })
-
 class AboutView(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'app/about.html')
-
-# class MyPostView(View):
-#     def paginate_queryset(self, request, queryset, count):
-#         paginator = Paginator(queryset, count)
-#         page = request.GET.get('page')
-#         try:
-#             page_obj = paginator.page(page)
-#         except PageNotAnInteger:
-#             page_obj = paginator.page(1)
-#         except EmptyPage:
-#             page_obj = paginator.page(paginator.num_pages)
-#         return page_obj
-
-#     def get(self, request, *args, **kwargs):
-#         like_data = Like.objects.order_by('-id').filter(author=request.user)
-#         mypost_data = Post.objects.order_by('-id').filter(author=request.user)
-        
-#         page_obj_like = self.paginate_queryset(request, like_data, 10)
-#         page_obj_mypost = self.paginate_queryset(request, mypost_data, 10)
-        
-#         return render(request, 'app/mypost.html', {
-#             'like_data': page_obj_like.object_list,
-#             'mypost_data': page_obj_mypost.object_list,
-#             'page_obj_like': page_obj_like,
-#             'page_obj_mypost': page_obj_mypost
-#         })
-
 
 class CategoryNameView(View):
     def get(self, request, *args, **kwargs):

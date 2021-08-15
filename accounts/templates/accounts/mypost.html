@@ -208,7 +208,7 @@
                             {% endif %}
                         </div>
                     </div>
-                    <p>{{ mypost.content|truncatechars:200 }}</p>
+                    <p>{{ mypost.content|truncatechars:45 }}</p>
                     <a class="article-more" href="{% url 'post_detail' mypost.id %}">もっと見る</a>
                 </div>
             </div>

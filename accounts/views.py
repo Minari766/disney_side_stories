@@ -11,7 +11,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import HttpResponse
 
 # Create your views here.
-class ProfileView(LoginRequiredMixin, View):
+class MyFavoriteView(LoginRequiredMixin, View):
     def paginate_queryset(self, request, queryset, count):
         paginator = Paginator(queryset, count)
         page = request.GET.get('page')
@@ -38,7 +38,7 @@ class ProfileView(LoginRequiredMixin, View):
             count = post.like_set.count()
             like_all += count
         print("like_all", like_all)
-        return render(request, 'accounts/profile.html', {
+        return render(request, 'accounts/myfavorite.html', {
             'user_data': user_data,
             'like_data': page_obj_like.object_list,
             'mypost_data': page_obj_mypost.object_list,
@@ -129,21 +129,18 @@ class ProfileEditView(LoginRequiredMixin, View):
                 count = post.like_set.count()
                 like_all += count
             print("like_all", like_all)
-            # ここまで
             user_data.user_name = form.cleaned_data['user_name']
             if request.FILES:
                 user_data.icon = request.FILES.get('icon')
             user_data.save()
             return render(request, 'accounts/mypost.html', {
             'user_data': user_data,
-            # ここから
             'like_data': page_obj_like.object_list,
             'mypost_data': page_obj_mypost.object_list,
             'page_obj_like': page_obj_like,
             'page_obj_mypost': page_obj_mypost,
             'post_count': post_count,
             'like_all': like_all
-            # ここまで
         })
         # このreturnはis_valid()（バリデーション機能）に問題があった場合にprofile画面にリダイレクトするようにする
         return render(request, 'accounts/mypost.html', {
@@ -166,25 +163,6 @@ class LogoutView(views.LogoutView):
 class SignupView(views.SignupView):
     template_name = 'accounts/signup.html'
     form_class = SignupUserForm    
-    # form_valid(self, form)
-
-# class MainProfView(LoginRequiredMixin, View):
-#     def get(self, request, *args, **kwargs):
-#         user_data = CustomUser.objects.get(id=request.user.id)
-#         like_data = Like.objects.order_by('-id').filter(author=request.user)
-#         like_count = like_data.count()
-#         mypost_data = Post.objects.order_by('-id').filter(author=request.user)  
-#         post_count = mypost_data.count()
-
-#         like_all = 0
-#         for post in mypost_data:
-#             count = post.like_set.count()
-#             like_all += count
-#         return render(request, 'accounts/mainprof.html', {
-#             'user_data': user_data,
-#             'post_count': post_count,
-#             'like_all': like_all
-#         })
 
 def guest_login(request):
     guest_user = CustomUser.objects.get(email='guest_DSS@gmail.com')
