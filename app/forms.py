@@ -36,13 +36,13 @@ class PostForm(forms.Form):
             self.add_error('area', 'お名前に禁止ワードが含まれています')
         return area
 
-# CATEGORIES = (
-#     ('0', '----選択してください'),
-#     ('1', 'このサイトについて'),
-#     ('2', '投稿記事について'),
-#     ('3', '不具合について'),
-#     ('4', 'ご意見・ご要望'),
-# )
+CATEGORIES = (
+    ('0', '----選択してください'),
+    ('1', 'このサイトについて'),
+    ('2', '投稿記事について'),
+    ('3', '不具合について'),
+    ('4', 'ご意見・ご要望'),
+)
 class ContactForm(forms.Form):
     name = forms.CharField(
         label='お名前',
@@ -60,13 +60,13 @@ class ContactForm(forms.Form):
         'placeholder': '入力してください',
         })
     )
-    # cntct_category = forms.ChoiceField(
-    #     label='カテゴリー',
-    #     choices=CATEGORIES,
-    #     widget=forms.Select(attrs={
-    #     'class': 'form-control',
-    #     })
-    # )
+    cntct_category = forms.ChoiceField(
+        label='カテゴリー',
+        choices=CATEGORIES,
+        widget=forms.Select(attrs={
+        'class': 'form-control',
+        })
+    )
     message = forms.CharField(
         label='お問い合わせ内容',
         max_length=5000,

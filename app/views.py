@@ -361,8 +361,8 @@ class ContactView(View):
             name = form.cleaned_data['name']
             email = form.cleaned_data['email']
             message = form.cleaned_data['message']
-            # cntct_category = form.cleaned_data['cntct_category']
-            subject = 'お問い合わせありがとうございます。'
+            cntct_category = form.cleaned_data['cntct_category']
+            subject = '(DSS)お問い合わせありがとうございます。'
             contact = textwrap.dedent('''
                 ※このメールはシステムからの自動返信です。
 
@@ -372,6 +372,7 @@ class ContactView(View):
                 以下の内容でお問い合わせを受け付け致しました。
                 内容を確認させていただき改めて回答致しますので、少々お待ちください。
 
+                DISNEY SIDE STORIES 管理人：みなり
                 ーーーーーーーーーーーーーーー
                 ■お名前
                 {name}
@@ -379,14 +380,17 @@ class ContactView(View):
                 ■メールアドレス
                 {email}
 
-                ■メッセージ
+                ■カテゴリー
+                {email}
+
+                ■お問い合わせ内容
                 {message}
                 ーーーーーーーーーーーーーーー
                 ''').format(
                     name=name,
                     email=email,
-                    message=message
-                    # cntct_category,
+                    message=message,
+                    cntct_category=cntct_category,
                 )
             to_list = [email]
             bcc_list = [settings.EMAIL_HOST_USER]
@@ -409,7 +413,7 @@ class ContactResultView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['success'] = "お問い合わせは正常に送信されました。"
+        context['success'] = "お問い合わせは正常に送信されました。ご連絡ありがとうございました。"
         return context
 
 class HistoryView(View):
