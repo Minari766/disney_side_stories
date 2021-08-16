@@ -37,31 +37,47 @@
                 <ul class="navbar-nav ml-auto">
                 {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link font-weight-bold mx-xs-3 " href="/"><img src="{% static 'img/list.png' %}" class="navicon-list" />記事一覧 <span class="sr-only">(current)</span></a>
+                        <a class="nav-link font-weight-bold mx-xs-3 " href="/">
+                            <i class="fas fa-list mr-2"></i>記事一覧 <span class="sr-only">(current)</span>
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link font-weight-bold mx-xs-3" href="{% url 'post_new' %}"><img src="{% static 'img/planeicon.png' %}" class="navicon" />投稿 </span></a>
+                        <a class="nav-link font-weight-bold mx-xs-3" href="{% url 'post_new' %}">
+                            <i class="far fa-paper-plane mr-2"></i>投稿 </span>
+                        </a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle font-weight-bold mx-xs-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src="{% static 'img/user-icon1.png' %}" class="navicon-user" />マイページ
+                            <i class="fas fa-user mr-2"></i>マイページ
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{% url 'mypost' %}">My 投稿記事</a>
-                            <a class="dropdown-item" href="{% url 'myfavorite' %}">My お気に入り</a>
+                            <a class="dropdown-item" href="{% url 'mypost' %}">
+                                <i class="fas fa-pen-fancy mr-2"></i>My 投稿記事
+                            </a>
+                            <a class="dropdown-item" href="{% url 'myfavorite' %}">
+                                <i class="far fa-heart mr-2"></i>My お気に入り
+                            </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{% url 'account_logout' %}">ログアウト</a>
+                            <a class="dropdown-item" href="{% url 'account_logout' %}">
+                                <i class="fas fa-sign-out-alt mr-2"></i>ログアウト
+                            </a>
                         </div>
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link font-weight-bold mx-xs-3 " href="/"><img src="{% static 'img/list.png' %}" class="navicon-list" />記事一覧 <span class="sr-only">(current)</span></a>
+                        <a class="nav-link font-weight-bold mx-xs-3 " href="/">
+                            <i class="fas fa-list mr-2"></i>記事一覧 <span class="sr-only">(current)</span>
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link font-weight-bold mx-xs-3" href="{% url 'account_login' %}"><img src="{% static 'img/login.png' %}" class="navicon" />ログイン </a>
+                        <a class="nav-link font-weight-bold mx-xs-3" href="{% url 'account_login' %}">
+                            <i class="fas fa-sign-in-alt mr-2"></i>ログイン 
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link font-weight-bold mx-xs-3" href="{% url 'account_signup' %}"><img src="{% static 'img/usericon2.png' %}" class="navicon-user" />新規登録 <span class="sr-only">(current)</span></a>
+                        <a class="nav-link font-weight-bold mx-xs-3" href="{% url 'account_signup' %}">
+                            <i class="fas fa-user-plus mr-2"></i>新規登録 <span class="sr-only">(current)</span>
+                        </a>
                     </li>
                 {% endif %}
                 </ul>

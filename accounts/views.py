@@ -3,7 +3,7 @@ from app.views import PostDetailView
 from app.models import Post, Area, Attraction, Category, Like
 from accounts.models import CustomUser
 from accounts.forms import ProfileForm, SignupUserForm
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from allauth.account import views
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import get_user_model, login
@@ -25,7 +25,8 @@ class MyFavoriteView(LoginRequiredMixin, View):
         return page_obj
 
     def get(self, request, *args, **kwargs):
-        user_data = CustomUser.objects.get(id=request.user.id)
+        # user_data = CustomUser.objects.get(id=request.user.id)
+        user_data = get_object_or_404(CustomUser, id=request.user.id)
         like_data = Like.objects.order_by('-id').filter(author=request.user)
         like_count = like_data.count()
         mypost_data = Post.objects.order_by('-id').filter(public=True).filter(author=request.user) 
@@ -62,7 +63,8 @@ class MyPostView(LoginRequiredMixin, View):
         return page_obj
 
     def get(self, request, *args, **kwargs):
-        user_data = CustomUser.objects.get(id=request.user.id)
+        # user_data = CustomUser.objects.get(id=request.user.id)
+        user_data = get_object_or_404(CustomUser, id=request.user.id)
         like_data = Like.objects.order_by('-id').filter(author=request.user)
         mypost_data = Post.objects.order_by('-id').filter(public=True).filter(author=request.user) 
         post_count = mypost_data.count()
@@ -98,7 +100,8 @@ class ProfileEditView(LoginRequiredMixin, View):
         return page_obj
 
     def get(self, request, *args, **kwargs):
-        user_data = CustomUser.objects.get(id=request.user.id)
+        # user_data = CustomUser.objects.get(id=request.user.id)
+        user_data = get_object_or_404(CustomUser, id=request.user.id)
         form = ProfileForm(
             request.POST or None,
             initial={
@@ -113,7 +116,8 @@ class ProfileEditView(LoginRequiredMixin, View):
     def post(self, request, *args, **kwargs):
         form = ProfileForm(request.POST or None)
         if form.is_valid():
-            user_data = CustomUser.objects.get(id=request.user.id)
+            # user_data = CustomUser.objects.get(id=request.user.id)
+            user_data = get_object_or_404(CustomUser, id=request.user.id)
             # ここからコピー
             like_data = Like.objects.order_by('-id').filter(author=request.user)
             like_count = like_data.count()
@@ -165,7 +169,8 @@ class SignupView(views.SignupView):
     form_class = SignupUserForm    
 
 def guest_login(request):
-    guest_user = CustomUser.objects.get(email='guest_DSS@gmail.com')
+    # guest_user = CustomUser.objects.get(email='guest_DSS@gmail.com')
+    guest_user = get_object_or_404(CustomUser, email='guest_DSS@gmail.com')
     print("guest_user", guest_user)
     login(request, guest_user, backend='django.contrib.auth.backends.ModelBackend')
     return redirect('index')

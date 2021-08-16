@@ -693,9 +693,9 @@
         <div class="author-created">
             <h7 class="text_left author-created">
             {% if post.author.icon %}
-                <img src="{{ post.author.icon.url }}" class="user-icon">
+                <img src="{{ post.author.icon.url }}" class="user-icon mr-2">
             {% else %}
-                <img src="{% static 'img/user1.png' %}" class="user-icon">
+                <img src="{% static 'img/user1.png' %}" class="user-icon mr-2">
             {% endif %}
                 {{ post.author }}
             </h7>

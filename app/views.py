@@ -34,7 +34,8 @@ class IndexView(View):
         if area == "all" :
             post_data = post_data
         elif area != None :
-            area_data = Area.objects.get(slug=area)
+            # area_data = Area.objects.get(slug=area)
+            area_data = get_object_or_404(Area, slug=area)
             post_data = post_data.filter(area=area_data)
         return post_data
 # アトラクション選択
@@ -42,7 +43,8 @@ class IndexView(View):
         if attraction == "all" :
             post_data = post_data
         elif attraction != None :
-            attraction_data = Attraction.objects.get(slug=attraction)
+            # attraction_data = Attraction.objects.get(slug=attraction)
+            attraction_data = get_object_or_404(Attraction, slug=attraction)
             post_data = post_data.filter(attraction=attraction_data)
         elif attraction is None :
             post_data = post_data
@@ -52,7 +54,8 @@ class IndexView(View):
         if category == "all" :
             post_data = post_data
         elif category != None :
-            category_data = Category.objects.get(slug=category)
+            # category_data = Category.objects.get(slug=category)
+            category_data = get_object_or_404(Category, slug=category)
             post_data = post_data.filter(category=category_data)
         elif category is None :
             post_data = post_data
@@ -83,7 +86,8 @@ class IndexView(View):
 
 class PostDetailView(View):
     def get(self, request, *args, **kwargs):
-        post_data = Post.objects.get(id=self.kwargs['pk'])
+        # post_data = Post.objects.get(id=self.kwargs['pk'])
+        post_data = get_object_or_404(Post, id=self.kwargs['pk'])
         liked_list = []
 
         if request.user.is_authenticated:
@@ -115,11 +119,14 @@ class CreatePostView(LoginRequiredMixin, View):
             post_data.author = request.user
             post_data.title = form.cleaned_data['title']
             area = form.cleaned_data['area']
-            post_data.area = Area.objects.get(name=area)
+            # post_data.area = Area.objects.get(name=area)
+            post_data.area = get_object_or_404(Area, name=area)
             attraction = form.cleaned_data['attraction']
-            post_data.attraction = Attraction.objects.get(name=attraction)
+            # post_data.attraction = Attraction.objects.get(name=attraction)
+            post_data.attraction = get_object_or_404(Attraction, name=attraction)
             category = form.cleaned_data['category']
-            post_data.category = Category.objects.get(name=category)
+            # post_data.category = Category.objects.get(name=category)
+            post_data.category = get_object_or_404(Category, name=category)
             post_data.content = form.cleaned_data['content']
             if request.FILES:
                 post_data.image = request.FILES.get('image')
@@ -138,14 +145,16 @@ class CreatePostView(LoginRequiredMixin, View):
 class PreviewPostView(LoginRequiredMixin, View):
     def post(self, request, *args, **kwargs):
         id = request.POST.get('id')
-        post_data = Post.objects.get(id=id)
+        # post_data = Post.objects.get(id=id)
+        post_data = get_object_or_404(Post, id=id)
         post_data.public = True
         post_data.save()
         return redirect('index')
 
 class PostEditView(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
-        post_data = Post.objects.get(id=self.kwargs['pk'])
+        # post_data = Post.objects.get(id=self.kwargs['pk'])
+        post_data = get_object_or_404(Post, id=self.kwargs['pk'])
         form = PostForm(
             request.POST or None,
             initial={
@@ -165,16 +174,20 @@ class PostEditView(LoginRequiredMixin, View):
     def post(self, request, *args, **kwargs):
         form = PostForm(request.POST or None)
         if form.is_valid():
-            post_data = Post.objects.get(id=self.kwargs['pk'])
+            # post_data = Post.objects.get(id=self.kwargs['pk'])
+            post_data = get_object_or_404(Post, id=self.kwargs['pk'])
             post_data.title = form.cleaned_data['title']
             area = form.cleaned_data['area']
-            area_data = Area.objects.get(name=area)
+            # area_data = Area.objects.get(name=area)
+            area_data = get_object_or_404(Area, name=area)
             post_data.area = area_data
             attraction = form.cleaned_data['attraction']
-            attraction_data = Attraction.objects.get(name=attraction)
+            # attraction_data = Attraction.objects.get(name=attraction)
+            attraction_data = get_object_or_404(Attraction, name=attraction)
             post_data.attraction = attraction_data
             category = form.cleaned_data['category']
-            category_data = Category.objects.get(name=category)
+            # category_data = Category.objects.get(name=category)
+            category_data = get_object_or_404(Category, name=category)
             post_data.category = category_data
             post_data.content = form.cleaned_data['content']
             if request.FILES:
@@ -189,13 +202,15 @@ class PostEditView(LoginRequiredMixin, View):
 
 class PostDeleteView(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
-        post_data = Post.objects.get(id=self.kwargs['pk'])
+        # post_data = Post.objects.get(id=self.kwargs['pk'])
+        post_data = get_object_or_404(Post, id=self.kwargs['pk'])
         return render(request, 'app/post_delete.html', {
             'post_data': post_data
         })
 
     def post(self, request, *args, **kwargs):
-        post_data = Post.objects.get(id=self.kwargs['pk'])
+        # post_data = Post.objects.get(id=self.kwargs['pk'])
+        post_data = get_object_or_404(Post, id=self.kwargs['pk'])
         post_data.delete()
         return redirect('index')
 
@@ -208,7 +223,8 @@ class CategoryNameView(View):
         #self.kwargsでurlから値を取得する
         # path('category/<str:category>/'の<str:category>に動的に入る値を獲得する
         # inputボタンは押してないので、.getは不要
-        category_data = Category.objects.get(name=self.kwargs['category'])
+        # category_data = Category.objects.get(name=self.kwargs['category'])
+        category_data = get_object_or_404(Category, name=self.kwargs['category'])
         post_data = Post.objects.filter(category=category_data)
         return render(request, 'app/index.html', {
             'post_data' : post_data
