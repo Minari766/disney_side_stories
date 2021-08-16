@@ -1595,3 +1595,9 @@ span2{
     border: black;
     background: transparent;
 }
+
+.about-p{
+    margin: 4px 0px 0px 0px;
+    padding: 0px;
+    font-size: 10px;
+}
