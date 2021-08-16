@@ -1671,11 +1671,11 @@ span{
 
 /* ボタン */
 .btn-warning{
-    background: #ffeb27;
-    border-color: #ffeb27;
+    background: #faca7b;
+    border-color: #faca7b;
 }
 
 .btn-danger{
-    background: #ee7d50;
-    border-color: #ee7d50;
+    background: #a2a2ad;
+    border-color: #a2a2ad;
 }
