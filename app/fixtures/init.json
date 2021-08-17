@@ -475,7 +475,7 @@
         "model": "app.category",
         "pk": 3,
         "fields": {
-        "name": "ミッキー",
+        "name": "隠れミッキー",
         "slug": "mickey"
         }
     },

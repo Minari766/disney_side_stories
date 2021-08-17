@@ -190,8 +190,8 @@ a:hover {
 #table-ul li {
     border-right: 1px solid #dee2e6;
     display: table-cell;
-    vertical-align: middle;
-    height: 100px;
+    /* vertical-align: middle;
+    height: 100px; */
     padding:0;
     margin:0;
 }
@@ -240,7 +240,7 @@ a:hover {
 
 .masthead {
     height: auto;
-    min-height: 300px;
+    /* min-height: 300px; */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -255,15 +255,6 @@ a:hover {
     height: 750px;  
 }
 
-.top-pic-toon{
-    height: 750px;  
-    width: auto;
-}
-
-.tomorrow-pic-toon{
-    height: 50vw;  
-    width: auto;
-}
 
 .icon-category{
     object-fit: contain;

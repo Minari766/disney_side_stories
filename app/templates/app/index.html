@@ -10,7 +10,7 @@
         <div class="row h-auto align-items-center">
             <div class="col-12 text-center TDL-table">
                 {% if area == 'bazaar' %}
-                    <img src="{% static 'img/WorldBazaar_cut.png' %}" alt="" class="top-pic-bazaar">
+                    <img src="{% static 'img/WorldBazaar_cut.png' %}" alt="" class="">
                     {% if category == 'story' %}
                         <a href="{% url 'index' 'bazaar' 'omni' 'story' %}" class="omni-link">オムニバス</a>
                         <a href="{% url 'index' 'bazaar' 'penny' 'story' %}" class="penny-link">ペニーアーケード</a>
@@ -132,7 +132,7 @@
                         <a href="{% url 'index' 'critter' 'critter-other' 'all' %}" class="critter-other-link">その他</a>
                     {% endif %}
                 {% elif area == 'fantasy' %}
-                    <img src="{% static 'img/FantasyLand.png' %}" alt="" class="fantasy-img">
+                    <img src="{% static 'img/FantasyLand.png' %}" alt="" class="">
                     {% if category == 'story' %}
                         <a href="{% url 'index' 'fantasy' 'alice' 'story' %}" class="alice-link">アリスのティーパーティー</a>
                         <a href="{% url 'index' 'fantasy' 'small' 'story' %}" class="small-link">イッツ・ア・スモールワールド</a>
@@ -205,7 +205,7 @@
                         <a href="{% url 'index' 'fantasy' 'fantasy-other' 'all' %}" class="fantasy-other-link">その他</a>
                     {% endif %}
                 {% elif area == 'toon' %}
-                    <img src="{% static 'img/ToonTown_cut.png' %}" alt="" class="top-pic-toon">
+                    <img src="{% static 'img/ToonTown_cut.png' %}" alt="" class="">
                     {% if category == 'story' %}
                         <a href="{% url 'index' 'toon' 'gadget' 'story' %}" class="gadget-link">ガジェットのゴーコースター</a>
                         <a href="{% url 'index' 'toon' 'goofy' 'story' %}" class="goofy-link">グーフィーのペイント＆プレイハウス</a>
@@ -263,7 +263,7 @@
                         <a href="{% url 'index' 'toon' 'toon-other' 'all' %}" class="toon-other-link">その他</a>
                     {% endif %}
                 {% elif area == 'tomorrow' %}
-                    <img src="{% static 'img/TomorrowLand_cut.png' %}" alt="" class="top-pic-toon">
+                    <img src="{% static 'img/TomorrowLand_cut.png' %}" alt="" class="">
                     {% if category == 'story' %}
                         <a href="{% url 'index' 'tomorrow' 'tours' 'story' %}" class="tours-link">スター・ツアーズ</a>
                         <a href="{% url 'index' 'tomorrow' 'stitch' 'story' %}" class="stitch-link">スティッチ・エンカウンター</a>
