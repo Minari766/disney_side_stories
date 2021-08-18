@@ -1461,8 +1461,8 @@ a:hover {
     text-align: right;
 }
 
-.linklink{
-    padding: 10px;
+.footer-link{
+    padding: 8px;
     display: inline-block;
 }
 
@@ -1680,3 +1680,7 @@ span{
     width:200px;
     object-fit: cover;
 } */
+
+.footer-sign{
+    font-size: 0.85rem;
+}
