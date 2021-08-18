@@ -147,7 +147,7 @@
         "model": "app.attraction",
         "pk": 11,
         "fields": {
-        "name": "シューティングギャラリー",
+        "name": "シューティング・ギャラリー",
         "slug": "shooting"
         }
     },
