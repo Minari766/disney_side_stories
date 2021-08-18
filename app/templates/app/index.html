@@ -759,7 +759,7 @@
                     <a href="{% url 'index' 'adventure' 'swiss' 'all' %}"><i class="fas fa-tags"></i>{{ post.attraction|truncatechars:15 }}</a>
                 {% elif post.attraction|stringformat:"s" == "アドベンチャーワールド（その他）" %}
                     <a href="{% url 'index' 'adventure' 'adventure-other' 'all' %}"><i class="fas fa-tags"></i>{{ post.attraction|truncatechars:15 }}</a>
-                {% elif post.attraction|stringformat:"s" == "シューティングギャラリー" %}
+                {% elif post.attraction|stringformat:"s" == "ウエスタンランド・シューティングギャラリー" %}
                     <a href="{% url 'index' 'western' 'shooting' 'all' %}"><i class="fas fa-tags"></i>{{ post.attraction|truncatechars:15 }}</a>
                 {% elif post.attraction|stringformat:"s" == "カントリーベア・シアター" %}
                     <a href="{% url 'index' 'western' 'bear' 'all' %}"><i class="fas fa-tags"></i>{{ post.attraction|truncatechars:15 }}</a>
