@@ -147,7 +147,7 @@
         "model": "app.attraction",
         "pk": 11,
         "fields": {
-        "name": "シューティング・ギャラリー",
+        "name": "ウエスタンランド・シューティングギャラリー",
         "slug": "shooting"
         }
     },
