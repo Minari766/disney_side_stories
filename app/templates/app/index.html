@@ -33,7 +33,7 @@
                         <a href="{% url 'index' 'bazaar' 'bazaar-other' 'all' %}" class="bazaar-other-link">その他</a>
                     {% endif %}
                 {% elif area == 'adventure' %}
-                    <img src="{% static 'img/AdventureLand_cut.png' %}" alt="">
+                    <img src="{% static 'img/AdventureLand_cut.png' %}" alt="" class="top-pic">
                     {% if category == 'story' %}
                         <a href="{% url 'index' 'adventure' 'riverline' 'story' %}" class="riverline-link">ウエスタンリバー鉄道</a>
                         <a href="{% url 'index' 'adventure' 'carib' 'story' %}" class="carib-link">カリブの海賊</a>
@@ -71,7 +71,7 @@
                         <a href="{% url 'index' 'adventure' 'adventure-other' 'all' %}" class="adventure-other-link">その他</a>
                     {% endif %}
                 {% elif area == 'western' %}
-                    <img src="{% static 'img/WesternLand_cut.png' %}" alt="">
+                    <img src="{% static 'img/WesternLand_cut.png' %}" alt="" class="top-pic">
                     {% if category == 'story' %}
                         <a href="{% url 'index' 'western' 'shooting' 'story' %}" class="shooting-link">シューティングギャラリー</a>
                         <a href="{% url 'index' 'western' 'bear' 'story' %}" class="bear-link">カントリーベア・シアター</a>
@@ -109,7 +109,7 @@
                         <a href="{% url 'index' 'western' 'western-other' 'all' %}" class="western-other-link">その他</a>
                     {% endif %}
                 {% elif area == 'critter' %}
-                    <img src="{% static 'img/Critter_cut2.png' %}" alt="">
+                    <img src="{% static 'img/Critter_cut2.png' %}" alt="" class="top-pic">
                     {% if category == 'story' %}
                         <a href="{% url 'index' 'critter' 'splash' 'story' %}" class="splash-link">スプラッシュ・マウンテン</a>
                         <a href="{% url 'index' 'critter' 'canoe' 'story' %}" class="canoe-link">ビーバーブラザーズのカヌー探険</a>
@@ -132,7 +132,7 @@
                         <a href="{% url 'index' 'critter' 'critter-other' 'all' %}" class="critter-other-link">その他</a>
                     {% endif %}
                 {% elif area == 'fantasy' %}
-                    <img src="{% static 'img/FantasyLand.png' %}" alt="" class="">
+                    <img src="{% static 'img/FantasyLand.png' %}" alt="" class="top-pic">
                     {% if category == 'story' %}
                         <a href="{% url 'index' 'fantasy' 'alice' 'story' %}" class="alice-link">アリスのティーパーティー</a>
                         <a href="{% url 'index' 'fantasy' 'small' 'story' %}" class="small-link">イッツ・ア・スモールワールド</a>
@@ -205,7 +205,7 @@
                         <a href="{% url 'index' 'fantasy' 'fantasy-other' 'all' %}" class="fantasy-other-link">その他</a>
                     {% endif %}
                 {% elif area == 'toon' %}
-                    <img src="{% static 'img/ToonTown_cut.png' %}" alt="" class="">
+                    <img src="{% static 'img/ToonTown_cut.png' %}" alt="" class="top-pic">
                     {% if category == 'story' %}
                         <a href="{% url 'index' 'toon' 'gadget' 'story' %}" class="gadget-link">ガジェットのゴーコースター</a>
                         <a href="{% url 'index' 'toon' 'goofy' 'story' %}" class="goofy-link">グーフィーのペイント＆プレイハウス</a>
@@ -263,7 +263,7 @@
                         <a href="{% url 'index' 'toon' 'toon-other' 'all' %}" class="toon-other-link">その他</a>
                     {% endif %}
                 {% elif area == 'tomorrow' %}
-                    <img src="{% static 'img/TomorrowLand_cut.png' %}" alt="" class="">
+                    <img src="{% static 'img/TomorrowLand_cut.png' %}" alt="" class="top-pic">
                     {% if category == 'story' %}
                         <a href="{% url 'index' 'tomorrow' 'tours' 'story' %}" class="tours-link">スター・ツアーズ</a>
                         <a href="{% url 'index' 'tomorrow' 'stitch' 'story' %}" class="stitch-link">スティッチ・エンカウンター</a>
