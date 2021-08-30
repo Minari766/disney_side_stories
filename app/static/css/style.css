@@ -37,6 +37,16 @@ main {
     border-radius: 0 10px 10px 0;
 }
 
+.btn-info{
+    background-color: #f99292;
+    border-color: #f99292;
+}
+
+.btn-info:hover {
+    background-color: #fdb1b1;
+    border-color: #fdb1b1;
+}
+
 .profile_table {
     width: 100%;
     border: 1px solid #D1DBEB;
@@ -1382,7 +1392,8 @@ a:hover {
 
 /* ナビゲーションバー  */
 .navbar{
-    background-color: #f5fdfe;
+    /* background-color: #f5fdfe; */
+    background-color: #fff4e0;
     border: 2px black; 
     padding: 2px !important;
 }
@@ -1452,6 +1463,7 @@ a:hover {
 /* フッター */
 .footer{
     background-color: #f5fdfe;
+    background-color: #fff4e0;
 }
 
 .link{
@@ -1537,7 +1549,8 @@ a:hover {
 
 .tag-design i{
     margin: 3px;
-    color: rgb(5, 149, 167);
+    /* color: rgb(5, 149, 167); */
+    color: #fcaa00;
 }
 
 .post-detail{
