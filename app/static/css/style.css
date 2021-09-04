@@ -178,6 +178,8 @@ a:hover {
     padding-bottom: 3px;
 }
 
+/* メニュー */
+
 .picmenu{
     /* height: 0px; */
     padding: 0px;
@@ -223,9 +225,26 @@ a:hover {
     font-size: 14px;
     margin: 7px;
 }
-/* #table-ul li:last-child {
-    border-right: 0;   
-} */
+
+#subete{
+    color: rgb(247, 107, 55);
+}
+
+#story{
+    color: rgb(0, 82, 159);
+}
+
+#kakure{
+    color: rgb(0, 82, 159);
+}
+
+#mame{
+    color: rgb(238, 162, 2);
+}
+
+#sonohoka{
+    color: rgb(22, 164, 198);
+}
 
 .icon-tw:before {
     color: #fff;
@@ -1392,8 +1411,8 @@ a:hover {
 
 /* ナビゲーションバー  */
 .navbar{
-    /* background-color: #f5fdfe; */
-    background-color: #fff4e0;
+    background-color: #f5fdfe;
+    /* background-color: #fff4e0; */
     border: 2px black; 
     padding: 2px !important;
 }
@@ -1463,7 +1482,7 @@ a:hover {
 /* フッター */
 .footer{
     background-color: #f5fdfe;
-    background-color: #fff4e0;
+    /* background-color: #fff4e0; */
 }
 
 .link{

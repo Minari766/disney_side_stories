@@ -422,7 +422,7 @@
                     <a href="{% url 'index' 'all' attraction 'all' %}">
                 {% endif %}
             {% endif %}
-                <img src="{% static 'img/star_color.png' %}" alt="" class="icon-category" id="star" />
+                <img src="{% static 'img/star_fill.png' %}" alt="" class="icon-category" id="star" />
                 <p id="subete">全て</p>
             </a>
         </li>
@@ -484,7 +484,7 @@
                     <a href="{% url 'index' 'all' attraction 'story' %}">
                 {% endif %}
             {% endif %}
-                <img src="{% static 'img/memo_color.png' %}" alt="" class="icon-category" id="memo" />
+                <img src="{% static 'img/memo_fill.png' %}" alt="" class="icon-category" id="memo" />
                 <p id="story">ストーリー</p>
             </a>
         </li>
@@ -608,7 +608,7 @@
                     <a href="{% url 'index' 'all' attraction 'trivia' %}">
                 {% endif %}
             {% endif %}
-                <img src="{% static 'img/bulb_color.png' %}" alt="" class="icon-category" id="bulb" />
+                <img src="{% static 'img/bulb_fill.png' %}" alt="" class="icon-category" id="bulb" />
                 <p id="mame">豆知識</p>
             </a>
         </li>
@@ -670,7 +670,7 @@
                     <a href="{% url 'index' 'all' attraction 'other' %}">
                 {% endif %}
             {% endif %}
-                <img src="{% static 'img/comment_color.png' %}" alt="" class="icon-category" id="comment" />
+                <img src="{% static 'img/comment_fill.png' %}" alt="" class="icon-category" id="comment" />
                 <p id="sonohoka">その他</p>
             </a>
         </li>
@@ -912,37 +912,43 @@ window.onload = function() {
         if (str == "all"){
             console.log("デバッグall");
             // obj1.style.backgroundColor = "rgb(5, 149, 167)";
-            obj1.style.backgroundColor = "rgb(252, 170, 0)";
+            // obj1.style.backgroundColor = "rgb(252, 170, 0)";
+            obj1.style.backgroundColor = "rgb(143, 218, 229)";
             obj1_txt.style.color = "white";
-            obj1_img.src = "{% static 'img/star_white.png' %}";
+            obj1_img.src = "{% static 'img/star_white2.png' %}";
         } else if (str == "story"){
             console.log("デバッグstory");
             // obj2.style.backgroundColor = "rgb(5, 149, 167)";
-            obj2.style.backgroundColor = "rgb(252, 170, 0)";
+            // obj2.style.backgroundColor = "rgb(252, 170, 0)";
+            obj2.style.backgroundColor = "rgb(143, 218, 229)";
             obj2_txt.style.color = "white";
-            obj2_img.src = "{% static 'img/memo_white.png' %}";
+            obj2_img.src = "{% static 'img/memo_white2.png' %}";
         } else if (str == "mickey"){
             console.log("デバッグmickey");
             // obj3.style.backgroundColor = "rgb(5, 149, 167)";
-            obj3.style.backgroundColor = "rgb(252, 170, 0)";
+            // obj3.style.backgroundColor = "rgb(252, 170, 0)";
+            obj3.style.backgroundColor = "rgb(143, 218, 229)";
             obj3_txt.style.color = "white";
             obj3_img.src = "{% static 'img/mickey_white.png' %}";
         } else if (str == "trivia"){
             console.log("デバッグtrivia");
             // obj4.style.backgroundColor = "rgb(5, 149, 167)";
-            obj4.style.backgroundColor = "rgb(252, 170, 0)";
+            // obj4.style.backgroundColor = "rgb(252, 170, 0)";
+            obj4.style.backgroundColor = "rgb(143, 218, 229)";
             obj4_txt.style.color = "white";
-            obj4_img.src = "{% static 'img/bulb_white.png' %}";
+            obj4_img.src = "{% static 'img/bulb_white2.png' %}";
         } else if (str == "other"){
             console.log("デバッグother");
             // obj5.style.backgroundColor = "rgb(5, 149, 167)";
-            obj5.style.backgroundColor = "rgb(252, 170, 0)";
+            // obj5.style.backgroundColor = "rgb(252, 170, 0)";
+            obj5.style.backgroundColor = "rgb(143, 218, 229)";
             obj5_txt.style.color = "white";
-            obj5_img.src = "{% static 'img/comment_white.png' %}";
+            obj5_img.src = "{% static 'img/comment_white2.png' %}";
         } else {
             console.log("デフォルト");
             // obj1.style.backgroundColor = "rgb(5, 149, 167)";
-            obj1.style.backgroundColor = "rgb(252, 170, 0)";
+            // obj1.style.backgroundColor = "rgb(252, 170, 0)";
+            obj1.style.backgroundColor = "rgb(143, 218, 229)mickey";
             obj1_txt.style.color = "white";
             obj1_img.src = "{% static 'img/star_white.png' %}";
         }
