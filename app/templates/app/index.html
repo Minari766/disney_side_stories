@@ -546,7 +546,7 @@
                     <a href="{% url 'index' 'all' attraction 'mickey' %}">
                 {% endif %}
             {% endif %}
-                <img src="{% static 'img/mickey.png' %}" alt="" class="icon-category" id="mickey" />
+                <img src="{% static 'img/mickey_fill.png' %}" alt="" class="icon-category" id="mickey" />
                 <p id="kakure">隠れミッキー</p>
             </a>
         </li>
@@ -929,7 +929,7 @@ window.onload = function() {
             // obj3.style.backgroundColor = "rgb(252, 170, 0)";
             obj3.style.backgroundColor = "rgb(143, 218, 229)";
             obj3_txt.style.color = "white";
-            obj3_img.src = "{% static 'img/mickey_white.png' %}";
+            obj3_img.src = "{% static 'img/mickey_white2.png' %}";
         } else if (str == "trivia"){
             console.log("デバッグtrivia");
             // obj4.style.backgroundColor = "rgb(5, 149, 167)";
@@ -948,7 +948,7 @@ window.onload = function() {
             console.log("デフォルト");
             // obj1.style.backgroundColor = "rgb(5, 149, 167)";
             // obj1.style.backgroundColor = "rgb(252, 170, 0)";
-            obj1.style.backgroundColor = "rgb(143, 218, 229)mickey";
+            obj1.style.backgroundColor = "rgb(143, 218, 229)";
             obj1_txt.style.color = "white";
             obj1_img.src = "{% static 'img/star_white.png' %}";
         }
