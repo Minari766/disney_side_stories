@@ -211,7 +211,7 @@
                         </div>
                     </div>
                     <p>{{ mypost.content|truncatechars:45 }}</p>
-                    <a class="article-more" href="{% url 'post_detail' mypost.id %}">もっと見る</a>
+                    <p class="article-more"><a href="{% url 'post_detail' mypost.id %}">もっと見る</a></p>
                 </div>
             </div>
             {% endfor %}

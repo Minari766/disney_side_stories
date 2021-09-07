@@ -169,8 +169,7 @@ a {
 
 a:hover {
     text-decoration: none;
-    transition: 10.0s;
-    color:black;
+    opacity: 0.6;
 }
 
 .ttl-bd{
@@ -215,10 +214,6 @@ a:hover {
     margin: 0;
     padding: 5px;
     text-decoration: none;
-}
-
-#table-ul li a:hover {
-    text-decoration: underline;
 }
 
 #table-ul p{
@@ -1587,6 +1582,7 @@ a:hover {
     position: absolute;
     right: 10px;
     bottom: 10px;
+    margin: 0px;
 }
 
 /* 記事投稿画面 */

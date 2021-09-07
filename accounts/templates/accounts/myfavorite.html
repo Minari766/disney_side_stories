@@ -208,7 +208,8 @@
                         </div>
                     </div>
                     <p>{{ like.post.content|truncatechars:45 }}</p>
-                    <a class="article-more" href="{% url 'post_detail' like.post.id %}">もっと見る</a>
+                    <!-- <a class="article-more" href="{% url 'post_detail' like.post.id %}">もっと見る</a> -->
+                    <p class="article-more"><a href="{% url 'post_detail' like.post.id %}">もっと見る</a></p>
                 </div>
             </div>
             {% endfor %}
