@@ -17,9 +17,13 @@
     <div class="text_right">{{ post_data.created|date:"Y/m/j" }}</div>
 </div>
 {% if post_data.image %}
-    <img class="mx-auto mt-2 d-block img-fluid rounded detail-img mb-1" src="{{ post_data.image.url }}" alt="">         
+    <div class="detail-img">
+        <img class="mt-2 d-block img-fluid rounded mb-1" src="{{ post_data.image.url }}" alt="">         
+    </div>
 {% else %}    
-    <img class="mx-auto mt-2 rounded img-fluid mb-md-0 detail-img mb-1" src="{% static 'img/no_image.png' %}" alt="">
+    <div class="detail-img">
+        <img class="mt-2 rounded img-fluid mb-md-0 mb-1" src="{% static 'img/no_image.png' %}" alt="">
+    </div>    
 {% endif %}
 
 <!-- タグ追加 -->

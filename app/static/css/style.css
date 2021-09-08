@@ -140,7 +140,7 @@ main {
 }
 
 .detail-img {
-    width: 100%;
+    width: 80%;
     height:  auto;
     object-fit: cover;
     text-align: center;
