@@ -17,11 +17,11 @@
     <div class="text_right">{{ post_data.created|date:"Y/m/j" }}</div>
 </div>
 {% if post_data.image %}
-    <div class="detail-img">
+    <div class="mx-auto detail-img">
         <img class="mt-2 d-block img-fluid rounded mb-1" src="{{ post_data.image.url }}" alt="">         
     </div>
 {% else %}    
-    <div class="detail-img">
+    <div class="mx-auto detail-img">
         <img class="mt-2 rounded img-fluid mb-md-0 mb-1" src="{% static 'img/no_image.png' %}" alt="">
     </div>    
 {% endif %}

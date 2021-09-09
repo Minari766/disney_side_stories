@@ -10,7 +10,6 @@ body {
     flex-flow: column;
     min-height: 100vh;
     font-family: 'Noto Sans JP', 'Kosugi Maru',  sans-serif;
-    /* font-family: 'Kosugi Maru',  sans-serif; */
 }
 
 main {
@@ -140,7 +139,7 @@ main {
 }
 
 .detail-img {
-    width: 80%;
+    width: 90%;
     height:  auto;
     object-fit: cover;
     text-align: center;
@@ -1452,16 +1451,12 @@ a:hover {
     height: 100%;
     width: 20px;
     margin-right: 4px;
-    /* margin-top: -0.1em;
-    vertical-align: middle; */
 }
 
 .navicon-user{
     height: 100%;
     width: 24px;
     margin-right: 4px;
-    /* margin-top: -0.1em;
-    vertical-align: middle; */
 }
 
 .navicon .home-icon{
@@ -1517,11 +1512,9 @@ a:hover {
 
 .article-title{
     margin:0px;
-    /* margin-right:20px; */
 }
 
 .article-category-icon{
-    /* padding-left: 20px; */
     width: 30px;
     height: auto;
     align-items: center;
@@ -1563,8 +1556,6 @@ a:hover {
 
 .tag-design i{
     margin: 3px;
-    /* color: rgb(5, 149, 167); */
-    /* color: #968e7e; */
     color: #8fdae5;
 }
 
@@ -1592,10 +1583,6 @@ span{
     padding: 15px;
 }
 
-/* span2{
-    font-size: 80%;
-    padding: 15px;
-} */
 
 .photo-frame{
     display: flex;
@@ -1615,10 +1602,6 @@ span{
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     position: relative;
 }
-
-/* #id_image{
-    position: absolute;
-} */
 
 /* 投稿詳細画面 */
 .my-box{
@@ -1670,7 +1653,6 @@ span{
 
 .sidebar-block{
     margin: 11px 11px 11px 11px;
-    /* margin: 20px 2px 2px 11px; */
     padding: 0px 5px 10px;
     border: 4px solid #CCC;
     border-radius: 4px;
@@ -1696,16 +1678,6 @@ span{
     background: #a2a2ad;
     border-color: #a2a2ad;
 }
-
-/* .aboutDSS{
-    width:200px;
-    object-fit: cover;
-}
-
-.aboutDSS2{
-    width:200px;
-    object-fit: cover;
-} */
 
 .footer-sign{
     font-size: 0.85rem;
