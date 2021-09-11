@@ -96,7 +96,6 @@ main {
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
-
 .form-control:focus {
     box-shadow: none;
 }
@@ -1406,13 +1405,22 @@ a:hover {
 /* ナビゲーションバー  */
 .navbar{
     background-color: #f5fdfe;
-    /* background-color: #fff4e0; */
     border: 2px black; 
     padding: 2px !important;
 }
 
 .navbar-b img{
     height: 60px;
+    display: inline-block;
+}
+
+.catch-copy{
+    font-size: 11px;
+    display: inline-block;
+    justify-content: start;
+    vertical-align: middle;
+    color: #080b4a;
+    font-weight: bold;
 }
 
 .navbar-toggler {
