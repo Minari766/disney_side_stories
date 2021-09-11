@@ -1,13 +1,12 @@
-/* gitpullテスト */
-
 * {
-    margin: 100;
-    padding: 100;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    background: #FDFFFF;
+    /* background: #FDFFFF; */
+    background: red;
     display: flex;
     flex-flow: column;
     min-height: 100vh;
