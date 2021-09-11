@@ -27,8 +27,6 @@
 {% endif %}
 
 <!-- タグ追加 -->
-
-<!-- quote -->
 <div class="d-flex justify-content-between align-items-center">
     <div class="tag-container my-2 d-none d-sm-none d-md-none d-lg-none d-xl-block">
         <div class="tag-design">
@@ -180,16 +178,14 @@
         <div name="{{ post_data.id }}-count" class="d-flex align-items-center count "> {{ post_data.like_set.count }} </div>
     </div>
 </div>
-<!-- end of quote -->
 
 <p>{{ post_data.content|linebreaksbr }}</p>
-    {% if user.is_authenticated %}
+{% if request.user.id == post_data.author.id %}
 <hr>
 <div class="d-flex justify-content-center mb-5">
     <a class="btn btn-warning mr-2" href="{% url 'post_edit' post_data.id %}">編集する</a>
     <a class="btn btn-danger" href="{% url 'post_delete' post_data.id %}">削除する</a>    
 </div>
-
 {% endif %}
 
 {% endblock %}
