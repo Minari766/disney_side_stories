@@ -11,6 +11,8 @@
 
 ポートフォリオ詳細説明：https://qiita.com/minari766/items/d67e009fe22bed619874
 
+![スクリーンショット 2021-09-11 7.30.31.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/639072/5589137f-1064-d24f-cc0b-e886fc52d01d.png)
+
 ## 2.使用技術
 * 開発環境
     * Visual Studio Code 1.59
